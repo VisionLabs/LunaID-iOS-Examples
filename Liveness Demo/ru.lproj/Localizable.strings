@@ -1,0 +1,11 @@
+/****************************************************************************/
+/* Localization file */
+
+"settings" = "Настройки";
+"check_liveness" = "Начать проверку";
+"successful_liveness" = "Проверка liveness прошла успешно";
+"error_title" = "Ошибка";
+"failed_liveness" = "Возникла ошибка в процессе проверки liveness";
+"cancelled_liveness" = "Камера закрыта по действию пользователя";
+"message.out_of_resources" = "Не настроена конфигурация или liveness API";
+"action.open_app_settings" = "Открыть настройки";
