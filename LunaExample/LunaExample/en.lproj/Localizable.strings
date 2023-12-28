@@ -1,0 +1,31 @@
+"settings.save" = "Save";
+"settings.liveness.none" = "None";
+"settings.liveness.by_photo" = "By Photo";
+"settings.liveness.by_descriptor" = "By Descriptor";
+
+"auth.identify" = "Identification";
+"auth.verify" = "Verification";
+"auth.settings" = "Settings";
+
+"registration.sign_up" = "Sign Up";
+"registration.successful" = "User registered successfully";
+
+"validation.errors.min_characters" = "Minimum number of characters ";
+"validation.errors.max_characters" = "Maximum number of characters  ";
+"validation.errors.invalid_characters" = "Invalid characters";
+
+"common.error_title" = "Error";
+"common.open_app_settings" = "Open settings";
+
+"success.user_name" = "User name";
+"success.verify_result" = "Biometric Verification Passed";
+"success.identify_result" = "Biometric Identification Passed";
+
+"fail.verify_result" = "Biometric Verification Failed";
+"fail.identify_result" = "Biometric Identification Failed";
+
+"server.errors.no_user" = "The user does not exist. Please register a new user";
+"server.errors.no_person_id" = "PersonID not found. Please register a new user";
+"server.errors.user_name_already_exists" = "Username already taken";
+
+"errors.unknown" = "Unknown error";

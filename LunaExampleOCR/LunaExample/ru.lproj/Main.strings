@@ -1,0 +1,77 @@
+
+/* Class = "UILabel"; text = "Token"; ObjectID = "0Dg-aU-SiQ"; */
+"0Dg-aU-SiQ.text" = "Токен";
+
+/* Class = "UILabel"; text = "LUNA Mobile"; ObjectID = "1SX-t4-GTK"; */
+"1SX-t4-GTK.text" = "LUNA ID Demo";
+
+/* Class = "UILabel"; text = "Minimum number of characters 4"; ObjectID = "6IQ-mb-ZYM"; */
+"6IQ-mb-ZYM.text" = "Минимальное количество символов 4";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "8Ll-EI-b1N"; */
+"8Ll-EI-b1N.placeholder" = "Имя пользователя";
+
+/* Class = "UIButton"; normalTitle = "SETTINGS"; ObjectID = "9H8-Cy-f9X"; */
+"9H8-Cy-f9X.normalTitle" = "Настройки";
+
+/* Class = "UILabel"; text = "Liveness Type"; ObjectID = "B8R-QJ-YeB"; */
+"B8R-QJ-YeB.text" = "Liveness";
+
+/* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "EFO-Pd-KjN"; */
+"EFO-Pd-KjN.placeholder" = "Номер телефона";
+
+/* Class = "UILabel"; text = "Invalid e-mail format"; ObjectID = "ID9-3a-mRu"; */
+"ID9-3a-mRu.text" = "Неверный формат e-mail";
+
+/* Class = "UILabel"; text = "Biometric Authentication Failed"; ObjectID = "Mbo-qD-Nse"; */
+"Mbo-qD-Nse.text" = "Биометрическая аутентификация не пройдена";
+
+/* Class = "UILabel"; text = "Server"; ObjectID = "Sqz-3w-6Xo"; */
+"Sqz-3w-6Xo.text" = "Сервер";
+
+/* Class = "UILabel"; text = "Minimum number of characters 4"; ObjectID = "Uqj-ae-T8Z"; */
+"Uqj-ae-T8Z.text" = "Минимальное количество символов 3";
+
+/* Class = "UIButton"; normalTitle = "NEW USER"; ObjectID = "Y0Z-Bh-4Ff"; */
+"Y0Z-Bh-4Ff.normalTitle" = "Регистрация";
+
+/* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ZLB-yn-dhs"; */
+"ZLB-yn-dhs.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Invalid token"; ObjectID = "Zhz-AI-j0V"; */
+"Zhz-AI-j0V.text" = "Неверный формат токена";
+
+/* Class = "UITextField"; placeholder = "URL"; ObjectID = "fiQ-s6-auQ"; */
+"fiQ-s6-auQ.placeholder" = "URL";
+
+/* Class = "UILabel"; text = "Biometric Authentication Passed"; ObjectID = "hda-P7-mbG"; */
+"hda-P7-mbG.text" = "Биометрическая аутентификация пройдена";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "jWc-JR-4D3"; */
+"jWc-JR-4D3.normalTitle" = "Регистрация";
+
+/* Class = "UILabel"; text = "Invalid URL"; ObjectID = "nPr-m4-aKx"; */
+"nPr-m4-aKx.text" = "Неверный формат URL";
+
+/* Class = "UITextField"; placeholder = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; ObjectID = "pQP-5n-VN0"; */
+"pQP-5n-VN0.placeholder" = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "pdC-8O-iRm"; */
+"pdC-8O-iRm.normalTitle" = "Идентификация";
+
+"U1L-Id-DxY.normalTitle" = "Идентификация с документами";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "qMC-RL-8P6"; */
+"qMC-RL-8P6.placeholder" = "Имя пользователя";
+
+/* Class = "UILabel"; text = "Invalid phone number format"; ObjectID = "sBA-Xv-CrL"; */
+"sBA-Xv-CrL.text" = "Неверный формат номера телефона";
+
+/* Class = "UIButton"; normalTitle = "ACCEPT"; ObjectID = "Q0N-3c-EL9"; */
+"Q0N-3c-EL9.normalTitle" = "Принять";
+
+/* Class = "UILabel"; text = ""; ObjectID = "R26-Mh-3gu"; */
+"R26-Mh-3gu.text" = "Для корректного распознавания лица необходимо:\n\n1. Хорошее освещение. Ваше лицо должно быть отчетливо видно на изображении с камеры.\n\n2. Смотрите в камеру, поместите лицо в центр экрана.\n\n3. Убедитесь, что рядом с вами нет других людей или изображений людей.";
+
+"xUM-Wm-S9n.text" = "Подготовьте документ для сканирования";
+"hfX-9b-mhp.normalTitle" = "Сканировать документ";

@@ -1,0 +1,31 @@
+"settings.save" = "Сохранить";
+"settings.liveness.none" = "Нет";
+"settings.liveness.by_photo" = "По фото";
+"settings.liveness.by_descriptor" = "По дескриптору";
+
+"auth.identify" = "Идентификация";
+"auth.verify" = "Верификация";
+"auth.settings" = "Настройки";
+
+"registration.sign_up" = "Регистрация";
+"registration.successful" = "Пользователь зарегистрирован";
+
+"validation.errors.min_characters" = "Минимальное количество символов ";
+"validation.errors.max_characters" = "Максимальное количество символов ";
+"validation.errors.invalid_characters" = "Недопустимые символы";
+
+"common.error_title" = "Ошибка";
+"common.open_app_settings" = "Перейти в настройки";
+
+"success.user_name" = "Имя пользователя";
+"success.verify_result" = "Биометрическая верификация пройдена";
+"success.identify_result" = "Биометрическая идентификация пройдена";
+
+"fail.verify_result" = "Биометрическая верификация не пройдена";
+"fail.identify_result" = "Биометрическая идентификация не пройдена";
+
+"server.errors.no_user" = "Пользователь не найден. Пожалуйста, зарегистрируйтесь";
+"server.errors.no_person_id" = "Пользователь не найден. Пожалуйста, зарегистрируйте нового пользователя";
+"server.errors.user_name_already_exists" = "Имя пользователя уже занято";
+
+"errors.unknown" = "Неизвестная ошибка";
