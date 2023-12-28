@@ -6,7 +6,6 @@ In this repository you can find 3 example applications on how to integrate LunaI
 - LunaExampleOCR - is the most advanced case because it is not only show how to work with 3 kind of flows but adds OCR check in it.
 
 LunaID SDK uses UIKit and Swift under cover. Minimal supported iOS version is 13. You can use latest XCode version to develop your application. Bitcode support enabled for any compatability you may need.
-<<<<<<< HEAD
 
 These examples are not include LunaID SDK itself. You need to request the latest release from your project manager. From the provided SDK you need to copy "frameworks" folder directly into example folder. For example in case of Liveness Demo it should be like this:
 ```
