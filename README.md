@@ -17,6 +17,3 @@ Liveness Demo/frameworks/LunaAuth.xcframework
 Liveness Demo/frameworks/LunaCamera.xcframework
 Liveness Demo/frameworks/LunaCore.xcframework
 Liveness Demo/frameworks/LunaWeb.xcframework
-```
-=======
->>>>>>> cad9843 (Create README.md)
