@@ -1,0 +1,137 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name LunaCamera
+import AVFoundation
+import AVKit
+import Foundation
+@_exported import LunaCamera
+import LunaCore
+import LunaWeb
+import Swift
+import UIKit
+import _Concurrency
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class LCRoundButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isEnabled: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc deinit
+}
+public struct LMCameraBuilder {
+  public static func viewController(delegate: LunaCamera.LMCameraDelegate, configuration: LunaCore.LCLunaConfiguration, livenessAPI: LunaCore.LCOnlineLivenessProtocol, lunaCustomization: LunaCamera.LMCustomization? = nil, recordVideo: Swift.Bool = false) -> LunaCamera.LMCameraViewControllerProtocol
+}
+@objc public enum CompressionResult : Swift.Int {
+  case failed
+  case success
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class LMVideoCompresion : ObjectiveC.NSObject {
+  @objc public func compressFile(urlToCompress: Swift.String, outputURL: Swift.String, completion: @escaping ((LunaCamera.CompressionResult) -> Swift.Void))
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension UIKit.UIColor {
+  public static func lunaBlue() -> UIKit.UIColor
+  public static func lunaAlto() -> UIKit.UIColor
+  public static func lunaGray() -> UIKit.UIColor
+  public static func lunaLightGray() -> UIKit.UIColor
+  public static func lunaBlack() -> UIKit.UIColor
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class LEAboutVC : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var lunaConfiguration: LunaCore.LCLunaConfiguration
+  @_Concurrency.MainActor(unsafe) public init(lunaConfig: LunaCore.LCLunaConfiguration)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc deinit
+}
+public protocol LMUICustomizerProtocol {
+  func faceDetectionFrameView() -> LunaCamera.LMFaceDetectionViewProtocol?
+  func videoStreamNotificationView() -> LunaCamera.LMVideoStreamNotificationViewProtocol?
+}
+extension LunaCamera.LMUICustomizerProtocol {
+  public func faceDetectionFrameView() -> LunaCamera.LMFaceDetectionViewProtocol?
+  public func videoStreamNotificationView() -> LunaCamera.LMVideoStreamNotificationViewProtocol?
+}
+public class LMDefaultUICustomizer : LunaCamera.LMUICustomizerProtocol {
+  public init()
+  @objc deinit
+}
+public class LMCustomization {
+  final public let uiCustomizer: LunaCamera.LMUICustomizerProtocol
+  public init(uiCustomizer: LunaCamera.LMUICustomizerProtocol)
+  @objc deinit
+}
+public protocol LMCameraViewControllerProtocol : UIKit.UIViewController {
+  var delegate: LunaCamera.LMCameraDelegate? { get set }
+  var configuration: LunaCore.LCLunaConfiguration! { get set }
+  var dismissHandler: (() -> Swift.Void)? { get set }
+  func defineInteractionsStep(_ configsList: [LunaCore.LCStepConfigProtocol])
+}
+public protocol LMCameraDelegate : AnyObject {
+  func bestShot(_ bestShot: LunaCore.LCBestShot, _ videoFile: Swift.String?)
+  func error(_ error: LunaCamera.LMCameraError, _ videoFile: Swift.String?)
+}
+extension UIKit.UIFont {
+  public static func etelka(_ size: CoreGraphics.CGFloat = 17) -> UIKit.UIFont
+}
+public enum LMCameraError : Foundation.LocalizedError {
+  case accessStatus(AVFoundation.AVAuthorizationStatus)
+  case networkingError(LunaWeb.NetworkingError)
+  case bestShotError(Foundation.NSError)
+  case canceled
+  case error(Swift.Error)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public protocol LMFaceDetectionViewProtocol : UIKit.UIView {
+  func switchToPositiveState()
+  func switchToNegativeState()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class LMFaceDetectionView : UIKit.UIView, LunaCamera.LMFaceDetectionViewProtocol {
+  @_Concurrency.MainActor(unsafe) public init(positiveDetectionColor: UIKit.UIColor, negativeDetectionColor: UIKit.UIColor)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func switchToPositiveState()
+  @_Concurrency.MainActor(unsafe) public func switchToNegativeState()
+  @objc deinit
+}
+public protocol LMVideoStreamNotificationViewProtocol : UIKit.UIView {
+  func showNotificationMessage(_ newMessage: Swift.Error?)
+  func notificationMessage() -> Swift.Error?
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class LMVideoStreamNotificationView : UIKit.UIView, LunaCamera.LMVideoStreamNotificationViewProtocol {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func showNotificationMessage(_ newMessage: Swift.Error?)
+  @_Concurrency.MainActor(unsafe) public func notificationMessage() -> Swift.Error?
+  @_Concurrency.MainActor(unsafe) public func applyFont(_ useFont: UIKit.UIFont)
+  @_Concurrency.MainActor(unsafe) public func applyTextColor(_ color: UIKit.UIColor)
+  @objc deinit
+}
+public enum UIColorInputError : Swift.Error {
+  case missingHashMarkAsPrefix, unableToScanHexValue, mismatchedHexStringLength
+  public static func == (a: LunaCamera.UIColorInputError, b: LunaCamera.UIColorInputError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIColor {
+  convenience public init(hex3: Swift.UInt16, alpha: CoreGraphics.CGFloat = 1)
+  convenience public init(hex4: Swift.UInt16)
+  convenience public init(hex6: Swift.UInt32, alpha: CoreGraphics.CGFloat = 1)
+  convenience public init(hex8: Swift.UInt32)
+  public func hexString(_ includeAlpha: Swift.Bool = true) -> Swift.String
+}
+extension LunaCamera.CompressionResult : Swift.Equatable {}
+extension LunaCamera.CompressionResult : Swift.Hashable {}
+extension LunaCamera.CompressionResult : Swift.RawRepresentable {}
+extension LunaCamera.UIColorInputError : Swift.Equatable {}
+extension LunaCamera.UIColorInputError : Swift.Hashable {}

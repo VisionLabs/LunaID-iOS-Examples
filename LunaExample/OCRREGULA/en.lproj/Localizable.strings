@@ -1,0 +1,10 @@
+/* 
+  File.strings
+  LunaMobile
+
+  Created by IVAN CHIRKOV on 30.04.2021.
+  
+*/
+
+"errors.noLicense" = "OCR license file not found";
+"errors.unknown" = "Unknown error while initializing OCR";

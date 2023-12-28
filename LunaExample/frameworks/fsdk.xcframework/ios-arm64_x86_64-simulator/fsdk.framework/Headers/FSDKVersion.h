@@ -1,0 +1,7 @@
+#pragma once
+
+#define FSDK_VERSION       "5.16.0"
+#define FSDK_VERSION_MAJOR  5
+#define FSDK_VERSION_MINOR  16
+#define FSDK_VERSION_PATCH  0
+#define FSDK_VERSION_HASH  "8527ece81c747e97168bc7839563cfcb063d5270"

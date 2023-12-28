@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Protocols  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Section/Protocols" class="dashAnchor"></a>
+    <a title="Protocols  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">LunaCore Docs</a> (87% documented)</p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">LunaCore Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        Protocols  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/LCBestShot.html">LCBestShot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCBestShotBuilder.html">LCBestShotBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCBestShotConfiguration.html">LCBestShotConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCDescriptorExtractorBuilder.html">LCDescriptorExtractorBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCEstimationThreshold.html">LCEstimationThreshold</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCFaceDetection.html">LCFaceDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCFaceDetectorBuilder.html">LCFaceDetectorBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LCLunaConfiguration.html">LCLunaConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:BestShotErrors.h@kBestShotErrorDomain">kBestShotErrorDomain</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/BestShotError.html">BestShotError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LCLunaConfigurationImageType.html">LCLunaConfigurationImageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LivenessType.html">LivenessType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/LCBestShotDelegate.html">LCBestShotDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LCBestShotDetectorProtocol.html">LCBestShotDetectorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LCDescriptorExtractorProtocol.html">LCDescriptorExtractorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LCFaceDetectorProtocol.html">LCFaceDetectorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LCOnlineLivenessProtocol.html">LCOnlineLivenessProtocol</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Protocols</h1>
+            <p>The following protocols are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)LCBestShotDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/LCBestShotDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)LCBestShotDelegate">LCBestShotDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delegate of the best shot detector.</p>
+
+                        <a href="Protocols/LCBestShotDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">LCBestShotDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LCBestShotDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)LCBestShotDetectorProtocol"></a>
+                    <a name="//apple_ref/objc/Protocol/LCBestShotDetectorProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)LCBestShotDetectorProtocol">LCBestShotDetectorProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Interface of the best shot detector.</p>
+
+                        <a href="Protocols/LCBestShotDetectorProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">LCBestShotDetectorProtocol</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LCBestShotDetectorProtocol</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)LCDescriptorExtractorProtocol"></a>
+                    <a name="//apple_ref/objc/Protocol/LCDescriptorExtractorProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)LCDescriptorExtractorProtocol">LCDescriptorExtractorProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Interface of descriptor extractor.</p>
+
+                        <a href="Protocols/LCDescriptorExtractorProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">LCDescriptorExtractorProtocol</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LCDescriptorExtractorProtocol</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)LCFaceDetectorProtocol"></a>
+                    <a name="//apple_ref/objc/Protocol/LCFaceDetectorProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)LCFaceDetectorProtocol">LCFaceDetectorProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/LCFaceDetectorProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">LCFaceDetectorProtocol</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
+
+<span class="c1">/// Detects faces in the image
+/// @param image Source image.
+/// @param maxCount Maximum number of faces to be detected.
+</span><span class="o">-</span> <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/LCFaceDetection.html">LCFaceDetection</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">detectFaces</span><span class="o">:</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="n">image</span> <span class="n">maxCount</span><span class="o">:</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span> <span class="n">maxCount</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LCFaceDetectorProtocol</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)LCOnlineLivenessProtocol"></a>
+                    <a name="//apple_ref/objc/Protocol/LCOnlineLivenessProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)LCOnlineLivenessProtocol">LCOnlineLivenessProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Interface of the object which checks Liveness.</p>
+
+                        <a href="Protocols/LCOnlineLivenessProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">LCOnlineLivenessProtocol</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LCOnlineLivenessProtocol</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2023 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2023-03-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
