@@ -1,0 +1,250 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/CameraUI/CameraUIController.swift",
+      "line": 23,
+      "symbol": "CameraUIController.dismissHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/FaceDetectionView.swift",
+      "line": 10,
+      "symbol": "FaceDetectionViewProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/FaceDetectionView.swift",
+      "line": 12,
+      "symbol": "FaceDetectionViewProtocol.switchToPositiveState()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/FaceDetectionView.swift",
+      "line": 13,
+      "symbol": "FaceDetectionViewProtocol.switchToNegativeState()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/FaceDetectionView.swift",
+      "line": 48,
+      "symbol": "FaceDetectionView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LEAboutVC.swift",
+      "line": 12,
+      "symbol": "LEAboutVC",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LEAboutVC.swift",
+      "line": 16,
+      "symbol": "LEAboutVC.lunaConfiguration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LEAboutVC.swift",
+      "line": 18,
+      "symbol": "LEAboutVC.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LEAboutVC.swift",
+      "line": 24,
+      "symbol": "LEAboutVC.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LEAboutVC.swift",
+      "line": 28,
+      "symbol": "LEAboutVC.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaCustomization.swift",
+      "line": 16,
+      "symbol": "LunaUICustomizerProtocol.videoStreamNotificationView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaCustomization.swift",
+      "line": 26,
+      "symbol": "LunaUICustomizerProtocol.videoStreamNotificationView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaCustomization.swift",
+      "line": 32,
+      "symbol": "DefaultUICustomizer",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaCustomization.swift",
+      "line": 34,
+      "symbol": "DefaultUICustomizer.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaCustomization.swift",
+      "line": 45,
+      "symbol": "LunaCustomization.init(uiCustomizer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/LCRoundButton.swift",
+      "line": 11,
+      "symbol": "LCRoundButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/LCRoundButton.swift",
+      "line": 43,
+      "symbol": "LCRoundButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/LCRoundButton.swift",
+      "line": 69,
+      "symbol": "LCRoundButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+LunaUI.swift",
+      "line": 17,
+      "symbol": "UIColorInputError.missingHashMarkAsPrefix",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+LunaUI.swift",
+      "line": 18,
+      "symbol": "UIColorInputError.unableToScanHexValue",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+LunaUI.swift",
+      "line": 19,
+      "symbol": "UIColorInputError.mismatchedHexStringLength",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+Palette.swift",
+      "line": 12,
+      "symbol": "UIColor.lunaBlue()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+Palette.swift",
+      "line": 16,
+      "symbol": "UIColor.lunaAlto()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+Palette.swift",
+      "line": 20,
+      "symbol": "UIColor.lunaGray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+Palette.swift",
+      "line": 24,
+      "symbol": "UIColor.lunaLightGray()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIColor+Palette.swift",
+      "line": 28,
+      "symbol": "UIColor.lunaBlack()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/LunaUI/UIFont+LunaCamera.swift",
+      "line": 12,
+      "symbol": "UIFont.etelka(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 10,
+      "symbol": "VideoStreamNotificationViewProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 12,
+      "symbol": "VideoStreamNotificationViewProtocol.showNotificationMessage(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 13,
+      "symbol": "VideoStreamNotificationViewProtocol.notificationMessage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 17,
+      "symbol": "VideoStreamNotificationView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 25,
+      "symbol": "VideoStreamNotificationView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 31,
+      "symbol": "VideoStreamNotificationView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 35,
+      "symbol": "VideoStreamNotificationView.showNotificationMessage(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCamera/VideoStreamNotificationView.swift",
+      "line": 39,
+      "symbol": "VideoStreamNotificationView.notificationMessage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/cipher/Development/VisionLabs/luna-id-ios"
+}

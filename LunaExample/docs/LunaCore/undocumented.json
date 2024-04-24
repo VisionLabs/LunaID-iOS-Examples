@@ -1,0 +1,103 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/BestShotMaker/LCBestShot.h",
+      "line": 28,
+      "symbol": "LCBestShot.-processUIImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Builder/BestShot/LCBestShotBuilder.h",
+      "line": 29,
+      "symbol": "LCBestShotBuilder.+prepareWithConfiguration:livenessAPI:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Builder/FaceDetector/LCFaceDetectorBuilder.h",
+      "line": 10,
+      "symbol": "LCFaceDetectorBuilder",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Builder/FaceDetector/LCFaceDetectorBuilder.h",
+      "line": 12,
+      "symbol": "LCFaceDetectorBuilder.+build",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCBestShotConfiguration.h",
+      "line": 9,
+      "symbol": "LCBestShotConfiguration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 15,
+      "symbol": "LCLunaConfigurationImageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 15,
+      "symbol": "LCLunaConfigurationImageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 16,
+      "symbol": "LCLunaConfigurationImageType.LCLunaConfigurationImageTypePNG",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 17,
+      "symbol": "LCLunaConfigurationImageType.LCLunaConfigurationImageTypeJPEG",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 26,
+      "symbol": "LCLunaConfiguration.-hasSettings",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 27,
+      "symbol": "LCLunaConfiguration.-lunaIDSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Config/LCLunaConfiguration.h",
+      "line": 28,
+      "symbol": "LCLunaConfiguration.-lunaSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Interface/LCBestShotDetectorProtocol.h",
+      "line": 28,
+      "symbol": "LCBestShotDetectorProtocol.-screenSize:edges:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaCore/Interface/LCFaceDetectorProtocol.h",
+      "line": 12,
+      "symbol": "LCFaceDetectorProtocol",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/cipher/Development/VisionLabs/luna-id-ios"
+}

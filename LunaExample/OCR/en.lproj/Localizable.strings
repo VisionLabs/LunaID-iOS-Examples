@@ -1,0 +1,9 @@
+/****************************************************************************/
+/* Localization file */
+
+"selectDocumentType" = "Select document type";
+
+"errors.canceled" = "Operation canceled";
+"errors.noDocumentType" = "Document type not specified";
+"errors.notRecognized" = "Document not recognized";
+"errors.photoNotAccepted" = "The face image on the document did not accepted";

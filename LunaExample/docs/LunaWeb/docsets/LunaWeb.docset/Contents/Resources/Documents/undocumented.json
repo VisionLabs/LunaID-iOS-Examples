@@ -1,0 +1,677 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv4.swift",
+      "line": 115,
+      "symbol": "APIv4.Persons.getPersons(query:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv6.swift",
+      "line": 58,
+      "symbol": "APIv6.Images.createImage(imageData:requestId:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv6.swift",
+      "line": 78,
+      "symbol": "APIv6.Events.generateEvents(handlerID:query:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv6.swift",
+      "line": 99,
+      "symbol": "APIv6.Verifiers.performVerification(verifyID:query:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv6.swift",
+      "line": 105,
+      "symbol": "APIv6.Verifiers.rawVerification(verifyID:query:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/API/APIv6.swift",
+      "line": 125,
+      "symbol": "APIv6.Faces.getFaces(query:handler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Helpers/ThrottleHelpers.swift",
+      "line": 25,
+      "symbol": "Throttler",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Helpers/ThrottleHelpers.swift",
+      "line": 30,
+      "symbol": "Throttler.init(lastFire:currentWorkItem:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Helpers/ThrottleHelpers.swift",
+      "line": 35,
+      "symbol": "Throttler.throttle(delay:queue:action:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/NetworkingError.swift",
+      "line": 23,
+      "symbol": "NetworkingError.livenessQualityError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/NetworkingError.swift",
+      "line": 24,
+      "symbol": "NetworkingError.livenessPredictionFakeError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/NetworkingError.swift",
+      "line": 25,
+      "symbol": "NetworkingError.livenessConnectionError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 7,
+      "symbol": "ImageType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 8,
+      "symbol": "ImageType.bodyWarpedImage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 8,
+      "symbol": "ImageType.faceWarpedImage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 8,
+      "symbol": "ImageType.rawImage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 11,
+      "symbol": "EventQuery",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/EventQuery.swift",
+      "line": 29,
+      "symbol": "EventQuery.init(data:imageType:city:area:district:street:houseNumber:longitude:latitude:externalID:userData:aggregateAttributes:source:tags:trackID:useExifInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 7,
+      "symbol": "GetFacesQuery",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 9,
+      "symbol": "GetFacesQuery.Target",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 10,
+      "symbol": "GetFacesQuery.Target.faceID",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 11,
+      "symbol": "GetFacesQuery.Target.accountID",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 12,
+      "symbol": "GetFacesQuery.Target.eventID",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 13,
+      "symbol": "GetFacesQuery.Target.userData",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 14,
+      "symbol": "GetFacesQuery.Target.createTime",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 15,
+      "symbol": "GetFacesQuery.Target.externalID",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 16,
+      "symbol": "GetFacesQuery.Target.avatar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 17,
+      "symbol": "GetFacesQuery.Target.lists",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 20,
+      "symbol": "GetFacesQuery.userData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 21,
+      "symbol": "GetFacesQuery.externalIDs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 22,
+      "symbol": "GetFacesQuery.targets",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/GetFacesQuery.swift",
+      "line": 24,
+      "symbol": "GetFacesQuery.init(userData:externalIDs:targets:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 7,
+      "symbol": "PerformVerificationQuery",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 9,
+      "symbol": "PerformVerificationQuery.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 10,
+      "symbol": "PerformVerificationQuery.faceIDs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 11,
+      "symbol": "PerformVerificationQuery.eventIDs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 12,
+      "symbol": "PerformVerificationQuery.externalIDs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 13,
+      "symbol": "PerformVerificationQuery.useExifInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/APIv6/PerformVerificationQuery.swift",
+      "line": 15,
+      "symbol": "PerformVerificationQuery.init(data:faceIDs:eventIDs:externalIDs:useExifInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/BatchVerificationQuery.swift",
+      "line": 20,
+      "symbol": "BatchVerificationQuery.Descriptor.DescriptorType.xpk_file",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/BatchVerificationQuery.swift",
+      "line": 21,
+      "symbol": "BatchVerificationQuery.Descriptor.DescriptorType.sdk_descriptor",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/BatchVerificationQuery.swift",
+      "line": 22,
+      "symbol": "BatchVerificationQuery.Descriptor.DescriptorType.raw_descriptor",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/BestShotData.swift",
+      "line": 17,
+      "symbol": "BestShotData.data()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/PersonQuery.swift",
+      "line": 11,
+      "symbol": "PersonQuery",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Requests/PersonQuery.swift",
+      "line": 22,
+      "symbol": "PersonQuery.init(userData:externalID:page:pageSize:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 9,
+      "symbol": "APIv6.EventsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 10,
+      "symbol": "APIv6.EventsResponse.events",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 13,
+      "symbol": "APIv6.Event",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 14,
+      "symbol": "APIv6.Event.face",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 15,
+      "symbol": "APIv6.Event.matches",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 19,
+      "symbol": "APIv6.Face",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 20,
+      "symbol": "APIv6.Face.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 21,
+      "symbol": "APIv6.Face.externalID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 22,
+      "symbol": "APIv6.Face.userData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 23,
+      "symbol": "APIv6.Face.lists",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 34,
+      "symbol": "APIv6.Matches",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 35,
+      "symbol": "APIv6.Matches.candidates",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 36,
+      "symbol": "APIv6.Matches.label",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 39,
+      "symbol": "APIv6.Candidates",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 40,
+      "symbol": "APIv6.Candidates.face",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 41,
+      "symbol": "APIv6.Candidates.similarity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 44,
+      "symbol": "APIv6.Candidate",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 45,
+      "symbol": "APIv6.Candidate.face",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/EventsResponse.swift",
+      "line": 46,
+      "symbol": "APIv6.Candidate.similarity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/GetFacesResponse.swift",
+      "line": 9,
+      "symbol": "APIv6.GetFacesResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/GetFacesResponse.swift",
+      "line": 11,
+      "symbol": "APIv6.GetFacesResponse.faces",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/PerformVerificationResponse.swift",
+      "line": 9,
+      "symbol": "APIv6.PerformVerificationResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/APIv6/PerformVerificationResponse.swift",
+      "line": 11,
+      "symbol": "APIv6.PerformVerificationResponse.images",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/CreateImageResponse.swift",
+      "line": 7,
+      "symbol": "CreateImageResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/GetPersonsResponse.swift",
+      "line": 7,
+      "symbol": "GetPersonsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/GetPersonsResponse.swift",
+      "line": 8,
+      "symbol": "GetPersonsResponse.persons",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/GetPersonsResponse.swift",
+      "line": 9,
+      "symbol": "GetPersonsResponse.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 9,
+      "symbol": "APIv6.FaceDetection",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 10,
+      "symbol": "APIv6.FaceDetection.verifications",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 12,
+      "symbol": "APIv6.FaceDetection.Verification",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 13,
+      "symbol": "APIv6.FaceDetection.Verification.similarity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 14,
+      "symbol": "APIv6.FaceDetection.Verification.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/FaceDetection.swift",
+      "line": 15,
+      "symbol": "APIv6.FaceDetection.Verification.face",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 9,
+      "symbol": "APIv6.Image",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 10,
+      "symbol": "APIv6.Image.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 11,
+      "symbol": "APIv6.Image.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 12,
+      "symbol": "APIv6.Image.filename",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 13,
+      "symbol": "APIv6.Image.detections",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 15,
+      "symbol": "APIv6.Image.Error",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 16,
+      "symbol": "APIv6.Image.Error.errorCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 17,
+      "symbol": "APIv6.Image.Error.desc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 18,
+      "symbol": "APIv6.Image.Error.detail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 26,
+      "symbol": "APIv6.Image.FaceDetections",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/APIv6/Image.swift",
+      "line": 27,
+      "symbol": "APIv6.Image.FaceDetections.faceDetections",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 7,
+      "symbol": "Person",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 8,
+      "symbol": "Person.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 9,
+      "symbol": "Person.userData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 10,
+      "symbol": "Person.createTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 11,
+      "symbol": "Person.externalID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 12,
+      "symbol": "Person.descriptors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cipher/Development/VisionLabs/luna-id-ios/LunaWeb/Responses/Sub/Person.swift",
+      "line": 13,
+      "symbol": "Person.lists",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/cipher/Development/VisionLabs/luna-id-ios"
+}

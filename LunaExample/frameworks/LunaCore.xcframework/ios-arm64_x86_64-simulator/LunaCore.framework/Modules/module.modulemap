@@ -1,0 +1,6 @@
+framework module LunaCore {
+  umbrella header "LunaCore.h"
+
+  export *
+  module * { export * }
+}

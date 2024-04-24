@@ -1,0 +1,11 @@
+framework module LunaCamera {
+  umbrella header "LunaCamera.h"
+
+  export *
+  module * { export * }
+}
+
+module LunaCamera.Swift {
+    header "LunaCamera-Swift.h"
+    requires objc
+}

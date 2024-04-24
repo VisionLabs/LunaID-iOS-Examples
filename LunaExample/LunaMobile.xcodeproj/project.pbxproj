@@ -3,74 +3,280 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CEC81A12A0BB71C00757AD2 /* flower.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81872A0BB02800757AD2 /* flower.xcframework */; };
-		4CEC81A22A0BB71C00757AD2 /* flower.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81872A0BB02800757AD2 /* flower.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81A32A0BB71C00757AD2 /* fsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81832A0BB02700757AD2 /* fsdk.xcframework */; };
-		4CEC81A42A0BB71C00757AD2 /* fsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81832A0BB02700757AD2 /* fsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81A52A0BB71C00757AD2 /* LunaCamera.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81892A0BB02800757AD2 /* LunaCamera.xcframework */; };
-		4CEC81A62A0BB71C00757AD2 /* LunaCamera.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81892A0BB02800757AD2 /* LunaCamera.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81A72A0BB71C00757AD2 /* LunaCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC818B2A0BB02800757AD2 /* LunaCore.xcframework */; };
-		4CEC81A82A0BB71C00757AD2 /* LunaCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC818B2A0BB02800757AD2 /* LunaCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81A92A0BB71C00757AD2 /* LunaWeb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81882A0BB02800757AD2 /* LunaWeb.xcframework */; };
-		4CEC81AA2A0BB71C00757AD2 /* LunaWeb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81882A0BB02800757AD2 /* LunaWeb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81AB2A0BB71C00757AD2 /* tsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81852A0BB02800757AD2 /* tsdk.xcframework */; };
-		4CEC81AC2A0BB71C00757AD2 /* tsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81852A0BB02800757AD2 /* tsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81AE2A0BB73500757AD2 /* LunaAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81AD2A0BB73500757AD2 /* LunaAuth.xcframework */; };
-		4CEC81AF2A0BB73500757AD2 /* LunaAuth.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC81AD2A0BB73500757AD2 /* LunaAuth.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CEC81B62A0BB7E200757AD2 /* ServerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81B42A0BB7E200757AD2 /* ServerMock.swift */; };
-		7E0390F42563D1CB00453D52 /* EulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0390F32563D1CB00453D52 /* EulaViewController.swift */; };
-		7E039116256525F300453D52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E039118256525F300453D52 /* InfoPlist.strings */; };
-		7E03916925667C9A00453D52 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E03916825667C9A00453D52 /* PopupView.swift */; };
-		7E2B1DFD25419E5F00DE728E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B1DFC25419E5F00DE728E /* AppDelegate.swift */; };
-		7E2B1E0425419E5F00DE728E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0225419E5F00DE728E /* Main.storyboard */; };
-		7E2B1E0625419E6100DE728E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0525419E6100DE728E /* Assets.xcassets */; };
-		7E2B1E0925419E6100DE728E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0725419E6100DE728E /* LaunchScreen.storyboard */; };
-		7EB59A8A26C155CE005AC712 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB59A8926C155CE005AC712 /* TabButton.swift */; };
-		7ECA7D2725481EAE001F89EA /* Error+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA7D2625481EAE001F89EA /* Error+Ext.swift */; };
-		7ECA7DC4254ACCE5001F89EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECA7DC6254ACCE5001F89EA /* Localizable.strings */; };
-		7ED2A5722546C0F0004E3CA7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5702546C0F0004E3CA7 /* TextField.swift */; };
-		7ED2A5782546C101004E3CA7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5772546C101004E3CA7 /* Colors.swift */; };
-		7ED2A57E2546C12B004E3CA7 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A57D2546C12A004E3CA7 /* Fonts.swift */; };
-		7ED2A5842546C13D004E3CA7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */; };
-		7ED2A58B2546C16E004E3CA7 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A58A2546C16E004E3CA7 /* UIColor+Hex.swift */; };
-		7ED2A5912546C340004E3CA7 /* EtelkaMediumProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2A5902546C340004E3CA7 /* EtelkaMediumProRegular.ttf */; };
-		7ED2A59B2546C3B3004E3CA7 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5962546C3B3004E3CA7 /* String+Validation.swift */; };
-		7ED2A59C2546C3B3004E3CA7 /* CALayer+Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5972546C3B3004E3CA7 /* CALayer+Xib.swift */; };
-		7ED2A59D2546C3B3004E3CA7 /* ScreenInch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5982546C3B3004E3CA7 /* ScreenInch.swift */; };
-		7ED2A59E2546C3B3004E3CA7 /* UILabel+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5992546C3B3004E3CA7 /* UILabel+Attributed.swift */; };
-		7ED2A59F2546C3B3004E3CA7 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */; };
-		7ED2A5A92546CB64004E3CA7 /* UIButton+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5A82546CB64004E3CA7 /* UIButton+Attributed.swift */; };
-		7ED2A5B02546CBEF004E3CA7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5AF2546CBEF004E3CA7 /* AuthViewController.swift */; };
-		7ED2A5D32546D85C004E3CA7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5D22546D85C004E3CA7 /* RegistrationViewController.swift */; };
-		7ED2A5D92546FE52004E3CA7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5D82546FE52004E3CA7 /* ActivityIndicator.swift */; };
-		7EE1D3D82547163C00695F89 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE1D3D72547163C00695F89 /* UIViewController+Ext.swift */; };
-		7EF96C5B25595BA0000DCB43 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF96C5A25595BA0000DCB43 /* SuccessViewController.swift */; };
-		7EF96C6525595BA9000DCB43 /* FailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF96C6425595BA9000DCB43 /* FailViewController.swift */; };
-		DE648A66299BF0AD00BAE63D /* SettingsVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A63299BF0AD00BAE63D /* SettingsVersionCell.swift */; };
-		DE648A67299BF0AD00BAE63D /* SettingsLivenessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A64299BF0AD00BAE63D /* SettingsLivenessCell.swift */; };
-		DE648A68299BF0AD00BAE63D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A65299BF0AD00BAE63D /* SettingsViewController.swift */; };
-		DED402F1299932F900847BBE /* ExampleUICustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED402F0299932F900847BBE /* ExampleUICustomizer.swift */; };
-		DEDE8C1D29C2CCE0006FFF7F /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1B29C2CCE0006FFF7F /* UIApplication+Ext.swift */; };
+		4C06D88E2AE80DA400C6603E /* LEIdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */; };
+		4C06D8912AE81E3800C6603E /* LEActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */; };
+		4C06D8932AE8216800C6603E /* LEResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D8922AE8216800C6603E /* LEResultViewController.swift */; };
+		4C06D8952AE96E0A00C6603E /* UIViewController+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D8942AE96E0A00C6603E /* UIViewController+LunaExample.swift */; };
+		4C06D8972AE9895200C6603E /* LEOCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D8962AE9895200C6603E /* LEOCRViewController.swift */; };
+		4C06D8992AEA823600C6603E /* LEOCRResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D8982AEA823600C6603E /* LEOCRResultsViewController.swift */; };
+		4C1133752B0B6F2E0026A118 /* OCRDBrain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1133742B0B6F2E0026A118 /* OCRDBrain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */; };
+		4C1133792B0B6F2E0026A118 /* OCRDBrain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C1134142B0B6F780026A118 /* PassportFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E02B0B6F770026A118 /* PassportFlow.swift */; };
+		4C1134152B0B6F780026A118 /* DocumentResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E22B0B6F770026A118 /* DocumentResultViewController.swift */; };
+		4C1134172B0B6F780026A118 /* DocumentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E52B0B6F770026A118 /* DocumentLoader.swift */; };
+		4C1134182B0B6F780026A118 /* DocumentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E72B0B6F770026A118 /* DocumentHeaderView.swift */; };
+		4C1134192B0B6F780026A118 /* GeneralDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E82B0B6F770026A118 /* GeneralDocumentView.swift */; };
+		4C11341A2B0B6F780026A118 /* DocumentDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133E92B0B6F770026A118 /* DocumentDropDownView.swift */; };
+		4C11341B2B0B6F780026A118 /* DocumentDropDownCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133EB2B0B6F770026A118 /* DocumentDropDownCellView.swift */; };
+		4C11341C2B0B6F780026A118 /* DocumentitemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133EC2B0B6F770026A118 /* DocumentitemView.swift */; };
+		4C11341D2B0B6F780026A118 /* DocumentSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133ED2B0B6F770026A118 /* DocumentSelectView.swift */; };
+		4C11341E2B0B6F780026A118 /* CameraPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133EF2B0B6F770026A118 /* CameraPhotoButton.swift */; };
+		4C11341F2B0B6F780026A118 /* DocumentSelectMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F02B0B6F770026A118 /* DocumentSelectMenuView.swift */; };
+		4C1134202B0B6F780026A118 /* DocumentDropDownButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F12B0B6F770026A118 /* DocumentDropDownButtonView.swift */; };
+		4C1134212B0B6F780026A118 /* CameraTextZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F22B0B6F770026A118 /* CameraTextZoneView.swift */; };
+		4C1134222B0B6F780026A118 /* BaseDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F42B0B6F770026A118 /* BaseDocumentView.swift */; };
+		4C1134232B0B6F780026A118 /* BaseDocumentResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F52B0B6F770026A118 /* BaseDocumentResultView.swift */; };
+		4C1134242B0B6F780026A118 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F62B0B6F770026A118 /* DocumentViewController.swift */; };
+		4C1134252B0B6F780026A118 /* DocumentDropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F72B0B6F770026A118 /* DocumentDropDownViewController.swift */; };
+		4C1134262B0B6F780026A118 /* DocumentFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F82B0B6F770026A118 /* DocumentFlow.swift */; };
+		4C1134272B0B6F780026A118 /* DriverLicenceFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133F92B0B6F770026A118 /* DriverLicenceFlow.swift */; };
+		4C1134282B0B6F780026A118 /* UploadFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133FB2B0B6F770026A118 /* UploadFailureViewController.swift */; };
+		4C1134292B0B6F780026A118 /* UploadFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1133FD2B0B6F770026A118 /* UploadFailureView.swift */; };
+		4C11342A2B0B6F780026A118 /* UIViewController+ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134002B0B6F780026A118 /* UIViewController+ChildViewController.swift */; };
+		4C11342B2B0B6F780026A118 /* CGPoint+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134012B0B6F780026A118 /* CGPoint+Convert.swift */; };
+		4C11342C2B0B6F780026A118 /* Data+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134022B0B6F780026A118 /* Data+String.swift */; };
+		4C11342D2B0B6F780026A118 /* UIImage+compressTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134032B0B6F780026A118 /* UIImage+compressTo.swift */; };
+		4C11342E2B0B6F780026A118 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134052B0B6F780026A118 /* CameraPreviewView.swift */; };
+		4C11342F2B0B6F780026A118 /* HistogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134062B0B6F780026A118 /* HistogramView.swift */; };
+		4C1134302B0B6F780026A118 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134072B0B6F780026A118 /* LoadingButton.swift */; };
+		4C1134312B0B6F780026A118 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11340A2B0B6F780026A118 /* CameraHandler.swift */; };
+		4C1134322B0B6F780026A118 /* CameraUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11340B2B0B6F780026A118 /* CameraUtils.swift */; };
+		4C1134332B0B6F780026A118 /* CameraTextHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11340C2B0B6F780026A118 /* CameraTextHandler.swift */; };
+		4C1134342B0B6F780026A118 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11340D2B0B6F780026A118 /* CameraService.swift */; };
+		4C1134352B0B6F780026A118 /* UploadSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134102B0B6F780026A118 /* UploadSuccessView.swift */; };
+		4C1134362B0B6F780026A118 /* UploadSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134112B0B6F780026A118 /* UploadSuccessViewController.swift */; };
+		4C1134372B0B6F780026A118 /* FlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134132B0B6F780026A118 /* FlowProtocol.swift */; };
+		4C1134392B0B70A20026A118 /* OCRDBrainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1134382B0B70A20026A118 /* OCRDBrainAPI.swift */; };
+		4C11343B2B0B72FB0026A118 /* OCRDBrainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11343A2B0B72FB0026A118 /* OCRDBrainResult.swift */; };
+		4C11343D2B0B73960026A118 /* DBrainDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11343C2B0B73960026A118 /* DBrainDocumentType.swift */; };
+		4C11343F2B0BAFD30026A118 /* RecognitionField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11343E2B0BAFD30026A118 /* RecognitionField+Ext.swift */; };
+		4C3358992AEBD1D700BFC880 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */; };
+		4C33589A2AEBD1E100BFC880 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5772546C101004E3CA7 /* Colors.swift */; };
+		4C33589B2AEBD24B00BFC880 /* String+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5962546C3B3004E3CA7 /* String+LunaExample.swift */; };
+		4C3873842A0516AD0020EDA0 /* flower.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; };
+		4C3873852A0516AD0020EDA0 /* flower.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C3873862A0516AD0020EDA0 /* fsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; };
+		4C3873872A0516AD0020EDA0 /* fsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C3873882A0516AD0020EDA0 /* tsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; };
+		4C3873892A0516AD0020EDA0 /* tsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C43B2942BA9B8FC00C79C9D /* LEEnumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2932BA9B8FC00C79C9D /* LEEnumCell.swift */; };
+		4C43B2962BA9B93000C79C9D /* LEEnumPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */; };
+		4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */; };
+		4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */; };
+		4CBDA4A52B0F743200071576 /* DocumentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDA4A42B0F743200071576 /* DocumentSelectViewController.swift */; };
+		4CC3484D2B7A0A9100B04A1C /* LEDurationPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */; };
+		4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */; };
+		4CC348522B7C1B4C00B04A1C /* LEFloatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */; };
+		4CD25F842AE69F1B0019EE88 /* LEOCRInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F562AE69F1B0019EE88 /* LEOCRInstructionsView.swift */; };
+		4CD25F862AE69F1B0019EE88 /* LEPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F582AE69F1B0019EE88 /* LEPhotosCell.swift */; };
+		4CD25F872AE69F1B0019EE88 /* LEOCRFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F592AE69F1B0019EE88 /* LEOCRFieldCell.swift */; };
+		4CD390B02B0CB524000CDFA6 /* OCRDBrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */; };
+		4CD390B32B0CB561000CDFA6 /* OCRDBrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */; };
+		4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */; };
+		4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */; };
+		4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */; };
+		4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */; };
+		7E020BEB25F8B629007E7ADE /* OCRSE.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E020BE925F8B629007E7ADE /* OCRSE.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E392AF926087A3D00D42E15 /* OCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E392AF726087A3D00D42E15 /* OCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E392B1326087A6C00D42E15 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E392B1226087A6C00D42E15 /* OCRService.swift */; };
+		7E392B522608893E00D42E15 /* OCRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E392B512608893E00D42E15 /* OCRResult.swift */; };
+		7E392BC12608A06D00D42E15 /* DocumentReaderTextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E392BC02608A06D00D42E15 /* DocumentReaderTextField+Ext.swift */; };
+		7E392BFB260B40F400D42E15 /* OCRServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E392BFA260B40F400D42E15 /* OCRServiceDelegate.swift */; };
+		7E6327DE261C4C190051B391 /* DocumentReaderGraphicField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6327DD261C4C190051B391 /* DocumentReaderGraphicField+Ext.swift */; };
+		7E6327F9261C54CA0051B391 /* DocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6327F8261C54CA0051B391 /* DocumentType.swift */; };
+		7E632802261C56260051B391 /* doctypesDescriptions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7E632801261C56260051B391 /* doctypesDescriptions.csv */; };
+		7E64C78E263C144000F3CBC7 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64C78D263C144000F3CBC7 /* String+Localizable.swift */; };
+		7E64C791263C1C9F00F3CBC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E64C793263C1C9F00F3CBC7 /* Localizable.strings */; };
+		7E6AC3BE263038B9000E83A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E6AC3C0263038B9000E83A9 /* Localizable.strings */; };
+		7E6AC3D126303984000E83A9 /* OCRError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D96B3A201270BD122975EA /* OCRError.swift */; };
+		7EACCC6126F86B66009D3C79 /* ImagePickerFromSmartIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACCC5F26F86B66009D3C79 /* ImagePickerFromSmartIDViewController.swift */; };
+		7EACCC6226F86B66009D3C79 /* DocTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACCC6026F86B66009D3C79 /* DocTypeLabel.swift */; };
+		7EB5D73725F8B6CD0025C2CD /* smartid_result.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D72F25F8B6CD0025C2CD /* smartid_result.h */; };
+		7EB5D73825F8B6CD0025C2CD /* smartid_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D73025F8B6CD0025C2CD /* smartid_engine.h */; };
+		7EB5D73925F8B6CD0025C2CD /* smartid_processor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D73125F8B6CD0025C2CD /* smartid_processor.h */; };
+		7EB5D73A25F8B6CD0025C2CD /* smartid_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D73225F8B6CD0025C2CD /* smartid_common.h */; };
+		7EB5D73B25F8B6CD0025C2CD /* libsmartid-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D73425F8B6CD0025C2CD /* libsmartid-universal.a */; };
+		7EB5D74825F8B6DA0025C2CD /* data-zip in Resources */ = {isa = PBXBuildFile; fileRef = 7EB5D74725F8B6DA0025C2CD /* data-zip */; };
+		7EB5D7A925F8B7A80025C2CD /* SmartIDRecognitionCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D75F25F8B7A80025C2CD /* SmartIDRecognitionCore.h */; };
+		7EB5D7AA25F8B7A80025C2CD /* SmartIDVideoProcessingEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76025F8B7A80025C2CD /* SmartIDVideoProcessingEngine.mm */; };
+		7EB5D7AB25F8B7A80025C2CD /* SmartIDRecognitionCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76125F8B7A80025C2CD /* SmartIDRecognitionCore.mm */; };
+		7EB5D7AC25F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76225F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.mm */; };
+		7EB5D7AD25F8B7A80025C2CD /* SmartIDVideoProcessingEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D76325F8B7A80025C2CD /* SmartIDVideoProcessingEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7AE25F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D76425F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.h */; };
+		7EB5D7AF25F8B7A80025C2CD /* SmartIDViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76625F8B7A80025C2CD /* SmartIDViewController.mm */; };
+		7EB5D7B025F8B7A80025C2CD /* SmartIDViewControllerObjCPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D76825F8B7A80025C2CD /* SmartIDViewControllerObjCPP.h */; };
+		7EB5D7B125F8B7A80025C2CD /* SmartIDViewControllerObjCPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76925F8B7A80025C2CD /* SmartIDViewControllerObjCPP.mm */; };
+		7EB5D7B225F8B7A80025C2CD /* SmartIDViewController+Protected.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D76A25F8B7A80025C2CD /* SmartIDViewController+Protected.m */; };
+		7EB5D7B525F8B7A80025C2CD /* SmartIDViewControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D76F25F8B7A80025C2CD /* SmartIDViewControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7B625F8B7A80025C2CD /* SmartIDViewControllerSwift.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77025F8B7A80025C2CD /* SmartIDViewControllerSwift.mm */; };
+		7EB5D7B725F8B7A80025C2CD /* SmartIDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77125F8B7A80025C2CD /* SmartIDViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7B825F8B7A80025C2CD /* SmartIDQuadrangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77325F8B7A80025C2CD /* SmartIDQuadrangleView.m */; };
+		7EB5D7B925F8B7A80025C2CD /* SmartIDRoiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77425F8B7A80025C2CD /* SmartIDRoiView.m */; };
+		7EB5D7BA25F8B7A80025C2CD /* RoiHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77525F8B7A80025C2CD /* RoiHelper.h */; };
+		7EB5D7BB25F8B7A80025C2CD /* SmartIDCaptureButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77625F8B7A80025C2CD /* SmartIDCaptureButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7BC25F8B7A80025C2CD /* SmartIDRoiView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77725F8B7A80025C2CD /* SmartIDRoiView.h */; };
+		7EB5D7BD25F8B7A80025C2CD /* SmartIDQuadrangleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77825F8B7A80025C2CD /* SmartIDQuadrangleView.h */; };
+		7EB5D7BE25F8B7A80025C2CD /* SmartIDCaptureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77925F8B7A80025C2CD /* SmartIDCaptureButton.m */; };
+		7EB5D7BF25F8B7A80025C2CD /* RoiHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77A25F8B7A80025C2CD /* RoiHelper.m */; };
+		7EB5D7C025F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77C25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.mm */; };
+		7EB5D7C125F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D77D25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.mm */; };
+		7EB5D7C225F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77E25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.h */; };
+		7EB5D7C325F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D77F25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.h */; };
+		7EB5D7C525F8B7A80025C2CD /* SmartIDViewController+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78225F8B7A80025C2CD /* SmartIDViewController+Protected.h */; };
+		7EB5D7C625F8B7A80025C2CD /* SmartIDSegmentationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78425F8B7A80025C2CD /* SmartIDSegmentationResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7C725F8B7A80025C2CD /* SmartIDRecognitionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78525F8B7A80025C2CD /* SmartIDRecognitionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7C825F8B7A80025C2CD /* SmartIDImageField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78625F8B7A80025C2CD /* SmartIDImageField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7C925F8B7A80025C2CD /* SmartIDQuadrangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78725F8B7A80025C2CD /* SmartIDQuadrangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7CA25F8B7A80025C2CD /* SmartIDStringField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78825F8B7A80025C2CD /* SmartIDStringField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7CB25F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D78A25F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.mm */; };
+		7EB5D7CC25F8B7A80025C2CD /* SmartIDForensicField+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78B25F8B7A80025C2CD /* SmartIDForensicField+CPP.h */; };
+		7EB5D7CD25F8B7A80025C2CD /* SmartIDStringField+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D78C25F8B7A80025C2CD /* SmartIDStringField+CPP.mm */; };
+		7EB5D7CE25F8B7A80025C2CD /* SmartIDSessionSettings+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D78D25F8B7A80025C2CD /* SmartIDSessionSettings+CPP.mm */; };
+		7EB5D7CF25F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78E25F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.h */; };
+		7EB5D7D025F8B7A80025C2CD /* SmartIDImage+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D78F25F8B7A80025C2CD /* SmartIDImage+CPP.h */; };
+		7EB5D7D125F8B7A80025C2CD /* SmartIDSessionSettings+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79025F8B7A80025C2CD /* SmartIDSessionSettings+CPP.h */; };
+		7EB5D7D225F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79125F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.h */; };
+		7EB5D7D325F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79225F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.mm */; };
+		7EB5D7D425F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79325F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.mm */; };
+		7EB5D7D525F8B7A80025C2CD /* SmartIDImageField+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79425F8B7A80025C2CD /* SmartIDImageField+CPP.mm */; };
+		7EB5D7D625F8B7A80025C2CD /* SmartIDImage+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79525F8B7A80025C2CD /* SmartIDImage+CPP.mm */; };
+		7EB5D7D725F8B7A80025C2CD /* SmartIDMatchResult+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79625F8B7A80025C2CD /* SmartIDMatchResult+CPP.mm */; };
+		7EB5D7D825F8B7A80025C2CD /* SmartIDQuadrangle+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79725F8B7A80025C2CD /* SmartIDQuadrangle+CPP.mm */; };
+		7EB5D7D925F8B7A80025C2CD /* SmartIDForensicField+CPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D79825F8B7A80025C2CD /* SmartIDForensicField+CPP.mm */; };
+		7EB5D7DA25F8B7A80025C2CD /* SmartIDStringField+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79925F8B7A80025C2CD /* SmartIDStringField+CPP.h */; };
+		7EB5D7DB25F8B7A80025C2CD /* SmartIDQuadrangle+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79A25F8B7A80025C2CD /* SmartIDQuadrangle+CPP.h */; };
+		7EB5D7DC25F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79B25F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.h */; };
+		7EB5D7DD25F8B7A80025C2CD /* SmartIDImageField+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79C25F8B7A80025C2CD /* SmartIDImageField+CPP.h */; };
+		7EB5D7DE25F8B7A80025C2CD /* SmartIDMatchResult+CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79D25F8B7A80025C2CD /* SmartIDMatchResult+CPP.h */; };
+		7EB5D7DF25F8B7A80025C2CD /* SmartIDProcessingFeedback.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79E25F8B7A80025C2CD /* SmartIDProcessingFeedback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7E025F8B7A80025C2CD /* SmartIDForensicField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D79F25F8B7A80025C2CD /* SmartIDForensicField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7E125F8B7A80025C2CD /* SmartIDSessionSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A025F8B7A80025C2CD /* SmartIDSessionSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7E225F8B7A80025C2CD /* SmartIDImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A125F8B7A80025C2CD /* SmartIDImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7E325F8B7A80025C2CD /* SmartIDMatchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A225F8B7A80025C2CD /* SmartIDMatchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D7E425F8B7A80025C2CD /* SmartID-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A325F8B7A80025C2CD /* SmartID-Bridging-Header.h */; };
+		7EB5D7E525F8B7A80025C2CD /* SmartIDVideoPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A525F8B7A80025C2CD /* SmartIDVideoPreviewView.h */; };
+		7EB5D7E625F8B7A80025C2CD /* SmartIDCameraManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D7A625F8B7A80025C2CD /* SmartIDCameraManager.h */; };
+		7EB5D7E725F8B7A80025C2CD /* SmartIDVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D7A725F8B7A80025C2CD /* SmartIDVideoPreviewView.m */; };
+		7EB5D7E825F8B7A80025C2CD /* SmartIDCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D7A825F8B7A80025C2CD /* SmartIDCameraManager.m */; };
+		7EB5D8A525F8BC1A0025C2CD /* OCRREGULA.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB5D8A325F8BC1A0025C2CD /* OCRREGULA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB5D8D025F8BF4A0025C2CD /* Regula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8CF25F8BF4A0025C2CD /* Regula.swift */; };
+		7EB5D8DD25F8C2620025C2CD /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8DC25F8C2620025C2CD /* Error.swift */; };
+		7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9755ACB52BD919C5005591F1 /* LunaCamera.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; };
+		9755ACB62BD919C5005591F1 /* LunaCamera.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9755ACB72BD919C6005591F1 /* LunaCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; };
+		9755ACB82BD919C6005591F1 /* LunaCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9755ACB92BD919C8005591F1 /* LunaWeb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; };
+		9755ACBA2BD919C8005591F1 /* LunaWeb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
+		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
+		C7D9671AA981DF9F6F9D144E /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D962B92BB77792B6E4586F /* String+Localize.swift */; };
+		DE7555C929A778C200E58DEB /* RegulaDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */; };
+		DE7555CE29A7791D00E58DEB /* OCRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555CD29A7791D00E58DEB /* OCRAPI.swift */; };
+		DE7555D329A779BF00E58DEB /* OCRRegulaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555D229A779BF00E58DEB /* OCRRegulaResult.swift */; };
+		DE7901DC298BD291007F8569 /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
+		DE7901E1298BD297007F8569 /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
+		DE7901E3298BD519007F8569 /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
+		DE7901E7298BD519007F8569 /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
+		DE8D4FA22907E0D1008E3ED8 /* OCRRegulaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */; };
+		DEB8224D29AF3F62002C4C4B /* Error+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA7D2625481EAE001F89EA /* Error+LunaExample.swift */; };
+		DEB8225029AF3F62002C4C4B /* LEServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */; };
+		DEB8225229AF3F62002C4C4B /* LEEulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0390F32563D1CB00453D52 /* LEEulaViewController.swift */; };
+		DEB8225329AF3F62002C4C4B /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */; };
+		DEB8225429AF3F62002C4C4B /* LELabelledToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A64299BF0AD00BAE63D /* LELabelledToggleCell.swift */; };
+		DEB8225829AF3F62002C4C4B /* LELabelledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A63299BF0AD00BAE63D /* LELabelledCell.swift */; };
+		DEB8226029AF3F62002C4C4B /* LETabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB59A8926C155CE005AC712 /* LETabButton.swift */; };
+		DEB8226329AF3F62002C4C4B /* LESettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */; };
+		DEB8226429AF3F62002C4C4B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A57D2546C12A004E3CA7 /* Fonts.swift */; };
+		DEB8226829AF3F62002C4C4B /* LETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5702546C0F0004E3CA7 /* LETextField.swift */; };
+		DEB8226D29AF3F62002C4C4B /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
+		DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E392AF526087A3D00D42E15 /* OCR.framework */; };
+		DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; };
+		DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
+		DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECA7DC6254ACCE5001F89EA /* Localizable.strings */; };
+		DEB8227A29AF3F62002C4C4B /* regula.license in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5A7A0267CB8940090F5CF /* regula.license */; };
+		DEB8227B29AF3F62002C4C4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E039118256525F300453D52 /* InfoPlist.strings */; };
+		DEB8227C29AF3F62002C4C4B /* EtelkaMediumProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2A5902546C340004E3CA7 /* EtelkaMediumProRegular.ttf */; };
+		DEB8227D29AF3F62002C4C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0725419E6100DE728E /* LaunchScreen.storyboard */; };
+		DEB8227E29AF3F62002C4C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0525419E6100DE728E /* Assets.xcassets */; };
+		DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E392AF526087A3D00D42E15 /* OCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEDE8C1A29C233D5006FFF7F /* LERootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */; };
+		DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */; };
+		DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */; };
+		DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C1133762B0B6F2E0026A118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C1133712B0B6F2E0026A118;
+			remoteInfo = OCRDBrain;
+		};
+		4CD390B12B0CB524000CDFA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C1133712B0B6F2E0026A118;
+			remoteInfo = OCRDBrain;
+		};
+		4CD390B52B0CB561000CDFA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C1133712B0B6F2E0026A118;
+			remoteInfo = OCRDBrain;
+		};
+		7ED5A795267CA2F10090F5CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EB5D8A025F8BC1A0025C2CD;
+			remoteInfo = OCRREGULA;
+		};
+		DEB8224729AF3F62002C4C4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E392AF426087A3D00D42E15;
+			remoteInfo = OCR;
+		};
+		DEB8224B29AF3F62002C4C4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E3BED5A252DF4D400520E65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EB5D8A025F8BC1A0025C2CD;
+			remoteInfo = OCRREGULA;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		DE9EA04D29ED6651008A41FA /* Embed Frameworks */ = {
+		DEB8228029AF3F62002C4C4B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4CEC81A82A0BB71C00757AD2 /* LunaCore.xcframework in Embed Frameworks */,
-				4CEC81AA2A0BB71C00757AD2 /* LunaWeb.xcframework in Embed Frameworks */,
-				4CEC81A22A0BB71C00757AD2 /* flower.xcframework in Embed Frameworks */,
-				4CEC81AC2A0BB71C00757AD2 /* tsdk.xcframework in Embed Frameworks */,
-				4CEC81AF2A0BB73500757AD2 /* LunaAuth.xcframework in Embed Frameworks */,
-				4CEC81A42A0BB71C00757AD2 /* fsdk.xcframework in Embed Frameworks */,
-				4CEC81A62A0BB71C00757AD2 /* LunaCamera.xcframework in Embed Frameworks */,
+				4C3873852A0516AD0020EDA0 /* flower.xcframework in Embed Frameworks */,
+				DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */,
+				DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */,
+				DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */,
+				4C1133792B0B6F2E0026A118 /* OCRDBrain.framework in Embed Frameworks */,
+				9755ACB62BD919C5005591F1 /* LunaCamera.xcframework in Embed Frameworks */,
+				4C3873872A0516AD0020EDA0 /* fsdk.xcframework in Embed Frameworks */,
+				9755ACBA2BD919C8005591F1 /* LunaWeb.xcframework in Embed Frameworks */,
+				4C3873892A0516AD0020EDA0 /* tsdk.xcframework in Embed Frameworks */,
+				9755ACB82BD919C6005591F1 /* LunaCore.xcframework in Embed Frameworks */,
+				DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,115 +284,599 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4CEC81832A0BB02700757AD2 /* fsdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = fsdk.xcframework; path = frameworks/fsdk.xcframework; sourceTree = "<group>"; };
-		4CEC81852A0BB02800757AD2 /* tsdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = tsdk.xcframework; path = frameworks/tsdk.xcframework; sourceTree = "<group>"; };
-		4CEC81872A0BB02800757AD2 /* flower.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flower.xcframework; path = frameworks/flower.xcframework; sourceTree = "<group>"; };
-		4CEC81882A0BB02800757AD2 /* LunaWeb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaWeb.xcframework; path = frameworks/LunaWeb.xcframework; sourceTree = "<group>"; };
-		4CEC81892A0BB02800757AD2 /* LunaCamera.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCamera.xcframework; path = frameworks/LunaCamera.xcframework; sourceTree = "<group>"; };
-		4CEC818B2A0BB02800757AD2 /* LunaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCore.xcframework; path = frameworks/LunaCore.xcframework; sourceTree = "<group>"; };
-		4CEC81AD2A0BB73500757AD2 /* LunaAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaAuth.xcframework; path = frameworks/LunaAuth.xcframework; sourceTree = "<group>"; };
-		4CEC81B42A0BB7E200757AD2 /* ServerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerMock.swift; sourceTree = "<group>"; };
-		7E0390F32563D1CB00453D52 /* EulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulaViewController.swift; sourceTree = "<group>"; };
+		4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEIdentifyViewController.swift; sourceTree = "<group>"; };
+		4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicatorView.swift; sourceTree = "<group>"; };
+		4C06D8922AE8216800C6603E /* LEResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEResultViewController.swift; sourceTree = "<group>"; };
+		4C06D8942AE96E0A00C6603E /* UIViewController+LunaExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LunaExample.swift"; sourceTree = "<group>"; };
+		4C06D8962AE9895200C6603E /* LEOCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEOCRViewController.swift; sourceTree = "<group>"; };
+		4C06D8982AEA823600C6603E /* LEOCRResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCRResultsViewController.swift; sourceTree = "<group>"; };
+		4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCRDBrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1133742B0B6F2E0026A118 /* OCRDBrain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRDBrain.h; sourceTree = "<group>"; };
+		4C1133E02B0B6F770026A118 /* PassportFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportFlow.swift; sourceTree = "<group>"; };
+		4C1133E22B0B6F770026A118 /* DocumentResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentResultViewController.swift; sourceTree = "<group>"; };
+		4C1133E52B0B6F770026A118 /* DocumentLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentLoader.swift; sourceTree = "<group>"; };
+		4C1133E72B0B6F770026A118 /* DocumentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentHeaderView.swift; sourceTree = "<group>"; };
+		4C1133E82B0B6F770026A118 /* GeneralDocumentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralDocumentView.swift; sourceTree = "<group>"; };
+		4C1133E92B0B6F770026A118 /* DocumentDropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDropDownView.swift; sourceTree = "<group>"; };
+		4C1133EB2B0B6F770026A118 /* DocumentDropDownCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDropDownCellView.swift; sourceTree = "<group>"; };
+		4C1133EC2B0B6F770026A118 /* DocumentitemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentitemView.swift; sourceTree = "<group>"; };
+		4C1133ED2B0B6F770026A118 /* DocumentSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSelectView.swift; sourceTree = "<group>"; };
+		4C1133EF2B0B6F770026A118 /* CameraPhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPhotoButton.swift; sourceTree = "<group>"; };
+		4C1133F02B0B6F770026A118 /* DocumentSelectMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSelectMenuView.swift; sourceTree = "<group>"; };
+		4C1133F12B0B6F770026A118 /* DocumentDropDownButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDropDownButtonView.swift; sourceTree = "<group>"; };
+		4C1133F22B0B6F770026A118 /* CameraTextZoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraTextZoneView.swift; sourceTree = "<group>"; };
+		4C1133F42B0B6F770026A118 /* BaseDocumentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDocumentView.swift; sourceTree = "<group>"; };
+		4C1133F52B0B6F770026A118 /* BaseDocumentResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDocumentResultView.swift; sourceTree = "<group>"; };
+		4C1133F62B0B6F770026A118 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		4C1133F72B0B6F770026A118 /* DocumentDropDownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDropDownViewController.swift; sourceTree = "<group>"; };
+		4C1133F82B0B6F770026A118 /* DocumentFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentFlow.swift; sourceTree = "<group>"; };
+		4C1133F92B0B6F770026A118 /* DriverLicenceFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenceFlow.swift; sourceTree = "<group>"; };
+		4C1133FB2B0B6F770026A118 /* UploadFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadFailureViewController.swift; sourceTree = "<group>"; };
+		4C1133FD2B0B6F770026A118 /* UploadFailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadFailureView.swift; sourceTree = "<group>"; };
+		4C1134002B0B6F780026A118 /* UIViewController+ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildViewController.swift"; sourceTree = "<group>"; };
+		4C1134012B0B6F780026A118 /* CGPoint+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Convert.swift"; sourceTree = "<group>"; };
+		4C1134022B0B6F780026A118 /* Data+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+String.swift"; sourceTree = "<group>"; };
+		4C1134032B0B6F780026A118 /* UIImage+compressTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+compressTo.swift"; sourceTree = "<group>"; };
+		4C1134052B0B6F780026A118 /* CameraPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		4C1134062B0B6F780026A118 /* HistogramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistogramView.swift; sourceTree = "<group>"; };
+		4C1134072B0B6F780026A118 /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		4C11340A2B0B6F780026A118 /* CameraHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		4C11340B2B0B6F780026A118 /* CameraUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtils.swift; sourceTree = "<group>"; };
+		4C11340C2B0B6F780026A118 /* CameraTextHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraTextHandler.swift; sourceTree = "<group>"; };
+		4C11340D2B0B6F780026A118 /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		4C1134102B0B6F780026A118 /* UploadSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadSuccessView.swift; sourceTree = "<group>"; };
+		4C1134112B0B6F780026A118 /* UploadSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadSuccessViewController.swift; sourceTree = "<group>"; };
+		4C1134132B0B6F780026A118 /* FlowProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowProtocol.swift; sourceTree = "<group>"; };
+		4C1134382B0B70A20026A118 /* OCRDBrainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDBrainAPI.swift; sourceTree = "<group>"; };
+		4C11343A2B0B72FB0026A118 /* OCRDBrainResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRDBrainResult.swift; sourceTree = "<group>"; };
+		4C11343C2B0B73960026A118 /* DBrainDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBrainDocumentType.swift; sourceTree = "<group>"; };
+		4C11343E2B0BAFD30026A118 /* RecognitionField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecognitionField+Ext.swift"; sourceTree = "<group>"; };
+		4C3873752A05169C0020EDA0 /* flower.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flower.xcframework; path = frameworks/flower.xcframework; sourceTree = "<group>"; };
+		4C3873762A05169C0020EDA0 /* fsdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = fsdk.xcframework; path = frameworks/fsdk.xcframework; sourceTree = "<group>"; };
+		4C3873772A05169D0020EDA0 /* tsdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = tsdk.xcframework; path = frameworks/tsdk.xcframework; sourceTree = "<group>"; };
+		4C43B2932BA9B8FC00C79C9D /* LEEnumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEEnumCell.swift; sourceTree = "<group>"; };
+		4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEEnumPickerVC.swift; sourceTree = "<group>"; };
+		4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBestshotSettingsVC.swift; sourceTree = "<group>"; };
+		4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBundleLink.swift; sourceTree = "<group>"; };
+		4CBDA4A42B0F743200071576 /* DocumentSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSelectViewController.swift; sourceTree = "<group>"; };
+		4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDurationPickerVC.swift; sourceTree = "<group>"; };
+		4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBiometricInstructionsView.swift; sourceTree = "<group>"; };
+		4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEFloatCell.swift; sourceTree = "<group>"; };
+		4CD25F3D2AE69ED10019EE88 /* LunaExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LunaExample-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4CD25F562AE69F1B0019EE88 /* LEOCRInstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCRInstructionsView.swift; sourceTree = "<group>"; };
+		4CD25F582AE69F1B0019EE88 /* LEPhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEPhotosCell.swift; sourceTree = "<group>"; };
+		4CD25F592AE69F1B0019EE88 /* LEOCRFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCRFieldCell.swift; sourceTree = "<group>"; };
+		4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunaExampleTypes.swift; sourceTree = "<group>"; };
+		4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEAuthError.swift; sourceTree = "<group>"; };
+		4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BestShot+LunaExample.swift"; sourceTree = "<group>"; };
+		4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInteractionsSettingsVC.swift; sourceTree = "<group>"; };
+		7E020BE725F8B629007E7ADE /* OCRSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCRSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E020BE925F8B629007E7ADE /* OCRSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRSE.h; sourceTree = "<group>"; };
+		7E020BEA25F8B629007E7ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E0390F32563D1CB00453D52 /* LEEulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEEulaViewController.swift; sourceTree = "<group>"; };
 		7E039117256525F300453D52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E03911D256525F400453D52 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7E03916825667C9A00453D52 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
-		7E2B1DFA25419E5F00DE728E /* LunaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E2B1DFC25419E5F00DE728E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E2B1E0325419E5F00DE728E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E2B1E0525419E6100DE728E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E2B1E0825419E6100DE728E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E2B1E0A25419E6100DE728E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E392AF526087A3D00D42E15 /* OCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E392AF726087A3D00D42E15 /* OCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCR.h; sourceTree = "<group>"; };
+		7E392AF826087A3D00D42E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E392B1226087A6C00D42E15 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		7E392B41260888F700D42E15 /* SmartIDStringField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartIDStringField+Ext.swift"; sourceTree = "<group>"; };
+		7E392B512608893E00D42E15 /* OCRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResult.swift; sourceTree = "<group>"; };
+		7E392BC02608A06D00D42E15 /* DocumentReaderTextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentReaderTextField+Ext.swift"; sourceTree = "<group>"; };
+		7E392BFA260B40F400D42E15 /* OCRServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRServiceDelegate.swift; sourceTree = "<group>"; };
 		7E3BEE72253086D700520E65 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7E6327DD261C4C190051B391 /* DocumentReaderGraphicField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentReaderGraphicField+Ext.swift"; sourceTree = "<group>"; };
+		7E6327E6261C4E7F0051B391 /* SmartIDImageField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartIDImageField+Ext.swift"; sourceTree = "<group>"; };
+		7E6327F8261C54CA0051B391 /* DocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentType.swift; sourceTree = "<group>"; };
+		7E632801261C56260051B391 /* doctypesDescriptions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doctypesDescriptions.csv; sourceTree = "<group>"; };
+		7E64C78D263C144000F3CBC7 /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		7E64C792263C1C9F00F3CBC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E64C794263C1CA400F3CBC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E6AC3BF263038B9000E83A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E6AC3C6263038BD000E83A9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E77652C253581010093D2D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7E7765302535810C0093D2D8 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7E776534253581200093D2D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7E776538253589380093D2D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7EB59A8926C155CE005AC712 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
-		7ECA7D2625481EAE001F89EA /* Error+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Ext.swift"; sourceTree = "<group>"; };
-		7ECA7DB9254AC97B001F89EA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		7EACCC5F26F86B66009D3C79 /* ImagePickerFromSmartIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerFromSmartIDViewController.swift; sourceTree = "<group>"; };
+		7EACCC6026F86B66009D3C79 /* DocTypeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTypeLabel.swift; sourceTree = "<group>"; };
+		7EB59A8926C155CE005AC712 /* LETabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LETabButton.swift; sourceTree = "<group>"; };
+		7EB5D72F25F8B6CD0025C2CD /* smartid_result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartid_result.h; sourceTree = "<group>"; };
+		7EB5D73025F8B6CD0025C2CD /* smartid_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartid_engine.h; sourceTree = "<group>"; };
+		7EB5D73125F8B6CD0025C2CD /* smartid_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartid_processor.h; sourceTree = "<group>"; };
+		7EB5D73225F8B6CD0025C2CD /* smartid_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartid_common.h; sourceTree = "<group>"; };
+		7EB5D73425F8B6CD0025C2CD /* libsmartid-universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsmartid-universal.a"; sourceTree = "<group>"; };
+		7EB5D74725F8B6DA0025C2CD /* data-zip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "data-zip"; sourceTree = "<group>"; };
+		7EB5D75F25F8B7A80025C2CD /* SmartIDRecognitionCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDRecognitionCore.h; sourceTree = "<group>"; };
+		7EB5D76025F8B7A80025C2CD /* SmartIDVideoProcessingEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDVideoProcessingEngine.mm; sourceTree = "<group>"; };
+		7EB5D76125F8B7A80025C2CD /* SmartIDRecognitionCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDRecognitionCore.mm; sourceTree = "<group>"; };
+		7EB5D76225F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDVideoProcessingEngine+Crop.mm"; sourceTree = "<group>"; };
+		7EB5D76325F8B7A80025C2CD /* SmartIDVideoProcessingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDVideoProcessingEngine.h; sourceTree = "<group>"; };
+		7EB5D76425F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDVideoProcessingEngine+Crop.h"; sourceTree = "<group>"; };
+		7EB5D76625F8B7A80025C2CD /* SmartIDViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDViewController.mm; sourceTree = "<group>"; };
+		7EB5D76825F8B7A80025C2CD /* SmartIDViewControllerObjCPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDViewControllerObjCPP.h; sourceTree = "<group>"; };
+		7EB5D76925F8B7A80025C2CD /* SmartIDViewControllerObjCPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDViewControllerObjCPP.mm; sourceTree = "<group>"; };
+		7EB5D76A25F8B7A80025C2CD /* SmartIDViewController+Protected.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SmartIDViewController+Protected.m"; sourceTree = "<group>"; };
+		7EB5D76F25F8B7A80025C2CD /* SmartIDViewControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDViewControllerSwift.h; sourceTree = "<group>"; };
+		7EB5D77025F8B7A80025C2CD /* SmartIDViewControllerSwift.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDViewControllerSwift.mm; sourceTree = "<group>"; };
+		7EB5D77125F8B7A80025C2CD /* SmartIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDViewController.h; sourceTree = "<group>"; };
+		7EB5D77325F8B7A80025C2CD /* SmartIDQuadrangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartIDQuadrangleView.m; sourceTree = "<group>"; };
+		7EB5D77425F8B7A80025C2CD /* SmartIDRoiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartIDRoiView.m; sourceTree = "<group>"; };
+		7EB5D77525F8B7A80025C2CD /* RoiHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoiHelper.h; sourceTree = "<group>"; };
+		7EB5D77625F8B7A80025C2CD /* SmartIDCaptureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDCaptureButton.h; sourceTree = "<group>"; };
+		7EB5D77725F8B7A80025C2CD /* SmartIDRoiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDRoiView.h; sourceTree = "<group>"; };
+		7EB5D77825F8B7A80025C2CD /* SmartIDQuadrangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDQuadrangleView.h; sourceTree = "<group>"; };
+		7EB5D77925F8B7A80025C2CD /* SmartIDCaptureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartIDCaptureButton.m; sourceTree = "<group>"; };
+		7EB5D77A25F8B7A80025C2CD /* RoiHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoiHelper.m; sourceTree = "<group>"; };
+		7EB5D77C25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDVideoProcessingEngineSwift.mm; sourceTree = "<group>"; };
+		7EB5D77D25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartIDVideoProcessingEngineWrap.mm; sourceTree = "<group>"; };
+		7EB5D77E25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDVideoProcessingEngineWrap.h; sourceTree = "<group>"; };
+		7EB5D77F25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDVideoProcessingEngineSwift.h; sourceTree = "<group>"; };
+		7EB5D78225F8B7A80025C2CD /* SmartIDViewController+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDViewController+Protected.h"; sourceTree = "<group>"; };
+		7EB5D78425F8B7A80025C2CD /* SmartIDSegmentationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDSegmentationResult.h; sourceTree = "<group>"; };
+		7EB5D78525F8B7A80025C2CD /* SmartIDRecognitionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDRecognitionResult.h; sourceTree = "<group>"; };
+		7EB5D78625F8B7A80025C2CD /* SmartIDImageField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDImageField.h; sourceTree = "<group>"; };
+		7EB5D78725F8B7A80025C2CD /* SmartIDQuadrangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDQuadrangle.h; sourceTree = "<group>"; };
+		7EB5D78825F8B7A80025C2CD /* SmartIDStringField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDStringField.h; sourceTree = "<group>"; };
+		7EB5D78A25F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDSegmentationResult+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D78B25F8B7A80025C2CD /* SmartIDForensicField+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDForensicField+CPP.h"; sourceTree = "<group>"; };
+		7EB5D78C25F8B7A80025C2CD /* SmartIDStringField+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDStringField+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D78D25F8B7A80025C2CD /* SmartIDSessionSettings+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDSessionSettings+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D78E25F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDProcessingFeedback+CPP.h"; sourceTree = "<group>"; };
+		7EB5D78F25F8B7A80025C2CD /* SmartIDImage+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDImage+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79025F8B7A80025C2CD /* SmartIDSessionSettings+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDSessionSettings+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79125F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDSegmentationResult+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79225F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDProcessingFeedback+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79325F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDRecognitionResult+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79425F8B7A80025C2CD /* SmartIDImageField+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDImageField+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79525F8B7A80025C2CD /* SmartIDImage+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDImage+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79625F8B7A80025C2CD /* SmartIDMatchResult+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDMatchResult+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79725F8B7A80025C2CD /* SmartIDQuadrangle+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDQuadrangle+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79825F8B7A80025C2CD /* SmartIDForensicField+CPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SmartIDForensicField+CPP.mm"; sourceTree = "<group>"; };
+		7EB5D79925F8B7A80025C2CD /* SmartIDStringField+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDStringField+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79A25F8B7A80025C2CD /* SmartIDQuadrangle+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDQuadrangle+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79B25F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDRecognitionResult+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79C25F8B7A80025C2CD /* SmartIDImageField+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDImageField+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79D25F8B7A80025C2CD /* SmartIDMatchResult+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartIDMatchResult+CPP.h"; sourceTree = "<group>"; };
+		7EB5D79E25F8B7A80025C2CD /* SmartIDProcessingFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDProcessingFeedback.h; sourceTree = "<group>"; };
+		7EB5D79F25F8B7A80025C2CD /* SmartIDForensicField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDForensicField.h; sourceTree = "<group>"; };
+		7EB5D7A025F8B7A80025C2CD /* SmartIDSessionSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDSessionSettings.h; sourceTree = "<group>"; };
+		7EB5D7A125F8B7A80025C2CD /* SmartIDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDImage.h; sourceTree = "<group>"; };
+		7EB5D7A225F8B7A80025C2CD /* SmartIDMatchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDMatchResult.h; sourceTree = "<group>"; };
+		7EB5D7A325F8B7A80025C2CD /* SmartID-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartID-Bridging-Header.h"; sourceTree = "<group>"; };
+		7EB5D7A525F8B7A80025C2CD /* SmartIDVideoPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDVideoPreviewView.h; sourceTree = "<group>"; };
+		7EB5D7A625F8B7A80025C2CD /* SmartIDCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartIDCameraManager.h; sourceTree = "<group>"; };
+		7EB5D7A725F8B7A80025C2CD /* SmartIDVideoPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartIDVideoPreviewView.m; sourceTree = "<group>"; };
+		7EB5D7A825F8B7A80025C2CD /* SmartIDCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartIDCameraManager.m; sourceTree = "<group>"; };
+		7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCRREGULA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EB5D8A325F8BC1A0025C2CD /* OCRREGULA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRREGULA.h; sourceTree = "<group>"; };
+		7EB5D8A425F8BC1A0025C2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EB5D8CF25F8BF4A0025C2CD /* Regula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regula.swift; sourceTree = "<group>"; };
+		7EB5D8DC25F8C2620025C2CD /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		7ECA7D2625481EAE001F89EA /* Error+LunaExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+LunaExample.swift"; sourceTree = "<group>"; };
 		7ECA7DC5254ACCE5001F89EA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ECA7DCB254ACCE9001F89EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7ED2A5702546C0F0004E3CA7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		7ED2A5702546C0F0004E3CA7 /* LETextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LETextField.swift; sourceTree = "<group>"; };
 		7ED2A5772546C101004E3CA7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7ED2A57D2546C12A004E3CA7 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
-		7ED2A58A2546C16E004E3CA7 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		7ED2A5902546C340004E3CA7 /* EtelkaMediumProRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EtelkaMediumProRegular.ttf; sourceTree = "<group>"; };
-		7ED2A5962546C3B3004E3CA7 /* String+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
-		7ED2A5972546C3B3004E3CA7 /* CALayer+Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Xib.swift"; sourceTree = "<group>"; };
-		7ED2A5982546C3B3004E3CA7 /* ScreenInch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenInch.swift; sourceTree = "<group>"; };
-		7ED2A5992546C3B3004E3CA7 /* UILabel+Attributed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Attributed.swift"; sourceTree = "<group>"; };
+		7ED2A5962546C3B3004E3CA7 /* String+LunaExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LunaExample.swift"; sourceTree = "<group>"; };
 		7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
-		7ED2A5A82546CB64004E3CA7 /* UIButton+Attributed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Attributed.swift"; sourceTree = "<group>"; };
-		7ED2A5AF2546CBEF004E3CA7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		7ED2A5D22546D85C004E3CA7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		7ED2A5D82546FE52004E3CA7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		7EE1D3D72547163C00695F89 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		7EF96C5A25595BA0000DCB43 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		7EF96C6425595BA9000DCB43 /* FailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailViewController.swift; sourceTree = "<group>"; };
-		DE648A63299BF0AD00BAE63D /* SettingsVersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVersionCell.swift; sourceTree = "<group>"; };
-		DE648A64299BF0AD00BAE63D /* SettingsLivenessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLivenessCell.swift; sourceTree = "<group>"; };
-		DE648A65299BF0AD00BAE63D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		DED402F0299932F900847BBE /* ExampleUICustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUICustomizer.swift; sourceTree = "<group>"; };
-		DEDE8C1B29C2CCE0006FFF7F /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEServerError.swift; sourceTree = "<group>"; };
+		7ED5A7A0267CB8940090F5CF /* regula.license */ = {isa = PBXFileReference; lastKnownFileType = file; path = regula.license; sourceTree = "<group>"; };
+		9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCore.xcframework; path = frameworks/LunaCore.xcframework; sourceTree = "<group>"; };
+		9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaWeb.xcframework; path = frameworks/LunaWeb.xcframework; sourceTree = "<group>"; };
+		9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCamera.xcframework; path = frameworks/LunaCamera.xcframework; sourceTree = "<group>"; };
+		977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDocumentsFileListVC.swift; sourceTree = "<group>"; };
+		C7D962B92BB77792B6E4586F /* String+Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localize.swift"; sourceTree = "<group>"; };
+		C7D96B3A201270BD122975EA /* OCRError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRError.swift; sourceTree = "<group>"; };
+		DE648A63299BF0AD00BAE63D /* LELabelledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LELabelledCell.swift; sourceTree = "<group>"; };
+		DE648A64299BF0AD00BAE63D /* LELabelledToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LELabelledToggleCell.swift; sourceTree = "<group>"; };
+		DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LESettingsViewController.swift; sourceTree = "<group>"; };
+		DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegulaDocumentType.swift; sourceTree = "<group>"; };
+		DE7555CA29A778D800E58DEB /* SEDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEDocumentType.swift; sourceTree = "<group>"; };
+		DE7555CD29A7791D00E58DEB /* OCRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRAPI.swift; sourceTree = "<group>"; };
+		DE7555D029A7798C00E58DEB /* OCRSEResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRSEResult.swift; sourceTree = "<group>"; };
+		DE7555D229A779BF00E58DEB /* OCRRegulaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRegulaResult.swift; sourceTree = "<group>"; };
+		DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RegulaCommon.xcframework; path = frameworks/RegulaCommon.xcframework; sourceTree = "<group>"; };
+		DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DocumentReader.xcframework; path = frameworks/DocumentReader.xcframework; sourceTree = "<group>"; };
+		DE8D4F9F2907DD3C008E3ED8 /* OCRSEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRSEAPI.swift; sourceTree = "<group>"; };
+		DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRegulaAPI.swift; sourceTree = "<group>"; };
+		DEB8229229AF3F62002C4C4B /* LunaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LERootViewController.swift; sourceTree = "<group>"; };
+		DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+LunaExample.swift"; sourceTree = "<group>"; };
+		DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LERegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7E2B1DF725419E5F00DE728E /* Frameworks */ = {
+		4C11336F2B0B6F2E0026A118 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEC81A72A0BB71C00757AD2 /* LunaCore.xcframework in Frameworks */,
-				4CEC81A92A0BB71C00757AD2 /* LunaWeb.xcframework in Frameworks */,
-				4CEC81A12A0BB71C00757AD2 /* flower.xcframework in Frameworks */,
-				4CEC81AB2A0BB71C00757AD2 /* tsdk.xcframework in Frameworks */,
-				4CEC81AE2A0BB73500757AD2 /* LunaAuth.xcframework in Frameworks */,
-				4CEC81A32A0BB71C00757AD2 /* fsdk.xcframework in Frameworks */,
-				4CEC81A52A0BB71C00757AD2 /* LunaCamera.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E020BE425F8B629007E7ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D73B25F8B6CD0025C2CD /* libsmartid-universal.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E392AF226087A3D00D42E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE7901E7298BD519007F8569 /* RegulaCommon.xcframework in Frameworks */,
+				DE7901E3298BD519007F8569 /* DocumentReader.xcframework in Frameworks */,
+				4CD390B32B0CB561000CDFA6 /* OCRDBrain.framework in Frameworks */,
+				7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB5D89E25F8BC1A0025C2CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE7901E1298BD297007F8569 /* RegulaCommon.xcframework in Frameworks */,
+				DE7901DC298BD291007F8569 /* DocumentReader.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEB8226929AF3F62002C4C4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9755ACB92BD919C8005591F1 /* LunaWeb.xcframework in Frameworks */,
+				4C3873842A0516AD0020EDA0 /* flower.xcframework in Frameworks */,
+				DEB8226D29AF3F62002C4C4B /* RegulaCommon.xcframework in Frameworks */,
+				9755ACB52BD919C5005591F1 /* LunaCamera.xcframework in Frameworks */,
+				DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */,
+				9755ACB72BD919C6005591F1 /* LunaCore.xcframework in Frameworks */,
+				4CD390B02B0CB524000CDFA6 /* OCRDBrain.framework in Frameworks */,
+				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
+				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
+				4C3873862A0516AD0020EDA0 /* fsdk.xcframework in Frameworks */,
+				4C3873882A0516AD0020EDA0 /* tsdk.xcframework in Frameworks */,
+				DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4CEC81B32A0BB7E200757AD2 /* ServerStub */ = {
+		4C1133732B0B6F2E0026A118 /* OCRDBrain */ = {
 			isa = PBXGroup;
 			children = (
-				4CEC81B42A0BB7E200757AD2 /* ServerMock.swift */,
+				4C1133DD2B0B6F770026A118 /* DBrainDocumentFlow */,
+				4C1133742B0B6F2E0026A118 /* OCRDBrain.h */,
 			);
-			path = ServerStub;
+			path = OCRDBrain;
 			sourceTree = "<group>";
 		};
-		7E0390F22563D1B000453D52 /* Eula */ = {
+		4C1133DD2B0B6F770026A118 /* DBrainDocumentFlow */ = {
 			isa = PBXGroup;
 			children = (
-				7E0390F32563D1CB00453D52 /* EulaViewController.swift */,
+				4C1133DE2B0B6F770026A118 /* Classes */,
 			);
-			path = Eula;
+			name = DBrainDocumentFlow;
+			path = DBrainDocumentFlow/DBrainDocumentFlow;
+			sourceTree = "<group>";
+		};
+		4C1133DE2B0B6F770026A118 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133DF2B0B6F770026A118 /* Document Flow */,
+				4C1133FA2B0B6F770026A118 /* Upload Failure */,
+				4C1133FE2B0B6F770026A118 /* Shared */,
+				4C11340E2B0B6F780026A118 /* Upload Success */,
+				4C1134122B0B6F780026A118 /* Flow */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4C1133DF2B0B6F770026A118 /* Document Flow */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133E02B0B6F770026A118 /* PassportFlow.swift */,
+				4C1133E12B0B6F770026A118 /* Document */,
+				4C1133F82B0B6F770026A118 /* DocumentFlow.swift */,
+				4C1133F92B0B6F770026A118 /* DriverLicenceFlow.swift */,
+			);
+			path = "Document Flow";
+			sourceTree = "<group>";
+		};
+		4C1133E12B0B6F770026A118 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				4CBDA4A42B0F743200071576 /* DocumentSelectViewController.swift */,
+				4C1133E22B0B6F770026A118 /* DocumentResultViewController.swift */,
+				4C1133E42B0B6F770026A118 /* Loader */,
+				4C1133E62B0B6F770026A118 /* View */,
+				4C1133F62B0B6F770026A118 /* DocumentViewController.swift */,
+				4C1133F72B0B6F770026A118 /* DocumentDropDownViewController.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		4C1133E42B0B6F770026A118 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133E52B0B6F770026A118 /* DocumentLoader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		4C1133E62B0B6F770026A118 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133E72B0B6F770026A118 /* DocumentHeaderView.swift */,
+				4C1133E82B0B6F770026A118 /* GeneralDocumentView.swift */,
+				4C1133E92B0B6F770026A118 /* DocumentDropDownView.swift */,
+				4C1133EA2B0B6F770026A118 /* Cell */,
+				4C1133EC2B0B6F770026A118 /* DocumentitemView.swift */,
+				4C1133ED2B0B6F770026A118 /* DocumentSelectView.swift */,
+				4C1133EE2B0B6F770026A118 /* Subview */,
+				4C1133F32B0B6F770026A118 /* Base */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C1133EA2B0B6F770026A118 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133EB2B0B6F770026A118 /* DocumentDropDownCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4C1133EE2B0B6F770026A118 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133EF2B0B6F770026A118 /* CameraPhotoButton.swift */,
+				4C1133F02B0B6F770026A118 /* DocumentSelectMenuView.swift */,
+				4C1133F12B0B6F770026A118 /* DocumentDropDownButtonView.swift */,
+				4C1133F22B0B6F770026A118 /* CameraTextZoneView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		4C1133F32B0B6F770026A118 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133F42B0B6F770026A118 /* BaseDocumentView.swift */,
+				4C1133F52B0B6F770026A118 /* BaseDocumentResultView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4C1133FA2B0B6F770026A118 /* Upload Failure */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133FB2B0B6F770026A118 /* UploadFailureViewController.swift */,
+				4C1133FC2B0B6F770026A118 /* View */,
+			);
+			path = "Upload Failure";
+			sourceTree = "<group>";
+		};
+		4C1133FC2B0B6F770026A118 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133FD2B0B6F770026A118 /* UploadFailureView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C1133FE2B0B6F770026A118 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4C1133FF2B0B6F780026A118 /* Extension */,
+				4C1134042B0B6F780026A118 /* View */,
+				4C1134082B0B6F780026A118 /* Service */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4C1133FF2B0B6F780026A118 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4C1134002B0B6F780026A118 /* UIViewController+ChildViewController.swift */,
+				4C1134012B0B6F780026A118 /* CGPoint+Convert.swift */,
+				4C1134022B0B6F780026A118 /* Data+String.swift */,
+				4C1134032B0B6F780026A118 /* UIImage+compressTo.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4C1134042B0B6F780026A118 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C1134052B0B6F780026A118 /* CameraPreviewView.swift */,
+				4C1134062B0B6F780026A118 /* HistogramView.swift */,
+				4C1134072B0B6F780026A118 /* LoadingButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C1134082B0B6F780026A118 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4C1134092B0B6F780026A118 /* Handler */,
+				4C11340D2B0B6F780026A118 /* CameraService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4C1134092B0B6F780026A118 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				4C11340A2B0B6F780026A118 /* CameraHandler.swift */,
+				4C11340B2B0B6F780026A118 /* CameraUtils.swift */,
+				4C11340C2B0B6F780026A118 /* CameraTextHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		4C11340E2B0B6F780026A118 /* Upload Success */ = {
+			isa = PBXGroup;
+			children = (
+				4C11340F2B0B6F780026A118 /* View */,
+				4C1134112B0B6F780026A118 /* UploadSuccessViewController.swift */,
+			);
+			path = "Upload Success";
+			sourceTree = "<group>";
+		};
+		4C11340F2B0B6F780026A118 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C1134102B0B6F780026A118 /* UploadSuccessView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C1134122B0B6F780026A118 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				4C1134132B0B6F780026A118 /* FlowProtocol.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		4C33589C2AEBD37F00BFC880 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */,
+				4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */,
+				DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */,
+				7ECA7D2625481EAE001F89EA /* Error+LunaExample.swift */,
+				7ED2A5962546C3B3004E3CA7 /* String+LunaExample.swift */,
+				4C06D8942AE96E0A00C6603E /* UIViewController+LunaExample.swift */,
+				977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C43B2992BA9CDFC00C79C9D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */,
+				DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */,
+				4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */,
+				97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		4CC3484E2B7B672700B04A1C /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */,
+				4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */,
+				4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */,
+				4C43B2932BA9B8FC00C79C9D /* LEEnumCell.swift */,
+				DE648A63299BF0AD00BAE63D /* LELabelledCell.swift */,
+				4CD25F582AE69F1B0019EE88 /* LEPhotosCell.swift */,
+				4CD25F592AE69F1B0019EE88 /* LEOCRFieldCell.swift */,
+				DE648A64299BF0AD00BAE63D /* LELabelledToggleCell.swift */,
+				4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */,
+				4CD25F562AE69F1B0019EE88 /* LEOCRInstructionsView.swift */,
+				7EB59A8926C155CE005AC712 /* LETabButton.swift */,
+				7ED2A5702546C0F0004E3CA7 /* LETextField.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		7E020BE825F8B629007E7ADE /* OCRSE */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D75D25F8B7A80025C2CD /* SESmartID */,
+				7EB5D72C25F8B6CD0025C2CD /* Core */,
+				7E020BE925F8B629007E7ADE /* OCRSE.h */,
+				7E020BEA25F8B629007E7ADE /* Info.plist */,
+			);
+			path = OCRSE;
 			sourceTree = "<group>";
 		};
 		7E2B1DFB25419E5F00DE728E /* LunaExample */ = {
 			isa = PBXGroup;
 			children = (
-				4CEC81B32A0BB7E200757AD2 /* ServerStub */,
-				7ED2A5B92546D0B4004E3CA7 /* UserStories */,
-				7ED2A5692546C0C7004E3CA7 /* Helpers */,
-				7E2B1DFC25419E5F00DE728E /* AppDelegate.swift */,
-				7E2B1E0225419E5F00DE728E /* Main.storyboard */,
+				4C33589C2AEBD37F00BFC880 /* Extensions */,
+				4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */,
+				4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */,
+				4CC3484E2B7B672700B04A1C /* UIComponents */,
+				4C43B2992BA9CDFC00C79C9D /* Settings */,
+				4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */,
+				4C06D8922AE8216800C6603E /* LEResultViewController.swift */,
+				4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */,
+				DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */,
+				7E0390F32563D1CB00453D52 /* LEEulaViewController.swift */,
+				DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */,
+				7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */,
+				4C06D8962AE9895200C6603E /* LEOCRViewController.swift */,
+				4C06D8982AEA823600C6603E /* LEOCRResultsViewController.swift */,
+				4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */,
+				DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */,
+				7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */,
+				7ED2A5772546C101004E3CA7 /* Colors.swift */,
+				7ED2A57D2546C12A004E3CA7 /* Fonts.swift */,
+				4CD25F3D2AE69ED10019EE88 /* LunaExample-Info.plist */,
 				7E2B1E0525419E6100DE728E /* Assets.xcassets */,
 				7E2B1E0725419E6100DE728E /* LaunchScreen.storyboard */,
 				7ED2A5902546C340004E3CA7 /* EtelkaMediumProRegular.ttf */,
 				7ECA7DC6254ACCE5001F89EA /* Localizable.strings */,
 				7E2B1E0A25419E6100DE728E /* Info.plist */,
+				7ED5A7A0267CB8940090F5CF /* regula.license */,
 				7E039118256525F300453D52 /* InfoPlist.strings */,
 			);
 			path = LunaExample;
+			sourceTree = "<group>";
+		};
+		7E392AF626087A3D00D42E15 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				DE7555CF29A7793300E58DEB /* OCRAPI */,
+				DE7555CC29A778F300E58DEB /* DocumentType */,
+				DE7555D429A77A0300E58DEB /* OCRResult */,
+				7E392AF726087A3D00D42E15 /* OCR.h */,
+				7E392B1226087A6C00D42E15 /* OCRService.swift */,
+				7E392BFA260B40F400D42E15 /* OCRServiceDelegate.swift */,
+				7E392B40260888E800D42E15 /* Extensions */,
+				7E392AF826087A3D00D42E15 /* Info.plist */,
+				7E632801261C56260051B391 /* doctypesDescriptions.csv */,
+				C7D96B3A201270BD122975EA /* OCRError.swift */,
+				7E6AC3C0263038B9000E83A9 /* Localizable.strings */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		7E392B40260888E800D42E15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C11343E2B0BAFD30026A118 /* RecognitionField+Ext.swift */,
+				7E392B41260888F700D42E15 /* SmartIDStringField+Ext.swift */,
+				7E6327E6261C4E7F0051B391 /* SmartIDImageField+Ext.swift */,
+				7E392BC02608A06D00D42E15 /* DocumentReaderTextField+Ext.swift */,
+				7E6327DD261C4C190051B391 /* DocumentReaderGraphicField+Ext.swift */,
+				C7D962B92BB77792B6E4586F /* String+Localize.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7E3BED59252DF4D400520E65 = {
 			isa = PBXGroup;
 			children = (
 				7E2B1DFB25419E5F00DE728E /* LunaExample */,
+				7E020BE825F8B629007E7ADE /* OCRSE */,
+				7EB5D8A225F8BC1A0025C2CD /* OCRREGULA */,
+				7E392AF626087A3D00D42E15 /* OCR */,
+				4C1133732B0B6F2E0026A118 /* OCRDBrain */,
 				7E3BED63252DF4D400520E65 /* Products */,
 				7E3BED96252DF5A600520E65 /* Frameworks */,
 			);
@@ -195,7 +885,11 @@
 		7E3BED63252DF4D400520E65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E2B1DFA25419E5F00DE728E /* LunaExample.app */,
+				7E020BE725F8B629007E7ADE /* OCRSE.framework */,
+				7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */,
+				7E392AF526087A3D00D42E15 /* OCR.framework */,
+				DEB8229229AF3F62002C4C4B /* LunaExample.app */,
+				4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,13 +897,14 @@
 		7E3BED96252DF5A600520E65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4CEC81AD2A0BB73500757AD2 /* LunaAuth.xcframework */,
-				4CEC81872A0BB02800757AD2 /* flower.xcframework */,
-				4CEC81832A0BB02700757AD2 /* fsdk.xcframework */,
-				4CEC81892A0BB02800757AD2 /* LunaCamera.xcframework */,
-				4CEC818B2A0BB02800757AD2 /* LunaCore.xcframework */,
-				4CEC81882A0BB02800757AD2 /* LunaWeb.xcframework */,
-				4CEC81852A0BB02800757AD2 /* tsdk.xcframework */,
+				9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */,
+				9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */,
+				9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */,
+				4C3873752A05169C0020EDA0 /* flower.xcframework */,
+				4C3873762A05169C0020EDA0 /* fsdk.xcframework */,
+				4C3873772A05169D0020EDA0 /* tsdk.xcframework */,
+				DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */,
+				DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */,
 				7E776538253589380093D2D8 /* QuartzCore.framework */,
 				7E776534253581200093D2D8 /* CoreMedia.framework */,
 				7E7765302535810C0093D2D8 /* CoreVideo.framework */,
@@ -219,115 +914,422 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7ED2A5692546C0C7004E3CA7 /* Helpers */ = {
+		7EACCC5E26F86B66009D3C79 /* OptionalElements */ = {
 			isa = PBXGroup;
 			children = (
-				7ED2A56A2546C0CE004E3CA7 /* Controls */,
-				7ED2A5892546C164004E3CA7 /* Extensions */,
-				7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */,
-				7ED2A5772546C101004E3CA7 /* Colors.swift */,
-				7ED2A57D2546C12A004E3CA7 /* Fonts.swift */,
+				7EACCC5F26F86B66009D3C79 /* ImagePickerFromSmartIDViewController.swift */,
+				7EACCC6026F86B66009D3C79 /* DocTypeLabel.swift */,
+			);
+			path = OptionalElements;
+			sourceTree = "<group>";
+		};
+		7EB5D72C25F8B6CD0025C2CD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D74725F8B6DA0025C2CD /* data-zip */,
+				7EB5D72D25F8B6CD0025C2CD /* include */,
+				7EB5D73325F8B6CD0025C2CD /* lib */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7EB5D72D25F8B6CD0025C2CD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D72E25F8B6CD0025C2CD /* smartIdEngine */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		7EB5D72E25F8B6CD0025C2CD /* smartIdEngine */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D72F25F8B6CD0025C2CD /* smartid_result.h */,
+				7EB5D73025F8B6CD0025C2CD /* smartid_engine.h */,
+				7EB5D73125F8B6CD0025C2CD /* smartid_processor.h */,
+				7EB5D73225F8B6CD0025C2CD /* smartid_common.h */,
+			);
+			path = smartIdEngine;
+			sourceTree = "<group>";
+		};
+		7EB5D73325F8B6CD0025C2CD /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D73425F8B6CD0025C2CD /* libsmartid-universal.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		7EB5D75D25F8B7A80025C2CD /* SESmartID */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D75E25F8B7A80025C2CD /* Core */,
+				7EB5D76525F8B7A80025C2CD /* Controller */,
+				7EB5D78325F8B7A80025C2CD /* ObjCwrapped */,
+				7EB5D7A325F8B7A80025C2CD /* SmartID-Bridging-Header.h */,
+				7EB5D7A425F8B7A80025C2CD /* Media */,
+			);
+			path = SESmartID;
+			sourceTree = "<group>";
+		};
+		7EB5D75E25F8B7A80025C2CD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D75F25F8B7A80025C2CD /* SmartIDRecognitionCore.h */,
+				7EB5D76025F8B7A80025C2CD /* SmartIDVideoProcessingEngine.mm */,
+				7EB5D76125F8B7A80025C2CD /* SmartIDRecognitionCore.mm */,
+				7EB5D76225F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.mm */,
+				7EB5D76325F8B7A80025C2CD /* SmartIDVideoProcessingEngine.h */,
+				7EB5D76425F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7EB5D76525F8B7A80025C2CD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7EACCC5E26F86B66009D3C79 /* OptionalElements */,
+				7EB5D76625F8B7A80025C2CD /* SmartIDViewController.mm */,
+				7EB5D76725F8B7A80025C2CD /* ObjCPP */,
+				7EB5D76A25F8B7A80025C2CD /* SmartIDViewController+Protected.m */,
+				7EB5D76E25F8B7A80025C2CD /* Swift */,
+				7EB5D77125F8B7A80025C2CD /* SmartIDViewController.h */,
+				7EB5D77225F8B7A80025C2CD /* View */,
+				7EB5D77B25F8B7A80025C2CD /* CoreWrapper */,
+				7EB5D78025F8B7A80025C2CD /* Helpers */,
+				7EB5D78225F8B7A80025C2CD /* SmartIDViewController+Protected.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7EB5D76725F8B7A80025C2CD /* ObjCPP */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D76825F8B7A80025C2CD /* SmartIDViewControllerObjCPP.h */,
+				7EB5D76925F8B7A80025C2CD /* SmartIDViewControllerObjCPP.mm */,
+			);
+			path = ObjCPP;
+			sourceTree = "<group>";
+		};
+		7EB5D76E25F8B7A80025C2CD /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D76F25F8B7A80025C2CD /* SmartIDViewControllerSwift.h */,
+				7EB5D77025F8B7A80025C2CD /* SmartIDViewControllerSwift.mm */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		7EB5D77225F8B7A80025C2CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D77325F8B7A80025C2CD /* SmartIDQuadrangleView.m */,
+				7EB5D77425F8B7A80025C2CD /* SmartIDRoiView.m */,
+				7EB5D77525F8B7A80025C2CD /* RoiHelper.h */,
+				7EB5D77625F8B7A80025C2CD /* SmartIDCaptureButton.h */,
+				7EB5D77725F8B7A80025C2CD /* SmartIDRoiView.h */,
+				7EB5D77825F8B7A80025C2CD /* SmartIDQuadrangleView.h */,
+				7EB5D77925F8B7A80025C2CD /* SmartIDCaptureButton.m */,
+				7EB5D77A25F8B7A80025C2CD /* RoiHelper.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7EB5D77B25F8B7A80025C2CD /* CoreWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				7EB5D77C25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.mm */,
+				7EB5D77D25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.mm */,
+				7EB5D77E25F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.h */,
+				7EB5D77F25F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.h */,
+			);
+			path = CoreWrapper;
+			sourceTree = "<group>";
+		};
+		7EB5D78025F8B7A80025C2CD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		7ED2A56A2546C0CE004E3CA7 /* Controls */ = {
+		7EB5D78325F8B7A80025C2CD /* ObjCwrapped */ = {
 			isa = PBXGroup;
 			children = (
-				7ED2A5D82546FE52004E3CA7 /* ActivityIndicator.swift */,
-				7EB59A8926C155CE005AC712 /* TabButton.swift */,
-				7ED2A5702546C0F0004E3CA7 /* TextField.swift */,
-				7E03916825667C9A00453D52 /* PopupView.swift */,
+				7EB5D78425F8B7A80025C2CD /* SmartIDSegmentationResult.h */,
+				7EB5D78525F8B7A80025C2CD /* SmartIDRecognitionResult.h */,
+				7EB5D78625F8B7A80025C2CD /* SmartIDImageField.h */,
+				7EB5D78725F8B7A80025C2CD /* SmartIDQuadrangle.h */,
+				7EB5D78825F8B7A80025C2CD /* SmartIDStringField.h */,
+				7EB5D78925F8B7A80025C2CD /* Implementation */,
+				7EB5D79E25F8B7A80025C2CD /* SmartIDProcessingFeedback.h */,
+				7EB5D79F25F8B7A80025C2CD /* SmartIDForensicField.h */,
+				7EB5D7A025F8B7A80025C2CD /* SmartIDSessionSettings.h */,
+				7EB5D7A125F8B7A80025C2CD /* SmartIDImage.h */,
+				7EB5D7A225F8B7A80025C2CD /* SmartIDMatchResult.h */,
 			);
-			path = Controls;
+			path = ObjCwrapped;
 			sourceTree = "<group>";
 		};
-		7ED2A5892546C164004E3CA7 /* Extensions */ = {
+		7EB5D78925F8B7A80025C2CD /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				7ED2A5972546C3B3004E3CA7 /* CALayer+Xib.swift */,
-				7ED2A5982546C3B3004E3CA7 /* ScreenInch.swift */,
-				7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */,
-				7ED2A5962546C3B3004E3CA7 /* String+Validation.swift */,
-				7ED2A5992546C3B3004E3CA7 /* UILabel+Attributed.swift */,
-				7ED2A5A82546CB64004E3CA7 /* UIButton+Attributed.swift */,
-				7ED2A58A2546C16E004E3CA7 /* UIColor+Hex.swift */,
-				7EE1D3D72547163C00695F89 /* UIViewController+Ext.swift */,
-				7ECA7D2625481EAE001F89EA /* Error+Ext.swift */,
-				DEDE8C1B29C2CCE0006FFF7F /* UIApplication+Ext.swift */,
+				7EB5D78A25F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.mm */,
+				7EB5D78B25F8B7A80025C2CD /* SmartIDForensicField+CPP.h */,
+				7EB5D78C25F8B7A80025C2CD /* SmartIDStringField+CPP.mm */,
+				7EB5D78D25F8B7A80025C2CD /* SmartIDSessionSettings+CPP.mm */,
+				7EB5D78E25F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.h */,
+				7EB5D78F25F8B7A80025C2CD /* SmartIDImage+CPP.h */,
+				7EB5D79025F8B7A80025C2CD /* SmartIDSessionSettings+CPP.h */,
+				7EB5D79125F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.h */,
+				7EB5D79225F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.mm */,
+				7EB5D79325F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.mm */,
+				7EB5D79425F8B7A80025C2CD /* SmartIDImageField+CPP.mm */,
+				7EB5D79525F8B7A80025C2CD /* SmartIDImage+CPP.mm */,
+				7EB5D79625F8B7A80025C2CD /* SmartIDMatchResult+CPP.mm */,
+				7EB5D79725F8B7A80025C2CD /* SmartIDQuadrangle+CPP.mm */,
+				7EB5D79825F8B7A80025C2CD /* SmartIDForensicField+CPP.mm */,
+				7EB5D79925F8B7A80025C2CD /* SmartIDStringField+CPP.h */,
+				7EB5D79A25F8B7A80025C2CD /* SmartIDQuadrangle+CPP.h */,
+				7EB5D79B25F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.h */,
+				7EB5D79C25F8B7A80025C2CD /* SmartIDImageField+CPP.h */,
+				7EB5D79D25F8B7A80025C2CD /* SmartIDMatchResult+CPP.h */,
 			);
-			path = Extensions;
+			path = Implementation;
 			sourceTree = "<group>";
 		};
-		7ED2A5AE2546CBCA004E3CA7 /* Auth */ = {
+		7EB5D7A425F8B7A80025C2CD /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				7ED2A5AF2546CBEF004E3CA7 /* AuthViewController.swift */,
+				7EB5D7A525F8B7A80025C2CD /* SmartIDVideoPreviewView.h */,
+				7EB5D7A625F8B7A80025C2CD /* SmartIDCameraManager.h */,
+				7EB5D7A725F8B7A80025C2CD /* SmartIDVideoPreviewView.m */,
+				7EB5D7A825F8B7A80025C2CD /* SmartIDCameraManager.m */,
 			);
-			path = Auth;
+			path = Media;
 			sourceTree = "<group>";
 		};
-		7ED2A5B92546D0B4004E3CA7 /* UserStories */ = {
+		7EB5D8A225F8BC1A0025C2CD /* OCRREGULA */ = {
 			isa = PBXGroup;
 			children = (
-				DE648A62299BF0AD00BAE63D /* Settings */,
-				7E0390F22563D1B000453D52 /* Eula */,
-				7ED2A5D12546D834004E3CA7 /* Registration */,
-				7ED2A5AE2546CBCA004E3CA7 /* Auth */,
-				7EF96C5925595B86000DCB43 /* Result */,
-				DED402F0299932F900847BBE /* ExampleUICustomizer.swift */,
+				7EB5D8A325F8BC1A0025C2CD /* OCRREGULA.h */,
+				7EB5D8CF25F8BF4A0025C2CD /* Regula.swift */,
+				7EB5D8DC25F8C2620025C2CD /* Error.swift */,
+				7E64C78D263C144000F3CBC7 /* String+Localizable.swift */,
+				7E64C793263C1C9F00F3CBC7 /* Localizable.strings */,
+				7EB5D8A425F8BC1A0025C2CD /* Info.plist */,
 			);
-			path = UserStories;
+			path = OCRREGULA;
 			sourceTree = "<group>";
 		};
-		7ED2A5D12546D834004E3CA7 /* Registration */ = {
+		DE7555CC29A778F300E58DEB /* DocumentType */ = {
 			isa = PBXGroup;
 			children = (
-				7ED2A5D22546D85C004E3CA7 /* RegistrationViewController.swift */,
+				7E6327F8261C54CA0051B391 /* DocumentType.swift */,
+				DE7555CA29A778D800E58DEB /* SEDocumentType.swift */,
+				DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */,
+				4C11343C2B0B73960026A118 /* DBrainDocumentType.swift */,
 			);
-			path = Registration;
+			path = DocumentType;
 			sourceTree = "<group>";
 		};
-		7EF96C5925595B86000DCB43 /* Result */ = {
+		DE7555CF29A7793300E58DEB /* OCRAPI */ = {
 			isa = PBXGroup;
 			children = (
-				7EF96C5A25595BA0000DCB43 /* SuccessViewController.swift */,
-				7EF96C6425595BA9000DCB43 /* FailViewController.swift */,
+				DE7555CD29A7791D00E58DEB /* OCRAPI.swift */,
+				DE8D4F9F2907DD3C008E3ED8 /* OCRSEAPI.swift */,
+				DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */,
+				4C1134382B0B70A20026A118 /* OCRDBrainAPI.swift */,
 			);
-			path = Result;
+			path = OCRAPI;
 			sourceTree = "<group>";
 		};
-		DE648A62299BF0AD00BAE63D /* Settings */ = {
+		DE7555D429A77A0300E58DEB /* OCRResult */ = {
 			isa = PBXGroup;
 			children = (
-				DE648A63299BF0AD00BAE63D /* SettingsVersionCell.swift */,
-				DE648A64299BF0AD00BAE63D /* SettingsLivenessCell.swift */,
-				DE648A65299BF0AD00BAE63D /* SettingsViewController.swift */,
+				7E392B512608893E00D42E15 /* OCRResult.swift */,
+				DE7555D229A779BF00E58DEB /* OCRRegulaResult.swift */,
+				4C11343A2B0B72FB0026A118 /* OCRDBrainResult.swift */,
+				DE7555D029A7798C00E58DEB /* OCRSEResult.swift */,
 			);
-			path = Settings;
+			path = OCRResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4C11336D2B0B6F2E0026A118 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C1133752B0B6F2E0026A118 /* OCRDBrain.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E020BE225F8B629007E7ADE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D7C225F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.h in Headers */,
+				7EB5D7DE25F8B7A80025C2CD /* SmartIDMatchResult+CPP.h in Headers */,
+				7EB5D7CF25F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.h in Headers */,
+				7EB5D7C325F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.h in Headers */,
+				7EB5D7CA25F8B7A80025C2CD /* SmartIDStringField.h in Headers */,
+				7EB5D7DC25F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.h in Headers */,
+				7EB5D7C825F8B7A80025C2CD /* SmartIDImageField.h in Headers */,
+				7EB5D7DA25F8B7A80025C2CD /* SmartIDStringField+CPP.h in Headers */,
+				7EB5D7E625F8B7A80025C2CD /* SmartIDCameraManager.h in Headers */,
+				7EB5D73A25F8B6CD0025C2CD /* smartid_common.h in Headers */,
+				7EB5D7D125F8B7A80025C2CD /* SmartIDSessionSettings+CPP.h in Headers */,
+				7EB5D7BD25F8B7A80025C2CD /* SmartIDQuadrangleView.h in Headers */,
+				7EB5D7E425F8B7A80025C2CD /* SmartID-Bridging-Header.h in Headers */,
+				7EB5D7C925F8B7A80025C2CD /* SmartIDQuadrangle.h in Headers */,
+				7EB5D7C725F8B7A80025C2CD /* SmartIDRecognitionResult.h in Headers */,
+				7EB5D7DB25F8B7A80025C2CD /* SmartIDQuadrangle+CPP.h in Headers */,
+				7EB5D7BC25F8B7A80025C2CD /* SmartIDRoiView.h in Headers */,
+				7EB5D7E225F8B7A80025C2CD /* SmartIDImage.h in Headers */,
+				7EB5D7C525F8B7A80025C2CD /* SmartIDViewController+Protected.h in Headers */,
+				7EB5D73925F8B6CD0025C2CD /* smartid_processor.h in Headers */,
+				7EB5D7B525F8B7A80025C2CD /* SmartIDViewControllerSwift.h in Headers */,
+				7EB5D73725F8B6CD0025C2CD /* smartid_result.h in Headers */,
+				7EB5D7B025F8B7A80025C2CD /* SmartIDViewControllerObjCPP.h in Headers */,
+				7EB5D7E025F8B7A80025C2CD /* SmartIDForensicField.h in Headers */,
+				7EB5D7D225F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.h in Headers */,
+				7EB5D7D025F8B7A80025C2CD /* SmartIDImage+CPP.h in Headers */,
+				7EB5D73825F8B6CD0025C2CD /* smartid_engine.h in Headers */,
+				7EB5D7DF25F8B7A80025C2CD /* SmartIDProcessingFeedback.h in Headers */,
+				7EB5D7DD25F8B7A80025C2CD /* SmartIDImageField+CPP.h in Headers */,
+				7EB5D7CC25F8B7A80025C2CD /* SmartIDForensicField+CPP.h in Headers */,
+				7EB5D7E125F8B7A80025C2CD /* SmartIDSessionSettings.h in Headers */,
+				7EB5D7B725F8B7A80025C2CD /* SmartIDViewController.h in Headers */,
+				7EB5D7E525F8B7A80025C2CD /* SmartIDVideoPreviewView.h in Headers */,
+				7EB5D7BB25F8B7A80025C2CD /* SmartIDCaptureButton.h in Headers */,
+				7EB5D7C625F8B7A80025C2CD /* SmartIDSegmentationResult.h in Headers */,
+				7EB5D7A925F8B7A80025C2CD /* SmartIDRecognitionCore.h in Headers */,
+				7E020BEB25F8B629007E7ADE /* OCRSE.h in Headers */,
+				7EB5D7E325F8B7A80025C2CD /* SmartIDMatchResult.h in Headers */,
+				7EB5D7AE25F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.h in Headers */,
+				7EB5D7AD25F8B7A80025C2CD /* SmartIDVideoProcessingEngine.h in Headers */,
+				7EB5D7BA25F8B7A80025C2CD /* RoiHelper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E392AF026087A3D00D42E15 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E392AF926087A3D00D42E15 /* OCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB5D89C25F8BC1A0025C2CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D8A525F8BC1A0025C2CD /* OCRREGULA.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		7E2B1DF925419E5F00DE728E /* LunaExample */ = {
+		4C1133712B0B6F2E0026A118 /* OCRDBrain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E2B1E0B25419E6100DE728E /* Build configuration list for PBXNativeTarget "LunaExample" */;
+			buildConfigurationList = 4C11337C2B0B6F2E0026A118 /* Build configuration list for PBXNativeTarget "OCRDBrain" */;
 			buildPhases = (
-				7E2B1DF625419E5F00DE728E /* Sources */,
-				7E2B1DF725419E5F00DE728E /* Frameworks */,
-				7E2B1DF825419E5F00DE728E /* Resources */,
-				DE9EA04D29ED6651008A41FA /* Embed Frameworks */,
+				4C11336D2B0B6F2E0026A118 /* Headers */,
+				4C11336E2B0B6F2E0026A118 /* Sources */,
+				4C11336F2B0B6F2E0026A118 /* Frameworks */,
+				4C1133702B0B6F2E0026A118 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = OCRDBrain;
+			productName = OCRDBrain;
+			productReference = 4C1133722B0B6F2E0026A118 /* OCRDBrain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7E020BE625F8B629007E7ADE /* OCRSE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E020BEC25F8B629007E7ADE /* Build configuration list for PBXNativeTarget "OCRSE" */;
+			buildPhases = (
+				7E020BE225F8B629007E7ADE /* Headers */,
+				7E020BE325F8B629007E7ADE /* Sources */,
+				7E020BE425F8B629007E7ADE /* Frameworks */,
+				7E020BE525F8B629007E7ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCRSE;
+			productName = OCRSE;
+			productReference = 7E020BE725F8B629007E7ADE /* OCRSE.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7E392AF426087A3D00D42E15 /* OCR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E392AFC26087A3D00D42E15 /* Build configuration list for PBXNativeTarget "OCR" */;
+			buildPhases = (
+				7E392AF026087A3D00D42E15 /* Headers */,
+				7E392AF126087A3D00D42E15 /* Sources */,
+				7E392AF226087A3D00D42E15 /* Frameworks */,
+				7E392AF326087A3D00D42E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7ED5A796267CA2F10090F5CF /* PBXTargetDependency */,
+				4CD390B62B0CB561000CDFA6 /* PBXTargetDependency */,
+			);
+			name = OCR;
+			productName = OCR;
+			productReference = 7E392AF526087A3D00D42E15 /* OCR.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EB5D8A025F8BC1A0025C2CD /* OCRREGULA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EB5D8A625F8BC1A0025C2CD /* Build configuration list for PBXNativeTarget "OCRREGULA" */;
+			buildPhases = (
+				7EB5D89C25F8BC1A0025C2CD /* Headers */,
+				7EB5D89D25F8BC1A0025C2CD /* Sources */,
+				7EB5D89E25F8BC1A0025C2CD /* Frameworks */,
+				7EB5D89F25F8BC1A0025C2CD /* Resources */,
+				7EB5D8D625F8C0730025C2CD /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCRREGULA;
+			productName = OCRREGULA;
+			productReference = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DEB8223D29AF3F62002C4C4B /* LunaExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEB8228F29AF3F62002C4C4B /* Build configuration list for PBXNativeTarget "LunaExample" */;
+			buildPhases = (
+				DEB8224C29AF3F62002C4C4B /* Sources */,
+				DEB8226929AF3F62002C4C4B /* Frameworks */,
+				DEB8227829AF3F62002C4C4B /* Resources */,
+				DEB8228029AF3F62002C4C4B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEB8224629AF3F62002C4C4B /* PBXTargetDependency */,
+				DEB8224A29AF3F62002C4C4B /* PBXTargetDependency */,
+				4C1133772B0B6F2E0026A118 /* PBXTargetDependency */,
+				4CD390B22B0CB524000CDFA6 /* PBXTargetDependency */,
+			);
 			name = LunaExample;
 			packageProductDependencies = (
 			);
 			productName = LunaExample;
-			productReference = 7E2B1DFA25419E5F00DE728E /* LunaExample.app */;
+			productReference = DEB8229229AF3F62002C4C4B /* LunaExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -339,8 +1341,20 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					7E2B1DF925419E5F00DE728E = {
-						CreatedOnToolsVersion = 12.1;
+					4C1133712B0B6F2E0026A118 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					7E020BE625F8B629007E7ADE = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1250;
+					};
+					7E392AF426087A3D00D42E15 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+					7EB5D8A025F8BC1A0025C2CD = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -360,64 +1374,276 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E2B1DF925419E5F00DE728E /* LunaExample */,
+				DEB8223D29AF3F62002C4C4B /* LunaExample */,
+				7E020BE625F8B629007E7ADE /* OCRSE */,
+				7EB5D8A025F8BC1A0025C2CD /* OCRREGULA */,
+				7E392AF426087A3D00D42E15 /* OCR */,
+				4C1133712B0B6F2E0026A118 /* OCRDBrain */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7E2B1DF825419E5F00DE728E /* Resources */ = {
+		4C1133702B0B6F2E0026A118 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ECA7DC4254ACCE5001F89EA /* Localizable.strings in Resources */,
-				7E039116256525F300453D52 /* InfoPlist.strings in Resources */,
-				7ED2A5912546C340004E3CA7 /* EtelkaMediumProRegular.ttf in Resources */,
-				7E2B1E0925419E6100DE728E /* LaunchScreen.storyboard in Resources */,
-				7E2B1E0625419E6100DE728E /* Assets.xcassets in Resources */,
-				7E2B1E0425419E5F00DE728E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E020BE525F8B629007E7ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D74825F8B6DA0025C2CD /* data-zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E392AF326087A3D00D42E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E632802261C56260051B391 /* doctypesDescriptions.csv in Resources */,
+				7E6AC3BE263038B9000E83A9 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB5D89F25F8BC1A0025C2CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E64C791263C1C9F00F3CBC7 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEB8227829AF3F62002C4C4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */,
+				DEB8227A29AF3F62002C4C4B /* regula.license in Resources */,
+				DEB8227B29AF3F62002C4C4B /* InfoPlist.strings in Resources */,
+				DEB8227C29AF3F62002C4C4B /* EtelkaMediumProRegular.ttf in Resources */,
+				DEB8227D29AF3F62002C4C4B /* LaunchScreen.storyboard in Resources */,
+				DEB8227E29AF3F62002C4C4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7EB5D8D625F8C0730025C2CD /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		7E2B1DF625419E5F00DE728E /* Sources */ = {
+		4C11336E2B0B6F2E0026A118 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ECA7D2725481EAE001F89EA /* Error+Ext.swift in Sources */,
-				7EF96C5B25595BA0000DCB43 /* SuccessViewController.swift in Sources */,
-				7EE1D3D82547163C00695F89 /* UIViewController+Ext.swift in Sources */,
-				7ED2A59E2546C3B3004E3CA7 /* UILabel+Attributed.swift in Sources */,
-				7E0390F42563D1CB00453D52 /* EulaViewController.swift in Sources */,
-				7ED2A59F2546C3B3004E3CA7 /* String+Localization.swift in Sources */,
-				DE648A67299BF0AD00BAE63D /* SettingsLivenessCell.swift in Sources */,
-				7ED2A59B2546C3B3004E3CA7 /* String+Validation.swift in Sources */,
-				4CEC81B62A0BB7E200757AD2 /* ServerMock.swift in Sources */,
-				7E03916925667C9A00453D52 /* PopupView.swift in Sources */,
-				7ED2A5A92546CB64004E3CA7 /* UIButton+Attributed.swift in Sources */,
-				DE648A66299BF0AD00BAE63D /* SettingsVersionCell.swift in Sources */,
-				7ED2A59C2546C3B3004E3CA7 /* CALayer+Xib.swift in Sources */,
-				7EF96C6525595BA9000DCB43 /* FailViewController.swift in Sources */,
-				7ED2A58B2546C16E004E3CA7 /* UIColor+Hex.swift in Sources */,
-				7ED2A5D32546D85C004E3CA7 /* RegistrationViewController.swift in Sources */,
-				7ED2A5B02546CBEF004E3CA7 /* AuthViewController.swift in Sources */,
-				7ED2A5782546C101004E3CA7 /* Colors.swift in Sources */,
-				7EB59A8A26C155CE005AC712 /* TabButton.swift in Sources */,
-				7ED2A59D2546C3B3004E3CA7 /* ScreenInch.swift in Sources */,
-				7E2B1DFD25419E5F00DE728E /* AppDelegate.swift in Sources */,
-				DE648A68299BF0AD00BAE63D /* SettingsViewController.swift in Sources */,
-				7ED2A57E2546C12B004E3CA7 /* Fonts.swift in Sources */,
-				7ED2A5842546C13D004E3CA7 /* AppAppearance.swift in Sources */,
-				DEDE8C1D29C2CCE0006FFF7F /* UIApplication+Ext.swift in Sources */,
-				7ED2A5D92546FE52004E3CA7 /* ActivityIndicator.swift in Sources */,
-				DED402F1299932F900847BBE /* ExampleUICustomizer.swift in Sources */,
-				7ED2A5722546C0F0004E3CA7 /* TextField.swift in Sources */,
+				4C11342B2B0B6F780026A118 /* CGPoint+Convert.swift in Sources */,
+				4C1134242B0B6F780026A118 /* DocumentViewController.swift in Sources */,
+				4C11341B2B0B6F780026A118 /* DocumentDropDownCellView.swift in Sources */,
+				4C1134222B0B6F780026A118 /* BaseDocumentView.swift in Sources */,
+				4C1134192B0B6F780026A118 /* GeneralDocumentView.swift in Sources */,
+				4C11341A2B0B6F780026A118 /* DocumentDropDownView.swift in Sources */,
+				4C1134282B0B6F780026A118 /* UploadFailureViewController.swift in Sources */,
+				4C11342D2B0B6F780026A118 /* UIImage+compressTo.swift in Sources */,
+				4C11341C2B0B6F780026A118 /* DocumentitemView.swift in Sources */,
+				4C11341E2B0B6F780026A118 /* CameraPhotoButton.swift in Sources */,
+				4C1134342B0B6F780026A118 /* CameraService.swift in Sources */,
+				4C11342E2B0B6F780026A118 /* CameraPreviewView.swift in Sources */,
+				4C1134362B0B6F780026A118 /* UploadSuccessViewController.swift in Sources */,
+				4C1134262B0B6F780026A118 /* DocumentFlow.swift in Sources */,
+				4C1134272B0B6F780026A118 /* DriverLicenceFlow.swift in Sources */,
+				4CBDA4A52B0F743200071576 /* DocumentSelectViewController.swift in Sources */,
+				4C11341D2B0B6F780026A118 /* DocumentSelectView.swift in Sources */,
+				4C11342F2B0B6F780026A118 /* HistogramView.swift in Sources */,
+				4C1134302B0B6F780026A118 /* LoadingButton.swift in Sources */,
+				4C1134322B0B6F780026A118 /* CameraUtils.swift in Sources */,
+				4C1134292B0B6F780026A118 /* UploadFailureView.swift in Sources */,
+				4C1134172B0B6F780026A118 /* DocumentLoader.swift in Sources */,
+				4C1134152B0B6F780026A118 /* DocumentResultViewController.swift in Sources */,
+				4C11342A2B0B6F780026A118 /* UIViewController+ChildViewController.swift in Sources */,
+				4C1134312B0B6F780026A118 /* CameraHandler.swift in Sources */,
+				4C1134182B0B6F780026A118 /* DocumentHeaderView.swift in Sources */,
+				4C1134232B0B6F780026A118 /* BaseDocumentResultView.swift in Sources */,
+				4C1134212B0B6F780026A118 /* CameraTextZoneView.swift in Sources */,
+				4C1134252B0B6F780026A118 /* DocumentDropDownViewController.swift in Sources */,
+				4C11341F2B0B6F780026A118 /* DocumentSelectMenuView.swift in Sources */,
+				4C1134352B0B6F780026A118 /* UploadSuccessView.swift in Sources */,
+				4C11342C2B0B6F780026A118 /* Data+String.swift in Sources */,
+				4C1134142B0B6F780026A118 /* PassportFlow.swift in Sources */,
+				4C1134332B0B6F780026A118 /* CameraTextHandler.swift in Sources */,
+				4C1134202B0B6F780026A118 /* DocumentDropDownButtonView.swift in Sources */,
+				4C1134372B0B6F780026A118 /* FlowProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E020BE325F8B629007E7ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D7D325F8B7A80025C2CD /* SmartIDProcessingFeedback+CPP.mm in Sources */,
+				7EB5D7E825F8B7A80025C2CD /* SmartIDCameraManager.m in Sources */,
+				7EB5D7CE25F8B7A80025C2CD /* SmartIDSessionSettings+CPP.mm in Sources */,
+				7EACCC6126F86B66009D3C79 /* ImagePickerFromSmartIDViewController.swift in Sources */,
+				7EB5D7D925F8B7A80025C2CD /* SmartIDForensicField+CPP.mm in Sources */,
+				7EB5D7AA25F8B7A80025C2CD /* SmartIDVideoProcessingEngine.mm in Sources */,
+				7EB5D7C125F8B7A80025C2CD /* SmartIDVideoProcessingEngineWrap.mm in Sources */,
+				7EB5D7B825F8B7A80025C2CD /* SmartIDQuadrangleView.m in Sources */,
+				7EB5D7CD25F8B7A80025C2CD /* SmartIDStringField+CPP.mm in Sources */,
+				7EB5D7E725F8B7A80025C2CD /* SmartIDVideoPreviewView.m in Sources */,
+				7EB5D7B125F8B7A80025C2CD /* SmartIDViewControllerObjCPP.mm in Sources */,
+				7EB5D7B925F8B7A80025C2CD /* SmartIDRoiView.m in Sources */,
+				7EB5D7B225F8B7A80025C2CD /* SmartIDViewController+Protected.m in Sources */,
+				7EB5D7AB25F8B7A80025C2CD /* SmartIDRecognitionCore.mm in Sources */,
+				7EB5D7D625F8B7A80025C2CD /* SmartIDImage+CPP.mm in Sources */,
+				7EACCC6226F86B66009D3C79 /* DocTypeLabel.swift in Sources */,
+				7EB5D7B625F8B7A80025C2CD /* SmartIDViewControllerSwift.mm in Sources */,
+				7EB5D7CB25F8B7A80025C2CD /* SmartIDSegmentationResult+CPP.mm in Sources */,
+				7EB5D7C025F8B7A80025C2CD /* SmartIDVideoProcessingEngineSwift.mm in Sources */,
+				7EB5D7BF25F8B7A80025C2CD /* RoiHelper.m in Sources */,
+				7EB5D7D825F8B7A80025C2CD /* SmartIDQuadrangle+CPP.mm in Sources */,
+				7EB5D7D525F8B7A80025C2CD /* SmartIDImageField+CPP.mm in Sources */,
+				7EB5D7BE25F8B7A80025C2CD /* SmartIDCaptureButton.m in Sources */,
+				7EB5D7AC25F8B7A80025C2CD /* SmartIDVideoProcessingEngine+Crop.mm in Sources */,
+				7EB5D7AF25F8B7A80025C2CD /* SmartIDViewController.mm in Sources */,
+				7EB5D7D425F8B7A80025C2CD /* SmartIDRecognitionResult+CPP.mm in Sources */,
+				7EB5D7D725F8B7A80025C2CD /* SmartIDMatchResult+CPP.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E392AF126087A3D00D42E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E392B522608893E00D42E15 /* OCRResult.swift in Sources */,
+				DE7555CE29A7791D00E58DEB /* OCRAPI.swift in Sources */,
+				7E6AC3D126303984000E83A9 /* OCRError.swift in Sources */,
+				4C11343D2B0B73960026A118 /* DBrainDocumentType.swift in Sources */,
+				7E6327DE261C4C190051B391 /* DocumentReaderGraphicField+Ext.swift in Sources */,
+				DE7555C929A778C200E58DEB /* RegulaDocumentType.swift in Sources */,
+				DE7555D329A779BF00E58DEB /* OCRRegulaResult.swift in Sources */,
+				7E392BC12608A06D00D42E15 /* DocumentReaderTextField+Ext.swift in Sources */,
+				7E392BFB260B40F400D42E15 /* OCRServiceDelegate.swift in Sources */,
+				4C1134392B0B70A20026A118 /* OCRDBrainAPI.swift in Sources */,
+				4C11343F2B0BAFD30026A118 /* RecognitionField+Ext.swift in Sources */,
+				7E6327F9261C54CA0051B391 /* DocumentType.swift in Sources */,
+				7E392B1326087A6C00D42E15 /* OCRService.swift in Sources */,
+				4C11343B2B0B72FB0026A118 /* OCRDBrainResult.swift in Sources */,
+				C7D9671AA981DF9F6F9D144E /* String+Localize.swift in Sources */,
+				DE8D4FA22907E0D1008E3ED8 /* OCRRegulaAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB5D89D25F8BC1A0025C2CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB5D8DD25F8C2620025C2CD /* Error.swift in Sources */,
+				7EB5D8D025F8BF4A0025C2CD /* Regula.swift in Sources */,
+				7E64C78E263C144000F3CBC7 /* String+Localizable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEB8224C29AF3F62002C4C4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */,
+				4CD25F872AE69F1B0019EE88 /* LEOCRFieldCell.swift in Sources */,
+				4C33589A2AEBD1E100BFC880 /* Colors.swift in Sources */,
+				DEB8224D29AF3F62002C4C4B /* Error+LunaExample.swift in Sources */,
+				4C06D8952AE96E0A00C6603E /* UIViewController+LunaExample.swift in Sources */,
+				977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */,
+				DEB8225029AF3F62002C4C4B /* LEServerError.swift in Sources */,
+				DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */,
+				4CC3484D2B7A0A9100B04A1C /* LEDurationPickerVC.swift in Sources */,
+				DEB8225229AF3F62002C4C4B /* LEEulaViewController.swift in Sources */,
+				4CD25F862AE69F1B0019EE88 /* LEPhotosCell.swift in Sources */,
+				4C33589B2AEBD24B00BFC880 /* String+LunaExample.swift in Sources */,
+				DEB8225329AF3F62002C4C4B /* String+Localization.swift in Sources */,
+				4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */,
+				DEB8225429AF3F62002C4C4B /* LELabelledToggleCell.swift in Sources */,
+				4C06D8972AE9895200C6603E /* LEOCRViewController.swift in Sources */,
+				4C06D8992AEA823600C6603E /* LEOCRResultsViewController.swift in Sources */,
+				4CD25F842AE69F1B0019EE88 /* LEOCRInstructionsView.swift in Sources */,
+				4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */,
+				4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */,
+				4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */,
+				4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */,
+				DEB8225829AF3F62002C4C4B /* LELabelledCell.swift in Sources */,
+				DEB8226029AF3F62002C4C4B /* LETabButton.swift in Sources */,
+				DEB8226329AF3F62002C4C4B /* LESettingsViewController.swift in Sources */,
+				DEB8226429AF3F62002C4C4B /* Fonts.swift in Sources */,
+				4C43B2962BA9B93000C79C9D /* LEEnumPickerVC.swift in Sources */,
+				DEDE8C1A29C233D5006FFF7F /* LERootViewController.swift in Sources */,
+				4CC348522B7C1B4C00B04A1C /* LEFloatCell.swift in Sources */,
+				4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */,
+				DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */,
+				DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */,
+				4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */,
+				DEB8226829AF3F62002C4C4B /* LETextField.swift in Sources */,
+				4C06D8912AE81E3800C6603E /* LEActivityIndicatorView.swift in Sources */,
+				4C06D8932AE8216800C6603E /* LEResultViewController.swift in Sources */,
+				4C06D88E2AE80DA400C6603E /* LEIdentifyViewController.swift in Sources */,
+				4C3358992AEBD1D700BFC880 /* AppAppearance.swift in Sources */,
+				4C43B2942BA9B8FC00C79C9D /* LEEnumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C1133772B0B6F2E0026A118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C1133712B0B6F2E0026A118 /* OCRDBrain */;
+			targetProxy = 4C1133762B0B6F2E0026A118 /* PBXContainerItemProxy */;
+		};
+		4CD390B22B0CB524000CDFA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C1133712B0B6F2E0026A118 /* OCRDBrain */;
+			targetProxy = 4CD390B12B0CB524000CDFA6 /* PBXContainerItemProxy */;
+		};
+		4CD390B62B0CB561000CDFA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C1133712B0B6F2E0026A118 /* OCRDBrain */;
+			targetProxy = 4CD390B52B0CB561000CDFA6 /* PBXContainerItemProxy */;
+		};
+		7ED5A796267CA2F10090F5CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EB5D8A025F8BC1A0025C2CD /* OCRREGULA */;
+			targetProxy = 7ED5A795267CA2F10090F5CF /* PBXContainerItemProxy */;
+		};
+		DEB8224629AF3F62002C4C4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E392AF426087A3D00D42E15 /* OCR */;
+			targetProxy = DEB8224729AF3F62002C4C4B /* PBXContainerItemProxy */;
+		};
+		DEB8224A29AF3F62002C4C4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EB5D8A025F8BC1A0025C2CD /* OCRREGULA */;
+			targetProxy = DEB8224B29AF3F62002C4C4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7E039118256525F300453D52 /* InfoPlist.strings */ = {
@@ -429,21 +1655,30 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		7E2B1E0225419E5F00DE728E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7E2B1E0325419E5F00DE728E /* Base */,
-				7ECA7DB9254AC97B001F89EA /* ru */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7E2B1E0725419E6100DE728E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7E2B1E0825419E6100DE728E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7E64C793263C1C9F00F3CBC7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E64C792263C1C9F00F3CBC7 /* ru */,
+				7E64C794263C1CA400F3CBC7 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7E6AC3C0263038B9000E83A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E6AC3BF263038B9000E83A9 /* en */,
+				7E6AC3C6263038BD000E83A9 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		7ECA7DC6254ACCE5001F89EA /* Localizable.strings */ = {
@@ -458,65 +1693,250 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7E2B1E0C25419E6100DE728E /* Debug */ = {
+		4C11337A2B0B6F2E0026A118 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TM98MB69S4;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-					"$(PROJECT_DIR)/frameworks",
-				);
-				INFOPLIST_FILE = LunaExample/Info.plist;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.LunaExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRDBrain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG OCR_REGULA";
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		7E2B1E0D25419E6100DE728E /* Release */ = {
+		4C11337B2B0B6F2E0026A118 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TM98MB69S4;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-					"$(PROJECT_DIR)/frameworks",
-				);
-				INFOPLIST_FILE = LunaExample/Info.plist;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.LunaExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRDBrain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = OCR_REGULA;
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7E020BED25F8B629007E7ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/OCRSE/Core/include";
+				INFOPLIST_FILE = OCRSE/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRSE/Core/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRSE;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7E020BEE25F8B629007E7ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/OCRSE/Core/include";
+				INFOPLIST_FILE = OCRSE/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRSE/Core/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRSE;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7E392AFA26087A3D00D42E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRREGULA",
+					"$(PROJECT_DIR)/frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"REGULA=1",
+					"SE=0",
+				);
+				INFOPLIST_FILE = OCR/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCR;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG REGULA";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7E392AFB26087A3D00D42E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRREGULA",
+					"$(PROJECT_DIR)/frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"SE=0",
+					"REGULA=1",
+				);
+				INFOPLIST_FILE = OCR/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCR;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = REGULA;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -557,6 +1977,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -573,8 +1994,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -622,6 +2043,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -632,8 +2054,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -644,14 +2066,181 @@
 			};
 			name = Release;
 		};
+		7EB5D8A725F8BC1A0025C2CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRREGULA",
+					"$(PROJECT_DIR)/LunaStand",
+					"$(PROJECT_DIR)/frameworks",
+				);
+				INFOPLIST_FILE = OCRREGULA/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRREGULA;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EB5D8A825F8BC1A0025C2CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCRREGULA",
+					"$(PROJECT_DIR)/LunaStand",
+					"$(PROJECT_DIR)/frameworks",
+				);
+				INFOPLIST_FILE = OCRREGULA/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.OCRREGULA;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DEB8229029AF3F62002C4C4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
+				INFOPLIST_FILE = "LunaExample-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.LunaExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG USE_OCR";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DEB8229129AF3F62002C4C4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = TM98MB69S4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
+				INFOPLIST_FILE = "LunaExample-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.visionlabs.LunaExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_OCR;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7E2B1E0B25419E6100DE728E /* Build configuration list for PBXNativeTarget "LunaExample" */ = {
+		4C11337C2B0B6F2E0026A118 /* Build configuration list for PBXNativeTarget "OCRDBrain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7E2B1E0C25419E6100DE728E /* Debug */,
-				7E2B1E0D25419E6100DE728E /* Release */,
+				4C11337A2B0B6F2E0026A118 /* Debug */,
+				4C11337B2B0B6F2E0026A118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E020BEC25F8B629007E7ADE /* Build configuration list for PBXNativeTarget "OCRSE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E020BED25F8B629007E7ADE /* Debug */,
+				7E020BEE25F8B629007E7ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E392AFC26087A3D00D42E15 /* Build configuration list for PBXNativeTarget "OCR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E392AFA26087A3D00D42E15 /* Debug */,
+				7E392AFB26087A3D00D42E15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -661,6 +2250,24 @@
 			buildConfigurations = (
 				7E3BED74252DF4D600520E65 /* Debug */,
 				7E3BED75252DF4D600520E65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EB5D8A625F8BC1A0025C2CD /* Build configuration list for PBXNativeTarget "OCRREGULA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB5D8A725F8BC1A0025C2CD /* Debug */,
+				7EB5D8A825F8BC1A0025C2CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEB8228F29AF3F62002C4C4B /* Build configuration list for PBXNativeTarget "LunaExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEB8229029AF3F62002C4C4B /* Debug */,
+				DEB8229129AF3F62002C4C4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
