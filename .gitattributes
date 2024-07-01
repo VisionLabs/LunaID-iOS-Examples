@@ -1,20 +1,20 @@
-frameworks/flower.xcframework/ios-arm64/flower.framework/flower filter=lfs diff=lfs merge=lfs -text
-frameworks/flower.xcframework/ios-arm64_x86_64-simulator/flower.framework/flower filter=lfs diff=lfs merge=lfs -text
-frameworks/fsdk.xcframework/ios-arm64/fsdk.framework/fsdk filter=lfs diff=lfs merge=lfs -text
-frameworks/fsdk.xcframework/ios-arm64_x86_64-simulator/fsdk.framework/fsdk filter=lfs diff=lfs merge=lfs -text
-frameworks/tsdk.xcframework/ios-arm64/tsdk.framework/tsdk filter=lfs diff=lfs merge=lfs -text
-frameworks/tsdk.xcframework/ios-arm64_x86_64-simulator/tsdk.framework/tsdk filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/flower.xcframework/ios-arm64/flower.framework/flower filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/flower.xcframework/ios-arm64_x86_64-simulator/flower.framework/flower filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/fsdk.xcframework/ios-arm64/fsdk.framework/fsdk filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/fsdk.xcframework/ios-arm64_x86_64-simulator/fsdk.framework/fsdk filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/tsdk.xcframework/ios-arm64/tsdk.framework/tsdk filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/tsdk.xcframework/ios-arm64_x86_64-simulator/tsdk.framework/tsdk filter=lfs diff=lfs merge=lfs -text
 
-frameworks/DocumentReader.xcframework/ios-arm64/DocumentReader.framework/DocumentReader filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReader.xcframework/ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReader.xcframework/ios-arm64_x86_64-simulator/DocumentReader.framework/DocumentReader filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReader.xcframework/ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReader.xcframework/ios-arm64/DocumentReader.framework/DocumentReader filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReader.xcframework/ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReader.xcframework/ios-arm64_x86_64-simulator/DocumentReader.framework/DocumentReader filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReader.xcframework/ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader filter=lfs diff=lfs merge=lfs -text
 
-frameworks/DocumentReaderCore.xcframework/ios-arm64/DocumentReaderCore.framework/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReaderCore.xcframework/ios-arm64/dSYMs/DocumentReaderCore.framework.dSYM/Contents/Resources/DWARF/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReaderCore.xcframework/ios-arm64_x86_64-simulator/DocumentReaderCore.framework/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
-frameworks/DocumentReaderCore.xcframework/ios-arm64_x86_64-simulator/dSYMs/DocumentReaderCore.framework.dSYM/Contents/Resources/DWARF/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReaderCore.xcframework/ios-arm64/DocumentReaderCore.framework/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReaderCore.xcframework/ios-arm64/dSYMs/DocumentReaderCore.framework.dSYM/Contents/Resources/DWARF/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReaderCore.xcframework/ios-arm64_x86_64-simulator/DocumentReaderCore.framework/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/DocumentReaderCore.xcframework/ios-arm64_x86_64-simulator/dSYMs/DocumentReaderCore.framework.dSYM/Contents/Resources/DWARF/DocumentReaderCore filter=lfs diff=lfs merge=lfs -text
 
-frameworks/RegulaCommon.xcframework/ios-arm64/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
-frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
-frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
+LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon filter=lfs diff=lfs merge=lfs -text
