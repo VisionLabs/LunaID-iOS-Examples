@@ -54,7 +54,9 @@ typedef NS_ENUM(NSInteger, BestShotError) {
     ROTATE_HEAD_UP = 1021,
     FACE_LOST = 1022,
     PRIMARY_FACE_LOST = 1023,
-    SUNGLASSES_DETECTED = 1024
+    SUNGLASSES_DETECTED = 1024,
+    LICENSE_CHECK_FAILED = 1025,
+    EYES_CHECK_FAILED = 1026
 };
 
 /// Error domain of the LunaCore module.

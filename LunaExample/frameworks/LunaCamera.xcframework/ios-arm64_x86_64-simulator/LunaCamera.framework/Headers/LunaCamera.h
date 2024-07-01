@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char LunaCameraVersionString[];
 
 #import "LMCameraCaptureManager.h"
 #import "LMCameraCaptureProtocol.h"
+#import "SaveVideoServiceProtocols.h"

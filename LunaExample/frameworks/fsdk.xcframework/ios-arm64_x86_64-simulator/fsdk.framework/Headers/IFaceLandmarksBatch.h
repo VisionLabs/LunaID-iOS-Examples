@@ -48,4 +48,4 @@ namespace fsdk {
 		virtual Span<const Landmarks68> getLandmarks68(size_t index = 0) const noexcept = 0;
 	};
 
-}
+} // namespace fsdk

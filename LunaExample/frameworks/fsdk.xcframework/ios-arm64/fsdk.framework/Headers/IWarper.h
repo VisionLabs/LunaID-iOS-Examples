@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include <fsdk/IDescriptor.h>
-#include <fsdk/Types/Span.h>
-#include <fsdk/Types/Transformation.h>
+#include <fsdk/FSDKError.h>
+#include <fsdk/IRefCounted.h>
+#include <fsdk/Types.h>
 
 #include <fsdk/vlc/future.h>
 

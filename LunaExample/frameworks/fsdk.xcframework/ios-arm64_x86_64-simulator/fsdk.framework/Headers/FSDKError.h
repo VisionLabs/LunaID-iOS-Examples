@@ -65,6 +65,7 @@ namespace fsdk {
 		FeatureExpired,            //!< Feature expired
 		FingerprintError,          //!< Failed to get device fingerprint.
 		ValidationFailed,          //!< Failed validation.
+		CudaError,                 //!< CUDA Error
 
 		NotImplemented, //!< Not implemented error.
 	};
@@ -161,6 +162,8 @@ namespace fsdk {
 				return "Failed to get device fingerprint.";
 			case FSDKError::ValidationFailed:
 				return "Failed validation.";
+			case FSDKError::CudaError:
+				return "CUDA Error";
 			case FSDKError::NotImplemented:
 				return "Not implemented.";
 			default:

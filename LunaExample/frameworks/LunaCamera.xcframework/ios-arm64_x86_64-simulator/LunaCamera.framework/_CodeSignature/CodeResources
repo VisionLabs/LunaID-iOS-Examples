@@ -14,19 +14,23 @@
 		</data>
 		<key>Headers/LMCameraCaptureManager.h</key>
 		<data>
-		HrWhgxdAWg/94TCAWkFVkSu43PI=
+		ax520aJDyYDlIo9bdYfAWTVWZc4=
 		</data>
 		<key>Headers/LMCameraCaptureProtocol.h</key>
 		<data>
-		mhw5YeC0yIXuo/kBjpl1xZ913Io=
+		9eA3zx37C5clKXiyjXtUSjrPQcw=
 		</data>
 		<key>Headers/LunaCamera-Swift.h</key>
 		<data>
-		E/q8VzL7TG47C/lofbWmIS66gdM=
+		qcUqQQ41D5ehvjbCpYBBMwXxKQ4=
 		</data>
 		<key>Headers/LunaCamera.h</key>
 		<data>
-		2LuiT2pgIQ2wZeiMlbgxR0H23vs=
+		QjA14QSYgkiXRgpUMO31xVxTLL8=
+		</data>
+		<key>Headers/SaveVideoServiceProtocols.h</key>
+		<data>
+		pJnzF02t9Bjzi5F2usnWsxFE0fQ=
 		</data>
 		<key>Headers/VideoServiceConsts.h</key>
 		<data>
@@ -34,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		szc8bkbpD0bTBwGrW9S10+5SKCo=
+		EwxaAvsUMvxlbhEqbmSlh7skHZA=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,11 +46,11 @@
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		xg+htNQAUqVx1geHt8qZFgY8jgY=
+		epf9F88iS4v+CvdOlBtQj+0Tq9I=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ZYDTs34iNnIerELAg5nV63rwWxY=
+		7K3BH4fc5ULxu3T4FsW6kA5ebn4=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -54,11 +58,11 @@
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		xg+htNQAUqVx1geHt8qZFgY8jgY=
+		epf9F88iS4v+CvdOlBtQj+0Tq9I=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		ZYDTs34iNnIerELAg5nV63rwWxY=
+		7K3BH4fc5ULxu3T4FsW6kA5ebn4=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -66,11 +70,11 @@
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		H70KieopGwAsYURjnCicE2cjtyY=
+		6Su+SmUvmpEJRR6JZGqdIrOr7Xo=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		gZf2iO7snJ5tESscmYAhdHvJX4k=
+		0GfTnVKIizE+fd6KROWI7M1BDds=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -78,11 +82,11 @@
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		H70KieopGwAsYURjnCicE2cjtyY=
+		6Su+SmUvmpEJRR6JZGqdIrOr7Xo=
 		</data>
 		<key>Modules/LunaCamera.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		gZf2iO7snJ5tESscmYAhdHvJX4k=
+		0GfTnVKIizE+fd6KROWI7M1BDds=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -139,28 +143,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rvU484O20UtsNfDW25HZsvRoeTNnSKI2V0fZ7sRZz/U=
+			bcFf3tL2KNDxhoANDZzlI16hKT4tDotdTgWTSqXWhek=
 			</data>
 		</dict>
 		<key>Headers/LMCameraCaptureProtocol.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U3XbpG07deU0ffo3tT/hSCKynCTGMm3nPe+/CCk66Go=
+			XsKHHzLzrLH8n/C3dGSQSQzminkOK46l9pqnS0hPgpQ=
 			</data>
 		</dict>
 		<key>Headers/LunaCamera-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1GRag8LWKVF4yMkfw0Zlj4EtEzzt5mZusIVheFXqTaQ=
+			b1G++CQBDKlZTw4k+8rtS5UDCx4gXMkuIBKz4sn+Rjo=
 			</data>
 		</dict>
 		<key>Headers/LunaCamera.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aOndyoAg5o+3gGK0fHPvBC8DBERkWHojzc83FQFUdew=
+			YdNiMH4dwYm8xGJYRbeuIRHJUYptDHWX2qFsMf6fRTI=
+			</data>
+		</dict>
+		<key>Headers/SaveVideoServiceProtocols.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8wn57IFYXD3ve6fZCle8RMmjzgqA12I39SC6hsBmbyQ=
 			</data>
 		</dict>
 		<key>Headers/VideoServiceConsts.h</key>
@@ -181,14 +192,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rhAKIZT+nzsiPJvjge0fqchQZkoepaBBgs1Fmj7mjBo=
+			gqvmHz4sQ4r+OLe+RK9/ctTaUQt3Amy+S5ULZGWPCrw=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g07ChErw/mOmED7epYIEd8poHf24TX+EryxMTTMDx8k=
+			hqh1S9ln1gG002zTqBjoL1Ao2XtoOwKNDk0wlF1wKP8=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/arm64.swiftdoc</key>
@@ -202,14 +213,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rhAKIZT+nzsiPJvjge0fqchQZkoepaBBgs1Fmj7mjBo=
+			gqvmHz4sQ4r+OLe+RK9/ctTaUQt3Amy+S5ULZGWPCrw=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g07ChErw/mOmED7epYIEd8poHf24TX+EryxMTTMDx8k=
+			hqh1S9ln1gG002zTqBjoL1Ao2XtoOwKNDk0wlF1wKP8=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -223,14 +234,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7De5ErCg8QcSS1KvjQ+dlVqcptx0zhE4qnk1YcSXKoM=
+			f/EiLISpKY/GJih2XahIFjm7Va1bJlS9jDfw7S993Kc=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dTesHqWvhz7P9Ah2JAqsWev7Exg54Il9RLDOUX8Nlfs=
+			GzgqoqOaTi/hVtJivNhcqo0hvdeuvOs+kPB8WzQsVhU=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/x86_64.swiftdoc</key>
@@ -244,14 +255,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7De5ErCg8QcSS1KvjQ+dlVqcptx0zhE4qnk1YcSXKoM=
+			f/EiLISpKY/GJih2XahIFjm7Va1bJlS9jDfw7S993Kc=
 			</data>
 		</dict>
 		<key>Modules/LunaCamera.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dTesHqWvhz7P9Ah2JAqsWev7Exg54Il9RLDOUX8Nlfs=
+			GzgqoqOaTi/hVtJivNhcqo0hvdeuvOs+kPB8WzQsVhU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -10,39 +10,43 @@
 		</data>
 		<key>Headers/Estimators/IAGSEstimator.h</key>
 		<data>
-		7jFRq53oiNGoQa9jS1fnQxvuxA8=
+		TqruP21N3SGcdzbxrxgkuFpUIns=
 		</data>
 		<key>Headers/Estimators/IBestShotQualityEstimator.h</key>
 		<data>
-		AZDSOlU8NW3jBmGEkQr9OlqNOFU=
+		Ke2GLrIGlDTP/1rhuHucv3LXCIw=
 		</data>
 		<key>Headers/Estimators/IEyeEstimator.h</key>
 		<data>
-		bRQNHMccO6gRsnjAPVNWUwx0neg=
+		9YHN4+UtE2KItCMZK93aAplBZ1c=
 		</data>
 		<key>Headers/Estimators/IGlassesEstimator.h</key>
 		<data>
-		z9qRzmU4XUE65bvmnDKjYxGfq/k=
+		oWDxkoRzskUnuUK8DcTNRDN1DvE=
 		</data>
 		<key>Headers/Estimators/IHeadPoseEstimator.h</key>
 		<data>
-		8jQU1G52W/bVloDZL5VnF4cUCYU=
+		4Wdbk8hs6p8t0QqJ+mtm9gHmMNw=
 		</data>
 		<key>Headers/Estimators/ILivenessDepthRGBEstimator.h</key>
 		<data>
-		/S2LabkBvAG94cBjV2XFi7ZKouQ=
+		dbPDe0/vEdWLXD6KP0cdmEZEPdo=
 		</data>
 		<key>Headers/Estimators/ILivenessOneShotRGBEstimator.h</key>
 		<data>
-		opfVczIhdAW0z2N0/fAol3Ma0E0=
+		IEJ6TVthDiSqQ5uO58OMPZsw5C8=
 		</data>
 		<key>Headers/Estimators/IMedicalMaskEstimator.h</key>
 		<data>
-		fXjCVOrToLdGA+kBiqrFis4+M7Y=
+		Yk5JR2QCVLsP5mpzHxktotECUko=
+		</data>
+		<key>Headers/Estimators/INIRLivenessEstimator.h</key>
+		<data>
+		5n3ms0ODuY5DvkT+9cyjKHJatbo=
 		</data>
 		<key>Headers/Estimators/IQualityEstimator.h</key>
 		<data>
-		SIIb247qjW77V360zn/+wLuaU6o=
+		cuIdY4iH9V9p2NAoIz9FSQ4XvhM=
 		</data>
 		<key>Headers/Exception.h</key>
 		<data>
@@ -50,15 +54,15 @@
 		</data>
 		<key>Headers/FSDKError.h</key>
 		<data>
-		HRyjYvslp05kIMmVixzB0D8nPqg=
+		WKjCdMsuyeM6Edz06WM//63/09w=
 		</data>
 		<key>Headers/FSDKVersion.h</key>
 		<data>
-		7cmsD9Cd6qsZiuGWg4wC3vzVNiE=
+		1Bt/D+cQxGln9UzpsgBMA8M2kM4=
 		</data>
 		<key>Headers/FaceEngine.h</key>
 		<data>
-		EYL/lW9r19Co17KfZT1INktmj0w=
+		VBrnbr3JZlm0a6JoG5KM0g+xdMM=
 		</data>
 		<key>Headers/IAsyncContext.h</key>
 		<data>
@@ -66,39 +70,43 @@
 		</data>
 		<key>Headers/IDescriptor.h</key>
 		<data>
-		9nAINmu/9sfHMRU+Z3kbMQcW/yk=
+		h79QYU13huTMGezVuKpRmq9U2aY=
 		</data>
 		<key>Headers/IDetectionBatch.h</key>
 		<data>
-		Pp5B/zTQ3l79v5e2K9OptglhkcE=
+		26szDaud0fm2VOGygumw+uJX0ik=
 		</data>
 		<key>Headers/IDetector.h</key>
 		<data>
-		1EJmsZUlWWQ2lP7pwpR6nWgYmE4=
+		L7UpS+BtsMMAcEZSgBh+m08943Q=
 		</data>
 		<key>Headers/IFaceDetectionBatch.h</key>
 		<data>
-		1LB0UbchoAFPzg1PfTx+yavowiE=
+		Ngk0stBLMWYBHUowdP2z3H2Antw=
 		</data>
 		<key>Headers/IFaceEngineMobile.h</key>
 		<data>
-		l5h2OHRw+u1HdpAL9ywlgN8rxRU=
+		iGlhYZfJ4sPSHKDREuqy2GklDuE=
 		</data>
 		<key>Headers/IFaceLandmarksBatch.h</key>
 		<data>
-		2bGejCp35QrXezR2kMzlvSe/4II=
+		8XoRB4AhPIYxlWaCNKmhdJgnb3w=
 		</data>
 		<key>Headers/IFaceLandmarksDetector.h</key>
 		<data>
-		PZTHr+WeeskYOQZc+sFXvDjiTWU=
+		QgwcUz17G71fwnesTq55mJUTVR4=
 		</data>
 		<key>Headers/ILicense.h</key>
 		<data>
-		m49FYzDUswIParR9xITux1Ny4Qs=
+		Wd7iOvMBH0GjmaPmNmbdts8LH0I=
 		</data>
 		<key>Headers/IObject.h</key>
 		<data>
 		FDggdII+tqFDPHHheEik1/3dNpI=
+		</data>
+		<key>Headers/IPointBatch.h</key>
+		<data>
+		ACm6K/Rqt7p+zhyppqWVISeITDs=
 		</data>
 		<key>Headers/IRefCounted.h</key>
 		<data>
@@ -114,7 +122,7 @@
 		</data>
 		<key>Headers/IWarper.h</key>
 		<data>
-		2GtAOcEt9yA1F4/R0KU06QIusoU=
+		uiQI3ffgXo8qbN+YNZmFQh5TwUU=
 		</data>
 		<key>Headers/LaunchOptions.h</key>
 		<data>
@@ -126,11 +134,11 @@
 		</data>
 		<key>Headers/Optional.h</key>
 		<data>
-		GTTyXvh5czr8Tfar1sfJeIOOq0E=
+		TLNG3LfLhRsVayJLg9kq2a+MxMg=
 		</data>
 		<key>Headers/Types.h</key>
 		<data>
-		cYzBDVRLgjMpDtfk6zhge2iFUUg=
+		JwA5UPRSTQ0qWAs6rj34Y+jpTn0=
 		</data>
 		<key>Headers/Types/Detection.h</key>
 		<data>
@@ -138,7 +146,7 @@
 		</data>
 		<key>Headers/Types/Face.h</key>
 		<data>
-		BZ93R5ejXdCRUYTMYvPkP/BC3Eg=
+		bmxRyd4BFSCrKywBGyZeNyFDNHM=
 		</data>
 		<key>Headers/Types/FaceEngineEdition.h</key>
 		<data>
@@ -146,7 +154,7 @@
 		</data>
 		<key>Headers/Types/Format.h</key>
 		<data>
-		fyn1po7WTkWFMWrliTlpvYN1UMA=
+		PGSx3WTHOZWf4ripajlureQx84o=
 		</data>
 		<key>Headers/Types/Future.h</key>
 		<data>
@@ -154,11 +162,7 @@
 		</data>
 		<key>Headers/Types/Human.h</key>
 		<data>
-		OcvgW57dqtFP1z0g5pjmIVx5wxc=
-		</data>
-		<key>Headers/Types/HumanLandmarks.h</key>
-		<data>
-		OuA6PbRPfib+py6oSEcoL9dQu2Q=
+		lkGpvLyUkUkVt0YdEQqGlCe/aEQ=
 		</data>
 		<key>Headers/Types/Image.h</key>
 		<data>
@@ -166,7 +170,7 @@
 		</data>
 		<key>Headers/Types/Landmarks.h</key>
 		<data>
-		XoRMC+cWdddnEx1Z04UXFA+s4wo=
+		9qC3oE+HIP2mR7dj8qO3YjaKs0E=
 		</data>
 		<key>Headers/Types/MultiError.h</key>
 		<data>
@@ -174,7 +178,7 @@
 		</data>
 		<key>Headers/Types/OrientationType.h</key>
 		<data>
-		3Dt0OlKb2N+sU2oBYsx7mulgv+E=
+		wx+TAK7ilO+iaopAvKxowzgrdrQ=
 		</data>
 		<key>Headers/Types/Rect.h</key>
 		<data>
@@ -190,11 +194,11 @@
 		</data>
 		<key>Headers/Types/Result.h</key>
 		<data>
-		UGFQgJ/w9veAZjgZtsXGCG+6zXg=
+		GRGBPgQMvD+m7bDFxgJxoPd6754=
 		</data>
 		<key>Headers/Types/ResultValue.h</key>
 		<data>
-		vNnk3acXq5pxL6x9JRk/7DhvXqU=
+		csk7uRoBvrQyg73LIgUSaHFXWfc=
 		</data>
 		<key>Headers/Types/RotationType.h</key>
 		<data>
@@ -202,7 +206,7 @@
 		</data>
 		<key>Headers/Types/SensorType.h</key>
 		<data>
-		Jw3tavlJfzmval/wpoQmhTc1JVY=
+		Elfoyz1gjlbdvZFZzpMiNTLf6Cg=
 		</data>
 		<key>Headers/Types/Sizer.h</key>
 		<data>
@@ -216,6 +220,10 @@
 		<data>
 		GJMIeh3n+YO8f+doZEomXDvlMAA=
 		</data>
+		<key>Headers/Types/Transformation.h</key>
+		<data>
+		+gJtV0BInI9x+JR8KPAWP/pW+tA=
+		</data>
 		<key>Headers/Types/Vector2.h</key>
 		<data>
 		j9d6unpwM1AhfLY70nSah72kPdw=
@@ -226,83 +234,83 @@
 		</data>
 		<key>Headers/Version.h</key>
 		<data>
-		d7ZJtW7uXlw/wP+eUUdoyYQKnHw=
+		bTRJg5o4L2mlRAcFJwbjTBUzt60=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		a76ukh6DO74mlKy+0h/Zt3OlErA=
+		VDhzZaERbnEzztKzh6YH3OyV3iU=
 		</data>
-		<key>data/FaceDet_v2_first_arm.plan</key>
+		<key>data/FaceDet_v2_first_cpu.plan</key>
 		<data>
-		dtvTk/mupEDQ484dF/M9df5Rqeg=
+		WugxsfoQdPJZqBkrOrok3LfBQuk=
 		</data>
-		<key>data/FaceDet_v2_second_arm.plan</key>
+		<key>data/FaceDet_v2_second_cpu.plan</key>
 		<data>
-		tJYWCalqyH0gJQ1JXAk9RJ+x0Ro=
+		eCyXOV8U3lyCp47iHjfdDLX1eR4=
 		</data>
-		<key>data/FaceDet_v2_third_arm.plan</key>
+		<key>data/FaceDet_v2_third_cpu.plan</key>
 		<data>
-		8ldXP29kSKXwCBiMWC+hkXwoeTc=
+		Z+zWxPUdpUgOYsI/ChrFAGCe0Aw=
 		</data>
-		<key>data/ags_angle_estimation_flwr_arm.plan</key>
+		<key>data/ags_angle_estimation_flwr_cpu.plan</key>
 		<data>
-		u8dXDGRPkP9X80c0koY8+TYCTXY=
+		M7xIl3GVB2v/0+ps6gcpvO4C4us=
 		</data>
-		<key>data/ags_v3_arm.plan</key>
+		<key>data/ags_v3_cpu.plan</key>
 		<data>
-		PdG43Yj8yntgwL22hfLfALtV2YI=
+		5v2M8+6ICTPFqBmJoo3qlTrU1pE=
 		</data>
-		<key>data/cnn59m_arm.plan</key>
+		<key>data/cnn59m_cpu.plan</key>
 		<data>
-		OKZq08511jaon4OuTuLXmSi07Zc=
+		+Q9W1k9AmskJO55coPzhbe998zY=
 		</data>
 		<key>data/cnndescriptor_59.conf</key>
 		<data>
 		+2JqMEBxnn8EJBa47yaZuGt8Cs8=
 		</data>
-		<key>data/eye_status_estimation_flwr_arm.plan</key>
+		<key>data/eye_status_estimation_flwr_cpu.plan</key>
 		<data>
-		ENTNuUmzwohwcvpz+qa2h/fDe2w=
+		IK6KzZowGMkPvmtq7rzeS7ApcuI=
 		</data>
-		<key>data/eyes_estimation_flwr8_arm.plan</key>
+		<key>data/eyes_estimation_flwr8_cpu.plan</key>
 		<data>
-		mLV7PXp6+BW5AfsrK0eTTkKu84g=
+		Zf5r7Canc5HxJ56jTF3BXZs2pg4=
 		</data>
 		<key>data/faceengine.conf</key>
 		<data>
-		QnXibCTzYqzuJpN8J4x+7rlwxq4=
+		oG0p/VZY5zarR45Zg1I+E1YLkbA=
 		</data>
-		<key>data/glasses_estimation_flwr_arm.plan</key>
+		<key>data/glasses_estimation_v2_cpu.plan</key>
 		<data>
-		1ZWqxYHFFBSk17f16LBRYLg1C60=
+		hyibQbOAW+63foXLmHHdtKMn28Q=
 		</data>
-		<key>data/headpose_v3_arm.plan</key>
+		<key>data/headpose_v3_cpu.plan</key>
 		<data>
-		X2zvZ5GFmXWSiqR62klwcB5l1sw=
+		srunK/vAA9E85dBjA1q9AXxwCzM=
 		</data>
-		<key>data/mask_clf_v3_arm.plan</key>
+		<key>data/mask_clf_v3_cpu.plan</key>
 		<data>
-		BzZWlimEY9KOqZ7rrSeNH0LAGQI=
+		1j8Vujfr8ds5AtBRPEFsofodGuM=
 		</data>
-		<key>data/model_subjective_quality_v1_arm.plan</key>
+		<key>data/model_subjective_quality_v1_cpu.plan</key>
 		<data>
-		TU5MQR0ZpW/tX7nsMxdFgl4AkkU=
+		6uNkvG++Pcq+otnwEjhxa2YpMMU=
 		</data>
-		<key>data/model_subjective_quality_v2_arm.plan</key>
+		<key>data/model_subjective_quality_v2_cpu.plan</key>
 		<data>
-		v5u3EtTuhllv+ZOK+zRfUJlalj0=
+		XIURZvdWs9QRNCEVju7en+evk0Q=
 		</data>
-		<key>data/oslm_v4_model_1_arm.plan</key>
+		<key>data/oneshot_rgb_liveness_v7_model_3_cpu.plan</key>
 		<data>
-		pm/eOlZy1VTJ7GpqDuH8bEAGRk4=
+		Iijtwa6zicg6XRqeZnkgabiRFqQ=
 		</data>
-		<key>data/oslm_v4_model_2_arm.plan</key>
+		<key>data/oneshot_rgb_liveness_v7_model_4_cpu.plan</key>
 		<data>
-		Q3AQM2+zxkgI3wzvwL1DywomULY=
+		4Znyt7MmhAZlDv3JE8p0Qi+mFJU=
 		</data>
 		<key>data/runtime.conf</key>
 		<data>
-		gKpblSBH/BDk398+bGi8ILbTH70=
+		o0A8uUj0Y/cgFKy4/9QIPVmuq9g=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -318,63 +326,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oCt8vQtpV+/+3zxUMHbIpo0iqGVLZsccUTAxDPWrOes=
+			JcfkO9LY0XgZibqUi5KOQkDrB9FS7tm1ej3wF+UYBx0=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IBestShotQualityEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			91qhWiE5VN5oGSrX5cC0MgTDTwgaJ0GRlr7H5jg55AI=
+			w8ehIKq/HvguyUy8moaClIfPzYOFq6c6wpEqoV+u73g=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IEyeEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5G3P8SDRUTwIWC+W76TMFEfkl5CLvPdtdMm/pSUmN8c=
+			AGt1QfRf1HHZacvpS3mhl27YxYWnSPEi9jPyJZnKSCM=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IGlassesEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8VTermQPMumNsPL2JSuc8+KpDaEzpewNx30MBj52M04=
+			MLEH0UsUuZq3uICISaSZGCNuMSI/BKas5/fBCCHzhfY=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IHeadPoseEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hN75jJSXB9/YQ1b2o1CkGAQHs6zoqwk9WsEwlZVIog4=
+			rUTIxGV67rXJAYsFFNwXvRx/KsORFJN+/0qRNa9FvHY=
 			</data>
 		</dict>
 		<key>Headers/Estimators/ILivenessDepthRGBEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			93NGEnK2FlLln2KCn9O8PHIOEEPhUS9lYLbOMkrRuKA=
+			XZLlj8gffjYxVd0OudB8WBBJogj7LyQjN9xyiGeqE7k=
 			</data>
 		</dict>
 		<key>Headers/Estimators/ILivenessOneShotRGBEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kE+gBkxe+KRUk7epD53nsHe0TXTqLGbXHvch6lckyI0=
+			3365akWljOnWAVlXb01b5hwzDhzMgta6mmEjioch9kY=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IMedicalMaskEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gp01Qq8IcwWAMUfDphn3myYyla6QR6QCRYOJ4jxYBkE=
+			H3Bo8l4glVAcvUa7o5qvVUmnuSaP++0+UxImqVqUzzE=
+			</data>
+		</dict>
+		<key>Headers/Estimators/INIRLivenessEstimator.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2CPAfDNdKoMJHTO4eYftGxNeyCZ5r2HeZ19vZD7tUK8=
 			</data>
 		</dict>
 		<key>Headers/Estimators/IQualityEstimator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hFB28GWJkHE3mFQLkYQXRuQVqeXThZsIvlMdIPeYX5U=
+			tL8qA7DxesPTS3f0dXgBsCny2cA205+BefoaihhGjSg=
 			</data>
 		</dict>
 		<key>Headers/Exception.h</key>
@@ -388,21 +403,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5uT66CgKWMNclWy8PqpeVKx/3r6ptCjETv+vfAjWfDU=
+			L+o/jW7Ge0wPJcvRCxfNtw4qREcLUOD14AvRs4AMdIw=
 			</data>
 		</dict>
 		<key>Headers/FSDKVersion.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X9fwn7YZTtx8JCIapYa7dNw2Dy4uzEpZ47yb4C4dXQA=
+			LOgORgaPuBp394sxj/tf0ODjd6MaO/fGlBWE7OSC6Gs=
 			</data>
 		</dict>
 		<key>Headers/FaceEngine.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6kjd8b0Z9YseFA3lfTd8B8kyvy+H4Y3SewAREzmeRzU=
+			xrgFoDXi053wRshClIl3wT+II5jokcLPmjeb7eem73Y=
 			</data>
 		</dict>
 		<key>Headers/IAsyncContext.h</key>
@@ -416,56 +431,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yOwPGYdd93DWqdHkWTqogXaReVbzgo99mFPMPOW/3KI=
+			G60+gaxgjY/iEWBEniL9qExcY/px0cfwiWppYsWqG70=
 			</data>
 		</dict>
 		<key>Headers/IDetectionBatch.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c8DYo8DblWuP0XSdBt4CBCzssA5q0bVa8mfc1BTlCT0=
+			812jb+DXIkpIGjU8d2WZPRiOPGFyhcT8xqBcKaUmbDY=
 			</data>
 		</dict>
 		<key>Headers/IDetector.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lZWByPgjnjnWoHjC/mgCfgZBVFYfroCy/Ixc98BFhwo=
+			ye4dZX7Sw/R79Cv+IkQA6BGcY1floMMNViEm54KRSRY=
 			</data>
 		</dict>
 		<key>Headers/IFaceDetectionBatch.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cDwesYo1wWf0shj8O9TxxU6A5DgGAUh2ys7umq9I/wI=
+			3dQHwaZDNmKaIIt+tvTADdg6+cDHKz+cQZs0WtMRK9U=
 			</data>
 		</dict>
 		<key>Headers/IFaceEngineMobile.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9nku7fBPzGih0jbFnYc8D/Y1/xKLf410uib+HpRTbvk=
+			yfALJiZJiqvE+zNnzLcZkO8m1zmDwI4N6EVjrTtTwPU=
 			</data>
 		</dict>
 		<key>Headers/IFaceLandmarksBatch.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iMAzgI4tKGH1njEi1qhFqs0jlAcE0PvJM53mKDra4KY=
+			aFciLjfim2jb3cDi5Cf2JM89yF4dSrSRENcgn9bJxD8=
 			</data>
 		</dict>
 		<key>Headers/IFaceLandmarksDetector.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0giBKZU6QCVTux8NP1V9mwHnAtlQ1te+LK4qZ1AxDXQ=
+			IflHss2NWtM2/2Xa7O6pWtpkJkEM533iJKhVe0VaGaI=
 			</data>
 		</dict>
 		<key>Headers/ILicense.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7VgkTSIOFWDzcpl2kSKuzCiPQnNyDHNCzsCYKSknnM4=
+			hvgxw94/USbP6mleWQq/rVIJ/hKqXJj0WqD+qZvsrm8=
 			</data>
 		</dict>
 		<key>Headers/IObject.h</key>
@@ -473,6 +488,13 @@
 			<key>hash2</key>
 			<data>
 			8Zcbjcc6zapoHZgqIEfNPK/8U3qnM4SWiEWSbkScp3M=
+			</data>
+		</dict>
+		<key>Headers/IPointBatch.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fvz0bXxRE049mkZLxA83nQTGMz+9c4ZdMM3Npqmqru4=
 			</data>
 		</dict>
 		<key>Headers/IRefCounted.h</key>
@@ -500,7 +522,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fr/c7Vx9sXfxneLEDlOMW3PQlLCmcBoRjD093PKwU+g=
+			TRscO9fmqakYord1QAMxBrT2BuizxbAJmav2UB2Iq58=
 			</data>
 		</dict>
 		<key>Headers/LaunchOptions.h</key>
@@ -521,14 +543,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zpbDQRwO8zbJGbwrIQKYVxM4HZIMHQXkNphn5mtfO4s=
+			swVmThccayz5QpjjKgvIEyFjNRsKRDeMR2fOJ7iy6to=
 			</data>
 		</dict>
 		<key>Headers/Types.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8RIQeMuiJHtQtr4pHIIHAsyeWi7Q2w3Ubw/jmoWCnUw=
+			ZTjbcNgdSYyjgVOMsbQzR8pcdnB91BUTNUI9f6KB3nI=
 			</data>
 		</dict>
 		<key>Headers/Types/Detection.h</key>
@@ -542,7 +564,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y/nxw+HGXAYNYVy/xXP2TNmhU6HIh0NVVuFo9VZnvIg=
+			BJYXYvdo6IAYs0RfUtB7Zv1Itnhmgt2loG2PWf0HtWE=
 			</data>
 		</dict>
 		<key>Headers/Types/FaceEngineEdition.h</key>
@@ -556,7 +578,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ic+0B6Q9fYhFad7HetVLUdnmSRWGy/ql9E4UHalOTFo=
+			g/RRquYobEhkDjVC3NocltJmvvJiQT1URLnUJJjCuH4=
 			</data>
 		</dict>
 		<key>Headers/Types/Future.h</key>
@@ -570,14 +592,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uwlJbqB4i77EkS+TR7xOrOI6FGPoSBK+YsITp3v/AWk=
-			</data>
-		</dict>
-		<key>Headers/Types/HumanLandmarks.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			s/dIMfE1zeLG5b5vt/xWWLBpCSAvuYn3jiVzrqWhLtY=
+			/dPZH/bObAN2LhC5rbxeLYQIJKfLaii/xo+lCSoOnIk=
 			</data>
 		</dict>
 		<key>Headers/Types/Image.h</key>
@@ -591,7 +606,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+KW1zMZLbSYrbXl6LeZ5nzhIPihGpY2MHd48Sj5Rs/0=
+			658f9UjhkX1q4zL1nnPR2ATOS6oEIq3q6kwpiBwLa6k=
 			</data>
 		</dict>
 		<key>Headers/Types/MultiError.h</key>
@@ -605,7 +620,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ir64vEgoNzJ0evi7VNNzU8/Nbdw6EcMoK6kmdc1QHX8=
+			YIq2RT5xB7fWV6nsxXaEdvjvzaIbF1WnUz+KPqx0juQ=
 			</data>
 		</dict>
 		<key>Headers/Types/Rect.h</key>
@@ -633,14 +648,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UIfSQCLgoQanH9qhyW7m5LxMjz4eGKnWfguVb8YQv/k=
+			IZcUHdtGGCeB0bHjGY9DwKsAHBxAZkImYpF7BAiMWtk=
 			</data>
 		</dict>
 		<key>Headers/Types/ResultValue.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FynkrofAbiYXN1zOj/qOiXAf1xhL5ucZyQj2AKh0Rqk=
+			AKzE3LbuNo4CFyhyQoBD+DcxHEwRTsPBCBt1bzZTnIQ=
 			</data>
 		</dict>
 		<key>Headers/Types/RotationType.h</key>
@@ -654,7 +669,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r9Mw6him6tDOCFBFgBCqBtjD5lqY8GjP0UCxaldUQHU=
+			rIR83/sw3ZL+UIhYfEByq5FWVYAoMBcR23cmmrD+OgU=
 			</data>
 		</dict>
 		<key>Headers/Types/Sizer.h</key>
@@ -678,6 +693,13 @@
 			dfpbM434/gQdPCc6QDcCSyYp05jSKtjA+g198F0iu0A=
 			</data>
 		</dict>
+		<key>Headers/Types/Transformation.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wBmT3XqHARre7JUHLQhl1TIINdlPp4FB8htiMjHUj/M=
+			</data>
+		</dict>
 		<key>Headers/Types/Vector2.h</key>
 		<dict>
 			<key>hash2</key>
@@ -696,49 +718,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZefKvY2jW56MwjnCF2QnPcbKdp2DjUFLNFAH6zHpuuk=
+			Y3X+vwJ2MYSAbCbqlZxo2LOYUiQ0R2PoSQQU5dLWy3Q=
 			</data>
 		</dict>
-		<key>data/FaceDet_v2_first_arm.plan</key>
+		<key>data/FaceDet_v2_first_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zWIZuW95uSMQhkZQZtCIwU+ebkp/tPsX0J+hFTylSBI=
+			WLzHKNbzqcFGDBo8ZcztWHQvU+0aCkWrWZ/668hvmiw=
 			</data>
 		</dict>
-		<key>data/FaceDet_v2_second_arm.plan</key>
+		<key>data/FaceDet_v2_second_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S7xi1ks2dgEH9OTVCda7OsclFLYsMZpyjP4uzAEI0rk=
+			fk8jkcsIQ8Hcr7FBd8fGsNDCWMgDIQOGXUqQuONJf8g=
 			</data>
 		</dict>
-		<key>data/FaceDet_v2_third_arm.plan</key>
+		<key>data/FaceDet_v2_third_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LUJjJvOByvrSBBdSRYq3E+mRU/BFdpKae2f4bD84gi0=
+			MdaV0ry+maW8ROQR5FanDe1KBZ/1UpLj3B/WkkVZMQY=
 			</data>
 		</dict>
-		<key>data/ags_angle_estimation_flwr_arm.plan</key>
+		<key>data/ags_angle_estimation_flwr_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wj7KkO4ISMxlzKsc+UIKwkUMfNB3tQC9/B6lv4zbSIs=
+			0NExYwqoZVCAvou1IbAJo2UknTBAM/21HUNeno8pV14=
 			</data>
 		</dict>
-		<key>data/ags_v3_arm.plan</key>
+		<key>data/ags_v3_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MR65/FCVRQoPfp1h26N3yKoo/ujz4ASJS/hGVTmLMqA=
+			ViNTymyf4Wj0KQxlk+HlXzTqfDbUPQhtMnS9EoOCij8=
 			</data>
 		</dict>
-		<key>data/cnn59m_arm.plan</key>
+		<key>data/cnn59m_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			emqj8hVnExKBZZc7Aad7Lk8f4p0srfi6eR9Qx+T8jLA=
+			BGMDaS0f+PkVAdTJYPrvzC7NH0Etml0ZbBCsutRMetY=
 			</data>
 		</dict>
 		<key>data/cnndescriptor_59.conf</key>
@@ -748,81 +770,81 @@
 			4A+4q0wFVjfYjSsG8TWwtpRehhRu3ZpOfPqfPnPPitQ=
 			</data>
 		</dict>
-		<key>data/eye_status_estimation_flwr_arm.plan</key>
+		<key>data/eye_status_estimation_flwr_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7J9eRHS8Trakvj+DlsHMjTw5AcciUj4SKHomjcnxb68=
+			ZM4e8NfMj3nO6zkE7nsvg0fdnHm1mdCqO1u7BP4zU34=
 			</data>
 		</dict>
-		<key>data/eyes_estimation_flwr8_arm.plan</key>
+		<key>data/eyes_estimation_flwr8_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pGzZCMdUAnlALOHQiOidjK7vOrWXd/SAXhCKcZ/x4BU=
+			Hu1NOtFsnvuQqn2d1K2sjk+xs7b3wb38ASmMf+zsZ2M=
 			</data>
 		</dict>
 		<key>data/faceengine.conf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c9usgGt4aZTSeN8mU5pVnyplzUFNneXgTTIzcGjh7Ss=
+			11itDD1QVLGHYaXuUoQR78F6OVDbSXFbLkT1qTxI2GI=
 			</data>
 		</dict>
-		<key>data/glasses_estimation_flwr_arm.plan</key>
+		<key>data/glasses_estimation_v2_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vm6W8ubxYk1EZtqJQZfAVxdV233mgPHWddZq1CAfZ0E=
+			i3NYk8R9dzpGYToDig5C2GvICJ0WP70zR25Lyfpklrk=
 			</data>
 		</dict>
-		<key>data/headpose_v3_arm.plan</key>
+		<key>data/headpose_v3_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KFzDQS6kEbOI5+3KrKuG1yAwV/ScKNqvcqbfBQrYv54=
+			ls47gF/+nHV8xw0BL478qdMqpQHrlrJ08WacW1HT13o=
 			</data>
 		</dict>
-		<key>data/mask_clf_v3_arm.plan</key>
+		<key>data/mask_clf_v3_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NXtjM9BXxxBjX1YCUQoAuPPt+Fk9ocz9stu9ec4hrlU=
+			JLy2H6acskti5UxjwrHEKKhyPFAuwKhTgkyEQsaQiUc=
 			</data>
 		</dict>
-		<key>data/model_subjective_quality_v1_arm.plan</key>
+		<key>data/model_subjective_quality_v1_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qiBbf+/7/XudP6jwxFiNWg9SimuL+gAaTnXG4vUASkQ=
+			e1X9F/Aj1dI/i/pziBQBxqosiUDAPszbyVhTgP5IQ38=
 			</data>
 		</dict>
-		<key>data/model_subjective_quality_v2_arm.plan</key>
+		<key>data/model_subjective_quality_v2_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l8KldcvQuHq911Kh/YiarddAyaNbgdALpZHp5TZU9E8=
+			rfNn1pHa9i4ElylgzuqbUNe4AGUrpmCuUFxmzjrLj3s=
 			</data>
 		</dict>
-		<key>data/oslm_v4_model_1_arm.plan</key>
+		<key>data/oneshot_rgb_liveness_v7_model_3_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xMTXhhtJjE1ug8FBidqP0nj3bzpEGx1jbOBHbQXTOjc=
+			HYf4+xvYvpBFyWauEI9QKtefxVE0BR/wqVO5Kf0tVRw=
 			</data>
 		</dict>
-		<key>data/oslm_v4_model_2_arm.plan</key>
+		<key>data/oneshot_rgb_liveness_v7_model_4_cpu.plan</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LYwMo/JiPvm9Qv0LKAo7qwxP2zf4NtWbfre8REo80Mw=
+			L7clBaeLWVdPQsXEJ5DF398Y/J/2DdOGtO0bqXUscE8=
 			</data>
 		</dict>
 		<key>data/runtime.conf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QozFZQVYBlUxWchqBC60xCRxz1qI8Od03Dyj8SoDx3Y=
+			bmbKftdmP/diV5uDlXhcS/uQqinpW6M1DqaI6SGuNe0=
 			</data>
 		</dict>
 	</dict>

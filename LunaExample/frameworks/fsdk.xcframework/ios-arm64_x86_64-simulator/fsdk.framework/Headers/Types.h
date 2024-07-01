@@ -21,5 +21,6 @@
 #include <fsdk/Types/Sizer.h>
 #include <fsdk/Types/Span.h>
 #include <fsdk/Types/SubImage.h>
+#include <fsdk/Types/Transformation.h>
 #include <fsdk/Types/Vector2.h>
 #include <fsdk/Types/WeakRef.h>

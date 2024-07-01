@@ -35,6 +35,13 @@ public struct LMCameraBuilder {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public protocol LMVideoRecordWatchDogDataSourceProtocol : ObjectiveC.NSObjectProtocol {
+  @objc func launchVideoRecord()
+}
+@objc public class LMVideoRecordWatchDog : ObjectiveC.NSObject {
+  @objc public init(videoService: LunaCamera.LMSaveVideoServiceProtocol? = nil, bestshotDetector: LunaCore.LCBestShotDetectorProtocol? = nil, dataSource: LunaCamera.LMVideoRecordWatchDogDataSourceProtocol? = nil)
+  @objc deinit
+}
 extension UIKit.UIColor {
   public static func lunaBlue() -> UIKit.UIColor
   public static func lunaAlto() -> UIKit.UIColor

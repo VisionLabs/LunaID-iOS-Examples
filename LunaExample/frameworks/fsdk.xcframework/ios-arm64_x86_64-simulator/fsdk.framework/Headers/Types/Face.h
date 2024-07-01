@@ -6,11 +6,11 @@
 #include <fsdk/Types/Landmarks.h>
 
 namespace fsdk {
-	
+
 	struct Face {
-		
+
 		typedef float ElementType;
-		
+
 		fsdk::Image img;
 		fsdk::Detection detection;
 		Optional<fsdk::Landmarks5> landmarks5;
@@ -19,14 +19,13 @@ namespace fsdk {
 		bool isValid() const {
 			return img.isValid() && detection.isValid();
 		}
-		
+
 		explicit Face() = default;
-		explicit Face(const fsdk::Image& image) : img(image) {};
-		explicit Face(
-			const fsdk::Image& image,
-			const fsdk::Detection& detection) :
-				img(image),
-				detection(detection) {};
+		explicit Face(const fsdk::Image& image)
+			: img(image){};
+		explicit Face(const fsdk::Image& image, const fsdk::Detection& detection)
+			: img(image)
+			, detection(detection){};
 	};
-	
-}
+
+} // namespace fsdk

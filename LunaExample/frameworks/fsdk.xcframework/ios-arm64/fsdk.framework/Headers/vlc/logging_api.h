@@ -29,5 +29,7 @@ namespace vlc
 
 		void VLC_LIBRARY_API setPrinter(Printer printer, void* userdata = nullptr);
 		Printer VLC_LIBRARY_API getDefaultPrinter();
+
+		void VLC_LIBRARY_API write(Severity severity, const std::string& message, const char* tag);
 	}
 }

@@ -33,7 +33,11 @@ namespace fsdk {
 		DepthRGBLiveness = 23,
 		FightsEstimation = 24,
 		BodyAttributes = 25,
-		NIRLiveness = 26
+		NIRLiveness = 26,
+		DepthLiveness = 27,
+
+		// extern features
+		VirtualCameraChecker = 500
 	};
 
 	/**

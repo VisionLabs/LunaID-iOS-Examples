@@ -41,7 +41,7 @@ namespace fsdk {
 		 * @return Detected face.
 		 * @see Face and Image for details.
 		 * @note images format must be R8G8B8, @see Format.
-		 * @note Result Face could be invalid if no any faces were 
+		 * @note Result Face could be invalid if no any faces were
 		 * detected on the target image or parameters are invalid.
 		 * */
 		virtual Face getFace(const Image& img, size_t imageIndex, size_t detectionIndex) const noexcept = 0;
@@ -83,4 +83,4 @@ namespace fsdk {
 		virtual Span<const Landmarks68> getLandmarks68(size_t index = 0) const noexcept = 0;
 	};
 
-}
+} // namespace fsdk

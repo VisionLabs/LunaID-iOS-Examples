@@ -32,7 +32,6 @@ namespace fsdk {
 		 * @see Span and Detections for details.
 		 * */
 		virtual Span<const Detection> getDetections(size_t index = 0) const noexcept = 0;
-
 	};
 
-}
+} // namespace fsdk

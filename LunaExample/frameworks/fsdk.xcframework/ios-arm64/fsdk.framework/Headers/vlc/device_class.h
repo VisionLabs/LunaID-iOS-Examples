@@ -1,7 +1,9 @@
 #pragma once
 
 #include <cstdint>
-#include <ostream>
+
+#include "fmt/core.h"
+#include "fmt/ostream.h"
 
 namespace vlc
 {
@@ -27,6 +29,7 @@ namespace vlc
         TENSOR_RT_INT8, // Nvidia TensorRT platform with int8 backend
 
         CPU_AVX2_INT8,
+        GPU_FP16, // GPU with FP16 inference
 
         Invalid = -1
     };		
@@ -41,6 +44,7 @@ namespace vlc
             case DeviceClass::CPU_AVX2: return "CPU_AVX2";
             case DeviceClass::CPU_AVX2_INT8: return "CPU_AVX2_INT8";
             case DeviceClass::GPU_INT8: return "GPU_INT8";
+            case DeviceClass::GPU_FP16: return "GPU_FP16";
             case DeviceClass::CPU_ARM_INT8: return "CPU_ARM_INT8";
             case DeviceClass::GPU_MOBILE: return "GPU_MOBILE";
             case DeviceClass::NPU: return "NPU";
@@ -78,12 +82,30 @@ namespace vlc
         }
     }
 
+    inline bool isLikeAnyCPU(DeviceClass device)
+    {
+        return isLikeCPU(device) || isLikeMobileCPU(device);
+    }
+
     inline bool isLikeGPU(DeviceClass device)
     {
         switch (device)
         {
             case DeviceClass::GPU:
             case DeviceClass::GPU_INT8:
+            case DeviceClass::GPU_FP16:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    inline bool isLikeNPU(DeviceClass device)
+    {
+        switch (device)
+        {
+            case DeviceClass::NPU:
+            case DeviceClass::NPU_ASCEND:
                 return true;
             default:
                 return false;
@@ -106,10 +128,15 @@ namespace vlc
     inline bool isLikeMobileGPU(DeviceClass device)
     {
         return device == DeviceClass::GPU_MOBILE;
-    }	
+    }
 
     inline std::ostream& operator << (std::ostream& os, DeviceClass device)
     {
         return os << deviceClassName(device);
     }	
+}
+
+namespace fmt
+{
+    template <> struct formatter<vlc::DeviceClass> : ostream_formatter {};
 }

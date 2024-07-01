@@ -6,18 +6,6 @@
 #import "LCEstimationThreshold.h"
 #import "LivenessType.h"
 
-static NSString * const kBestShotLivenessTypeKey = @"kBestShotLivenessTypeKey";
-static NSString * const kEyesCheckIDKey = @"kEyesCheckIDKey";
-
-static NSString * const kBorderDistanceKey = @"kBorderDistanceKey";
-static NSString * const kMinDetSizeKey = @"kMinDetSizeKey";
-static NSString * const kDetectorStepKey = @"kDetectorStepKey";
-static NSString * const kSkipFrames = @"kSkipFrames";
-static NSString * const kMinimalTrackLength = @"kMinimalTrackLength";
-static NSString * const kNumberOfBestshots = @"kNumberOfBestshots";
-static NSString * const kBestshotInterval = @"kBestshotInterval";
-static NSString * const kLivenessQuality = @"kLivenessQuality";
-
 @interface LCBestShotConfiguration : NSObject
 
 /// Default configuration instance.

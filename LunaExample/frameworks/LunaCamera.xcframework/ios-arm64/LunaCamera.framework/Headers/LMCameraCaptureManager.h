@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL orientationEnabled;
 
 @property (nonatomic, assign) BOOL recordVideo;
+@property (nonatomic, assign) CGFloat videoRecordLength;
 @property (nonatomic, weak) id<LMCameraCaptureManagerDelegate> delegate;
 
 /// Do not touch or change this property, it holds video file name

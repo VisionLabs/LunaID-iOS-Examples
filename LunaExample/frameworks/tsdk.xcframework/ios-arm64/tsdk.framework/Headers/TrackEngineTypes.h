@@ -17,7 +17,6 @@
 
 #if !TE_MOBILE_BUILD
 #include <fsdk/IDescriptor.h>
-#include <fsdk/Types/HumanLandmarks.h>
 #endif //!TE_MOBILE_BUILD
 
 namespace tsdk {
@@ -226,10 +225,6 @@ namespace tsdk {
 		//! Face landmarks
 		fsdk::Landmarks5 landmarks;
 
-#if !TE_MOBILE_BUILD
-		//! Human landmarks
-		fsdk::HumanLandmarks17 humanLandmarks;
-#endif
 		//! Last detection for track
 		fsdk::Detection detection;
 
@@ -298,12 +293,7 @@ namespace tsdk {
 		fsdk::Landmarks5 landmarks;
 	};
 
-
 	struct BodyTrackData : BaseTrackData {
-#if !TE_MOBILE_BUILD
-		//! Human landmarks
-		fsdk::HumanLandmarks17 landmarks;
-#endif
 	};
 
 	struct HumanTrackInfo {
@@ -346,9 +336,6 @@ namespace tsdk {
 		EDetectionObject detectionObject;
 
 #if !TE_MOBILE_BUILD
-		//! Human landmarks (valid if detectionObject is EDetection_Body and config parameter `human-landmarks-detection` is on)
-		fsdk::HumanLandmarks17 humanLandmarks;
-
 		//! NOTE: only for internal usage, don't use this field, it isn't valid ptr
 		fsdk::IDescriptorPtr descriptor;
 #endif

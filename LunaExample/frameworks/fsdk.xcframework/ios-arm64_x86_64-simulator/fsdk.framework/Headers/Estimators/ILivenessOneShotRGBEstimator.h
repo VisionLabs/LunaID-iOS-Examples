@@ -11,10 +11,10 @@ namespace fsdk {
 	DECLARE_SMARTPTR(ILivenessOneShotRGBEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 	/**
 	 * @brief Liveness OneShotRGB estimation structure.
@@ -23,9 +23,9 @@ namespace fsdk {
 	 * */
 	struct LivenessOneShotRGBEstimation {
 		enum class State {
-			Alive = 0,   //!< The person on image is real
-			Fake,        //!< The person on image is fake (photo, printed image)
-			Unknown      //!< The liveness status of person on image is Unknown
+			Alive = 0, //!< The person on image is real
+			Fake,      //!< The person on image is fake (photo, printed image)
+			Unknown    //!< The liveness status of person on image is Unknown
 		};
 
 		float score;        //!< Estimation score
@@ -90,12 +90,12 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			Span<const Landmarks5> landmarks5,
 			Span<Result<FSDKError>> errors) const noexcept = 0;
 	};
-/** @} */
+
+	/** @} */
 } // namespace fsdk

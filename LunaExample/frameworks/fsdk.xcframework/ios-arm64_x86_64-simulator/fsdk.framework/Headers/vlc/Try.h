@@ -2,8 +2,7 @@
 
 #include <exception>
 #include <type_traits>
-
-#include "aligned_union.h"
+#include <stdexcept>
 
 namespace vlc
 {
@@ -43,10 +42,10 @@ namespace vlc
 			switch (m_state)
 			{
 			case State::Success:
-				reinterpret_cast<T*>(&m_storage)->~T();
+				reinterpret_cast<T*>(m_storage)->~T();
 				break;
 			case State::Failure:
-				reinterpret_cast<std::exception_ptr*>(&m_storage)->~exception_ptr();
+				reinterpret_cast<std::exception_ptr*>(m_storage)->~exception_ptr();
 				break;
 			case State::None:
 				break;
@@ -57,17 +56,17 @@ namespace vlc
 		{
 			static_assert(std::is_copy_constructible<T>::value, "T must be copy constructible");
 
-			new(&m_storage) T(v);
+			new(m_storage) T(v);
 		}
 
 		explicit Try(T&& v) : m_state(State::Success)
 		{
-			new(&m_storage) T(std::forward<T>(v));
+			new(m_storage) T(std::forward<T>(v));
 		}
 
 		explicit Try(std::exception_ptr exc) : m_state(State::Failure)
 		{
-			new(&m_storage) std::exception_ptr(exc);
+			new(m_storage) std::exception_ptr(exc);
 		}
 
 		Try(const Try& src) : m_state(src.m_state)
@@ -77,10 +76,10 @@ namespace vlc
 			switch (m_state)
 			{
 			case State::Success:
-				new(&m_storage) T(*reinterpret_cast<T*>(&src.m_storage));
+				new(m_storage) T(*reinterpret_cast<T*>(&src.m_storage));
 				break;
 			case State::Failure:
-				new(&m_storage) std::exception_ptr(*reinterpret_cast<std::exception_ptr*>(&src.m_storage));
+				new(m_storage) std::exception_ptr(*reinterpret_cast<std::exception_ptr*>(&src.m_storage));
 				break;
 			case State::None:
 				break;
@@ -96,10 +95,10 @@ namespace vlc
 			switch (m_state)
 			{
 			case State::Success:
-				new(&m_storage) T(*reinterpret_cast<T*>(&src.m_storage));
+				new(m_storage) T(*reinterpret_cast<T*>(&src.m_storage));
 				break;
 			case State::Failure:
-				new(&m_storage) std::exception_ptr(*reinterpret_cast<std::exception_ptr*>(&src.m_storage));
+				new(m_storage) std::exception_ptr(*reinterpret_cast<std::exception_ptr*>(&src.m_storage));
 				break;
 			case State::None:
 				break;
@@ -113,10 +112,10 @@ namespace vlc
 			switch (m_state)
 			{
 			case State::Success:
-				new(&m_storage) T(std::move(*reinterpret_cast<T*>(&src.m_storage)));
+				new(m_storage) T(std::move(*reinterpret_cast<T*>(&src.m_storage)));
 				break;
 			case State::Failure:
-				new(&m_storage) std::exception_ptr(std::move(*reinterpret_cast<std::exception_ptr*>(&src.m_storage)));
+				new(m_storage) std::exception_ptr(std::move(*reinterpret_cast<std::exception_ptr*>(&src.m_storage)));
 				break;
 			case State::None:
 				break;
@@ -130,10 +129,10 @@ namespace vlc
 			switch (m_state)
 			{
 			case State::Success:
-				new(&m_storage) T(std::move(*reinterpret_cast<T*>(&src.m_storage)));
+				new(m_storage) T(std::move(*reinterpret_cast<T*>(&src.m_storage)));
 				break;
 			case State::Failure:
-				new(&m_storage) std::exception_ptr(std::move(*reinterpret_cast<std::exception_ptr*>(&src.m_storage)));
+				new(m_storage) std::exception_ptr(std::move(*reinterpret_cast<std::exception_ptr*>(&src.m_storage)));
 				break;
 			case State::None:
 				break;
@@ -145,7 +144,7 @@ namespace vlc
 		T& value() &
 		{
 			throwIfFailure();
-			return *reinterpret_cast<T*>(&m_storage);
+			return *reinterpret_cast<T*>(m_storage);
 		}
 
 		const T& value() const &
@@ -186,12 +185,12 @@ namespace vlc
 
 		std::exception_ptr& exception()
 		{
-			return *reinterpret_cast<std::exception_ptr*>(&m_storage);
+			return *reinterpret_cast<std::exception_ptr*>(m_storage);
 		}
 
 		const std::exception_ptr& exception() const
 		{
-			return *reinterpret_cast<const std::exception_ptr*>(&m_storage);
+			return *reinterpret_cast<const std::exception_ptr*>(m_storage);
 		}
 
 		bool isSuccess() const
@@ -244,7 +243,7 @@ namespace vlc
 
 	private:
 		State m_state;
-		typename vlc::aligned_union<4, T, std::exception_ptr>::type m_storage;
+		alignas(T) alignas(std::exception_ptr) char m_storage[std::max({sizeof(T), sizeof(std::exception_ptr)})];
 
 		void throwIfFailure() const
 		{

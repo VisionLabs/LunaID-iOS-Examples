@@ -12,19 +12,19 @@
 
 namespace fsdk {
 
-/**
- * @addtogroup VersionGroup Version
- * @brief SDK Build type and version info.
- * @{
- * */
+	/**
+	 * @addtogroup VersionGroup Version
+	 * @brief SDK Build type and version info.
+	 * @{
+	 * */
 
 	/**
 	 * Version structure.
 	 * */
 	struct Version {
-		uint8_t major;		//!< Major version number.
-		uint8_t minor;		//!< Minor version number.
-		uint16_t patch;		//!< Revision number.
+		uint8_t major;  //!< Major version number.
+		uint8_t minor;  //!< Minor version number.
+		uint16_t patch; //!< Revision number.
 	};
 
 	/**
@@ -33,10 +33,10 @@ namespace fsdk {
 	 * @param rhs second version
 	 * @return true if lhs is less than rhs
 	 * */
-	inline bool operator < (Version lhs, Version rhs) noexcept {
-		if (lhs.major < rhs.major)
+	inline bool operator<(Version lhs, Version rhs) noexcept {
+		if(lhs.major < rhs.major)
 			return true;
-		if (lhs.minor < rhs.minor)
+		if(lhs.minor < rhs.minor)
 			return true;
 		return lhs.patch < rhs.patch;
 	}
@@ -47,10 +47,8 @@ namespace fsdk {
 	 * @param rhs second version
 	 * @return true if versions are equal
 	 * */
-	inline bool operator == (Version lhs, Version rhs) noexcept {
-		return	lhs.major == rhs.major && 
-				lhs.minor == rhs.minor && 
-				lhs.patch == rhs.patch;
+	inline bool operator==(Version lhs, Version rhs) noexcept {
+		return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch;
 	}
 
 	/**
@@ -59,7 +57,7 @@ namespace fsdk {
 	 * @param rhs second version
 	 * @return true if versions are not equal
 	 * */
-	inline bool operator != (Version lhs, Version rhs) noexcept {
+	inline bool operator!=(Version lhs, Version rhs) noexcept {
 		return !(lhs == rhs);
 	}
 
@@ -68,7 +66,7 @@ namespace fsdk {
 	 * @return filled version structure.
 	 * */
 	FSDK_API Version getVersion() noexcept;
-	
+
 	/**
 	 * @brief Get FaceEngine commit hash.
 	 * @return commit hash as a null-terminated string.
@@ -88,5 +86,5 @@ namespace fsdk {
 	 * */
 	FSDK_API const char* getBuildInfo() noexcept;
 
-/** @} */ // end of VersionGroup
-}
+	/** @} */ // end of VersionGroup
+} // namespace fsdk

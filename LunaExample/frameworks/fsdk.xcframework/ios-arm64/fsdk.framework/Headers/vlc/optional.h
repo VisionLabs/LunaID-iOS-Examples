@@ -24,9 +24,7 @@ namespace vlc
 
 	template<typename BaseType> class optional
 	{
-		using Storage = typename std::aligned_storage<sizeof(BaseType), std::alignment_of<BaseType>::value>::type;
-
-		Storage m_storage;
+		alignas(BaseType) char m_storage[sizeof(BaseType)];
 		bool m_valid = false;
 
 	public:
@@ -45,7 +43,7 @@ namespace vlc
 		{
 			if (src.m_valid)
 			{
-				new(&m_storage) BaseType(*src);
+				new(m_storage) BaseType(*src);
 			}
 		}
 
@@ -53,7 +51,7 @@ namespace vlc
 		{
 			if (src.m_valid)
 			{
-				new(&m_storage) BaseType(std::move(*src));
+				new(m_storage) BaseType(std::move(*src));
 			}
 		}
 
@@ -65,13 +63,13 @@ namespace vlc
 		>
 			optional(U&& value) : m_valid(true)
 		{
-			new(&m_storage) BaseType(std::forward<U>(value));
+			new(m_storage) BaseType(std::forward<U>(value));
 		}
 
 		template<typename... Args, typename = typename std::enable_if<std::is_constructible<BaseType, Args...>::value>::type>
 		explicit optional(in_place_t tag, Args&&... args) : m_valid(true)
 		{
-			new(&m_storage) BaseType(std::forward<Args>(args)...);
+			new(m_storage) BaseType(std::forward<Args>(args)...);
 		}
 
 		optional& operator = (nullopt_t) noexcept
@@ -90,14 +88,13 @@ namespace vlc
 				}
 				else
 				{
-					new(&m_storage) BaseType(std::move(*src));
+					new(m_storage) BaseType(std::move(*src));
 					m_valid = true;
 				}
 			}
 			else if (m_valid)
 			{
-				reinterpret_cast<BaseType*>(&m_storage)->~BaseType();
-				m_valid = false;
+				reset();
 			}
 
 			return *this;
@@ -119,8 +116,7 @@ namespace vlc
 			}
 			else if (m_valid)
 			{
-				reinterpret_cast<BaseType*>(&m_storage)->~BaseType();
-				m_valid = false;
+				reset();
 			}
 
 			return *this;
@@ -140,7 +136,7 @@ namespace vlc
 			}
 			else
 			{
-				new(&m_storage) BaseType(std::forward<U>(value));
+				new(m_storage) BaseType(std::forward<U>(value));
 				m_valid = true;
 			}
 

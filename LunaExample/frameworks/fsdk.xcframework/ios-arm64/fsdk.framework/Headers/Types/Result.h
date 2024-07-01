@@ -70,6 +70,15 @@ namespace fsdk {
 			return isOk();
 		}
 
+		/** @brief Values of type bool participate in integral promotions.
+				A prvalue of type bool can be converted to a prvalue of type int,
+				with false becoming zero and true becoming one.
+				This overload prevents the bool() operator above from participating
+				in dangerous implicit conversion chains such as bool->int,
+				bool->int->float, bool->int->double
+		*/
+		operator int() const noexcept = delete;
+
 		/** @brief Gets a textual description of the result.
 			@note function toString() should be specialized
 			for this template type T.

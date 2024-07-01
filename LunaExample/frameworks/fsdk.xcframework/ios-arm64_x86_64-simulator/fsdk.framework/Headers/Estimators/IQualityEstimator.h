@@ -11,10 +11,10 @@ namespace fsdk {
 	DECLARE_SMARTPTR(IQualityEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 	/**
 	 * @brief Quality estimation structure
@@ -34,7 +34,7 @@ namespace fsdk {
 		 * */
 		inline float getQuality() const noexcept;
 	};
-	
+
 	/**
 	 * @brief Subjective Quality estimation structure
 	 * Each estimation is given in normalized [0, 1] range. Parameter meanings:
@@ -65,31 +65,32 @@ namespace fsdk {
 		 * */
 		inline bool isGood() const noexcept;
 	};
-	
+
 	/**
 	 * @brief Image quality estimator interface.
-	 * @note This estimator is designed to work with a person face image; you should pass a warped face detection image.
+	 * @note This estimator is designed to work with a person face image; you should pass a warped face
+	 * detection image.
 	 * @see IWarper for details.
 	 * Quality estimator detects the same attributes as all the other estimators:
 	 *   \li over/under exposure;
 	 *   \li blurriness;
 	 *   \li natural/unnatural colors;
-	 * It is different in the sense that it computes all the estimations at once and returns the results merged somehow
-	 * into a single value instead of several separate values. This way one can obtain a single scalar quality metric of
-	 * a person face image. The estimated value is a probability that the image is good for both recognition and viewing
-	 * purposes.
+	 * It is different in the sense that it computes all the estimations at once and returns the results merged
+	 * somehow into a single value instead of several separate values. This way one can obtain a single scalar
+	 * quality metric of a person face image. The estimated value is a probability that the image is good for
+	 * both recognition and viewing purposes.
 	 * */
 	struct IQualityEstimator : IRefCounted {
 		/**
 		 * @brief Estimate the quality.
 		 * @param [in] warp image with warped face.
-		 * @param [out] quality output structure with quality params. Complex quality estimation available by method getQuality.
+		 * @param [out] quality output structure with quality params. Complex quality estimation available by
+		 * method getQuality.
 		 * @return Result with error code.
 		 * @see Quality, Image, Result and FSDKError for details.
 		 * @note warp format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError>
-		estimate(const Image& warp, Quality& quality) const noexcept = 0;
+		virtual Result<FSDKError> estimate(const Image& warp, Quality& quality) const noexcept = 0;
 
 		/**
 		 * @brief Estimate the quality of multiple warped images in a single estimate function call
@@ -101,10 +102,7 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		estimate(
-			Span<const Image> warps,
-			Span<Quality> quality) const noexcept = 0;
+		virtual Result<FSDKError> estimate(Span<const Image> warps, Span<Quality> quality) const noexcept = 0;
 
 		/**
 		 * @brief Estimate the quality.
@@ -114,9 +112,7 @@ namespace fsdk {
 		 * @see SubjectiveQuality, Image, Result and FSDKError for details.
 		 * @note warp format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError> estimate(
-			const Image& warp,
-			SubjectiveQuality& quality) const noexcept = 0;
+		virtual Result<FSDKError> estimate(const Image& warp, SubjectiveQuality& quality) const noexcept = 0;
 
 		/**
 		 * @brief Estimate the subjective quality of multiple warped images in a single estimate function call
@@ -129,9 +125,7 @@ namespace fsdk {
 		 * @note all spans should be equal size.
 		 * */
 		virtual Result<FSDKError>
-		estimate(
-			Span<const Image> warps,
-			Span<SubjectiveQuality> quality) const noexcept = 0;
+		estimate(Span<const Image> warps, Span<SubjectiveQuality> quality) const noexcept = 0;
 
 		/**
 		 * @brief Validate input of multiple frames in a single function call.
@@ -144,9 +138,7 @@ namespace fsdk {
 		 * @note all spans should be equal size.
 		 * */
 		virtual Result<FSDKError>
-		validate(
-			Span<const Image> warps,
-			Span<Result<FSDKError>> errors) const noexcept = 0;
+		validate(Span<const Image> warps, Span<Result<FSDKError>> errors) const noexcept = 0;
 	};
 
 	/*
@@ -162,9 +154,10 @@ namespace fsdk {
 		Implementation details.
 	*/
 	bool SubjectiveQuality::isGood() const noexcept {
-		if (!isBlurred && !isHighlighted && !isDark && !isIlluminated && !isNotSpecular)
+		if(!isBlurred && !isHighlighted && !isDark && !isIlluminated && !isNotSpecular)
 			return true;
 		return false;
 	}
-/** @} */
+
+	/** @} */
 } // namespace fsdk

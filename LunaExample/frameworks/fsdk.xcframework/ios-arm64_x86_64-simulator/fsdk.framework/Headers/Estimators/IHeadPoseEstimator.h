@@ -13,10 +13,10 @@ namespace fsdk {
 	DECLARE_SMARTPTR(IHeadPoseEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 	/**
 	 * @brief Head pose estimation output.
@@ -24,14 +24,14 @@ namespace fsdk {
 	 * Each angle is measured in degrees and in [-180, 180] range.
 	 * */
 	struct HeadPoseEstimation {
-		float pitch;	//!< Pitch angle estimation.
-		float yaw;  	//!< Yaw angle estimation.
-		float roll; 	//!< Roll angle estimation.
+		float pitch; //!< Pitch angle estimation.
+		float yaw;   //!< Yaw angle estimation.
+		float roll;  //!< Roll angle estimation.
 
 		enum FrontalFaceType {
-			Non = 0,        //!< Non-frontal face
-			Good,           //!< Good for recognition; Doesn't descrease recall and looks fine.
-			ISO	            //!< GOST/ISO angles
+			Non = 0, //!< Non-frontal face
+			Good,    //!< Good for recognition; Doesn't descrease recall and looks fine.
+			ISO      //!< GOST/ISO angles
 		};
 
 		/**
@@ -58,11 +58,9 @@ namespace fsdk {
 		 * @return Result with error code.
 		 * @see Landmarks, HeadPoseEstimation, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("HeadPoseEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		estimate(
-			const Landmarks68 &landmarks,
-			HeadPoseEstimation& out) const noexcept = 0;
+		virtual Result<FSDKError>
+		estimate(const Landmarks68& landmarks, HeadPoseEstimation& out) const noexcept = 0;
 		/**
 		 * @brief Estimate the angles.
 		 * @param [in] image source image.
@@ -72,12 +70,9 @@ namespace fsdk {
 		 * @see HeadPoseEstimation, Detection, Image, Result and FSDKError for details.
 		 * @note image format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("HeadPoseEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		estimate(
-			const Image& image,
-			const Detection& detection,
-			HeadPoseEstimation& out) const noexcept = 0;
+		virtual Result<FSDKError>
+		estimate(const Image& image, const Detection& detection, HeadPoseEstimation& out) const noexcept = 0;
 
 		/**
 		 * @brief Estimate headpose angles of multiple frames in a single estimate function call.
@@ -90,9 +85,8 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("HeadPoseEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		estimate(
+		virtual Result<FSDKError> estimate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			Span<HeadPoseEstimation> out) const noexcept = 0;
@@ -108,9 +102,8 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("HeadPoseEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			Span<Result<FSDKError>> errors) const noexcept = 0;
@@ -119,13 +112,13 @@ namespace fsdk {
 	/*
 		Implementation details.
 	*/
-	HeadPoseEstimation::FrontalFaceType
-	HeadPoseEstimation::getFrontalFaceType() const {
+	HeadPoseEstimation::FrontalFaceType HeadPoseEstimation::getFrontalFaceType() const {
 		if(std::abs(roll) <= 8 && std::abs(pitch) <= 5 && std::abs(yaw) <= 5)
 			return HeadPoseEstimation::ISO;
 		if(std::abs(roll) <= 30 && std::abs(pitch) <= 40 && std::abs(yaw) <= 40)
 			return HeadPoseEstimation::Good;
 		return HeadPoseEstimation::Non;
 	}
-/** @} */
+
+	/** @} */
 } // namespace fsdk

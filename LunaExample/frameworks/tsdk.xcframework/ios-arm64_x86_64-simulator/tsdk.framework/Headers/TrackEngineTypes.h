@@ -3,6 +3,7 @@
 #include "TrackEngineDefs.h"
 
 #include <fsdk/FSDKVersion.h>
+#include <fsdk/FSDKError.h>
 #include <fsdk/IObject.h>
 #include <fsdk/Types/Image.h>
 #include <fsdk/Types/Rect.h>
@@ -16,7 +17,6 @@
 
 #if !TE_MOBILE_BUILD
 #include <fsdk/IDescriptor.h>
-#include <fsdk/Types/HumanLandmarks.h>
 #endif //!TE_MOBILE_BUILD
 
 namespace tsdk {
@@ -128,8 +128,8 @@ namespace tsdk {
 		//! note, higher values lead to better quality of reidentification, but reduce performance ('100' by default)
 		size_t inactiveTracksLifeTime = 100;
 
-		//! number of detections, that track must have to be matched by reID ('7' by default)
-		size_t reIDMatchingDetectionsCount = 7;
+		//! number of detections, that track must have to be matched by reID ('2' by default)
+		size_t reIDMatchingDetectionsCount = 2;
 	};
 
 	/** @brief Struct with settings for per stream human tracking specific params. Version of `HumanTrackingStreamParams` with optional parameters.
@@ -168,7 +168,7 @@ namespace tsdk {
 		float killIntersectionValue = 0.55f;
 
 		//! If track wasn't updated by detect/redetect for this number of frames, then track is finished
-		std::size_t numberOfFramesToIgnore = 36;
+		std::size_t numberOfFramesToIgnore = 18;
 
 		//! Circular buffer size for the frames storage
 		std::size_t framesBufferSize = 20;
@@ -225,10 +225,6 @@ namespace tsdk {
 		//! Face landmarks
 		fsdk::Landmarks5 landmarks;
 
-#if !TE_MOBILE_BUILD
-		//! Human landmarks
-		fsdk::HumanLandmarks17 humanLandmarks;
-#endif
 		//! Last detection for track
 		fsdk::Detection detection;
 
@@ -237,6 +233,9 @@ namespace tsdk {
 
 		//! Id of track
 		TrackId trackId;
+
+		//! local Id of track
+		TrackId localTrackId;
 
 		//! Score for last detection in track
 		float lastDetectionScore;
@@ -253,8 +252,8 @@ namespace tsdk {
 		//! id of last frame, when track was updated with detect/redetect
 		tsdk::FrameId lastDetectionFrameId;
 
-		//! id of last frame, when track was updated with detect
-		tsdk::FrameId lastFullDetectionFrameId;
+		//! id of last frame, when track was updated with detect. If no such frame yet, then it's negative value (track can be found via redetect)
+		int lastFullDetectionFrameId;
 
 		//! Was it (re)detected or tracked bounding box last frame
 		bool isDetector;
@@ -279,8 +278,8 @@ namespace tsdk {
 		//! id of last frame, when track was updated with detect/redetect
 		tsdk::FrameId lastDetectionFrameId;
 
-		//! id of last frame, when track was updated with detect
-		tsdk::FrameId lastFullDetectionFrameId;
+		//! id of last frame, when track was updated with detect. If no such frame yet, then it's negative value (track can be found via redetect)
+		int lastFullDetectionFrameId;
 
 		//! Was it (re)detected or tracked bounding box last frame
 		bool isDetector;
@@ -294,16 +293,15 @@ namespace tsdk {
 		fsdk::Landmarks5 landmarks;
 	};
 
-#if !TE_MOBILE_BUILD
 	struct BodyTrackData : BaseTrackData {
-		//! Human landmarks
-		fsdk::HumanLandmarks17 landmarks;
 	};
-#endif
 
 	struct HumanTrackInfo {
 		//! Id of track
 		TrackId trackId;
+
+		//! local Id of track
+		TrackId localTrackId;
 
 		//! face part of track
 		fsdk::Optional<FaceTrackData> face;
@@ -320,8 +318,11 @@ namespace tsdk {
 		//! Index of the frame
 		tsdk::FrameId frameIndex;
 
-		//! Index of the track
+		//! id of the track
 		tsdk::TrackId trackId;
+
+		//! local id of the track
+		tsdk::TrackId localTrackId;
 
 		//! Source image
 		fsdk::Image image;
@@ -335,9 +336,6 @@ namespace tsdk {
 		EDetectionObject detectionObject;
 
 #if !TE_MOBILE_BUILD
-		//! Human landmarks (valid if detectionObject is EDetection_Body and config parameter `human-landmarks-detection` is on)
-		fsdk::HumanLandmarks17 humanLandmarks;
-
 		//! NOTE: only for internal usage, don't use this field, it isn't valid ptr
 		fsdk::IDescriptorPtr descriptor;
 #endif
@@ -406,6 +404,9 @@ namespace tsdk {
 
 		//! track id
 		tsdk::TrackId trackId;
+
+		//! local track id
+		tsdk::TrackId localTrackId;
 	};
 
 	struct TrackEndCallbackData {
@@ -414,6 +415,9 @@ namespace tsdk {
 
 		//! track id
 		tsdk::TrackId trackId;
+
+		//! local track id
+		tsdk::TrackId localTrackId;
 
 		//! parameter implies reason of track ending
 		TrackEndReason reason;
@@ -468,6 +472,10 @@ namespace tsdk {
 		bool isBestDetection;
 	};
 	
+	struct ITrackingResultEventsHolder : public fsdk::IRefCounted {
+		virtual ~ITrackingResultEventsHolder() = default;
+	};
+
 	/** @brief Tracking results per stream/frame.
 		It involves different tracking data/events per stream/frame
 	*/
@@ -512,12 +520,21 @@ namespace tsdk {
 		//! human tracks, including both face and body (new API version of `tracks`)
 		// NOTE: visual observer must be enabled to get this, as it's derived from `tracks`
 		fsdk::Span<HumanTrackInfo> humanTracks;
+
+	protected:
+		fsdk::Ref<ITrackingResultEventsHolder> eventHolder; // WARN: only for internal TE usage, don't use this field
 	};
 
 	/** @brief Tracking results batch as 2D vector of stream/frame.
 		It contains tracking results for several frames per each stream
 	*/
 	struct ITrackingResultBatch : public fsdk::IRefCounted {
+		/**
+		 * @brief Gets status of processing last frame batch.
+		 * @return fsdk error status
+		 * */
+		virtual fsdk::FSDKError getError() const = 0;
+		
 		/**
 		 * @brief Get array of stream identifiers, tracking results are ready for.
 		 * @return span of Stream ids.
@@ -527,7 +544,7 @@ namespace tsdk {
 		/**
 		 * @brief Get array of frame identifiers for given Stream, tracking results are ready for.
 		 * @param streamId id of the Stream.
-		 * @note streamId can be any value (not only from `getStreamIds`), so func returns empty span, if Stream has no ready tracking results yet.
+		 * @note Func returns empty span, if there's not Stream with id `streamId` or Stream has no ready tracking results yet.
 		 * @return span of frame ids in tracking result for specific Stream.
 		 * */
 		virtual fsdk::Span<tsdk::FrameId> getStreamFrameIds(tsdk::StreamId streamId) const = 0;

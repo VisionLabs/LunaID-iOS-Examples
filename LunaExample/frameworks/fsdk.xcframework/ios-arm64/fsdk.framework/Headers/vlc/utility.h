@@ -1,6 +1,8 @@
 #pragma once
 
 #include <memory>
+#include <assert.h>
+
 #include "function_traits.h"
 
 #ifdef _MSC_VER
@@ -208,7 +210,7 @@ namespace vlc
 		return N;
 	}
 	
-	inline size_t align_up(size_t size, size_t alignment)
+	constexpr inline size_t align_up(size_t size, size_t alignment)
 	{
 		assert((alignment & ~(alignment - 1)) == alignment); // Alignment should be power of two
 		return (size + alignment - 1) & ~(alignment - 1);

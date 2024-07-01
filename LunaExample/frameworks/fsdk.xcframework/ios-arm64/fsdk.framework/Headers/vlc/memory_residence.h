@@ -1,9 +1,11 @@
 #pragma once
 
-#include <ostream>
 #include <stdint.h>
 
 #include "device_class.h"
+
+#include "fmt/core.h"
+#include "fmt/ostream.h"
 
 namespace vlc
 {
@@ -41,6 +43,7 @@ namespace vlc
         {
             case DeviceClass::GPU:
             case DeviceClass::GPU_INT8:
+            case DeviceClass::GPU_FP16:
             case DeviceClass::TENSOR_RT:
             case DeviceClass::TENSOR_RT_FP16:
             case DeviceClass::TENSOR_RT_INT8:
@@ -52,6 +55,18 @@ namespace vlc
                 return MemoryResidence::NPU;
             default:
                 return MemoryResidence::Host;
+        }
+    }
+
+    inline bool isLikeNPUResidence(vlc::MemoryResidence residence) 
+    {
+        switch(residence)
+        {
+            case MemoryResidence::NPU :
+            case MemoryResidence::NPU_DPP :
+                return true;
+            default : 
+                return false;
         }
     }
 
@@ -75,4 +90,9 @@ namespace vlc
                 return os << "invalid";
         }
     }
+}
+
+namespace fmt
+{
+    template <> struct formatter<vlc::MemoryResidence> : ostream_formatter {};
 }

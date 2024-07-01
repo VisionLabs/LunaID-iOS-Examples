@@ -245,4 +245,8 @@ namespace fsdk {
 	protected:
 		Type m_type; //!< Format type.
 	};
+
+	constexpr int format_as(Format::Type in) {
+		return static_cast<int>(in);
+	}
 } // namespace fsdk

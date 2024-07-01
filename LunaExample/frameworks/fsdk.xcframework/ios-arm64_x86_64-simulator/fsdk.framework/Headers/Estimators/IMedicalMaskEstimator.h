@@ -13,19 +13,19 @@ namespace fsdk {
 	DECLARE_SMARTPTR(IMedicalMaskEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 	/**
 	 * @brief MedicalMask estimator output enum.
 	 * This enum contains all possible estimation results.
 	 * */
 	enum class MedicalMask {
-		Mask = 0,                 //!< medical mask is on the face
-		NoMask,                   //!< no medical mask on the face
-		OccludedFace              //!< face is occluded by something
+		Mask = 0,    //!< medical mask is on the face
+		NoMask,      //!< no medical mask on the face
+		OccludedFace //!< face is occluded by something
 	};
 
 	/**
@@ -33,10 +33,10 @@ namespace fsdk {
 	 * This enum contains all possible extended estimation results.
 	 * */
 	enum class MedicalMaskExtended {
-		Mask = 0,                 //!< medical mask is on the face
-		NoMask,                   //!< no medical mask on the face
-		MaskNotInPlace,           //!< mask is not on the right place
-		OccludedFace              //!< face is occluded by something
+		Mask = 0,       //!< medical mask is on the face
+		NoMask,         //!< no medical mask on the face
+		MaskNotInPlace, //!< mask is not on the right place
+		OccludedFace    //!< face is occluded by something
 	};
 
 	/**
@@ -44,12 +44,12 @@ namespace fsdk {
 	 * This enum contains all type of DetailedMaskType results.
 	 * */
 	enum class DetailedMaskType {
-		CorrectMask = 0,               //!< correct mask on the face (mouth and nose are covered correctly)
-		MouthCoveredWithMask,          //!< mask covers only a mouth
-		ClearFace,                     //!< clear face - no mask on the face
-		ClearFaceWithMaskUnderChin,    //!< clear face with a mask around of a chin, mask does not cover anything in the face region (from mouth to eyes)
-		PartlyCoveredFace,             //!< face is covered with not a medical mask or a full mask
-		FullMask,                      //!< face is covered with a full mask (such as balaclava, sky mask, etc.)
+		CorrectMask = 0,            //!< correct mask on the face (mouth and nose are covered correctly)
+		MouthCoveredWithMask,       //!< mask covers only a mouth
+		ClearFace,                  //!< clear face - no mask on the face
+		ClearFaceWithMaskUnderChin, //!< face with a mask around a chin, not covering anything from mouth to eyes
+		PartlyCoveredFace,          //!< face is covered with not a medical mask or a full mask
+		FullMask,                   //!< face is covered with a full mask (such as balaclava, sky mask, etc.)
 		Count
 	};
 
@@ -60,15 +60,15 @@ namespace fsdk {
 	 * Probability scores are defined in [0,1] range.
 	 * */
 	struct MedicalMaskEstimation {
-		MedicalMask result;           //!< estimation result (@see MedicalMask enum)
-		DetailedMaskType maskType;    //!< detailed type  (@see DetailedMaskType enum)
+		MedicalMask result;        //!< estimation result (@see MedicalMask enum)
+		DetailedMaskType maskType; //!< detailed type  (@see DetailedMaskType enum)
 
 		// scores
 		float maskScore;         //!< medical mask is on the face score
 		float noMaskScore;       //!< no medical mask on the face score
 		float occludedFaceScore; //!< face is occluded by something score
 
-		float scores[static_cast<int>(DetailedMaskType::Count)];    //!< detailed estimation scores
+		float scores[static_cast<int>(DetailedMaskType::Count)]; //!< detailed estimation scores
 
 		/**
 		 * @brief Returns score of required detailed mask type.
@@ -77,6 +77,7 @@ namespace fsdk {
 		 * */
 		inline float getScore(DetailedMaskType type) const;
 	};
+
 	/**
 	 * @brief MedicalMask estimator output structure.
 	 * This structure contains the result of estimation (@see MedicalMaskExtended enum)
@@ -84,14 +85,14 @@ namespace fsdk {
 	 * Probability scores are defined in [0,1] range.
 	 * */
 	struct MedicalMaskEstimationExtended {
-		MedicalMaskExtended result;     //!< estimation result (@see MedicalMaskExtended enum)
+		MedicalMaskExtended result; //!< estimation result (@see MedicalMaskExtended enum)
 		// scores
 		float maskScore;         //!< medical mask is on the face score
 		float noMaskScore;       //!< no medical mask on the face score
 		float maskNotInPlace;    //!< mask is not on the right place
 		float occludedFaceScore; //!< face is occluded by something score
 	};
-	
+
 	/**
 	 * @brief MedicalMask estimator interface.
 	 * @note Estimator predicts mask.
@@ -106,9 +107,7 @@ namespace fsdk {
 		 * @note images format must be R8G8B8, @see Format.
 		 * */
 		virtual Result<FSDKError>
-		estimate(
-			const Image& warp,
-			MedicalMaskEstimation& estimation) const noexcept = 0;
+		estimate(const Image& warp, MedicalMaskEstimation& estimation) const noexcept = 0;
 
 		/**
 		 * @brief Estimate MedicalMask probabilities.
@@ -119,12 +118,10 @@ namespace fsdk {
 		 * @note images format must be R8G8B8, @see Format.
 		 * */
 		virtual Result<FSDKError>
-		estimate(
-			const Image& warp,
-			MedicalMaskEstimationExtended& estimation) const noexcept = 0;
-		
+		estimate(const Image& warp, MedicalMaskEstimationExtended& estimation) const noexcept = 0;
+
 		/**
-	 	 * @brief Estimate MedicalMask probabilities.
+		 * @brief Estimate MedicalMask probabilities.
 		 * @param [in] image source image.
 		 * @param [in] detection detection coordinates in image space.
 		 * @param [out] estimation estimation results.
@@ -132,14 +129,13 @@ namespace fsdk {
 		 * @see MedicalMaskEstimation, Detection, Image, Result and FSDKError for details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError>
-		estimate(
+		virtual Result<FSDKError> estimate(
 			const Image& image,
 			const Detection& detection,
 			MedicalMaskEstimation& estimation) const noexcept = 0;
 
 		/**
-	 	 * @brief Estimate MedicalMask probabilities.
+		 * @brief Estimate MedicalMask probabilities.
 		 * @param [in] image source image.
 		 * @param [in] detection detection coordinates in image space.
 		 * @param [out] estimation estimation results.
@@ -147,12 +143,11 @@ namespace fsdk {
 		 * @see MedicalMaskEstimationExtended, Detection, Image, Result and FSDKError for details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError>
-		estimate(
+		virtual Result<FSDKError> estimate(
 			const Image& image,
 			const Detection& detection,
 			MedicalMaskEstimationExtended& estimation) const noexcept = 0;
-		
+
 		/**
 		 * @brief Estimate Medical Mask probabilities.
 		 * @param [in] warps span of images with warped faces.
@@ -163,9 +158,8 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError> estimate(
-			Span<const Image> warps,
-			Span<MedicalMaskEstimation> estimations) const noexcept = 0;
+		virtual Result<FSDKError>
+		estimate(Span<const Image> warps, Span<MedicalMaskEstimation> estimations) const noexcept = 0;
 
 		/**
 		 * @brief Estimate Medical Mask probabilities.
@@ -177,10 +171,9 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError> estimate(
-			Span<const Image> warps,
-			Span<MedicalMaskEstimationExtended> estimations) const noexcept = 0;
-		
+		virtual Result<FSDKError>
+		estimate(Span<const Image> warps, Span<MedicalMaskEstimationExtended> estimations) const noexcept = 0;
+
 		/**
 		 * @brief Estimate Medical Mask probabilities.
 		 * @param [in] images span of source images.
@@ -223,10 +216,8 @@ namespace fsdk {
 		 * @note all spans should be equal size.
 		 * */
 		virtual Result<FSDKError>
-		validate(
-			Span<const Image> warps,
-			Span<Result<FSDKError>> errors) const noexcept = 0;
-		
+		validate(Span<const Image> warps, Span<Result<FSDKError>> errors) const noexcept = 0;
+
 		/**
 		 * @brief Validate input of multiple frames in a single function call.
 		 * @param [in] images span of source images.
@@ -238,8 +229,7 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			Span<Result<FSDKError>> errors) const noexcept = 0;
@@ -249,17 +239,18 @@ namespace fsdk {
 		Implementation details.
 	*/
 	float MedicalMaskEstimation::getScore(DetailedMaskType type) const {
-		switch (type) {
-			case DetailedMaskType::CorrectMask:
-			case DetailedMaskType::MouthCoveredWithMask:
-			case DetailedMaskType::ClearFace:
-			case DetailedMaskType::ClearFaceWithMaskUnderChin:
-			case DetailedMaskType::PartlyCoveredFace:
-			case DetailedMaskType::FullMask:
-				return scores[static_cast<int>(type)];
-			default:
-				return 0.f;
+		switch(type) {
+		case DetailedMaskType::CorrectMask:
+		case DetailedMaskType::MouthCoveredWithMask:
+		case DetailedMaskType::ClearFace:
+		case DetailedMaskType::ClearFaceWithMaskUnderChin:
+		case DetailedMaskType::PartlyCoveredFace:
+		case DetailedMaskType::FullMask:
+			return scores[static_cast<int>(type)];
+		default:
+			return 0.f;
 		}
 	}
-/** @} */
+
+	/** @} */
 } // namespace fsdk

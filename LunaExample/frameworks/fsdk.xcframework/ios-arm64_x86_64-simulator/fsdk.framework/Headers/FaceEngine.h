@@ -7,13 +7,13 @@
 
 #pragma once
 
-/** 
+/**
  * @mainpage LUNA SDK
  * @section IntroSection Introduction
  * Welcome to the FaceEngine reference manual! This documentations covers all public interfaces and types.
  *
  * \b Advanced \b usage
- * Advanced usage is covered in the Face Engine handbook. Please contact us via e-mail: info@visionlabs.ru 
+ * Advanced usage is covered in the Face Engine handbook. Please contact us via e-mail: info@visionlabs.ru
  * if you haven't got one.
  *
  * \b Example \b code
@@ -36,4 +36,4 @@ namespace fsdk {
 	using FaceEngineType = IFaceEngineMobile;
 	using FaceEnginePtrType = IFaceEngineMobilePtr;
 
-}
+} // namespace fsdk

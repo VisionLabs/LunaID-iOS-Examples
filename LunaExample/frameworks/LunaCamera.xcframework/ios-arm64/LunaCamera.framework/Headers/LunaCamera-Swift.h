@@ -254,6 +254,23 @@ SWIFT_CLASS("_TtC10LunaCamera17LMVideoCompresion")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@protocol LMSaveVideoServiceProtocol;
+@protocol LCBestShotDetectorProtocol;
+@protocol LMVideoRecordWatchDogDataSourceProtocol;
+
+SWIFT_CLASS("_TtC10LunaCamera21LMVideoRecordWatchDog")
+@interface LMVideoRecordWatchDog : NSObject
+- (nonnull instancetype)initWithVideoService:(id <LMSaveVideoServiceProtocol> _Nullable)videoService bestshotDetector:(id <LCBestShotDetectorProtocol> _Nullable)bestshotDetector dataSource:(id <LMVideoRecordWatchDogDataSourceProtocol> _Nullable)dataSource OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL("_TtP10LunaCamera39LMVideoRecordWatchDogDataSourceProtocol_")
+@protocol LMVideoRecordWatchDogDataSourceProtocol <NSObject>
+- (void)launchVideoRecord;
+@end
+
 
 SWIFT_CLASS("_TtC10LunaCamera29LMVideoStreamNotificationView")
 @interface LMVideoStreamNotificationView : UIView

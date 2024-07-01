@@ -53,6 +53,13 @@ namespace tsdk {
 		*/
 		virtual void ready(fsdk::Ref<ITrackingResultBatch> result) = 0;
 
+		/**
+		* @brief TE processing loop stop notification
+		* Callback notifying about fatal error occurred during processing which forced stop processing loop. in this case TE/SDK objects must be reinited.
+		* @note It is invoked in the same thread and after `ready` callback (`ready` callback is invoked with fatal error this case).
+		*/
+		virtual void onStop() {};
+
 		virtual ~ITrackingResultObserver() = default;
 	};
 	
@@ -204,7 +211,7 @@ namespace tsdk {
 	 *  @note Logic for checking if original or converted RGB image is needed in visual callback data (useful, when client uses 'pushCustomFrame')
 	 */
 	struct TRACK_ENGINE_API IVisualPredicate {
-		virtual bool needRGBImage(const tsdk::FrameId frameId, const tsdk::AdditionalFrameData*) = 0;
+		virtual bool needRGBImage(const tsdk::FrameId frameId, const tsdk::AdditionalFrameData*) { return true; };
 
 		virtual ~IVisualPredicate() = default;
 	};

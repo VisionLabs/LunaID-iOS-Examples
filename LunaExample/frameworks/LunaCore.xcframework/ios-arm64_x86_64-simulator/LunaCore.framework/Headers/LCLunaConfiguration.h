@@ -13,8 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * const kPrimaryFaceMatchingKey = @"kPrimaryFaceMatchingKey";
-
 typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
     LCLunaConfigurationImageTypePNG,
     LCLunaConfigurationImageTypeJPEG
@@ -25,6 +23,9 @@ typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
 
 /// Returns the default configuration.
 + (instancetype)defaultConfig;
+
+/// Resets license cache.
++ (void)resetLicenseCache;
 
 /// Return configuration from plist file
 - (instancetype)initWithPlist:(NSString *)plist;
@@ -37,7 +38,7 @@ typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
 - (NSString *)lunaSDKVersion;
 
 /// Makes License activation with some platform specific manner. Network connection is required.
-- (void)activateLicense;
+- (NSError * _Nullable)activateLicense;
 
 //  SETTINGS LIST
 
@@ -47,6 +48,9 @@ typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
 @property (nonatomic, strong) LCInteractionsConfig *interactionsConfig;
 
 @property (nonatomic, assign) BOOL glassesCheckEnabled;
+
+/// If the flag is enabled, then a certain number of frames is taken and the median value is checked for the presence of sunglasses
+@property (nonatomic, assign) BOOL aggregationEnabled;
 
 /// A flag to include OCR in authorization processes.
 @property (nonatomic, assign) BOOL ocrEnabled;
@@ -61,6 +65,13 @@ typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
 @property (nonatomic, assign) BOOL trackFaceIdentity;
 
 @property (nonatomic, assign) BOOL occludeCheck;
+
+/// Setting thresholds for sunglasses estimator
+@property (nonatomic, assign) BOOL advancedSunglasses;
+
+/// Eye check adjustment. If the flag is set to false, this means that need to make sure that both eyes are open
+/// and frames only with all eyes open should be included in the bestshot.
+@property (nonatomic, assign) BOOL eyeInjury;
 
 /// This property regulates delay before the face detection starts
 @property (nonatomic, assign) CGFloat startDelay;
@@ -106,6 +117,9 @@ typedef NS_ENUM(NSUInteger, LCLunaConfigurationImageType) {
 @property (nonatomic, strong, nullable) NSURL *lunaServerURL;
 
 @property (nonatomic, strong) NSString *plistLicenseFileName;
+
+/// Duration of video in seconds which will be saved, by default 5 seconds. If equal to zero then entire video session will be saved
+@property (nonatomic, assign) CGFloat videoRecordLength;
 
 @end
 

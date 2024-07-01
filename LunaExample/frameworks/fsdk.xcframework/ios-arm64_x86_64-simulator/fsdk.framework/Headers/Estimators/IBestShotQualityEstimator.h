@@ -14,10 +14,10 @@ namespace fsdk {
 	DECLARE_SMARTPTR(IBestShotQualityEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 
 	/**
@@ -26,21 +26,21 @@ namespace fsdk {
 	 * */
 	struct IBestShotQualityEstimator : IRefCounted {
 		/**
-	 	* @brief EstimationRequest lists all possible estimation attributes
-	 	* that BestShotQuality estimator is able to estimate.
-	 	* */
+		 * @brief EstimationRequest lists all possible estimation attributes
+		 * that BestShotQuality estimator is able to estimate.
+		 * */
 		enum EstimationRequest {
-			estimateAGS         = 1 << 0, //!< Estimate AGS
-			estimateHeadPose    = 1 << 1, //!< Estimate HeadPose
-			estimateAll         = 0xffff  //!< Make full estimation (all attributes)
+			estimateAGS = 1 << 0,      //!< Estimate AGS
+			estimateHeadPose = 1 << 1, //!< Estimate HeadPose
+			estimateAll = 0xffff       //!< Make full estimation (all attributes)
 		};
 
 		/**
 		 * @brief BestShotQualityEstimator output structure
 		 * */
 		struct EstimationResult {
-			Optional<HeadPoseEstimation> headPose;  //!< HeadPose estimation if was requested, empty otherwise
-			Optional<float> ags;                    //!< AGS estimation if was requested, empty otherwise
+			Optional<HeadPoseEstimation> headPose; //!< HeadPose estimation if was requested, empty otherwise
+			Optional<float> ags;                   //!< AGS estimation if was requested, empty otherwise
 		};
 
 		/**
@@ -61,7 +61,8 @@ namespace fsdk {
 			EstimationResult& result) const noexcept = 0;
 
 		/**
-		 * @brief Estimate unified AGS and HeadPose attributes of multiple frames in a single estimate function call.
+		 * @brief Estimate unified AGS and HeadPose attributes of multiple frames in a single estimate function
+		 * call.
 		 * @param [in] images span of source images.
 		 * @param [in] detections span of detection coordinates in corresponding source images space.
 		 * @param [in] request EstimationRequest structure.
@@ -85,7 +86,8 @@ namespace fsdk {
 		using EstimationBatch = std::vector<EstimationResult>;
 		using EstimationBatchFuture = vlc::future<EstimationBatch>;
 		/**
-		 * @brief Asynchronously estimate unified AGS and HeadPose attributes of multiple frames in a single estimate function call.
+		 * @brief Asynchronously estimate unified AGS and HeadPose attributes of multiple frames in a single
+		 * estimate function call.
 		 * @param [in] images span of source images.
 		 * @param [in] detections span of detection coordinates in corresponding source images space.
 		 * @param [in] request EstimationRequest structure.
@@ -116,8 +118,7 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			const EstimationRequest request,
@@ -127,14 +128,12 @@ namespace fsdk {
 	/*
 		Implementation details.
 	*/
-	inline IBestShotQualityEstimator::EstimationRequest
-	operator|(
+	inline IBestShotQualityEstimator::EstimationRequest operator|(
 		IBestShotQualityEstimator::EstimationRequest first,
-		IBestShotQualityEstimator::EstimationRequest second
-	) {
+		IBestShotQualityEstimator::EstimationRequest second) {
 		return static_cast<IBestShotQualityEstimator::EstimationRequest>(
-			static_cast<int>(first) | static_cast<int>(second)
-		);
+			static_cast<int>(first) | static_cast<int>(second));
 	}
-/** @} */
+
+	/** @} */
 } // namespace fsdk

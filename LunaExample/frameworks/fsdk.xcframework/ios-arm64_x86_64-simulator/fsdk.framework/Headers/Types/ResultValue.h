@@ -32,7 +32,8 @@ namespace fsdk {
 			@param [in] result value to set.
 		*/
 		ResultValue(R result) noexcept
-			: Result<R>(result) {
+			: Result<R>(result)
+			, m_value{} {
 		}
 
 		/** @brief Initializes result.
@@ -106,7 +107,8 @@ namespace fsdk {
 			@param [in] result value to set.
 		*/
 		ResultValue(R result) noexcept
-			: Result<R>(result) {
+			: Result<R>(result)
+			, m_value{} {
 		}
 
 		/** @brief Initializes result.

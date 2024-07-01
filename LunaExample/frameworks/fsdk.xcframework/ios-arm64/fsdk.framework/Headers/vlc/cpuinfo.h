@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 #if defined(__i386__) || defined(__i486__) || defined(__i586__) || defined(__i686__) || defined(_M_IX86)
 	#define CPU_ARCH_X86 1
 #endif
@@ -48,6 +50,7 @@ namespace vlc
 		virtual bool hasNEON() const = 0;
 
 		virtual bool hasAVX512F() const = 0;
+		virtual bool hasAVX512BW() const = 0;
 		virtual bool hasAVX512DQ() const = 0;
 		virtual bool hasAVX512VL() const = 0;
 		virtual bool hasAVX512IFMA() const = 0;
@@ -85,6 +88,7 @@ namespace vlc
 		bool hasNEON() const override;
 
 		bool hasAVX512F() const override;
+		bool hasAVX512BW() const override;
 		bool hasAVX512DQ() const override;
 		bool hasAVX512VL() const override;
 		bool hasAVX512IFMA() const override;

@@ -37,7 +37,7 @@
 
 //! Revision hash.
 #if !defined(TRACK_ENGINE_HASH)
-#define TRACK_ENGINE_HASH "fd23ce90a9e655d9677076fcee29807f779d7fdb"
+#define TRACK_ENGINE_HASH "c25eb7307faa54cf1ce4dd040bbf9214b1d4bb7e"
 #endif
 
 #define TE_MOBILE_BUILD 1

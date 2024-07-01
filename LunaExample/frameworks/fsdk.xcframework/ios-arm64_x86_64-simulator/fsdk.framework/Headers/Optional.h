@@ -3,6 +3,6 @@
 #include <fsdk/vlc/optional.h>
 
 namespace fsdk {
-	template<typename T>
+	template <typename T>
 	using Optional = vlc::optional<T>;
 }

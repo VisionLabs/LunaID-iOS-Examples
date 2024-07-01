@@ -25,8 +25,6 @@ namespace vlc
 			}
 		};
 
-		void write(Severity severity, const std::string& message, const char* tag = default_logging_tag);
-
 		inline void error(const std::string& message, const char* tag = default_logging_tag)
 		{
 #if VLC_LOGGING_MIN_LEVEL <= 3

@@ -191,10 +191,18 @@ namespace tsdk {
 		TRACK_ENGINE_API virtual fsdk::Ref<tsdk::ITrackingResultBatch> stop(bool reset = false) = 0;
 
 		/** @brief Reconfigures Stream's params.
-		*	@note It can't be called during Stream processing, otherwise UB, so users should assure that func is called when Stream doesn't have any frame for processing.
+		*	@note It can't be called during Stream processing, otherwise UB, so users have to assure that func is called when Stream doesn't have any frame for processing.
 		*	@note Stream callbacks queue must be empty too for callback-mode = 1.
 		*/
 		TRACK_ENGINE_API virtual void reconfigure(const StreamParamsOpt &params) = 0;
+
+		/** @brief Serialize Stream's state and returns as Span of binary data.
+		*	@note Works only for estimator API (callback-mode = 0).
+		*	@note Func returns internal Stream object array (it can be changed on another `serialize` call), so users have to copy data from Span.
+		*	@note It can't be called during Stream processing, otherwise UB, so users have to assure that func is called when Stream isn't under processing.
+		*	@note Func is thread-safe.
+		*/
+		TRACK_ENGINE_API virtual fsdk::Span<uint8_t> serialize() = 0;
 
 		/** @brief Get stream statistics (see above: struct Statistics)
 		*	@return stream statistics

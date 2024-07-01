@@ -16,10 +16,10 @@ namespace fsdk {
 	DECLARE_SMARTPTR(ILivenessDepthRGBEstimator);
 #endif
 
-/**
- * @addtogroup EstimatorGroup
- * @{
- * */
+	/**
+	 * @addtogroup EstimatorGroup
+	 * @{
+	 * */
 
 	/**
 	 * @brief Depth+RBG liveness estimation output structure
@@ -59,7 +59,7 @@ namespace fsdk {
 			DepthRGBEstimation& out) const noexcept = 0;
 
 		/**
-		 * @brief Checks several detection on several images to see whether or 
+		 * @brief Checks several detection on several images to see whether or
 		 * not the detections corresponds to the real persons.
 		 * @param [in] depths source Depth images span
 		 * @param [in] rgbs source RGB images span
@@ -93,13 +93,13 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> depths,
 			Span<const Image> rgbs,
 			Span<const Detection> detections,
 			Span<const Landmarks5> landmarks5,
 			Span<Result<FSDKError>> errors) const noexcept = 0;
 	};
-/** @} */
+
+	/** @} */
 } // namespace fsdk

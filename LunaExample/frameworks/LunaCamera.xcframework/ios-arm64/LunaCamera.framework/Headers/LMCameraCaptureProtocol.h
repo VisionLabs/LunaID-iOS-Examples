@@ -8,6 +8,7 @@
 #ifndef LMCameraCaptureProtocol_h
 #define LMCameraCaptureProtocol_h
 
+#import <LunaCore/LunaCore.h>
 #import "VideoServiceConsts.h"
 
 typedef void (^CaptureSampleBufferHandler)(CMSampleBufferRef _Nonnull );
@@ -46,6 +47,8 @@ typedef void (^CaptureLayerHandler)(AVCaptureVideoPreviewLayer * _Nullable);
 - (void)switchCameraType;
 
 - (void)defineSampleBufferhandler: (CaptureSampleBufferHandler)newHandler;
+
+- (void)createVideoRecordWatchDog: (id<LCBestShotDetectorProtocol>_Nonnull) bestshotDetector;
 
 @end
 

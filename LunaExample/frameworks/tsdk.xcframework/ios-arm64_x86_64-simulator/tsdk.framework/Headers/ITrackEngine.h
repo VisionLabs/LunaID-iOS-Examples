@@ -46,6 +46,17 @@ namespace tsdk {
 		 * */
 		TRACK_ENGINE_API virtual tsdk::IStream* createStreamWithParams(const StreamParamsOpt &params) = 0;
 
+		/**
+		 * @brief Create the Stream object from serialized data.
+		 * @param data serialized data of the Stream. Consider `IStream::serialize` for details.
+		 * @param deserializeParams get params from serialized data or use default from config.
+		 * @return Pointer to created object or nullptr if failed.
+		 * @note Stream params are deserialized too (`IStream::reconfigure` may be used after to change specific Stream params).
+		 * @note user must own this pointer by fsdk::Ref, e.g. with fsdk::acquire, otherwise memory leak and UB are guaranteed (TE doesn't keep any refs to created streams).
+		 * @note user must reset all refs to all streams before Track Engine object desctruction, otherwise UB.
+		 * */
+		TRACK_ENGINE_API virtual tsdk::IStream* createStreamFromSerializedData(fsdk::Span<uint8_t> data) = 0;
+
 		/** @brief Sets a best shot observer for all streams
 		*	@param observer pointer to the observer object, @see IBatchBestShotObserver
 		*	@note It's recommended to use `setTrackingResultObserver` instead.
@@ -79,7 +90,7 @@ namespace tsdk {
 		*	The reason of such delay is that, generally, tracking may require several frames to get results. See docs for more details.
 		*	It works like estimator with state per Stream and provides alternative way to async pushFrame/callbacks method. See parameter `callback-mode` in the config.
 		*	@param streams stream identifers array, must contain only unique id-s, @see IStream::getId
-		*	@param frames array of input frames per each stream. @see also IStream::pushFrame
+		*	@param frames array of input frames per each stream.
 		*	@return First error code and Ref to ready tracking results as callbacks compatible data. If input arrays are empty, then returns empty Ref. Consider `ITrackingResultBatch`.
 		*	@note It's recommended to make each frame (from `frames`) image to be owner of data, otherwise performance overhead is possible as TE internally will clone it to keep in track data.
 		*	@note It's recommended to pre-validate input arguments by `ITrackEngine::validate` or `IStream::validateFrame` functions.
@@ -94,6 +105,26 @@ namespace tsdk {
 			fsdk::Span<tsdk::StreamId> streams,
 			fsdk::Span<tsdk::Frame> frames) = 0;
 
+		/** @brief Updates stream tracks by frames batch per each stream and returns ready tracking results data for passed streams (as callbacks compatible data).
+		*	Function returns only ready tracking results per each stream, so it can return tracking results for Stream previously passed frames as well as not return results for current passed frame.
+		*	The reason of such delay is that, generally, tracking may require several frames to get results. See docs for more details.
+		*	It works like estimator with state per Stream and provides alternative way to async pushFrame/callbacks method. See parameter `callback-mode` in the config.
+		*	@param streams stream identifers array, must contain only unique id-s, @see IStream::getId
+		*	@param frames array of input frames batch per each stream.
+		*	@return First error code and Ref to ready tracking results as callbacks compatible data. If input arrays are empty, then returns empty Ref. Consider `ITrackingResultBatch`.
+		*	@note It's recommended to make each frame (from `frames`) image to be owner of data, otherwise performance overhead is possible as TE internally will clone it to keep in track data.
+		*	@note It's recommended to pre-validate input arguments by `ITrackEngine::validate` or `IStream::validateFrame` functions.
+		*	@note User should use only async pushFrame/callbacks method or this one, but not both at the same time. See parameter `callback-mode` in the config.
+		*	@note streams and frames spans should have equal size
+		*	@note Additional frame user data is owned by function always, regardless of function success/fail. Consider `Frame` for details.
+		*	@note It's thread safe, but blocking call.
+		*	@note Function isn't supported for vehicle tracking now.
+		*	@throws std::exception for internal errors
+		*/
+		TRACK_ENGINE_API virtual fsdk::ResultValue<fsdk::FSDKError, ITrackingResultBatchPtr> track(
+			fsdk::Span<tsdk::StreamId> streams,
+			fsdk::Span<fsdk::Span<tsdk::Frame>> frames) = 0;
+		
 		/**
 		 * @brief Validate input of multiple streams/frames in a single function call. Can be used for both methods `IStream::pushFrame*` and `ITrackEngine::track*`.
 		 * @param streams stream identifers array. @see also `ITrackEngine::track`.

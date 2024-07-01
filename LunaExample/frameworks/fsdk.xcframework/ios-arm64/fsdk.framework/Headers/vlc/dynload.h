@@ -1,5 +1,8 @@
 #pragma once
 
+#include "vlc/core.h"
+#include <string>
+
 namespace vlc
 {
     struct VLC_LIBRARY_API Library

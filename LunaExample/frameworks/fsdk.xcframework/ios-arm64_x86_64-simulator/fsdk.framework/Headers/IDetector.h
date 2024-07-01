@@ -19,36 +19,37 @@
 #include <functional>
 
 namespace fsdk {
-	
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 	DECLARE_SMARTPTR(IDetector);
 #endif
 
-/**
- * @defgroup DetectorGroup Human and Face detectors
- * @brief Human and Face detectors public interfaces and related types and structures.
- * @{
- * */
-	
+	/**
+	 * @defgroup DetectorGroup Human and Face detectors
+	 * @brief Human and Face detectors public interfaces and related types and structures.
+	 * @{
+	 * */
+
 	/**
 	 * @brief Object detector type enumeration.
 	 * */
 	enum ObjectDetectorClassType {
-		FACE_DET_DEFAULT = 0,   //!< Default detector cpecified in config file.
-		FACE_DET_V1 = 4,        //!< Detector type 1.
-		FACE_DET_V2 = 5,        //!< Detector type 2.
-		FACE_DET_V3 = 6,        //!< Detector type 3.
-		FACE_DET_COUNT = 7,     //!< Detector type count.
+		FACE_DET_DEFAULT = 0, //!< Default detector cpecified in config file.
+		FACE_DET_V1 = 4,      //!< Detector type 1.
+		FACE_DET_V2 = 5,      //!< Detector type 2.
+		FACE_DET_V3 = 6,      //!< Detector type 3.
+		FACE_DET_V3M = 7,     //!< Detector type 3 mobile version.
+		FACE_DET_COUNT = 8,   //!< Detector type count.
 	};
-	
+
 	/**
 	 * @brief Strategy of BestDetections comparer.
 	 */
 	enum DetectionComparerType {
-		DCT_CONFIDENCE = 0,         //!< BestDetection - detections with highest score.
-		DCT_CENTER,                 //!< BestDetection - most centered detection.
-		DCT_CENTER_AND_CONFIDENCE,  //!< bestDetection - most centered with high score.
-		DCT_SIZE,                   //!< bestDetection - the largest detection.
+		DCT_CONFIDENCE = 0,        //!< BestDetection - detections with highest score.
+		DCT_CENTER,                //!< BestDetection - most centered detection.
+		DCT_CENTER_AND_CONFIDENCE, //!< bestDetection - most centered with high score.
+		DCT_SIZE,                  //!< bestDetection - the largest detection.
 		DCT_COUNT
 	};
 
@@ -56,14 +57,15 @@ namespace fsdk {
 	 * @brief Detection type enumeration.
 	 * */
 	enum DetectionType {
-		DT_BBOX          = 0,     //!< Get bounding boxes of faces.
-		DT_LANDMARKS5    = 1<<0,  //!< Get bounding boxes and 5 facial landmarks.
-		DT_LANDMARKS68   = 1<<1,  //!< Get bounding boxes and 68 facial landmarks.
-		DT_ALL           = 0xffff //!< Get all supported parameters.
+		DT_BBOX = 0,             //!< Get bounding boxes of faces.
+		DT_LANDMARKS5 = 1 << 0,  //!< Get bounding boxes and 5 facial landmarks.
+		DT_LANDMARKS68 = 1 << 1, //!< Get bounding boxes and 68 facial landmarks.
+		DT_ALL = 0xffff          //!< Get all supported parameters.
 	};
-	
-	inline DetectionType operator | (DetectionType a, DetectionType b)
-		{ return static_cast<DetectionType>(static_cast<int>(a) | static_cast<int>(b)); }
+
+	inline DetectionType operator|(DetectionType a, DetectionType b) {
+		return static_cast<DetectionType>(static_cast<int>(a) | static_cast<int>(b));
+	}
 
 	/**
 	 * @brief Interface of BestDetection comparer. Implement it if you want to use own BestDetection strategy.
@@ -73,17 +75,22 @@ namespace fsdk {
 		virtual bool compare(const Image& img, const Detection& a, const Detection& b) const = 0;
 		virtual ~IDetectionComparer() = default;
 	};
-	
+
 	/**
 	 * @brief Syntax sugar, allows you to use lambdas to define a BestDetection comparer.
 	 */
 	class FunctionDetectionComparer : public IDetectionComparer {
 	public:
 		typedef std::function<bool(const Image& img, const Detection&, const Detection&)> Function;
-		explicit FunctionDetectionComparer(const Function& function) : func(function)
-			{}
-		bool compare(const Image& img, const Detection& a, const Detection& b) const
-			{ return func(img, a, b); }
+
+		explicit FunctionDetectionComparer(const Function& function)
+			: func(function) {
+		}
+
+		bool compare(const Image& img, const Detection& a, const Detection& b) const {
+			return func(img, a, b);
+		}
+
 	private:
 		Function func;
 	};
@@ -104,13 +111,11 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>>
-		detect(
+		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>> detect(
 			Span<const Image> images,
 			Span<const Rect> ROIs,
 			uint32_t perImageNum,
-			DetectionType type = DT_BBOX
-		) noexcept = 0;
+			DetectionType type = DT_BBOX) noexcept = 0;
 
 		/**
 		 * @brief Light function to get just one best detection from single input image.
@@ -122,16 +127,13 @@ namespace fsdk {
 		 * @note image format must be R8G8B8, @see Format.
 		 */
 		virtual ResultValue<FSDKError, Face>
-		detectOne(
-			const Image& image,
-			const Rect& rect,
-			DetectionType type = DT_BBOX) noexcept = 0;
+		detectOne(const Image& image, const Rect& rect, DetectionType type = DT_BBOX) noexcept = 0;
 
 		/**
 		 * @brief Batched redetect faces on multiple images.
 		 * based on the detection results for the previous frames.
 		 * @param [in] images span of source images.
-		 * @param [in] detectionBatch result of detection on the previous frames - 
+		 * @param [in] detectionBatch result of detection on the previous frames -
 		 * Ref with an IFaceDetectionBatch object.
 		 * @param [in] type type of redetection.
 		 * @return ResultValue with error code and IFaceDetectionBatch object.
@@ -143,34 +145,32 @@ namespace fsdk {
 		 * the corresponding detection in the output IFaceDetectionBatch object
 		 * will be invalid.
 		 */
-		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>>
-		redetect(
+		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>> redetect(
 			Span<const Image> images,
 			Ref<IFaceDetectionBatch> detectionBatch,
-			DetectionType type = DT_BBOX
-		) noexcept = 0;
+			DetectionType type = DT_BBOX) noexcept = 0;
 
 		/**
 		 * @brief Batched redetect faces on multiple images.
 		 * based on the detection results for the previous frames.
 		 * @param [in] images span of source images.
 		 * @param [in] detections span of detection coordinates in corresponding source images space
-		 * from the previous frames. It is a two dimensional Span. There is one Span of the rectangles for each image.
+		 * from the previous frames. It is a two dimensional Span. There is one Span of the rectangles for each
+		 * image.
 		 * @param [in] type type of redetection.
 		 * @return ResultValue with error code and IFaceDetectionBatch object.
-		 * @see Ref, Span, Image, DetectionType, Detection, IFaceDetectionBatch, ResultValue and FSDKError for details.
+		 * @see Ref, Span, Image, DetectionType, Detection, IFaceDetectionBatch, ResultValue and FSDKError for
+		 * details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
-		 * @note If for some of the input detections the redetected face will not be found the 
+		 * @note If for some of the input detections the redetected face will not be found the
 		 * appropriate detection in the IFaceDetectionBatch object will be invalid.
 		 */
-		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>>
-		redetect(
+		virtual ResultValue<FSDKError, Ref<IFaceDetectionBatch>> redetect(
 			Span<const Image> images,
 			Span<Span<const Detection>> detections,
-			DetectionType type = DT_BBOX
-		) noexcept = 0;
+			DetectionType type = DT_BBOX) noexcept = 0;
 
 		/**
 		 * @brief Redetect face.
@@ -182,11 +182,8 @@ namespace fsdk {
 		 * @note image format must be R8G8B8, @see Format.
 		 * */
 		virtual ResultValue<FSDKError, Face>
-		redetectOne(
-			const Image& image,
-			const Detection& detection,
-			DetectionType type = DT_BBOX) noexcept = 0;
-		
+		redetectOne(const Image& image, const Detection& detection, DetectionType type = DT_BBOX) noexcept = 0;
+
 		/**
 		 * @brief Set detection comparer from SDK defined list.
 		 * @param [in] comparerType type of the comparer for detections.
@@ -215,8 +212,7 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<Span<const Detection>> detections,
 			Span<Span<Result<FSDKError>>> errors) const noexcept = 0;
@@ -233,17 +229,16 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Rect> rects,
 			uint32_t detectionPerImageNum,
 			Span<Result<FSDKError>> outErrors) const noexcept = 0;
-		
-		/**	
+
+		/**
 		 * @brief Validate input of multiple frames in a single function call.
 		 * @param [in] images span of source images.
-		 * @param [in] detectionBatch result of detection on the previous frames - 
+		 * @param [in] detectionBatch result of detection on the previous frames -
 		 * Ref with an IFaceDetectionBatch object.
 		 * @param [out] errors output span of errors for each image.
 		 * @return Result with error code.
@@ -252,16 +247,14 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Ref<IFaceDetectionBatch> detectionBatch,
 			Span<Result<FSDKError>> outErrors) const noexcept = 0;
 
 		/**
-		 * @brief Common aliases for IDetector asynchronous interface.
+		 * @brief Common alias for IDetector asynchronous interface.
 		 * */
-		using FaceBatchResult = ResultValue<FSDKError, IFaceDetectionBatchPtr>;
 		using FaceBatchFuture = vlc::future<IFaceDetectionBatchPtr>;
 
 		/**
@@ -270,9 +263,9 @@ namespace fsdk {
 		 * @param [in] rectangles input rectangles of interest (ROI) span.
 		 * @param [in] perImageNum the max number of detections per input image.
 		 * @param [in] type type of the detection.
-		 * @return Future ResultValue with error code and IFaceDetectionBatch object.
-		 * @see Ref, Span, Image, Rect, DetectionType, IFaceDetectionBatch,
-		 * ResultValue, FSDKError and vlc::future for details.
+		 * @return Future with IFaceDetectionBatch object.
+		 * @see Ref, Span, Image, Rect, DetectionType, IFaceDetectionBatch
+		 * vlc::future for details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
@@ -292,9 +285,9 @@ namespace fsdk {
 		 * @param [in] detectionBatch result of detection on the previous frames -
 		 * Ref with an IFaceDetectionBatch object.
 		 * @param [in] type type of redetection.
-		 * @return Future ResultValue with error code and IFaceDetectionBatch object.
-		 * @see Ref, Span, Image, DetectionType, IFaceDetectionBatch,
-		 * ResultValue, FSDKError and vlc::future for details.
+		 * @return Future with IFaceDetectionBatch object.
+		 * @see Ref, Span, Image, DetectionType, IFaceDetectionBatch
+		 * and vlc::future for details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note images span should be the same size with detectionBatch size.
@@ -310,6 +303,6 @@ namespace fsdk {
 			DetectionType type = DT_BBOX) const = 0;
 	};
 
-/** @} */
+	/** @} */
 
-}
+} // namespace fsdk

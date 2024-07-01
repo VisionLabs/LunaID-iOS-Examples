@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include <string>
 
+#include "fmt/core.h"
+
 #include "xxhash.hpp"
 
 // Precompute and store hash for pointed string
@@ -548,6 +550,13 @@ namespace vlc
             return find(s) != npos;
         }
 
+        friend auto operator << (std::basic_ostream<CharType, CharTraits>& os,
+            const vlc::base_string_view<CharType, CharTraits>& v) -> std::basic_ostream<CharType, CharTraits>&
+        {
+            os.rdbuf()->sputn(v.data(), v.size());
+            return os;
+        }
+
     private:
         const_pointer m_data = nullptr;
         size_type m_size = 0;
@@ -555,15 +564,7 @@ namespace vlc
 #ifdef VLC_STRING_VIEW_PRECOMPUTE_HASH
         uint64_t m_hash = ~0ull;
 #endif
-    };    
-
-    template<typename CharType, typename CharTraits>
-    std::basic_ostream<CharType>& operator << (std::basic_ostream<CharType, CharTraits>& os, 
-        vlc::base_string_view<CharType, CharTraits> v)
-    {
-        os.rdbuf()->sputn(v.data(), v.size());
-        return os;
-    }
+    };        
 
     using string_view = base_string_view<char>;
     using wstring_view = base_string_view<wchar_t>;
@@ -577,6 +578,18 @@ namespace std
         size_t operator()(const vlc::base_string_view<CharType, CharTraits>& s) const
         {
             return s.hash();
+        }
+    };
+}
+
+namespace fmt
+{
+    template <typename CharType, typename CharTraits> 
+    struct formatter<vlc::base_string_view<CharType, CharTraits>> : formatter<string_view>
+    {
+        auto format(vlc::base_string_view<CharType, CharTraits> sv, format_context& ctx) const -> format_context::iterator
+        {
+            return fmt::format_to_n(ctx.out(), sv.size(), "{}", sv.data()).out;
         }
     };
 }

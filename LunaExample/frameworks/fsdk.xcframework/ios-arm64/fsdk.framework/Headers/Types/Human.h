@@ -2,7 +2,7 @@
 
 #include <fsdk/Optional.h>
 #include <fsdk/Types/Detection.h>
-#include <fsdk/Types/HumanLandmarks.h>
+#include <fsdk/Types/Image.h>
 
 namespace fsdk {
 
@@ -11,7 +11,6 @@ namespace fsdk {
 
 		fsdk::Image img;
 		fsdk::Detection detection;
-		Optional<fsdk::HumanLandmarks17> landmarks17;
 
 		bool isValid() const {
 			return detection.isValid() && img.isValid();

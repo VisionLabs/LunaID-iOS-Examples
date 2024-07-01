@@ -11,11 +11,11 @@ namespace fsdk {
 	DECLARE_SMARTPTR(IAGSEstimator);
 #endif
 
-/**
- * @defgroup EstimatorGroup Estimators
- * @brief Estimators public interfaces and related types and structures.
- * @{
- * */
+	/**
+	 * @defgroup EstimatorGroup Estimators
+	 * @brief Estimators public interfaces and related types and structures.
+	 * @{
+	 * */
 
 	/**
 	 * @brief Approximate Garbage Score estimator interface.
@@ -30,11 +30,9 @@ namespace fsdk {
 		 * @see Image, Detection, ResultValue, FSDKError for details.
 		 * @note image format must be R8G8B8, @see Format.
 		 * */
-		virtual ResultValue<FSDKError, float>
 		FSDK_DEPRECATED("AGSEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		estimate(
-			const Image& image,
-			const Detection& detection) const noexcept = 0;
+		virtual ResultValue<FSDKError, float>
+		estimate(const Image& image, const Detection& detection) const noexcept = 0;
 
 		/**
 		 * @brief Estimate ags of multiple frames in a single estimate function call.
@@ -47,13 +45,10 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("AGSEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		estimate(
-			Span<const Image> images,
-			Span<const Detection> detections,
-			Span<float> out) const noexcept = 0;
-		
+		virtual Result<FSDKError>
+		estimate(Span<const Image> images, Span<const Detection> detections, Span<float> out) const noexcept = 0;
+
 		/**
 		 * @brief Validate input of multiple frames in a single function call.
 		 * @param [in] images span of source images.
@@ -65,12 +60,12 @@ namespace fsdk {
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
 		FSDK_DEPRECATED("AGSEstimator is deprecated since v.5.0.1, use BestShotQualityEstimator instead")
-		validate(
+		virtual Result<FSDKError> validate(
 			Span<const Image> images,
 			Span<const Detection> detections,
 			Span<Result<FSDKError>> errors) const noexcept = 0;
 	};
-/** @} */
+
+	/** @} */
 } // namespace fsdk

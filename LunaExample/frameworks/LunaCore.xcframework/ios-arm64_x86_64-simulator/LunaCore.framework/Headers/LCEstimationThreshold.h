@@ -10,11 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * const kHeadPitch = @"kHeadPitch";
-static NSString * const kHeadYaw = @"kHeadYaw";
-static NSString * const kHeadRoll = @"kHeadRoll";
-static NSString * const kAgs = @"kAgs";
-
 /// Configuration object of the best shot estimation.
 @interface LCEstimationThreshold : NSObject
 

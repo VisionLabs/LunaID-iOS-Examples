@@ -35,3 +35,4 @@ FOUNDATION_EXPORT const unsigned char LunaCoreVersionString[];
 #import "LCStepConfig.h"
 #import "StepsTypes.h"
 #import "CoreTools.h"
+#import "LCSecundenMeter.h"

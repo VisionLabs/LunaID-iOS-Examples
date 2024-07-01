@@ -9,10 +9,11 @@
 #include <vector>
 #include <tuple>
 
-#include "refcounted.h"
-#include "intrusive_ptr.h"
-#include "Try.h"
 #include "function_traits.h"
+#include "ptr.h"
+#include "refcounted.h"
+#include "weakptr.h"
+#include "Try.h"
 
 namespace vlc
 {
@@ -21,7 +22,7 @@ namespace vlc
 
 	namespace detail
 	{
-		template<typename T> class FutureObject : public Refcounted<FutureObject<T>>
+		template<typename T> class FutureObject : public vlc::RefCountedType
 		{
 			enum class State : int32_t
 			{
@@ -33,6 +34,14 @@ namespace vlc
 
 		public:
 			using Function = std::function<void(Try<T>&&)>;
+
+			static vlc::Ptr<FutureObject<T>> create() {
+				return vlc::make_refcounted<FutureObject<T>>();
+			}
+
+			static vlc::Ptr<FutureObject<T>> create(Try<T>&& value) {
+				return vlc::make_refcounted<FutureObject<T>>(std::move(value));
+			}
 
 			FutureObject() : m_state(State::Start)
 			{
@@ -274,10 +283,15 @@ namespace vlc
 			using type = R(*)(Args...);
 		};
 
-		template<typename... Args> struct Passables : public Refcounted<Passables<Args...>>
+		template<typename... Args> struct Passables : public vlc::RefCountedType
 		{
 			using TupleType = std::tuple<typename std::decay<Args>::type...>;
 			TupleType t;
+
+			template<typename... SourceArgs>
+			static vlc::Ptr<Passables<Args...>> create(SourceArgs&&... args) {
+				return vlc::make_refcounted<Passables<Args...>>(std::forward<SourceArgs>(args)...);
+			}
 
 			Passables(std::tuple<Args...>&& v) : t(std::move(v))
 			{
@@ -341,7 +355,7 @@ namespace vlc
 		>
 
 			future(ValueType&& value) :
-			m_obj(new detail::FutureObject<T>(Try<T>(std::forward<ValueType>(value))))
+			m_obj(detail::FutureObject<T>::create(Try<T>(std::forward<ValueType>(value))))
 		{
 
 		}
@@ -452,7 +466,7 @@ namespace vlc
 
 		template<typename F> future<T> ensure(F&& func)
 		{
-			auto pt = make_intrusive<detail::Passables<F>>(std::forward<F>(func));
+			auto pt = detail::Passables<F>::create(std::forward<F>(func));
 
 			return then([pt](Try<T>&& result)
 			{
@@ -462,7 +476,7 @@ namespace vlc
 		}
 
 		/// Internal methods
-		using FutureObjectPtr = IntrusivePtr<detail::FutureObject<T>>;		
+		using FutureObjectPtr = vlc::Ptr<detail::FutureObject<T>>;
 
 		template<typename F> void setCallback(F&& func)
 		{
@@ -504,7 +518,7 @@ namespace vlc
 
 			auto f = p.get_future();
 
-			auto pt = make_intrusive<detail::Passables<promise<RetType>, F>>(std::move(p), std::forward<F>(func));
+			auto pt = detail::Passables<promise<RetType>, F>::create(std::move(p), std::forward<F>(func));
 
 			setCallback([pt](Try<T>&& result) mutable
 			{
@@ -542,7 +556,7 @@ namespace vlc
 
 			auto f = p.get_future();
 
-			auto pt = make_intrusive<detail::Passables<promise<RetType>, F>>(std::move(p), std::forward<F>(func));
+			auto pt = detail::Passables<promise<RetType>, F>::create(std::move(p), std::forward<F>(func));
 
 			setCallback([pt](Try<T>&& result) mutable
 			{
@@ -591,7 +605,7 @@ namespace vlc
 			promise<T> p;
 			auto f = p.get_future();
 
-			auto pt = make_intrusive<detail::Passables<promise<T>, F>>(std::move(p), std::forward<F>(func));
+			auto pt = detail::Passables<promise<T>, F>::create(std::move(p), std::forward<F>(func));
 
 			setCallback([pt](Try<T>&& result) mutable
 			{
@@ -623,7 +637,7 @@ namespace vlc
 			promise<T> p;
 			auto f = p.get_future();
 
-			auto pt = make_intrusive<detail::Passables<promise<T>, F>>(std::move(p), std::forward<F>(func));
+			auto pt = detail::Passables<promise<T>, F>::create(std::move(p), std::forward<F>(func));
 
 			setCallback([pt](Try<T>&& result)
 			{
@@ -670,7 +684,7 @@ namespace vlc
 	template<typename T> class promise
 	{
 	public:
-		promise() : m_obj(new detail::FutureObject<T>())
+		promise() : m_obj(detail::FutureObject<T>::create())
 		{
 		}
 
@@ -748,7 +762,7 @@ namespace vlc
 		}
 
 	private:
-		using FutureObjectPtr = IntrusivePtr<detail::FutureObject<T>>;
+		using FutureObjectPtr = vlc::Ptr<detail::FutureObject<T>>;
 
 		FutureObjectPtr m_obj;
 		bool m_future_retrieved = false;
@@ -778,7 +792,7 @@ namespace vlc
 	/// Helpers
 	template<typename T> future<T> make_future(Try<T>&& t)
 	{
-		return future<T>(make_intrusive<detail::FutureObject<T>>(std::move(t)));
+		return future<T>(detail::FutureObject<T>::create(std::move(t)));
 	}
 
 	template<typename T>

@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/BestShotErrors.h</key>
 		<data>
-		1cSfiQgSXouxXrtMWdDpcZ2D+TA=
+		TrcwXn26WtSp2vdpHru9rjxIyng=
 		</data>
 		<key>Headers/CoreTools.h</key>
 		<data>
-		x1jQhN3eMuPYwITYgBT15zSE200=
+		eD6lxth1HT9py6aejiHQ+BL4UIs=
 		</data>
 		<key>Headers/LCBestShot.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Headers/LCBestShotBuilder.h</key>
 		<data>
-		WxiQmka5PQPFSfSRLq7N4g4NzQU=
+		RMw4/IYgOANNuRFaxE1LKZVEJtU=
 		</data>
 		<key>Headers/LCBestShotConfiguration.h</key>
 		<data>
-		vp8pFvWkL8ZmB1ahPhsIkBHAFNo=
+		X0/wdjBlI2lYJ8U8KwgCkulEE2E=
 		</data>
 		<key>Headers/LCBestShotDelegate.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/LCBestShotDetectorProtocol.h</key>
 		<data>
-		4NwWOwjkPoZozFwDR/dzGQTRxBk=
+		1PK0SiQybB2f115eaH4rBjIlGbo=
 		</data>
 		<key>Headers/LCDescriptorExtractorBuilder.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/LCEstimationThreshold.h</key>
 		<data>
-		E1kmYeWXorNlmz7o0dO2rK4llZU=
+		J6Baak0P7vxQgVK7gzwuQD9BTZc=
 		</data>
 		<key>Headers/LCFaceDetection.h</key>
 		<data>
@@ -58,15 +58,19 @@
 		</data>
 		<key>Headers/LCInteractionsConfig.h</key>
 		<data>
-		AeHsMQIeJVOQDmHxaYsYwvIMkss=
+		fpJCRTtd6o2xTLYQ9ZOxZtlr+8c=
 		</data>
 		<key>Headers/LCLunaConfiguration.h</key>
 		<data>
-		Ve7IkAoSklfzTY0GZoT+6pNBmZ0=
+		QSepD29FbhoMILOYDLtTD7bZX0s=
 		</data>
 		<key>Headers/LCOnlineLivenessProtocol.h</key>
 		<data>
 		kMSsA6to9SzE5v4pUN+0PabzIS8=
+		</data>
+		<key>Headers/LCSecundenMeter.h</key>
+		<data>
+		2pnYSxPOegvrDjw29WGmti0H2Oc=
 		</data>
 		<key>Headers/LCStepConfig.h</key>
 		<data>
@@ -78,7 +82,7 @@
 		</data>
 		<key>Headers/LunaCore.h</key>
 		<data>
-		PwrBUhsgSOqQTgOXiFx9HvqV6LU=
+		ztwUgd6K3Ygga3MB7K56zyYN8G4=
 		</data>
 		<key>Headers/NSString+Localizable.h</key>
 		<data>
@@ -90,11 +94,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		rllI1IRVLSggsQ/CPZCngK15f2Q=
+		j5cWm7Zh2RefAa4z4dWlHO/kYFk=
 		</data>
 		<key>LCLunaConfiguration.plist</key>
 		<data>
-		D8b7UdMMBBZ7TlPOS51SWbbkads=
+		VmssccJefINW71Nt/nkW80t85/M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -102,13 +106,13 @@
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		aNjlb4Ih2BUq4xVLxm1kP3xbqgY=
+		vVEZ9XqqtlJ3Y6anI4vpQccMCXY=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			edWrDNd42ZTOmzN3SXUeF91h33Q=
+			hVJA93glDaFBimEAK+/0+gX592Q=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -117,7 +121,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rQX8keZs1FXCljRlDPnGsK4sOyw=
+			Y+BettVxkX4pi/EkZ5xzJwVUdMQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -129,14 +133,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7XAm2feYFHMJzP4Oriv/GIyOqrwFeRZtmyQ5opWzH60=
+			FGLoAvaIXL6NAd/enUaBAJ1TlvpNqiTS3E71ZnEkTe4=
 			</data>
 		</dict>
 		<key>Headers/CoreTools.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JYGXov+ogw+iy3YwXyG+gD+5h3GHcx1zC6UDTrwgr1A=
+			ukxx2W9izU1aFdJ3c9AdUwWQkejixffrtEBYYFMHm5c=
 			</data>
 		</dict>
 		<key>Headers/LCBestShot.h</key>
@@ -150,14 +154,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G/PYU+TuMEAPTwnUGQ6ZpIQdwsJBqjZeEEh+ciykQ4M=
+			piYhEx6p00Ze3XOX4rc6VL5JLaKBL9JNKCiospOMPJQ=
 			</data>
 		</dict>
 		<key>Headers/LCBestShotConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1gq0X059x7aoe9gDkYphPXn/A9E+HST3h5X/qclpyrw=
+			6Yn74PdvQVgEBQcbZdXJelqjEhjQPdVOYOCO1NEEHTE=
 			</data>
 		</dict>
 		<key>Headers/LCBestShotDelegate.h</key>
@@ -171,7 +175,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FzlEBoMryMrHaf8rPV5jWocLM1RdFTqVtFSA5jwsPaA=
+			h1X8Yi3/2PXyS8LEudT1ozJpKqd+Ud6/MDRiMO+ZvZE=
 			</data>
 		</dict>
 		<key>Headers/LCDescriptorExtractorBuilder.h</key>
@@ -192,7 +196,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4W+BGH3Imw/SVSAAEAADm0L/GHNIUD+sbcl8BLVv+H0=
+			guoPGMuXuMykBVDHJjS9MFo0gErXGbEygHbpX39DT4E=
 			</data>
 		</dict>
 		<key>Headers/LCFaceDetection.h</key>
@@ -220,14 +224,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			erqNiIGQ7gzrC8PuKoc93+36swjJeIB2/Pvlm7SGB4Y=
+			sesK/cjNsM/wJ8ARnieqpmXBwJNX3OqvbalglsUT0NU=
 			</data>
 		</dict>
 		<key>Headers/LCLunaConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OeNVIf22IgAPhLv1uIjZV1iPYppbia8o1vBi/zlcR9Y=
+			HN1N4v2JyDebnSKhMtsaaU88b9d41zK+7/Y9EDCq/xQ=
 			</data>
 		</dict>
 		<key>Headers/LCOnlineLivenessProtocol.h</key>
@@ -235,6 +239,13 @@
 			<key>hash2</key>
 			<data>
 			qyrNgpU/6Yf5a0C9HFsCETdTy+YZrVDMl3TnJOyMqPg=
+			</data>
+		</dict>
+		<key>Headers/LCSecundenMeter.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Pq6AQzyzNCW75nuS7pXaRzEY9fnK5P1wOiIP/IMP4ac=
 			</data>
 		</dict>
 		<key>Headers/LCStepConfig.h</key>
@@ -255,7 +266,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s3LcSuBSv8f3l8KSxP97OlYHTKOTL0imfmUrIEj3zF4=
+			Ahaoa1n9NgKfjk9vismBqP1cCr2Z9iTiNJTKFgtjP6g=
 			</data>
 		</dict>
 		<key>Headers/NSString+Localizable.h</key>
@@ -276,7 +287,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JtBot1U5r/rbfN4F+2KzBWUslupqgaIZdQQWq4QbJTU=
+			ZpLaJj4a5NBUuNWUapEY7jDepaOM7WZ+hlgX90S9nxs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -290,14 +301,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gG4hQLghw0JkvLycEMF1uZzUgmquL1AhEI4LIysMR+8=
+			cGBaDhCwOBFVOOxpG9QJRvH89Vxl6qf6MJTBoLisaxk=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O2UFvIqQmiWScWPK09Gv97VE3NwNrnlYI4Mx4JHqq9Y=
+			GGonv7CJxd+8Ifl4ArXPrwBvEiL9py3cWyFMV5O8pj8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -306,7 +317,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wK+u7X2ybIi2wKbhgkjIr2bF/8AfCh0V0seVWuvVbQk=
+			OfI4JhSh/TA5Bnv8Iggsfvl0yxdvA1HzbmpaPD63PxU=
 			</data>
 			<key>optional</key>
 			<true/>

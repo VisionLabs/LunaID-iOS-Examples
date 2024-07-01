@@ -10,10 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * _Nonnull const kTimeoutBetweenInteractionsKey = @"kTimeoutBetweenInteractionKey";
-static NSString * const kInteractionTimeoutKey = @"kInteractionTimeoutKey";
-static NSString * const kStepsNumberKey = @"kStepsNumberKey";
-
 @interface LCInteractionsConfig : NSObject
 
 /// Default configuration instance.

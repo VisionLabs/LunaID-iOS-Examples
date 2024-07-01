@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param configuration Luna ID SDK configuration.
 + (id<LCBestShotDetectorProtocol>)buildWithDelegate:(id <LCBestShotDelegate>)delegate
                               livenessAPI:(nullable id <LCOnlineLivenessProtocol>)onlineLiveness
-                            configuration:(LCLunaConfiguration *)configuration;
+                            configuration:(LCLunaConfiguration *)configuration
+                                    singleFrameMode: (BOOL) singleFrameMode;
 
 @end
 

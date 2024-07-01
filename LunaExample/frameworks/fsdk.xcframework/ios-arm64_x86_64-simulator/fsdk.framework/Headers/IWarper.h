@@ -7,45 +7,33 @@
 
 #pragma once
 
-#include <fsdk/IDescriptor.h>
-#include <fsdk/Types/Span.h>
+#include <fsdk/FSDKError.h>
+#include <fsdk/IRefCounted.h>
+#include <fsdk/Types.h>
 
 #include <fsdk/vlc/future.h>
 
 namespace fsdk {
 	struct EyesEstimation;
 	struct GazeEstimation;
-}
+} // namespace fsdk
 
 namespace fsdk {
-	
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 	DECLARE_SMARTPTR(IWarper);
 #endif
 
-/**
- * @defgroup WarperGroup Warper
- * @brief Warper public interfaces and related types and structures.
- * @{
- * */
-	
 	/**
-	 * @brief Transformation data structure, used for warping.
-	 * @details Use this structure to perform image and landmarks transformations.
-	 * @note In no circumstances should you create OR edit this structure by yourself
+	 * @defgroup WarperGroup Warper
+	 * @brief Warper public interfaces and related types and structures.
+	 * @{
 	 * */
-	struct Transformation {
-		Vector2<float> centerP = {0, 0};       	//From 0, scaled
-		float angleDeg = 0;
-		float scale = 0;
-		Vector2<int> detectionTopLeft = {0, 0};	//From 0, original size
-
-		bool isValid = false;
-	};
 
 	/**
 	 * @brief Face detection area warper interface.
-	 * @details Perform affine transformations on an image to properly align depicted face for descriptor extraction.
+	 * @details Perform affine transformations on an image to properly align depicted face for descriptor
+	 * extraction.
 	 * */
 	struct IWarper : IRefCounted {
 		/**
@@ -56,9 +44,7 @@ namespace fsdk {
 		 * @see Transformation, Detection and Landmarks5 for details.
 		 * */
 		virtual Transformation
-		createTransformation(
-			const Detection& detection,
-			const Landmarks5& landmarks) const noexcept = 0;
+		createTransformation(const Detection& detection, const Landmarks5& landmarks) const noexcept = 0;
 
 		/**
 		 * @brief Warp image.
@@ -69,8 +55,7 @@ namespace fsdk {
 		 * @see Transformation, Image, Result and FSDKError for details.
 		 * @note image format must be R8G8B8, @see Format.
 		 * */
-		virtual Result<FSDKError>
-		warp(
+		virtual Result<FSDKError> warp(
 			const Image& image,
 			const Transformation& transformation,
 			Image& transformedImage) const noexcept = 0;
@@ -84,16 +69,16 @@ namespace fsdk {
 		 * @note: Each entry index in transformations span corresponds to the same index in images span
 		 * to make warps from(i.e. transformations[i] <--> images[i]), so if there are multiple warps on
 		 * the same image then this image must be duplicated in images span in order for the first statement
-		 * to hold true. 
-		 * @note: Despite the memory placement of transformed Images the new memory for output images will be allocated.
+		 * to hold true.
+		 * @note: Despite the memory placement of transformed Images the new memory for output images will be
+		 * allocated.
 		 * @return Result with error code.
 		 * @see Span, Transformation, Image, Result and FSDKError for details.
 		 * @note images format must be R8G8B8, @see Format.
 		 * @note all spans should be based on user owned continuous collections.
 		 * @note all spans should be equal size.
 		 * */
-		virtual Result<FSDKError>
-		warp(
+		virtual Result<FSDKError> warp(
 			Span<const Image> images,
 			Span<const Transformation> transformations,
 			Span<Image> transformedImages) const noexcept = 0;
@@ -108,12 +93,11 @@ namespace fsdk {
 		 * @return Result with error code.
 		 * @see Transformation, Landmarks5, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
-		warp(
+		virtual Result<FSDKError> warp(
 			const Landmarks5& landmarks,
 			const Transformation& transformation,
 			Landmarks5& transformedLandmarks) const noexcept = 0;
-		
+
 		/**
 		 * @brief Warp landmarks of size 68.
 		 * @param [in] landmarks68 landmarks to warp.
@@ -124,29 +108,29 @@ namespace fsdk {
 		 * @return Result with error code.
 		 * @see Transformation, Landmarks68, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
-		warp(
+		virtual Result<FSDKError> warp(
 			const Landmarks68& landmarks68,
 			const Transformation& transformation,
 			Landmarks68& transformedLandmarks68) const noexcept = 0;
-		
+
 		/**
 		 * @brief Warp irisLandmarks in EyesEstimation struct for both eyes.
 		 * @details Warps from warped image coord. space to source image coordinates space,
 		 * the one that was used to create transformation.
 		 * @param [in] eyesEstimationInWarpCoordinates EyesEstimation straight out of EyeEstimator.
-		 * Should be create from warpedImage, that was created with the same transformation object as the one passed.
+		 * Should be create from warpedImage, that was created with the same transformation object as the one
+		 * passed.
 		 * @param [in] transformation transformation data.
-		 * @param [out] eyesEstimation eyes estimation with iris landmarks warped to source image coordinates space.
+		 * @param [out] eyesEstimation eyes estimation with iris landmarks warped to source image coordinates
+		 * space.
 		 * @return Result with error code.
 		 * @see Transformation, EyesEstimation, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
-		unwarp(
+		virtual Result<FSDKError> unwarp(
 			const EyesEstimation& eyesEstimationInWarpCoordinates,
 			const Transformation& transformation,
 			EyesEstimation& eyesEstimation) const noexcept = 0;
-		
+
 		/**
 		 * @brief Warp landmarks of size 5 back to source image coordinates.
 		 * @param [in] warpedLandmarks5 warped landmarks array of size 5.
@@ -155,12 +139,11 @@ namespace fsdk {
 		 * @return Result with error code.
 		 * @see Transformation, Landmarks5, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
-		unwarp(
+		virtual Result<FSDKError> unwarp(
 			const Landmarks5& warpedLandmarks5,
 			const Transformation& transformation,
 			Landmarks5& landmarks5) const noexcept = 0;
-		
+
 		/**
 		 * @brief Warp landmarks of size 68 back to source image coordinates.
 		 * @param [in] warpedLandmarks5 warped landmarks array of size 68.
@@ -169,18 +152,15 @@ namespace fsdk {
 		 * @return Result with error code.
 		 * @see Transformation, Landmarks68, Result and FSDKError for details.
 		 * */
-		virtual Result<FSDKError>
-		unwarp(
+		virtual Result<FSDKError> unwarp(
 			const Landmarks68& warpedLandmarks68,
 			const Transformation& transformation,
 			Landmarks68& landmarks68) const noexcept = 0;
 
-		virtual Result<FSDKError>
-		unwarp(
+		virtual Result<FSDKError> unwarp(
 			const GazeEstimation& warpedAngles,
 			const Transformation& transformation,
-			GazeEstimation& angles
-		) const noexcept = 0;
+			GazeEstimation& angles) const noexcept = 0;
 
 		/**
 		 * @brief Common aliases for IWarper asynchronous interface.
@@ -200,9 +180,9 @@ namespace fsdk {
 		 * @note this method is experimental and interface may be changed in the future.
 		 * @note this method is not marked as noexcept and may throw an exception.
 		 * */
-		virtual ImageBatchFuture warpAsync(
-			Span<const Image> images,
-			Span<const Transformation> transformations) const = 0;
+		virtual ImageBatchFuture
+		warpAsync(Span<const Image> images, Span<const Transformation> transformations) const = 0;
 	};
-/** @} */
-}
+
+	/** @} */
+} // namespace fsdk

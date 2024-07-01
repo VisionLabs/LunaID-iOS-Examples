@@ -54,6 +54,13 @@ namespace fsdk {
 		constexpr size_t size() const noexcept {
 			return numOfLandmarks;
 		}
+
+		bool isValid() const noexcept {
+			const bool invalid = std::all_of(std::begin(landmarks), std::end(landmarks), [](const Landmark& l) {
+				return l.x == 0.f && l.y == 0.f;
+			});
+			return !invalid;
+		}
 	};
 
 	/// @brief alias for structure with 5 landmarks
