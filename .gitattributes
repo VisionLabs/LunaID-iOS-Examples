@@ -18,3 +18,5 @@ LunaExample/frameworks/DocumentReaderCore.xcframework/ios-arm64_x86_64-simulator
 LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
 LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
 LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon filter=lfs diff=lfs merge=lfs -text
+
+*.plan filter=lfs diff=lfs merge=lfs -text
