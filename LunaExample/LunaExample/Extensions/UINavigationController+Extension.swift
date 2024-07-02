@@ -10,7 +10,7 @@ import UIKit
 extension UINavigationController {
     func popViewController(animated: Bool = true, completion: VoidHandler? = nil) {
         popViewController(animated: animated)
-        if let transitionCoordinator {
+        if let transitionCoordinator  = transitionCoordinator {
             transitionCoordinator.animate(alongsideTransition: nil) { _ in
                 completion?()
             }

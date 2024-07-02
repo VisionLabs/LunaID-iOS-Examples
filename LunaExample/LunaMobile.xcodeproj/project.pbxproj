@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C054F512C33F371008C275F /* vllicense.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C054F502C33F371008C275F /* vllicense.plist */; };
 		4C06D88E2AE80DA400C6603E /* LEIdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */; };
 		4C06D8912AE81E3800C6603E /* LEActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */; };
 		4C06D8932AE8216800C6603E /* LEResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D8922AE8216800C6603E /* LEResultViewController.swift */; };
@@ -284,6 +285,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C054F502C33F371008C275F /* vllicense.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = vllicense.plist; sourceTree = "<group>"; };
 		4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEIdentifyViewController.swift; sourceTree = "<group>"; };
 		4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEActivityIndicatorView.swift; sourceTree = "<group>"; };
 		4C06D8922AE8216800C6603E /* LEResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEResultViewController.swift; sourceTree = "<group>"; };
@@ -807,6 +809,7 @@
 		7E2B1DFB25419E5F00DE728E /* LunaExample */ = {
 			isa = PBXGroup;
 			children = (
+				4C054F502C33F371008C275F /* vllicense.plist */,
 				4C33589C2AEBD37F00BFC880 /* Extensions */,
 				4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */,
 				4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */,
@@ -1420,6 +1423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C054F512C33F371008C275F /* vllicense.plist in Resources */,
 				DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */,
 				DEB8227A29AF3F62002C4C4B /* regula.license in Resources */,
 				DEB8227B29AF3F62002C4C4B /* InfoPlist.strings in Resources */,

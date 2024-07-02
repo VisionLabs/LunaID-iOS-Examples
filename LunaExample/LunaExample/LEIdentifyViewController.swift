@@ -96,7 +96,13 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     }
     
     private func checkBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
-        guard let bestShotData: LunaWeb.BestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true) else {
+        guard let bestShotData: LunaWeb.BestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true),
+        configuration.bestShotConfiguration.livenessType == .byPhoto else {
+            DispatchQueue.main.async { [weak self] in
+                self?.dismiss(animated: true) {
+                    self?.resultBlock?(nil, bestShot)
+                }
+            }
             return
         }
 

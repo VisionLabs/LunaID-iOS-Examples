@@ -279,8 +279,15 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             else {
-                resultViewController.resultTitle = "fail.identify_result".localized()
-                resultViewController.resultImageName = "fail"
+                if (configuration.bestShotConfiguration.livenessType != .byPhoto) {
+                    resultViewController.resultTitle = "\n\n"
+                    resultViewController.resultTitle += "success.identify_result".localized()
+                    resultViewController.resultImageName = "success"
+                }
+                else {
+                    resultViewController.resultTitle = "fail.identify_result".localized()
+                    resultViewController.resultImageName = "fail"
+                }
             }
             
             resultViewController.closeHandler = { [weak self] in

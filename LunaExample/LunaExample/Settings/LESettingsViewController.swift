@@ -12,11 +12,15 @@ import LunaWeb
 
 enum ESettingsItem: Int {
     case SETTING_ITEM_GLASSES_CHECK
+    case SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES
     case SETTING_ITEM_OCR
     case SETTING_ITEM_INTERACTIONS
     case SETTING_ITEM_SAVE_ONLY_FACE_VIDEO
+    case SETTING_ITEM_VIDEO_RECORD_LENGTH
     case SETTING_ITEM_TRACK_FACE_IDENTITY
     case SETTING_ITEM_OCCLUDED_FACE
+    case SETTING_ITEM_ADVANCED_SUNGLASSES
+    case SETTING_ITEM_EYE_INJURY
     case SETTING_ITEM_START_DELAY
     case SETTING_ITEM_FACE_TIME_DURATION
     case SETTING_ITEM_COMPRESSION_QUALITY
@@ -27,7 +31,6 @@ enum ESettingsItem: Int {
 }
 
 class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LMCameraDelegate {
-
     private let CloseButtonSize: CGFloat = 44
     private let SideOffset: CGFloat = 10
     private let ButtonsSpace: CGFloat = 10
@@ -42,7 +45,11 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     private var configuration = LunaCore.LCLunaConfiguration()
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
-    
+
+    private var currentMinimalTrackLength: UInt?
+    private var currentNumberOfBestShots: UInt?
+    private var currentInteractionEnabled: Bool?
+
     override func loadView() {
         super.loadView()
         
@@ -79,7 +86,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
+
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -184,7 +191,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0, 1, 2, 3, 4:
+        case 0, 1, 3, 4:
             return 60
         default:
             return UITableView.automaticDimension
@@ -250,6 +257,11 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         case .SETTING_ITEM_FACE_TIME_DURATION:
             showDurationPicker("settings.face_time_duration".localized(), 3600, 1, configuration.faceTime) { newTime in
                 self.configuration.faceTime = newTime
+                self.tableView.reloadData()
+            }
+        case .SETTING_ITEM_VIDEO_RECORD_LENGTH:
+            showDurationPicker("settings.video_record_length".localized(), 3600, 1, configuration.faceTime) { newTime in
+                self.configuration.videoRecordLength = newTime
                 self.tableView.reloadData()
             }
         case .SETTING_ITEM_START_DELAY:
@@ -331,6 +343,11 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let settingsItem = ESettingsItem(rawValue: cellIndex)
         switch settingsItem {
+        case .SETTING_ITEM_VIDEO_RECORD_LENGTH:
+            let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.configureCell("settings.video_record_length".localized(), configuration.videoRecordLength)
+            newCell = newSettingsCell
+            break;
         case .SETTING_ITEM_GLASSES_CHECK:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
@@ -338,7 +355,13 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             newSettingsCell.configureCell(configuration.glassesCheckEnabled, "settings.glassescheck_enabled".localized())
             newCell = newSettingsCell
-            
+        case .SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
+                self?.configuration.aggregationEnabled = toggleStatus
+            }
+            newSettingsCell.configureCell(configuration.aggregationEnabled, "settings.aggregation_enabled".localized())
+            newCell = newSettingsCell
         case .SETTING_ITEM_OCR:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
@@ -373,6 +396,20 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self?.configuration.occludeCheck = toggleStatus
             }
             newSettingsCell.configureCell(configuration.occludeCheck, "settings.occludedcheck_enabled".localized())
+            newCell = newSettingsCell
+        case .SETTING_ITEM_ADVANCED_SUNGLASSES:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] advancedSunglasses in
+                self?.configuration.advancedSunglasses = advancedSunglasses
+            }
+            newSettingsCell.configureCell(configuration.advancedSunglasses, "settings.advanced_sunglasses".localized())
+            newCell = newSettingsCell
+        case .SETTING_ITEM_EYE_INJURY:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] eyeInjury in
+                self?.configuration.eyeInjury = eyeInjury
+            }
+            newSettingsCell.configureCell(configuration.eyeInjury, "settings.eye_injury".localized())
             newCell = newSettingsCell
         case .SETTING_ITEM_START_DELAY:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
@@ -461,20 +498,51 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc
     private func applyFromPlistButtonTapped() {
-        let viewController = LEDocumentsFileListVC(pathExtension: "plist") { [weak self] plistFileURL in
+        let completion: (URL) -> Void = { [weak self] plistFileURL in
             let plistName = plistFileURL.lastPathComponent
             self?.configuration = LCLunaConfiguration(plistFromDocuments: plistName)
             self?.tableView.reloadData()
         }
+
+        let viewController = LEDocumentsFileListVC(pathExtension: "plist", 
+                                                   completionMode: .plistFiles(completion: completion))
 
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc
     private func checkPhotoButtonTapped() {
-        let viewController = LEDocumentsFileListVC(pathExtension: nil) { photoFileURL in
-            // TODO: Path processing
+        currentMinimalTrackLength = configuration.bestShotConfiguration.minimalTrackLength
+        currentNumberOfBestShots = configuration.bestShotConfiguration.numberOfBestShots
+        currentInteractionEnabled = configuration.interactionEnabled
+
+        configuration.bestShotConfiguration.minimalTrackLength = 0
+        configuration.bestShotConfiguration.numberOfBestShots = 1
+        configuration.interactionEnabled = false
+
+        let completion: (Result<LCBestShot, Error>) -> Void = { [weak self] result in
+            guard
+                let self = self,
+                let currentMinimalTrackLength = currentMinimalTrackLength,
+                let currentNumberOfBestShots = currentNumberOfBestShots,
+                let currentInteractionEnabled = currentInteractionEnabled
+            else { return }
+
+            configuration.bestShotConfiguration.minimalTrackLength = currentMinimalTrackLength
+            configuration.bestShotConfiguration.numberOfBestShots = currentNumberOfBestShots
+            configuration.interactionEnabled = currentInteractionEnabled
+
+            switch result {
+            case .success(_):
+                presentMessage("settings.success_bestshot".localized())
+            case .failure(let error):
+                presentModalError(error.what())
+            }
         }
+
+        let viewController = LEDocumentsFileListVC(pathExtension: nil,
+                                                   configuration: configuration,
+                                                   completionMode: .imageBestShot(completion))
 
         navigationController?.pushViewController(viewController, animated: true)
     }

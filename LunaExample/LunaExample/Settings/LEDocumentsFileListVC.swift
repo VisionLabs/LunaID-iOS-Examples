@@ -5,24 +5,38 @@
 //  Created by Kirill Zhadaev on 12.04.2024.
 //
 
-import Foundation
 import UIKit
 import LunaCamera
+import LunaCore
+import LunaWeb
 
-final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, LCBestShotDelegate {
     private let VerticalOffset: CGFloat = 10
     private let SideOffset: CGFloat = 10
     private let ApplyButtonHeight: CGFloat = 44
 
-    private var fileURLs: [URL] = []
-    private let completion: (URL) -> Void
+    private lazy var livenessAPI = LivenessAPIv6(configuration: configuration,
+                                                 additionalHeaders: nil)
+
+    private lazy var bestShotDetector: LCBestShotDetectorProtocol = LCBestShotBuilder.build(with: self,
+                                                                                            livenessAPI: livenessAPI,
+                                                                                            configuration: configuration,
+                                                                                            singleFrameMode: true)
+
     private let pathExtension: String?
+    private let completionMode: CompletionMode
+    private var configuration = LunaCore.LCLunaConfiguration()
+    private var bestShotCompletion: ((Result<LCBestShot, Error>) -> Void)?
+    private var fileURLs: [URL] = []
 
     private let tableView = UITableView(frame: .zero, style: .plain)
 
-    init(pathExtension: String?, completion: @escaping (URL) -> Void) {
+    init(pathExtension: String?, 
+         configuration: LCLunaConfiguration? = nil,
+         completionMode: CompletionMode) {
         self.pathExtension = pathExtension
-        self.completion = completion
+        self.configuration = configuration ?? LCLunaConfiguration()
+        self.completionMode = completionMode
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,6 +49,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
         fileURLs = fetchFileURLs()
         createLayout()
+        bestShotDetector.screenSize(view.bounds.size, edges: view.safeAreaInsets)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,6 +58,28 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+    }
+
+    // MARK: - LCBestShotDelegate -
+
+    func detectionRect(_ rect: CGRect, inFrameSize frameSize: CGSize) {}
+
+    func bestShot(_ bestShot: LCBestShot) -> Bool {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.popViewController() {
+                self?.bestShotCompletion?(.success(bestShot))
+            }
+        }
+
+        return true
+    }
+
+    func bestShotError(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.popViewController() {
+                self?.bestShotCompletion?(.failure(error))
+            }
+        }
     }
 
     //  MARK: - UITableViewDataSource -
@@ -61,8 +98,30 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appliedFileURL = fileURLs[indexPath.row]
-        completion(appliedFileURL)
-        navigationController?.popViewController(animated: true)
+
+        switch completionMode {
+        case .plistFiles(let completion):
+            navigationController?.popViewController() {
+                completion(appliedFileURL)
+            }
+        case .imageBestShot(let bestShotCompletion):
+            self.bestShotCompletion = bestShotCompletion
+            guard let image = UIImage(contentsOfFile: appliedFileURL.path) else {
+                presentModalError("errors.invalid_file_format".localized())
+                return
+            }
+
+            DispatchQueue.main.async { [weak self] in
+                self?.bestShotDetector.pushFrame(with: image)
+            }
+        }
+    }
+
+    //  MARK: - CompletionMode -
+
+    enum CompletionMode {
+        case plistFiles(completion: (URL) -> Void)
+        case imageBestShot((Result<LCBestShot, Error>) -> Void)
     }
 
     //  MARK: - Routine -
@@ -100,7 +159,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
                                                            includingPropertiesForKeys: nil,
                                                            options: [])
 
-            if let pathExtension {
+            if let pathExtension = pathExtension {
                 fileURLs = fileURLs.filter { $0.pathExtension == pathExtension }
             }
         } catch let error {

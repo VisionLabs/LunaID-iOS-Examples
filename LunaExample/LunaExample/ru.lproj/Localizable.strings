@@ -57,7 +57,7 @@
 "settings.min_det_size" = "Минимальный размер лица";
 "settings.detector_step" = "Шаг детектора";
 "settings.skip_frames" = "Пропуск кадров";
-"settings.minimal_track_length" = "Минимальная длинна трэка";
+"settings.minimal_track_length" = "Минимальная длина трэка";
 "settings.number_of_bestshots" = "Кол-во bestshots";
 "settings.bestshots_interval" = "Время bestshots";
 "settings.liveness_quality" = "Коэффицент liveness";
@@ -72,13 +72,17 @@
 "settings.steps_number" = "Number of interactions";
 
 "settings.glassescheck_enabled" = "Темные очки";
+"settings.aggregation_enabled" = "Агрегация для темных очков и закрытых глаз";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Интеракции";
 "settings.onlyface_enabled" = "Сохранять видео с лицом";
 "settings.trackfaceidentity_enabled" = "Отслеживать уникальность лица";
 "settings.occludedcheck_enabled" = "Перекрытие лица";
+"settings.advanced_sunglasses" = "Продвинутые солнцезащитные очки";
+"settings.eye_injury" = "Проверять состояния только одного глаза на открытие";
 "settings.eyescheck_enabled" = "Проверять состояние глаз";
 "settings.start_delay" = "Задержка перед стартом";
+"settings.video_record_length" = "Ограничение видео записи";
 "settings.face_time_duration" = "Время фиксации лица в кадре";
 "settings.compression_quality" = "Степень сжатия JPEG";
 "settings.doc_match" = "Степень совпадения документов";
@@ -89,6 +93,7 @@
 "settings.deletion_successfull" = "Регистрация успешно удалена";
 "settings.error_while_search" = "Ошибка при поиска пользователя";
 "settings.error_bestshot" = "Ошибка формирования бестшота";
+"settings.success_bestshot" = "Бестшот сформирован";
 
 "errors.identification_error" = "Идентификация не пройдена";
 "errors.verification_error" = "Верификация не пройдена";
@@ -96,6 +101,7 @@
 "errors.document_verification_error" = "Верификация документа не пройдена";
 "errors.face_on_document_not_found" = "Фотография на документе не найдена";
 "errors.cancel" = "Операция отменена";
+"errors.invalid_file_format" = "Неверный формат файла";
 
 "buttons.do_actions.registration" = "Продолжить регистрацию";
 "buttons.do_actions.identify" = "Продолжить идентификацию";

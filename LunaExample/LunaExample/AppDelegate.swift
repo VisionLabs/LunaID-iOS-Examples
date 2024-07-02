@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configuration.lunaServerURL = URL(string: "https://luna-api-aws.visionlabs.ru/6")
         configuration.plistLicenseFileName = "vllicense.plist"
 
-        configuration.activateLicense()
-        
+        let error = configuration.activateLicense()
+
         let viewController = LERootViewController()
         let navvc = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: UIScreen.main.bounds)

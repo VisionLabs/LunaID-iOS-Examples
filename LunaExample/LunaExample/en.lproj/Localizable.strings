@@ -72,13 +72,17 @@
 "settings.steps_number" = "Кол-во интеракций";
 
 "settings.glassescheck_enabled" = "Sunglasses";
+"settings.aggregation_enabled" = "Aggregations for sunglasses and close eyes";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Interactions";
 "settings.onlyface_enabled" = "Save only face video";
 "settings.trackfaceidentity_enabled" = "Track face identity";
 "settings.occludedcheck_enabled" = "Face occlusion";
+"settings.advanced_sunglasses" = "Advanced sunglasses";
+"settings.eye_injury" = "Check the conditions of only one eye for opening";
 "settings.eyescheck_enabled" = "Check eyes state";
 "settings.start_delay" = "Start delay";
+"settings.video_record_length" = "Video record length";
 "settings.face_time_duration" = "Face time duration";
 "settings.compression_quality" = "JPEG compression";
 "settings.doc_match" = "Docs compare parameter";
@@ -89,6 +93,7 @@
 "settings.deletion_successfull" = "Deletion successfull";
 "settings.error_while_search" = "Error while searching for registered user";
 "settings.error_bestshot" = "Error while making bestshot";
+"settings.success_bestshot" = "Bestshot formed";
 
 "errors.identification_error" = "Identification check failed";
 "errors.verification_error" = "Verification check failed";
@@ -96,6 +101,7 @@
 "errors.document_verification_error" = "Document verification failed";
 "errors.face_on_document_not_found" = "Photo on document not found";
 "errors.cancel" = "Operation canceled";
+"errors.invalid_file_format" = "Invalid file format";
 
 "buttons.do_actions.registration" = "Continue Registration";
 "buttons.do_actions.identify" = "Continue Identification";

@@ -10,7 +10,8 @@ import CoreGraphics
 class LEFloatCell: UITableViewCell {
 
     private let SideOffset: CGFloat = 10
-    
+    private let VerticalOffset: CGFloat = 20
+
     private let valueTitleLabel = UILabel(frame: .zero)
     private let valueLabel = UILabel(frame: .zero)
 
@@ -66,15 +67,15 @@ class LEFloatCell: UITableViewCell {
         contentView.addSubview(valueLabel)
         
         NSLayoutConstraint.activate([
-            valueTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: SideOffset),
+            valueTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: VerticalOffset),
             valueTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: SideOffset),
             valueTitleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.centerXAnchor),
-            valueTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SideOffset),
-            
-            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: SideOffset),
+            valueTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -VerticalOffset),
+
+            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: VerticalOffset),
             valueLabel.leadingAnchor.constraint(lessThanOrEqualTo: contentView.centerXAnchor),
             valueLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -SideOffset),
-            valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SideOffset),
+            valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -VerticalOffset),
         ])
     }
     

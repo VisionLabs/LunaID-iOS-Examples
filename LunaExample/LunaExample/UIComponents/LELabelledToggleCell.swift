@@ -14,7 +14,8 @@ class LELabelledToggleCell: UITableViewCell {
     public var toggleStatusHandler: ToggleStatusBlock?
     
     private let SideOffset: CGFloat = 10
-    
+    private let VerticalOffset: CGFloat = 20
+
     private let statusLabel = UILabel(frame: .zero)
     private let switcher = UISwitch(frame: .zero)
     
@@ -49,18 +50,22 @@ class LELabelledToggleCell: UITableViewCell {
         statusLabel.backgroundColor = .clear
         statusLabel.font = Fonts.etelka_17
         statusLabel.textColor = UIColor(named: "LunaBlue")
+        statusLabel.numberOfLines = 0
         contentView.addSubview(statusLabel)
-        
+
         NSLayoutConstraint.activate([
-            statusLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: SideOffset),
+            statusLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: VerticalOffset),
             statusLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: SideOffset),
-            statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SideOffset),
-            
-            switcher.topAnchor.constraint(equalTo: contentView.topAnchor, constant: SideOffset),
+            statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -VerticalOffset),
+            statusLabel.trailingAnchor.constraint(lessThanOrEqualTo: switcher.leadingAnchor, constant: -SideOffset),
+
             switcher.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -SideOffset),
             switcher.leadingAnchor.constraint(equalTo: statusLabel.trailingAnchor, constant: SideOffset),
-            switcher.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SideOffset),
+            switcher.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
+
+        switcher.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        switcher.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
     @objc
