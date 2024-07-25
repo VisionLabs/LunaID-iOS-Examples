@@ -59,12 +59,6 @@
 		4C3358992AEBD1D700BFC880 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */; };
 		4C33589A2AEBD1E100BFC880 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5772546C101004E3CA7 /* Colors.swift */; };
 		4C33589B2AEBD24B00BFC880 /* String+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5962546C3B3004E3CA7 /* String+LunaExample.swift */; };
-		4C3873842A0516AD0020EDA0 /* flower.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; };
-		4C3873852A0516AD0020EDA0 /* flower.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4C3873862A0516AD0020EDA0 /* fsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; };
-		4C3873872A0516AD0020EDA0 /* fsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4C3873882A0516AD0020EDA0 /* tsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; };
-		4C3873892A0516AD0020EDA0 /* tsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C43B2942BA9B8FC00C79C9D /* LEEnumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2932BA9B8FC00C79C9D /* LEEnumCell.swift */; };
 		4C43B2962BA9B93000C79C9D /* LEEnumPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */; };
 		4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */; };
@@ -81,6 +75,18 @@
 		4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */; };
 		4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */; };
 		4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */; };
+		4CFE2D212C52445500095C4F /* flower.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; };
+		4CFE2D222C52445500095C4F /* flower.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CFE2D232C52445500095C4F /* fsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; };
+		4CFE2D242C52445500095C4F /* fsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CFE2D252C52445500095C4F /* LunaCamera.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; };
+		4CFE2D262C52445500095C4F /* LunaCamera.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CFE2D272C52445500095C4F /* LunaCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; };
+		4CFE2D282C52445500095C4F /* LunaCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CFE2D292C52445500095C4F /* LunaWeb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; };
+		4CFE2D2A2C52445500095C4F /* LunaWeb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CFE2D2B2C52445500095C4F /* tsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; };
+		4CFE2D2C2C52445500095C4F /* tsdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873772A05169D0020EDA0 /* tsdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */; };
 		7E020BEB25F8B629007E7ADE /* OCRSE.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E020BE925F8B629007E7ADE /* OCRSE.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E392AF926087A3D00D42E15 /* OCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E392AF726087A3D00D42E15 /* OCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -168,12 +174,6 @@
 		7EB5D8D025F8BF4A0025C2CD /* Regula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8CF25F8BF4A0025C2CD /* Regula.swift */; };
 		7EB5D8DD25F8C2620025C2CD /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8DC25F8C2620025C2CD /* Error.swift */; };
 		7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		9755ACB52BD919C5005591F1 /* LunaCamera.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; };
-		9755ACB62BD919C5005591F1 /* LunaCamera.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9755ACB72BD919C6005591F1 /* LunaCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; };
-		9755ACB82BD919C6005591F1 /* LunaCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9755ACB92BD919C8005591F1 /* LunaWeb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; };
-		9755ACBA2BD919C8005591F1 /* LunaWeb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
 		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
 		C7D9671AA981DF9F6F9D144E /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D962B92BB77792B6E4586F /* String+Localize.swift */; };
@@ -267,16 +267,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4C3873852A0516AD0020EDA0 /* flower.xcframework in Embed Frameworks */,
+				4CFE2D242C52445500095C4F /* fsdk.xcframework in Embed Frameworks */,
+				4CFE2D282C52445500095C4F /* LunaCore.xcframework in Embed Frameworks */,
 				DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */,
 				DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */,
+				4CFE2D2C2C52445500095C4F /* tsdk.xcframework in Embed Frameworks */,
+				4CFE2D222C52445500095C4F /* flower.xcframework in Embed Frameworks */,
 				DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */,
+				4CFE2D2A2C52445500095C4F /* LunaWeb.xcframework in Embed Frameworks */,
 				4C1133792B0B6F2E0026A118 /* OCRDBrain.framework in Embed Frameworks */,
-				9755ACB62BD919C5005591F1 /* LunaCamera.xcframework in Embed Frameworks */,
-				4C3873872A0516AD0020EDA0 /* fsdk.xcframework in Embed Frameworks */,
-				9755ACBA2BD919C8005591F1 /* LunaWeb.xcframework in Embed Frameworks */,
-				4C3873892A0516AD0020EDA0 /* tsdk.xcframework in Embed Frameworks */,
-				9755ACB82BD919C6005591F1 /* LunaCore.xcframework in Embed Frameworks */,
+				4CFE2D262C52445500095C4F /* LunaCamera.xcframework in Embed Frameworks */,
 				DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -536,18 +536,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9755ACB92BD919C8005591F1 /* LunaWeb.xcframework in Frameworks */,
-				4C3873842A0516AD0020EDA0 /* flower.xcframework in Frameworks */,
 				DEB8226D29AF3F62002C4C4B /* RegulaCommon.xcframework in Frameworks */,
-				9755ACB52BD919C5005591F1 /* LunaCamera.xcframework in Frameworks */,
 				DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */,
-				9755ACB72BD919C6005591F1 /* LunaCore.xcframework in Frameworks */,
 				4CD390B02B0CB524000CDFA6 /* OCRDBrain.framework in Frameworks */,
+				4CFE2D212C52445500095C4F /* flower.xcframework in Frameworks */,
 				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
+				4CFE2D252C52445500095C4F /* LunaCamera.xcframework in Frameworks */,
 				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
-				4C3873862A0516AD0020EDA0 /* fsdk.xcframework in Frameworks */,
-				4C3873882A0516AD0020EDA0 /* tsdk.xcframework in Frameworks */,
+				4CFE2D292C52445500095C4F /* LunaWeb.xcframework in Frameworks */,
 				DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */,
+				4CFE2D2B2C52445500095C4F /* tsdk.xcframework in Frameworks */,
+				4CFE2D272C52445500095C4F /* LunaCore.xcframework in Frameworks */,
+				4CFE2D232C52445500095C4F /* fsdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

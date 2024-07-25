@@ -279,7 +279,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             else {
-                if (configuration.bestShotConfiguration.livenessType != .byPhoto) {
+                if (self.configuration.bestShotConfiguration.livenessType != .byPhoto) {
                     resultViewController.resultTitle = "\n\n"
                     resultViewController.resultTitle += "success.identify_result".localized()
                     resultViewController.resultImageName = "success"
@@ -345,7 +345,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
     // ORC flow
 
-    private func launchOCR(_ bestShot: LunaCore.LCBestShot, 
+    private func launchOCR(_ bestShot: LunaCore.LCBestShot,
                            _ userName: String?,
                            _ closeHandler: @escaping VoidHandler) {
         let viewController = LEOCRViewController()
@@ -435,7 +435,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
             resultViewController.resultTitle = (userName ?? "") + "\n\n"
             resultViewController.resultTitle +=  "fail.verify_result".localized()
             resultViewController.resultImageName = "fail"
-        } 
+        }
         else {
             resultViewController.resultTitle = (userName ?? "") + "\n\n"
             resultViewController.resultTitle += "success.verify_result".localized()

@@ -504,7 +504,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             self?.tableView.reloadData()
         }
 
-        let viewController = LEDocumentsFileListVC(pathExtension: "plist", 
+        let viewController = LEDocumentsFileListVC(pathExtension: "plist",
                                                    completionMode: .plistFiles(completion: completion))
 
         navigationController?.pushViewController(viewController, animated: true)
@@ -523,20 +523,20 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         let completion: (Result<LCBestShot, Error>) -> Void = { [weak self] result in
             guard
                 let self = self,
-                let currentMinimalTrackLength = currentMinimalTrackLength,
-                let currentNumberOfBestShots = currentNumberOfBestShots,
-                let currentInteractionEnabled = currentInteractionEnabled
+                let currentMinimalTrackLength = self.currentMinimalTrackLength,
+                let currentNumberOfBestShots = self.currentNumberOfBestShots,
+                let currentInteractionEnabled = self.currentInteractionEnabled
             else { return }
 
-            configuration.bestShotConfiguration.minimalTrackLength = currentMinimalTrackLength
-            configuration.bestShotConfiguration.numberOfBestShots = currentNumberOfBestShots
-            configuration.interactionEnabled = currentInteractionEnabled
+            self.configuration.bestShotConfiguration.minimalTrackLength = currentMinimalTrackLength
+            self.configuration.bestShotConfiguration.numberOfBestShots = currentNumberOfBestShots
+            self.configuration.interactionEnabled = currentInteractionEnabled
 
             switch result {
             case .success(_):
-                presentMessage("settings.success_bestshot".localized())
+                self.presentMessage("settings.success_bestshot".localized())
             case .failure(let error):
-                presentModalError(error.what())
+                self.presentModalError(error.what())
             }
         }
 

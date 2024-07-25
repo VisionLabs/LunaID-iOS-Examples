@@ -29,7 +29,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                       lunaServerURL: LCLunaConfiguration().lunaServerURL,
                       additionalHeaders: nil)
     }()
-    
+
     override func loadView() {
         super.loadView()
         
