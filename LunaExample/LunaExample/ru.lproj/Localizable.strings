@@ -8,6 +8,8 @@
 
 "finish.button" = "Завершить";
 
+"done.button" = "Готово";
+
 "success.verify_result" = "Биометрическая верификация пройдена";
 "fail.verify_result" = "Биометрическая верификация не пройдена";
 
@@ -43,6 +45,7 @@
 
 "errors.unknown" = "Неизвестная ошибка";
 
+"settings.license_config" = "Настройки лицензии";
 "settings.bestshot_config" = "Настройки bestshot";
 "settings.interactions_config" = "Настройки интеракций";
 "settings.info_about_versions" = "Информация о версиях";
@@ -52,12 +55,19 @@
 "settings.reset_to_defaults" = "По умолчанию";
 "settings.apply_from_plist" = "Применить из файла";
 "settings.check_photo" = "Проверить снимок";
+"settings.platformUrl_config" = "URL платформы";
+"settings.tokenUrl_config" = "Токен платформы";
+"settings.empty_value" = "Не указан";
+"settings.license.connectionTimeOut_config" = "Таймаут соединения";
+"settings.license.serverRetriesCount_config" = "Число попыток";
+"settings.license.EID_config" = "EID";
+"settings.license.productID_config" = "ID продукта";
 
 "settings.border_distance" = "Отступ от края";
 "settings.min_det_size" = "Минимальный размер лица";
 "settings.detector_step" = "Шаг детектора";
 "settings.skip_frames" = "Пропуск кадров";
-"settings.minimal_track_length" = "Минимальная длина трэка";
+"settings.minimal_track_length" = "Минимальная длина трека";
 "settings.number_of_bestshots" = "Кол-во bestshots";
 "settings.bestshots_interval" = "Время bestshots";
 "settings.liveness_quality" = "Коэффицент liveness";
@@ -106,6 +116,8 @@
 "buttons.do_actions.registration" = "Продолжить регистрацию";
 "buttons.do_actions.identify" = "Продолжить идентификацию";
 "buttons.do_actions.verify" = "Продолжить верификацию";
+
+"input.placeholder_enter" = "Введите значение";
 
 "given_name" = "Имя";
 "fathers_name" = "Отчество";

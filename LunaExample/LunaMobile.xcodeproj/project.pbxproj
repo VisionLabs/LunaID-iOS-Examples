@@ -176,6 +176,9 @@
 		7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
 		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
+		97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C492992C9057CE00CF3CB7 /* LEStringCell.swift */; };
+		97C4929D2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */; };
+		97C4929E2C9057D600CF3CB7 /* LEInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */; };
 		C7D9671AA981DF9F6F9D144E /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D962B92BB77792B6E4586F /* String+Localize.swift */; };
 		DE7555C929A778C200E58DEB /* RegulaDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */; };
 		DE7555CE29A7791D00E58DEB /* OCRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555CD29A7791D00E58DEB /* OCRAPI.swift */; };
@@ -475,6 +478,9 @@
 		9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCamera.xcframework; path = frameworks/LunaCamera.xcframework; sourceTree = "<group>"; };
 		977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDocumentsFileListVC.swift; sourceTree = "<group>"; };
+		97C492992C9057CE00CF3CB7 /* LEStringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEStringCell.swift; sourceTree = "<group>"; };
+		97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEFsdkLicenseSettingsVC.swift; sourceTree = "<group>"; };
+		97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInputVC.swift; sourceTree = "<group>"; };
 		C7D962B92BB77792B6E4586F /* String+Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localize.swift"; sourceTree = "<group>"; };
 		C7D96B3A201270BD122975EA /* OCRError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRError.swift; sourceTree = "<group>"; };
 		DE648A63299BF0AD00BAE63D /* LELabelledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LELabelledCell.swift; sourceTree = "<group>"; };
@@ -768,6 +774,8 @@
 		4C43B2992BA9CDFC00C79C9D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */,
+				97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */,
 				4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */,
 				DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */,
 				4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */,
@@ -779,6 +787,7 @@
 		4CC3484E2B7B672700B04A1C /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				97C492992C9057CE00CF3CB7 /* LEStringCell.swift */,
 				4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */,
 				4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */,
 				4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */,
@@ -1585,6 +1594,8 @@
 				4CD25F862AE69F1B0019EE88 /* LEPhotosCell.swift in Sources */,
 				4C33589B2AEBD24B00BFC880 /* String+LunaExample.swift in Sources */,
 				DEB8225329AF3F62002C4C4B /* String+Localization.swift in Sources */,
+				97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */,
+				97C4929E2C9057D600CF3CB7 /* LEInputVC.swift in Sources */,
 				4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */,
 				DEB8225429AF3F62002C4C4B /* LELabelledToggleCell.swift in Sources */,
 				4C06D8972AE9895200C6603E /* LEOCRViewController.swift in Sources */,
@@ -1593,6 +1604,7 @@
 				4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */,
 				4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */,
 				4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */,
+				97C4929D2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift in Sources */,
 				4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */,
 				DEB8225829AF3F62002C4C4B /* LELabelledCell.swift in Sources */,
 				DEB8226029AF3F62002C4C4B /* LETabButton.swift in Sources */,

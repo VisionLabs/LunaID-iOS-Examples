@@ -26,11 +26,24 @@ enum ESettingsItem: Int {
     case SETTING_ITEM_COMPRESSION_QUALITY
     case SETTING_ITEM_DOC_COMPARE
     case SETTING_ITEM_PRIMARY_FACE_MATHING
+    case SETTING_PLATFORM_URL
+    case SETTING_PLATFORM_TOKEN
 
     case SETTING_ITEM_COUNT
 }
 
 class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LMCameraDelegate {
+    
+    private enum Sections: Int {
+        case fsdkLicenseSection = 0
+        case bestShotSection = 1
+        case interactionsSection = 2
+        case lunaConfigSection = 3
+        case deletionSection = 4
+        case versionSection = 5
+        case buttonsSection = 6
+    }
+    
     private let CloseButtonSize: CGFloat = 44
     private let SideOffset: CGFloat = 10
     private let ButtonsSpace: CGFloat = 10
@@ -97,7 +110,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         var rowsNumber = 0
         
         switch section {
-        case 2:
+        case Sections.lunaConfigSection.rawValue:
             rowsNumber = ESettingsItem.SETTING_ITEM_COUNT.rawValue;
         default:
             rowsNumber = 1;
@@ -129,10 +142,10 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         ])
         
         switch section {
-        case 3:
+        case Sections.deletionSection.rawValue:
             headerLabel.text = "settings.delete_registration".localized()
             headerLabel.textColor = .red
-        case 4:
+        case Sections.versionSection.rawValue:
             headerLabel.text = "settings.info_about_versions".localized()
         default:
             return nil
@@ -145,25 +158,29 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         var newCell = UITableViewCell(frame: .zero)
         
         switch indexPath.section {
-        case 0:
+        case Sections.fsdkLicenseSection.rawValue:
+            let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.configureCell("settings.license_config".localized(), .lunaBlue())
+            newCell = newSettingsCell
+        case Sections.bestShotSection.rawValue:
             let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.bestshot_config".localized(), .lunaBlue())
             newCell = newSettingsCell
-        case 1:
+        case Sections.interactionsSection.rawValue:
             let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.interactions_config".localized(), .lunaBlue())
             newCell = newSettingsCell
-        case 2:
+        case Sections.lunaConfigSection.rawValue:
             newCell = createFeatureToggleSectionCell(indexPath.row)
-        case 3:
+        case Sections.deletionSection.rawValue:
             let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.delete_title".localized().uppercased(), .red)
             newCell = newSettingsCell
-        case 4:
+        case Sections.versionSection.rawValue:
             let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.versions".localized(), .lunaBlue())
             newCell = newSettingsCell
-        case 5:
+        case Sections.buttonsSection.rawValue:
             newCell = createButtonsSectionCell()
         default:
             break
@@ -174,15 +191,17 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
+        case Sections.fsdkLicenseSection.rawValue:
+            navigationController?.pushViewController(LEFsdkLicenseSettingsVC(), animated: true)
+        case Sections.bestShotSection.rawValue:
             navigationController?.pushViewController(LEBestshotSettingsVC(), animated: true)
-        case 1:
+        case Sections.interactionsSection.rawValue:
             navigationController?.pushViewController(LEInteractionsSettingsVC(), animated: true)
-        case 2:
+        case Sections.lunaConfigSection.rawValue:
             processFeatureToggleSectionTap(indexPath.row)
-        case 3:
+        case Sections.deletionSection.rawValue:
             startDeletion()
-        case 4:
+        case Sections.versionSection.rawValue:
             navigationController?.pushViewController(LEAboutVC(lunaConfig: configuration), animated: true)
         default:
             break
@@ -191,7 +210,10 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0, 1, 3, 4:
+        case Sections.bestShotSection.rawValue,
+                Sections.interactionsSection.rawValue,
+                Sections.deletionSection.rawValue,
+                Sections.versionSection.rawValue:
             return 60
         default:
             return UITableView.automaticDimension
@@ -274,6 +296,20 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.configuration.primaryFaceMatching = newDegree
                 self.tableView.reloadData()
             }
+        case .SETTING_PLATFORM_URL:
+            let inputVC = LEInputVC(initialText: configuration.platformURL)
+            inputVC.valueChangedHandler = { text in
+                self.configuration.platformURL = text
+                self.tableView.reloadData()
+            }
+            navigationController?.pushViewController(inputVC, animated: true)
+        case .SETTING_PLATFORM_TOKEN:
+            let inputVC = LEInputVC(initialText: configuration.platformToken)
+            inputVC.valueChangedHandler = { text in
+                self.configuration.platformToken = text
+                self.tableView.reloadData()
+            }
+            navigationController?.pushViewController(inputVC, animated: true)
         default:
             break
         }
@@ -434,6 +470,14 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         case .SETTING_ITEM_PRIMARY_FACE_MATHING:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.primary_face_matching".localized(), configuration.primaryFaceMatching)
+            newCell = newSettingsCell
+        case .SETTING_PLATFORM_URL:
+            let newSettingsCell = LEStringCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.configureCell("settings.platformUrl_config".localized(), configuration.platformURL)
+            newCell = newSettingsCell
+        case .SETTING_PLATFORM_TOKEN:
+            let newSettingsCell = LEStringCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.configureCell("settings.tokenUrl_config".localized(), configuration.platformToken)
             newCell = newSettingsCell
         default:
             break

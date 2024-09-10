@@ -7,6 +7,9 @@
 "accept.button" = "Accept";
 
 "finish.button" = "Finish";
+
+"done.button" = "Done";
+
 "identification.success" = "Biometric Identification Passed";
 "identification.fail" = "Biometric Identification Failed";
 "auth.identify" = "Identification";
@@ -43,6 +46,7 @@
 
 "errors.unknown" = "Unknown error";
 
+"settings.license_config" = "License settings";
 "settings.bestshot_config" = "Bestshot settings";
 "settings.interactions_config" = "Interactions settings";
 "settings.info_about_versions" = "Info about versions";
@@ -52,6 +56,13 @@
 "settings.reset_to_defaults" = "Default";
 "settings.apply_from_plist" = "Apply from file";
 "settings.check_photo" = "Check photo";
+"settings.platformUrl_config" = "Platform URL";
+"settings.tokenUrl_config" = "Platform token";
+"settings.empty_value" = "Not specified";
+"settings.license.connectionTimeOut_config" = "Connection Timeout";
+"settings.license.serverRetriesCount_config" = "Server Retries Count";
+"settings.license.EID_config" = "EID";
+"settings.license.productID_config" = "Product ID";
 
 "settings.border_distance" = "Border distance";
 "settings.min_det_size" = "Minimal face size";
@@ -106,6 +117,8 @@
 "buttons.do_actions.registration" = "Continue Registration";
 "buttons.do_actions.identify" = "Continue Identification";
 "buttons.do_actions.verify" = "Continue Verification";
+
+"input.placeholder_enter" = "Enter value";
 
 "given_name" = "Given name";
 "fathers_name" = "Fathers name";
