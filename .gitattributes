@@ -19,13 +19,4 @@ LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64/RegulaCommon.framework
 LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/RegulaCommon.framework/RegulaCommon filter=lfs diff=lfs merge=lfs -text
 LunaExample/frameworks/RegulaCommon.xcframework/ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon filter=lfs diff=lfs merge=lfs -text
 
-LunaExample/frameworks/LunaCore.xcframework/ios-arm64/LunaCore.framework/LunaCore filter=lfs diff=lfs merge=lfs -text
-LunaExample/frameworks/LunaCore.xcframework/ios-arm64_x86_64-simulator/LunaCore.framework/LunaCore filter=lfs diff=lfs merge=lfs -text
-
-LunaExample/frameworks/LunaCamera.xcframework/ios-arm64/LunaCamera.framework/LunaCamera filter=lfs diff=lfs merge=lfs -text
-LunaExample/frameworks/LunaCamera.xcframework/ios-arm64_x86_64-simulator/LunaCamera.framework/LunaCamera filter=lfs diff=lfs merge=lfs -text
-
-LunaExample/frameworks/LunaWeb.xcframework/ios-arm64/LunaWeb.framework/LunaWeb filter=lfs diff=lfs merge=lfs -text
-LunaExample/frameworks/LunaWeb.xcframework/ios-arm64_x86_64-simulator/LunaWeb.framework/LunaWeb filter=lfs diff=lfs merge=lfs -text
-
 *.plan filter=lfs diff=lfs merge=lfs -text
