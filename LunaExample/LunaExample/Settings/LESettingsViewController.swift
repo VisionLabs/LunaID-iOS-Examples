@@ -103,7 +103,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

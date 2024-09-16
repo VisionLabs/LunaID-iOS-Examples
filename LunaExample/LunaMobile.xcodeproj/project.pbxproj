@@ -75,6 +75,7 @@
 		4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */; };
 		4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */; };
 		4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */; };
+		4CE92FF52C9872F300686A52 /* luna_config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CE92FF42C9872F300686A52 /* luna_config.plist */; };
 		4CFE2D212C52445500095C4F /* flower.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; };
 		4CFE2D222C52445500095C4F /* flower.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873752A05169C0020EDA0 /* flower.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CFE2D232C52445500095C4F /* fsdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3873762A05169C0020EDA0 /* fsdk.xcframework */; };
@@ -354,6 +355,7 @@
 		4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunaExampleTypes.swift; sourceTree = "<group>"; };
 		4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEAuthError.swift; sourceTree = "<group>"; };
 		4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BestShot+LunaExample.swift"; sourceTree = "<group>"; };
+		4CE92FF42C9872F300686A52 /* luna_config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = luna_config.plist; sourceTree = "<group>"; };
 		4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInteractionsSettingsVC.swift; sourceTree = "<group>"; };
 		7E020BE725F8B629007E7ADE /* OCRSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCRSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E020BE925F8B629007E7ADE /* OCRSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRSE.h; sourceTree = "<group>"; };
@@ -818,6 +820,7 @@
 		7E2B1DFB25419E5F00DE728E /* LunaExample */ = {
 			isa = PBXGroup;
 			children = (
+				4CE92FF42C9872F300686A52 /* luna_config.plist */,
 				4C054F502C33F371008C275F /* vllicense.plist */,
 				4C33589C2AEBD37F00BFC880 /* Extensions */,
 				4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */,
@@ -1432,6 +1435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE92FF52C9872F300686A52 /* luna_config.plist in Resources */,
 				4C054F512C33F371008C275F /* vllicense.plist in Resources */,
 				DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */,
 				DEB8227A29AF3F62002C4C4B /* regula.license in Resources */,
@@ -2175,7 +2179,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = TM98MB69S4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2207,7 +2211,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = TM98MB69S4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
