@@ -18,7 +18,7 @@
 "auth.verify_with_ocr" = "Verification with documents";
 "auth.settings" = "Settings";
 
-"ocr.failed" = "Failed to recognise your document";
+"fail.ocr_result" = "Failed to recognise your document";
 
 "registration.sign_up" = "Register";
 "registration.successful" = "User registered successfully";
@@ -46,6 +46,7 @@
 
 "errors.unknown" = "Unknown error";
 
+"settings.platform_config" = "Platform settings";
 "settings.license_config" = "License settings";
 "settings.bestshot_config" = "Bestshot settings";
 "settings.interactions_config" = "Interactions settings";
@@ -56,13 +57,18 @@
 "settings.reset_to_defaults" = "Default";
 "settings.apply_from_plist" = "Apply from file";
 "settings.check_photo" = "Check photo";
-"settings.platformUrl_config" = "Platform URL";
-"settings.tokenUrl_config" = "Platform token";
 "settings.empty_value" = "Not specified";
 "settings.license.connectionTimeOut_config" = "Connection Timeout";
 "settings.license.serverRetriesCount_config" = "Server Retries Count";
 "settings.license.EID_config" = "EID";
 "settings.license.productID_config" = "Product ID";
+"settings.platform.identifyHandlerID_config" = "IdentifyHandlerID";
+"settings.platform.registrationHandlerID_config" = "RegistrationHandlerID";
+"settings.platform.verifyID_config" = "VerifyID";
+"settings.platform.URL_config" = "Platform URL";
+"settings.platform.token_config" = "Platform token";
+"settings.platform.lunaAccountID_config" = "LunaAccountID";
+"settings.platform.accountID_config" = "AccountID";
 
 "settings.border_distance" = "Border distance";
 "settings.min_det_size" = "Minimal face size";

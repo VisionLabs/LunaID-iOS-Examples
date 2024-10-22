@@ -30,11 +30,31 @@ class LEResultViewController: UIViewController {
             titleLabel.text = resultTitle
         }
     }
+    
+    public enum ResultStatus: String {
+        case success
+        case fail
+    }
+    
+    public enum ResultStage: String {
+        case verify
+        case identify
+        case ocr
+    }
 
     override func loadView() {
         super.loadView()
         
         createLayout()
+    }
+    
+    public func setupResult(success: Bool,
+                            stage: ResultStage,
+                            userName: String? = nil) {
+        let imageName: ResultStatus = success ? .success : .fail
+        let nameTitle = userName != nil ? (userName ?? "") + " \n\n" : ""
+        self.resultTitle = nameTitle + "\(imageName.rawValue).\(stage.rawValue)_result".localized()
+        self.resultImageName = imageName.rawValue
     }
     
     private func createLayout() {

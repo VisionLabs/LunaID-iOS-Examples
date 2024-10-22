@@ -10,7 +10,7 @@ import LunaCore
 import LunaCamera
 import LunaWeb
 
-enum ESettingsItem: Int {
+enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_GLASSES_CHECK
     case SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES
     case SETTING_ITEM_OCR
@@ -26,22 +26,19 @@ enum ESettingsItem: Int {
     case SETTING_ITEM_COMPRESSION_QUALITY
     case SETTING_ITEM_DOC_COMPARE
     case SETTING_ITEM_PRIMARY_FACE_MATHING
-    case SETTING_PLATFORM_URL
-    case SETTING_PLATFORM_TOKEN
-
-    case SETTING_ITEM_COUNT
 }
 
 class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LMCameraDelegate {
     
-    private enum Sections: Int {
-        case fsdkLicenseSection = 0
-        case bestShotSection = 1
-        case interactionsSection = 2
-        case lunaConfigSection = 3
-        case deletionSection = 4
-        case versionSection = 5
-        case buttonsSection = 6
+    private enum Sections: Int, CaseIterable {
+        case platformSection = 0
+        case fsdkLicenseSection = 1
+        case bestShotSection = 2
+        case interactionsSection = 3
+        case lunaConfigSection = 4
+        case deletionSection = 5
+        case versionSection = 6
+        case buttonsSection = 7
     }
     
     private let CloseButtonSize: CGFloat = 44
@@ -51,8 +48,10 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private lazy var lunaAPI: LunaWeb.APIv6 = {
         APIv6(lunaAccountID: configuration.lunaAccountID,
-              lunaServerURL: configuration.lunaServerURL,
-              additionalHeaders: nil)
+              lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
+            guard let platformToken = self?.configuration.platformToken else { return [:] }
+            return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+        }
     }()
 
     private var configuration = LunaCore.LCLunaConfiguration()
@@ -103,7 +102,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return Sections.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,7 +110,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         switch section {
         case Sections.lunaConfigSection.rawValue:
-            rowsNumber = ESettingsItem.SETTING_ITEM_COUNT.rawValue;
+            rowsNumber = ESettingsItem.allCases.count;
         default:
             rowsNumber = 1;
         }
@@ -158,6 +157,10 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         var newCell = UITableViewCell(frame: .zero)
         
         switch indexPath.section {
+        case Sections.platformSection.rawValue:
+            let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.configureCell("settings.platform_config".localized(), .lunaBlue())
+            newCell = newSettingsCell
         case Sections.fsdkLicenseSection.rawValue:
             let newSettingsCell = LELabelledCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.license_config".localized(), .lunaBlue())
@@ -191,6 +194,8 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
+        case Sections.platformSection.rawValue:
+            navigationController?.pushViewController(LEPlatfornSettingsVC(), animated: true)
         case Sections.fsdkLicenseSection.rawValue:
             navigationController?.pushViewController(LEFsdkLicenseSettingsVC(), animated: true)
         case Sections.bestShotSection.rawValue:
@@ -296,20 +301,6 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.configuration.primaryFaceMatching = newDegree
                 self.tableView.reloadData()
             }
-        case .SETTING_PLATFORM_URL:
-            let inputVC = LEInputVC(initialText: configuration.platformURL)
-            inputVC.valueChangedHandler = { text in
-                self.configuration.platformURL = text
-                self.tableView.reloadData()
-            }
-            navigationController?.pushViewController(inputVC, animated: true)
-        case .SETTING_PLATFORM_TOKEN:
-            let inputVC = LEInputVC(initialText: configuration.platformToken)
-            inputVC.valueChangedHandler = { text in
-                self.configuration.platformToken = text
-                self.tableView.reloadData()
-            }
-            navigationController?.pushViewController(inputVC, animated: true)
         default:
             break
         }
@@ -356,8 +347,10 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func startDeletion() {
-        let livenessAPI = LunaWeb.LivenessAPIv6(configuration: configuration,
-                                                additionalHeaders: nil)
+        let livenessAPI = LunaWeb.LivenessAPIv6(configuration: configuration) { [weak self] _ in
+            guard let platformToken = self?.configuration.platformToken else { return [:] }
+            return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+        }
         let controller = LMCameraBuilder.viewController(delegate: self,
                                                         configuration: LCLunaConfiguration(),
                                                         livenessAPI: livenessAPI,
@@ -471,14 +464,6 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.primary_face_matching".localized(), configuration.primaryFaceMatching)
             newCell = newSettingsCell
-        case .SETTING_PLATFORM_URL:
-            let newSettingsCell = LEStringCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.platformUrl_config".localized(), configuration.platformURL)
-            newCell = newSettingsCell
-        case .SETTING_PLATFORM_TOKEN:
-            let newSettingsCell = LEStringCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.tokenUrl_config".localized(), configuration.platformToken)
-            newCell = newSettingsCell
         default:
             break
         }
@@ -537,6 +522,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     @objc
     private func resetToDefaultButtonTapped() {
         configuration = LCLunaConfiguration.defaultConfig()
+        configuration.licenseConfig.flushIntoUserDefaults()
         tableView.reloadData()
     }
 

@@ -22,7 +22,7 @@
 "auth.verify_with_ocr" = "Верификация с документами";
 "auth.settings" = "Настройки";
 
-"ocr.failed" = "Не удалось распознать документ";
+"fail.ocr_result" = "Не удалось распознать документ";
 
 "registration.sign_up" = "Регистрация";
 "registration.successful" = "Пользователь зарегистрирован";
@@ -45,6 +45,7 @@
 
 "errors.unknown" = "Неизвестная ошибка";
 
+"settings.platform_config" = "Настройки платформы";
 "settings.license_config" = "Настройки лицензии";
 "settings.bestshot_config" = "Настройки bestshot";
 "settings.interactions_config" = "Настройки интеракций";
@@ -55,13 +56,18 @@
 "settings.reset_to_defaults" = "По умолчанию";
 "settings.apply_from_plist" = "Применить из файла";
 "settings.check_photo" = "Проверить снимок";
-"settings.platformUrl_config" = "URL платформы";
-"settings.tokenUrl_config" = "Токен платформы";
 "settings.empty_value" = "Не указан";
 "settings.license.connectionTimeOut_config" = "Таймаут соединения";
 "settings.license.serverRetriesCount_config" = "Число попыток";
 "settings.license.EID_config" = "EID";
 "settings.license.productID_config" = "ID продукта";
+"settings.platform.identifyHandlerID_config" = "IdentifyHandlerID";
+"settings.platform.registrationHandlerID_config" = "RegistrationHandlerID";
+"settings.platform.verifyID_config" = "VerifyID";
+"settings.platform.URL_config" = "URL платформы";
+"settings.platform.token_config" = "Токен платформы";
+"settings.platform.lunaAccountID_config" = "LunaAccountID";
+"settings.platform.accountID_config" = "AccountID";
 
 "settings.border_distance" = "Отступ от края";
 "settings.min_det_size" = "Минимальный размер лица";
@@ -131,7 +137,7 @@
 "capture_id.title" = "Приготовьте документ для распознавания";
 "capture_id.subtitle" = "Для лучшего результат следуйте инструкциям";
 "capture_id.rules" = "1. Убедитесь, что помещение, где вы находитесь, достаточно освещено. Избегайте бликов на лице в документе.\n\n2. Лицо должно быть хорошо различимо невооруженным взглядом.\n\n3. Убедитесь, что вокруг документа нет других людей или фотографий других людей.";
-"capture_id.button" = "Распознать документа";
+"capture_id.button" = "Распознать документ";
 
 "capture_error.retry_id" = "Переснять документ";
 "capture_error.retry_biometric" = "Переснять лицо";

@@ -12,7 +12,10 @@ import LunaCamera
 import OCR
 
 class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
-    
+    enum Scenario {
+        case registration, verification, identification
+    }
+
     private let SideOffset: CGFloat = 16
     private let TitlesBetween: CGFloat = 2
     private let PhotosStackTopOffset: CGFloat = 24
@@ -20,7 +23,9 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
 
     private var ocrResult: OCR.OCRResult?
     private var bestShot: LunaCore.LCBestShot?
-    
+    private var face: APIv6.Face?
+    private var scenario: Scenario = .registration
+
     private var ocrFieldsToShow = [OCRResultTextField]()
     private var continueTitle = ""
 
@@ -33,22 +38,51 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
     public var retryOCRHandler: VoidHandler?
     
     public var configuration: LCLunaConfiguration = LCLunaConfiguration()
-    
+
+    private var lunaAPI: LunaWeb.APIv6 = {
+        LunaWeb.APIv6(lunaAccountID: LCLunaConfiguration().lunaAccountID,
+                      lunaServerURL: LCLunaConfiguration().lunaPlatformURL) { _ in
+            guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+            return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+        }
+    }()
+
+    private var passportData: [String: EventQuery.PassportData] {
+        var result: [String: EventQuery.PassportData] = [:]
+
+        ocrResult?.textFields.forEach { ocrResultTextField in
+            result[ocrResultTextField.typeName.lowercased()] = EventQuery.PassportData(
+                title: ocrResultTextField.localizedTypeName ?? "",
+                value: ocrResultTextField.value
+            )
+        }
+
+        return result
+    }
+
     override func loadView() {
         super.loadView()
         
         createLayout()
     }
 
-    public func configureResults(_ bestShot: LunaCore.LCBestShot, _ ocrResult: OCR.OCRResult?, _ title: String) {
+    public func configureResults(scenario: Scenario, _ bestShot: LunaCore.LCBestShot, _ ocrResult: OCR.OCRResult?, _ face: APIv6.Face) {
+        self.scenario = scenario
         self.bestShot = bestShot
         self.ocrResult = ocrResult
+        self.face = face
 
         if let ocrFields = ocrResult?.textFields {
             self.ocrFieldsToShow = preparePresentationValues(from: ocrFields)
         }
-        
-        self.continueTitle = title
+        switch scenario {
+            case .registration:
+                self.continueTitle = "buttons.do_actions.registration".localized()
+            case .verification:
+                self.continueTitle = "buttons.do_actions.verify".localized()
+            case .identification:
+                self.continueTitle = "buttons.do_actions.identify".localized()
+        }
         
         tableView.reloadData()
     }
@@ -65,7 +99,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
         
-        let faceDetector = LCFaceDetectorBuilder.build(with: configuration)
+        let faceDetector = LCFaceDetectorBuilder.build(with: configuration, isUserDefaultsPillar: true)
         guard let imageField = ocrResult.faceImageField() else {
             continueButtonHandler?(LEAuthError.faceOnDocumentNotFound)
             activityIndicator.stopAnimating()
@@ -77,16 +111,102 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
 
-        let extractor = LCDescriptorExtractorBuilder.build(with: configuration)
+        let extractor = LCDescriptorExtractorBuilder.build(with: configuration, isUserDefaultsPillar: true)
         let currentMatchValue: CGFloat = CGFloat(extractor.match(bestShot!, and: detection))
         if (currentMatchValue < configuration.documentVerificationMatch) {
             continueButtonHandler?(LEAuthError.documentVerificationError)
             activityIndicator.stopAnimating()
             return
         }
+        
+        let completionBlock: (Error?) -> Void = { [weak self] error in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                self.continueButtonHandler?(error)
+                self.activityIndicator.stopAnimating()
+            }
+        }
 
-        continueButtonHandler?(nil)
-        activityIndicator.stopAnimating()
+        switch scenario {
+        case .registration:
+            signUpUser(with: ocrResult, completion: completionBlock)
+        case .verification, .identification:
+            handleUser(by: scenario, with: ocrResult, completion: completionBlock)
+        }
+    }
+
+    private func signUpUser(with ocrResult: OCR.OCRResult, completion: @escaping (Error?) -> Void) {
+        guard let result = ocrResult as? OCRRegulaResult,
+              let documentImageContainer = result.imageFields.first(where: { $0.typeName == "DocumentImage" }),
+              let imageData = documentImageContainer.image.jpegData(compressionQuality: 1.0),
+              !passportData.isEmpty
+        else {
+            completion(OCRError.notRecognized)
+            return
+        }
+
+        let requestId = UUID().uuidString
+
+        lunaAPI.images.createImage(imageData: imageData, requestId: requestId) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let createImageResponse):
+                let meta = EventQuery.Meta(
+                    schemaName: "mali",
+                    schemaVersion: 3,
+                    passportSavedImages: [createImageResponse],
+                    passportData: passportData
+                )
+
+                generateEvents(meta: meta, completion: completion)
+            case .failure(let error):
+                completion(OCRError.error(error))
+            }
+        }
+    }
+    
+    private func handleUser(by scenario: Scenario, with ocrResult: OCR.OCRResult,
+                            completion: @escaping (Error?) -> Void) {
+        guard let faceID = self.face?.id else { completion(LEAuthError.faceOnDocumentNotFound); return }
+        let query = GetDocumentsQuery(faceID: faceID)
+        lunaAPI.events.getDocumentEvents(query: query) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                let handleError: LEAuthError = scenario == .verification
+                                                        ? .verificationError : .identificationError
+                let error = self.isSame(document: ocrResult, to: response) ? nil : handleError
+                completion(error)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+
+    private func generateEvents(meta: EventQuery.Meta, completion: @escaping (Error?) -> Void) {
+        guard let bestShotData: LunaWeb.BestShotData = bestShot?.bestShotData(configuration: configuration, isWarped: true)
+        else {
+            completion(OCRError.notRecognized)
+            return
+        }
+
+        let imageId = meta.passportSavedImages.first?.imageID
+
+        let query = EventQuery(data: bestShotData,
+                               imageType: .faceWarpedImage,
+                               externalID: face?.userData,
+                               userData: meta.passportData["surname_and_given_names"]?.value,
+                               meta: meta)
+
+        lunaAPI.events.generateEvents(handlerID: configuration.registrationHandlerID, query: query) { result in
+            switch result {
+            case .success(let response):
+                let error = response.events.first?.face == nil ? LEAuthError.userAlreadyExists : nil
+                completion(error)
+            case .failure(let error):
+                completion(LEAuthError.error(error))
+            }
+        }
     }
 
     //  MARK: - UITableViewDataSource -
@@ -114,14 +234,13 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: LEOCRFieldCell.reuseID, for: indexPath) as! LEOCRFieldCell
             let typeName = ocrFieldsToShow[indexPath.row - 1].typeName
-            var isValueChangeable = false
             let typeValue: String
             if typeName == "given_name".localized() {
                 typeValue = ocrFieldsToShow[indexPath.row - 1].value
             } else {
                 typeValue = hideSensitiveData(inputString: ocrFieldsToShow[indexPath.row - 1].value)
             }
-            cell.configureCell(typeName, typeValue, isValueChangeable: isValueChangeable)
+            cell.configureCell(typeName, typeValue, isValueChangeable: false)
             return cell
         }
     }
@@ -220,6 +339,14 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
 
     private func closeViewController(animated: Bool) {
         navigationController?.popViewController(animated: animated)
+    }
+    
+    private func isSame(document: OCRResult, to response: GetEventResponse) -> Bool {
+        let documentNumberField = document.textFields.first(where: { $0.typeName == "Document_Number" })
+        let documentNumber = Int(documentNumberField?.value ?? "") ?? -1
+        let responseDocNumberField = response.events?.first?.meta?.passportData?.documentNumber?.value
+        let responseDocNumber = Int(responseDocNumberField ?? "") ?? -2
+        return responseDocNumber == documentNumber
     }
     
 }

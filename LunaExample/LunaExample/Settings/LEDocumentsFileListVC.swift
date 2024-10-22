@@ -15,12 +15,15 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
     private let SideOffset: CGFloat = 10
     private let ApplyButtonHeight: CGFloat = 44
 
-    private lazy var livenessAPI = LivenessAPIv6(configuration: configuration,
-                                                 additionalHeaders: nil)
+    private lazy var livenessAPI = LivenessAPIv6(configuration: configuration) { [weak self] _ in
+        guard let platformToken = self?.configuration.platformToken else { return [:] }
+        return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+    }
 
     private lazy var bestShotDetector: LCBestShotDetectorProtocol = LCBestShotBuilder.build(with: self,
                                                                                             livenessAPI: livenessAPI,
                                                                                             configuration: configuration,
+                                                                                            isUserDefaultsPillar: true,
                                                                                             singleFrameMode: true)
 
     private let pathExtension: String?

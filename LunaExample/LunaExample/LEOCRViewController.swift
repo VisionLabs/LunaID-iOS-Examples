@@ -19,7 +19,7 @@ class LEOCRViewController: UIViewController, OCRServiceDelegate {
     private let ocrInstructionsView = LEOCRInstructionsView(frame: .zero)
     private let activityIndicator = LEActivityIndicatorView(frame: .zero)
     
-    private let ocrService = OCRService(ocrAPI: OCRBdrainAPI(delegate: nil))
+    private let ocrService = OCRService(ocrAPI: OCRRegulaAPI(delegate: nil))
 
     public var resultBlock: OCRResultHandler?
     

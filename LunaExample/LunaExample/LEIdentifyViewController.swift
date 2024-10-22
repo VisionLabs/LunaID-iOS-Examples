@@ -20,15 +20,39 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     private let activityIndicator = LEActivityIndicatorView(frame: .zero)
 
     public var resultBlock: IdentifyResultHandler?
-    public var configuration: LCLunaConfiguration = LCLunaConfiguration()
+    public var configuration: LCLunaConfiguration
     
-    private var livenessAPI = LunaWeb.LivenessAPIv6(configuration: LCLunaConfiguration(),
-                                                    additionalHeaders: nil)
+    private var livenessAPI = LunaWeb.LivenessAPIv6(configuration: LCLunaConfiguration()) { _ in
+        guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+        return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+    }
+    
     private var lunaAPI: LunaWeb.APIv6 = {
         LunaWeb.APIv6(lunaAccountID: LCLunaConfiguration().lunaAccountID,
-                      lunaServerURL: LCLunaConfiguration().lunaServerURL,
-                      additionalHeaders: nil)
+                      lunaServerURL: LCLunaConfiguration().lunaPlatformURL) { _ in
+            guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+            return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+        }
     }()
+    
+    init(configuration: LCLunaConfiguration) {
+        self.configuration = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    /// Список face id для верификаци
+    private var faceIDs: [String] = []
+
+    init(faceIDs: [String], configuration: LCLunaConfiguration) {
+        self.faceIDs = faceIDs
+        self.configuration = configuration
+
+        super.init(nibName: nil, bundle: nil)
+    }
 
     override func loadView() {
         super.loadView()
@@ -66,6 +90,20 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         self.present(cameraViewController, animated: true)
     }
     
+    private func activateLicense(completion: (Bool, Error?) -> Void) {
+        let configuration = LCLunaConfiguration()
+        configuration.plistLicenseFileName = LunaCore.kDefaultLicensePlist
+        if let error = configuration.activateLicense(withPillar: true) {
+            #if LUNA_LOG_SWIFT
+            LCSafeLoggerWrapper.logInfo(message: "LMCameraDelegate >>> activating license error \(error.localizedDescription)")
+            #endif
+            completion(false, error)
+            return
+        } else {
+            completion(true, nil)
+        }
+    }
+    
     private func createLayout() {
         view.backgroundColor = .white
         
@@ -76,7 +114,13 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             self?.closeViewController(animated: true)
         }
         biometricInstructionsView.captureBiometricButtonHandler = { [weak self] in
-            self?.launchCamera()
+            self?.activateLicense() { succes, error in
+                if succes {
+                    self?.launchCamera()
+                } else {
+                    self?.presentModalError(error?.what() ?? "License error")
+                }
+            }
         }
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +139,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         ])
     }
     
-    private func checkBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
+    private func identifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
         guard let bestShotData: LunaWeb.BestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true),
         configuration.bestShotConfiguration.livenessType == .byPhoto else {
             DispatchQueue.main.async { [weak self] in
@@ -130,7 +174,51 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             }
         }
     }
-    
+
+    func verifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
+        let bestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true)
+
+        guard let bestShotData = bestShotData,
+              configuration.bestShotConfiguration.livenessType == .byPhoto
+        else {
+            DispatchQueue.main.async { [weak self] in
+                self?.dismiss(animated: true) {
+                    self?.resultBlock?(nil, bestShot)
+                }
+            }
+            return
+        }
+
+        let query = LunaWeb.PerformVerificationQuery(data: bestShotData, faceIDs: faceIDs)
+
+        lunaAPI.verifiers.performVerification(verifyID: configuration.verifyID, query: query) { [weak self] result in
+
+            switch result {
+            case .success(let response):
+                let verifications = response.images.first?.detections.faceDetections.first?.verifications
+                let filteredVerifications = verifications?.filter { $0.status && $0.similarity > 0.8 }
+                let maxSimilarityVerification = filteredVerifications?.max(by: { $0.similarity < $1.similarity })
+
+                DispatchQueue.main.async {
+                    if let resultBlock = self?.resultBlock {
+                        self?.dismiss(animated: true) {
+                            resultBlock(maxSimilarityVerification?.face, bestShot)
+                        }
+                        return
+                    }
+                    self?.closeViewController(animated: true)
+                }
+
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.dismiss(animated: false) {
+                        self?.presentModalError((error as NSError).localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+
     private func displayError(_ error: LunaCamera.LMCameraError, _ videoFile: String?) {
         //  this action is to close all screens and return to root view controller
         let closeAction = LEAlertAction(title: "OK".localized()) { [weak self] in
@@ -147,6 +235,8 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             self.presentModalError(error.what(), actions: [action])
         } else {
             switch error {
+            case .captureDeviceError(let nsError):
+                self.presentModalError(nsError.what(), actions: [closeAction])
             case .canceled:
                 self.presentModalError(error.what(), actions: [closeAction], needTitle: false)
             case .bestShotError(let nsError):
@@ -158,7 +248,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                 }
                 
                 switch networkError {
-                case .livenessPredictionFakeError:
+                case .livenessPredictionFakeError, .livenessQualityError:
                     self.presentModalError(error.what(), actions: [closeAction], needTitle: false)
                     
                 default:
@@ -174,9 +264,13 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     //  MARK: - LMCameraDelegate -
     
     func bestShot(_ bestShot: LunaCore.LCBestShot, _ videoFile: String?) {
-        checkBestShotWithPlatform(bestShot)
+        if faceIDs.isEmpty {
+            identifyBestShotWithPlatform(bestShot)
+        } else {
+            verifyBestShotWithPlatform(bestShot)
+        }
     }
-    
+
     func error(_ error: LunaCamera.LMCameraError, _ videoFile: String?) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {

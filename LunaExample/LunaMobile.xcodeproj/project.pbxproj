@@ -175,6 +175,9 @@
 		7EB5D8D025F8BF4A0025C2CD /* Regula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8CF25F8BF4A0025C2CD /* Regula.swift */; };
 		7EB5D8DD25F8C2620025C2CD /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB5D8DC25F8C2620025C2CD /* Error.swift */; };
 		7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9705D7812CC80C8F0080076D /* LEPlatfornSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */; };
+		9705D7852CC80C9A0080076D /* LERootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7832CC80C9A0080076D /* LERootViewController.swift */; };
+		9705D7862CC80C9A0080076D /* LERootVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */; };
 		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
 		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
 		97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C492992C9057CE00CF3CB7 /* LEStringCell.swift */; };
@@ -213,7 +216,6 @@
 		DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E392AF526087A3D00D42E15 /* OCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DEDE8C1A29C233D5006FFF7F /* LERootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */; };
 		DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */; };
 		DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */; };
 		DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */; };
@@ -475,6 +477,9 @@
 		7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEServerError.swift; sourceTree = "<group>"; };
 		7ED5A7A0267CB8940090F5CF /* regula.license */ = {isa = PBXFileReference; lastKnownFileType = file; path = regula.license; sourceTree = "<group>"; };
+		9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEPlatfornSettingsVC.swift; sourceTree = "<group>"; };
+		9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LERootVCPresenter.swift; sourceTree = "<group>"; };
+		9705D7832CC80C9A0080076D /* LERootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LERootViewController.swift; sourceTree = "<group>"; };
 		9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCore.xcframework; path = frameworks/LunaCore.xcframework; sourceTree = "<group>"; };
 		9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaWeb.xcframework; path = frameworks/LunaWeb.xcframework; sourceTree = "<group>"; };
 		9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCamera.xcframework; path = frameworks/LunaCamera.xcframework; sourceTree = "<group>"; };
@@ -498,7 +503,6 @@
 		DE8D4F9F2907DD3C008E3ED8 /* OCRSEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRSEAPI.swift; sourceTree = "<group>"; };
 		DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRegulaAPI.swift; sourceTree = "<group>"; };
 		DEB8229229AF3F62002C4C4B /* LunaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LERootViewController.swift; sourceTree = "<group>"; };
 		DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+LunaExample.swift"; sourceTree = "<group>"; };
 		DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LERegistrationViewController.swift; sourceTree = "<group>"; };
@@ -776,6 +780,7 @@
 		4C43B2992BA9CDFC00C79C9D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */,
 				97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */,
 				97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */,
 				4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */,
@@ -820,6 +825,7 @@
 		7E2B1DFB25419E5F00DE728E /* LunaExample */ = {
 			isa = PBXGroup;
 			children = (
+				9705D7842CC80C9A0080076D /* LERootViewController */,
 				4CE92FF42C9872F300686A52 /* luna_config.plist */,
 				4C054F502C33F371008C275F /* vllicense.plist */,
 				4C33589C2AEBD37F00BFC880 /* Extensions */,
@@ -832,7 +838,6 @@
 				4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */,
 				DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */,
 				7E0390F32563D1CB00453D52 /* LEEulaViewController.swift */,
-				DEDE8C1929C233D5006FFF7F /* LERootViewController.swift */,
 				7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */,
 				4C06D8962AE9895200C6603E /* LEOCRViewController.swift */,
 				4C06D8982AEA823600C6603E /* LEOCRResultsViewController.swift */,
@@ -1135,6 +1140,15 @@
 				7EB5D8A425F8BC1A0025C2CD /* Info.plist */,
 			);
 			path = OCRREGULA;
+			sourceTree = "<group>";
+		};
+		9705D7842CC80C9A0080076D /* LERootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */,
+				9705D7832CC80C9A0080076D /* LERootViewController.swift */,
+			);
+			path = LERootViewController;
 			sourceTree = "<group>";
 		};
 		DE7555CC29A778F300E58DEB /* DocumentType */ = {
@@ -1605,6 +1619,8 @@
 				4C06D8972AE9895200C6603E /* LEOCRViewController.swift in Sources */,
 				4C06D8992AEA823600C6603E /* LEOCRResultsViewController.swift in Sources */,
 				4CD25F842AE69F1B0019EE88 /* LEOCRInstructionsView.swift in Sources */,
+				9705D7852CC80C9A0080076D /* LERootViewController.swift in Sources */,
+				9705D7862CC80C9A0080076D /* LERootVCPresenter.swift in Sources */,
 				4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */,
 				4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */,
 				4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */,
@@ -1615,11 +1631,11 @@
 				DEB8226329AF3F62002C4C4B /* LESettingsViewController.swift in Sources */,
 				DEB8226429AF3F62002C4C4B /* Fonts.swift in Sources */,
 				4C43B2962BA9B93000C79C9D /* LEEnumPickerVC.swift in Sources */,
-				DEDE8C1A29C233D5006FFF7F /* LERootViewController.swift in Sources */,
 				4CC348522B7C1B4C00B04A1C /* LEFloatCell.swift in Sources */,
 				4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */,
 				DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */,
 				DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */,
+				9705D7812CC80C8F0080076D /* LEPlatfornSettingsVC.swift in Sources */,
 				4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */,
 				DEB8226829AF3F62002C4C4B /* LETextField.swift in Sources */,
 				4C06D8912AE81E3800C6603E /* LEActivityIndicatorView.swift in Sources */,

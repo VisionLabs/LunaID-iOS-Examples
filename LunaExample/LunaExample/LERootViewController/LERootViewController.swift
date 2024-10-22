@@ -28,7 +28,26 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private let loginButton = LCRoundButton(type: .custom)
     private let usernameField = LETextField(frame: .zero)
     
-    private let configuration: LCLunaConfiguration = LCLunaConfiguration()
+    private var configuration: LCLunaConfiguration
+    private var presenter: LERootVCPresenter
+    
+    private lazy var closeHandler: VoidHandler = { [weak self] in
+        guard let self = self else { return }
+        self.navigationController?.popViewController(animated: true)
+    }
+    private lazy var closeToRootHandler: VoidHandler = { [weak self] in
+        self?.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    init(configuration: LCLunaConfiguration) {
+        self.configuration = configuration
+        self.presenter = LERootVCPresenter(configuration: configuration)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -225,20 +244,25 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func identifyVerifyScenario() {
-        if let userName = usernameField.text,
-           !userName.isEmpty {
-            let query = GetFacesQuery(userData: userName, targets: [.userData, .faceID])
+        if let externalID = usernameField.text, !externalID.isEmpty {
+
             let lunaAPI = LunaWeb.APIv6(lunaAccountID: configuration.lunaAccountID,
-                                        lunaServerURL: configuration.lunaServerURL,
-                                        additionalHeaders: nil)
+                                        lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
+                guard let platformToken = self?.configuration.platformToken else { return [:] }
+                return [APIv6Constants.Headers.authorization.rawValue: platformToken]
+            }
+            
+            let query = GetFacesQuery(externalIDs: [externalID], targets: [.externalID, .faceID])
+
             lunaAPI.faces.getFaces(query: query) { result in
                 DispatchQueue.main.async { [weak self] in
                     switch result {
                     case .success(let response):
-                        if let faceID = response.faces.first(where: { $0.userData == userName })?.id {
-                            self?.launchVerify(faceID: faceID)
-                        } else {
+                        if response.faces.isEmpty {
                             self?.presentModalError(LEServerError.noUser.what())
+                        } else {
+                            let faceIDs = response.faces.compactMap { $0.id }
+                            self?.launchVerify(faceIDs: faceIDs)
                         }
                     case .failure(let error):
                         self?.presentModalError(error.what())
@@ -251,6 +275,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func launchRegistration() {
+        guard !(navigationController?.topViewController is LERegistrationViewController) 
+            else { return }
         let viewController = LERegistrationViewController()
         viewController.configuration = configuration
         navigationController?.pushViewController(viewController, animated: true)
@@ -259,129 +285,94 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     // Identify flow
 
     private func launchIdentify() {
-        let identifyViewController = createIdentifyViewController()
+        guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
+        let identifyViewController = LEIdentifyViewController(configuration: configuration)
         identifyViewController.resultBlock = { [weak self] face, bestShot in
-            guard let self = self else { return }
+            guard let self = self, self.presentedViewController == nil,
+                    !(navigationController?.topViewController is LEResultViewController)
+                else { return }
             let resultViewController = LEResultViewController()
-            if let name = face?.userData {
-                if (self.configuration.ocrEnabled) {
-                    let closeHandler: VoidHandler = { [weak self] in
-                        self?.navigationController?.popToRootViewController(animated: true)
-                    }
-
-                    self.launchOCR(bestShot, name, closeHandler)
-                    return
-                }
-                else {
-                    resultViewController.resultTitle = name + "\n\n"
-                    resultViewController.resultTitle += "success.identify_result".localized()
-                    resultViewController.resultImageName = "success"
-                }
+            
+            if let face, self.configuration.ocrEnabled {
+                self.launchOCR(scenario: .identification, bestShot, face, self.closeToRootHandler)
             }
             else {
-                if (self.configuration.bestShotConfiguration.livenessType != .byPhoto) {
-                    resultViewController.resultTitle = "\n\n"
-                    resultViewController.resultTitle += "success.identify_result".localized()
-                    resultViewController.resultImageName = "success"
-                }
-                else {
-                    resultViewController.resultTitle = "fail.identify_result".localized()
-                    resultViewController.resultImageName = "fail"
-                }
+                resultViewController.setupResult(success: face?.userData != nil,
+                                                 stage: .identify,
+                                                 userName: face?.userData)
+                self.pushResultViewController(resultViewController)
             }
-            
-            resultViewController.closeHandler = { [weak self] in
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-            self.navigationController?.pushViewController(resultViewController, animated: true)
         }
         navigationController?.pushViewController(identifyViewController, animated: true)
     }
     
-    private func launchVerify(faceID: String) {
-        let identifyViewController = createIdentifyViewController()
+    private func launchVerify(faceIDs: [String]) {
+        guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
+        let identifyViewController = LEIdentifyViewController(faceIDs: faceIDs,
+                                                              configuration: configuration)
         identifyViewController.resultBlock = { [weak self] face, bestShot in
-            guard let self = self else { return }
-            let resultViewController = LEResultViewController()
-            resultViewController.resultTitle = "fail.verify_result".localized()
-            resultViewController.resultImageName = "fail"
-            if let detectedFaceID = face?.id {
-                if (detectedFaceID == faceID) {
-                    if (self.configuration.ocrEnabled) {
-                        let closeHandler: VoidHandler = { [weak self] in
-                            self?.navigationController?.popToRootViewController(animated: true)
-                        }
+            guard let self = self, self.presentedViewController == nil,
+                  !(navigationController?.topViewController is LEResultViewController)
+                else { return }
 
-                        self.launchOCR(bestShot, face?.userData, closeHandler)
-                        return
-                    }
-                    else {
-                        resultViewController.resultTitle = (face?.userData ?? "") + "\n\n"
-                        resultViewController.resultTitle += "success.verify_result".localized()
-                        resultViewController.resultImageName = "success"
-                    }
-                }
-                else {
-                    resultViewController.resultTitle = face?.userData ?? "" + "\n\n"
-                    resultViewController.resultTitle += "fail.verify_result".localized()
-                    resultViewController.resultImageName = "fail"
-                }
+            let resultViewController = LEResultViewController()
+            if self.configuration.ocrEnabled, let face {
+                self.launchOCR(scenario: .verification, bestShot, face, self.closeToRootHandler)
+            } else {
+                resultViewController.setupResult(success: face?.userData != nil,
+                                                 stage: .verify,
+                                                 userName: face?.userData)
+                self.pushResultViewController(resultViewController)
             }
-            
-            resultViewController.closeHandler = { [weak self] in
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-            self.navigationController?.pushViewController(resultViewController, animated: true)
         }
         navigationController?.pushViewController(identifyViewController, animated: true)
-    }
-    
-    private func createIdentifyViewController() -> LEIdentifyViewController {
-        let identifyViewController = LEIdentifyViewController()
-        identifyViewController.configuration = configuration
-        
-        return identifyViewController
     }
 
     // ORC flow
 
-    private func launchOCR(_ bestShot: LunaCore.LCBestShot,
-                           _ userName: String?,
-                           _ closeHandler: @escaping VoidHandler) {
+    private func launchOCR(scenario: LEOCRResultsViewController.Scenario,
+                           _ bestShot: LunaCore.LCBestShot,
+                           _ face: APIv6.Face,
+                           _ closeBlock: @escaping VoidHandler) {
+        guard !(navigationController?.topViewController is LEOCRViewController) else { return }
         let viewController = LEOCRViewController()
 
         viewController.resultBlock = { [weak self] ocrResult in
             guard let ocrResult = ocrResult else {
-                self?.launchFailResultScreen(resultTitle: "ocr.failed".localized(),
-                                             closeHandler: closeHandler)
+                self?.launchFailResultScreen(stage: .ocr,
+                                             closeCompletion: closeBlock)
                 return
             }
 
-            self?.launchOCRSuccessResultScreen(bestShot, userName, ocrResult)
+            self?.launchOCRSuccessResultScreen(scenario: scenario, bestShot, face, ocrResult)
         }
-
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    private func launchOCRSuccessResultScreen(_ bestShot: LunaCore.LCBestShot,
-                                              _ userName: String?,
+    private func launchOCRSuccessResultScreen(scenario: LEOCRResultsViewController.Scenario,
+                                              _ bestShot: LunaCore.LCBestShot,
+                                              _ face: APIv6.Face,
                                               _ ocrResult: OCR.OCRResult?) {
+        guard !(navigationController?.topViewController is LEOCRResultsViewController) else { return }
         let ocrResultsViewController = LEOCRResultsViewController()
 
-        ocrResultsViewController.configureResults(bestShot,
+        ocrResultsViewController.configureResults(scenario: scenario,
+                                                  bestShot,
                                                   ocrResult,
-                                                  "buttons.do_actions.verify".localized())
+                                                  face)
 
         ocrResultsViewController.continueButtonHandler = { [weak self] error in
-            self?.ocrContinueButtonDidTap(userName, error)
+            self?.ocrContinueButtonDidTap(face.userData, error)
         }
 
         ocrResultsViewController.retryBiometricHandler = { [weak self] in
-            self?.launchRetryBiometric(ocrResult)
+            self?.launchRetryBiometric(scenario: scenario, ocrResult: ocrResult)
         }
 
         ocrResultsViewController.retryOCRHandler = { [weak self] in
-            self?.launchRetryOCR(bestShot, userName)
+            guard let self else { return }
+            self.launchOCR(scenario: scenario, bestShot, face, self.closeHandler)
         }
 
         navigationController?.pushViewController(ocrResultsViewController, animated: true)
@@ -389,64 +380,49 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
     // Retry biometric/ocr
 
-    private func launchRetryBiometric(_ ocrResult: OCR.OCRResult?) {
-        let identifyViewController = createIdentifyViewController()
+    private func launchRetryBiometric(scenario: LEOCRResultsViewController.Scenario,
+                                      ocrResult: OCR.OCRResult?) {
+        guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
+        let identifyViewController = LEIdentifyViewController(configuration: configuration)
 
         identifyViewController.resultBlock = { [weak self] face, bestShot in
+            guard let self else { return }
             // Close IdentifyViewController
-            self?.navigationController?.popViewController(animated: true) {
-                if let name = face?.userData {
-                    self?.launchOCRSuccessResultScreen(bestShot, name, ocrResult)
+            self.navigationController?.popViewController(animated: true) {
+                if let face {
+                    self.launchOCRSuccessResultScreen(scenario: scenario, bestShot, face, ocrResult)
                 } else {
-                    self?.launchFailResultScreen(resultTitle: "fail.identify_result".localized()) {
-                        self?.navigationController?.popViewController(animated: true)
-                    }
+                    self.launchFailResultScreen(stage: .identify,
+                                                closeCompletion: self.closeHandler)
                 }
             }
         }
-
+        
         navigationController?.pushViewController(identifyViewController, animated: true)
-    }
-
-    private func launchRetryOCR(_ bestShot: LunaCore.LCBestShot, _ userName: String?) {
-        let closeHandler: VoidHandler = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
-
-        launchOCR(bestShot, userName, closeHandler)
     }
 
     // Result screen
 
-    private func launchFailResultScreen(resultTitle: String, closeHandler: @escaping VoidHandler) {
+    private func launchFailResultScreen(stage: LEResultViewController.ResultStage,
+                                        closeCompletion: @escaping VoidHandler) {
+        guard !(navigationController?.topViewController is LEResultViewController) else { return }
         let failedViewController = LEResultViewController()
-        failedViewController.resultTitle = resultTitle
-        failedViewController.resultImageName = "fail"
-        failedViewController.closeHandler = closeHandler
+        failedViewController.setupResult(success: false, stage: stage)
+        failedViewController.closeHandler = closeCompletion
         navigationController?.pushViewController(failedViewController, animated: true)
     }
 
     private func ocrContinueButtonDidTap(_ userName: String?, _ error: Error?) {
+        guard !(navigationController?.topViewController is LEResultViewController) else { return }
         let resultViewController = LEResultViewController()
-        resultViewController.resultTitle =  "fail.verify_result".localized()
-        resultViewController.resultImageName = "fail"
-
-        if error != nil {
-            resultViewController.resultTitle = (userName ?? "") + "\n\n"
-            resultViewController.resultTitle +=  "fail.verify_result".localized()
-            resultViewController.resultImageName = "fail"
-        }
-        else {
-            resultViewController.resultTitle = (userName ?? "") + "\n\n"
-            resultViewController.resultTitle += "success.verify_result".localized()
-            resultViewController.resultImageName = "success"
-        }
-
-        resultViewController.closeHandler = { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
-        }
-
-        navigationController?.pushViewController(resultViewController, animated: true)
+        resultViewController.setupResult(success: error == nil,
+                                         stage: .verify,
+                                         userName: userName)
+        self.pushResultViewController(resultViewController)
     }
     
+    private func pushResultViewController(_ viewController: LEResultViewController) {
+        viewController.closeHandler = self.closeToRootHandler
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

@@ -26,7 +26,6 @@ class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableVie
         case productID = "settings.license.productID_config"
     }
     
-    private let SideOffset: CGFloat = 10
     private var licenseConfiguration = LunaCore.LCFsdkLicenseConfiguration()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
