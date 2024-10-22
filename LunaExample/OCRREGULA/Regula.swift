@@ -34,10 +34,16 @@ public class Regula {
     }
     
     public func showScanner(on viewController: UIViewController, completion: @escaping (Result<DocumentReaderResults, Swift.Error>?) -> Void) {
-        DocReader.shared.processParams.scenario = RGL_SCENARIO_OCR
+        let config = DocReader.ScannerConfig(scenario: RGL_SCENARIO_OCR)
         DocReader.shared.processParams.doublePageSpread = true
-
-        DocReader.shared.showScanner(viewController) { (action, result, error) in
+        DocReader.shared.processParams.timeout = 50
+        DocReader.shared.processParams.timeoutFromFirstDetect = 50
+        DocReader.shared.processParams.timeoutFromFirstDocType = 50
+        DocReader.shared.processParams.matchTextFieldMask = true
+        DocReader.shared.processParams.imageQA.glaresCheck = true
+        DocReader.shared.processParams.imageQA.focusCheck = true
+        
+        DocReader.shared.showScanner(presenter: viewController, config: config) { (action, result, error) in
             switch action {
             case .complete:
                 if let result = result {
