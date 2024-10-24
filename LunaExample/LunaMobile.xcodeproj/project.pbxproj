@@ -183,6 +183,12 @@
 		97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C492992C9057CE00CF3CB7 /* LEStringCell.swift */; };
 		97C4929D2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */; };
 		97C4929E2C9057D600CF3CB7 /* LEInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */; };
+		97E2B2802CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */; };
+		97E2B2812CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		97E2B2822CCA5888004F7BB8 /* CryptoSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27E2CCA5888004F7BB8 /* CryptoSwift.xcframework */; };
+		97E2B2832CCA5888004F7BB8 /* CryptoSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27E2CCA5888004F7BB8 /* CryptoSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		97E2B2842CCA5888004F7BB8 /* DocumentReaderCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27F2CCA5888004F7BB8 /* DocumentReaderCore.xcframework */; };
+		97E2B2852CCA5888004F7BB8 /* DocumentReaderCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27F2CCA5888004F7BB8 /* DocumentReaderCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7D9671AA981DF9F6F9D144E /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D962B92BB77792B6E4586F /* String+Localize.swift */; };
 		DE7555C929A778C200E58DEB /* RegulaDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */; };
 		DE7555CE29A7791D00E58DEB /* OCRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555CD29A7791D00E58DEB /* OCRAPI.swift */; };
@@ -273,8 +279,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				97E2B2832CCA5888004F7BB8 /* CryptoSwift.xcframework in Embed Frameworks */,
+				97E2B2812CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Embed Frameworks */,
 				4CFE2D242C52445500095C4F /* fsdk.xcframework in Embed Frameworks */,
 				4CFE2D282C52445500095C4F /* LunaCore.xcframework in Embed Frameworks */,
+				97E2B2852CCA5888004F7BB8 /* DocumentReaderCore.xcframework in Embed Frameworks */,
 				DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */,
 				DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */,
 				4CFE2D2C2C52445500095C4F /* tsdk.xcframework in Embed Frameworks */,
@@ -488,6 +497,9 @@
 		97C492992C9057CE00CF3CB7 /* LEStringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEStringCell.swift; sourceTree = "<group>"; };
 		97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEFsdkLicenseSettingsVC.swift; sourceTree = "<group>"; };
 		97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInputVC.swift; sourceTree = "<group>"; };
+		97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CheckJailBreakDevice.xcframework; path = frameworks/CheckJailBreakDevice.xcframework; sourceTree = "<group>"; };
+		97E2B27E2CCA5888004F7BB8 /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = frameworks/CryptoSwift.xcframework; sourceTree = "<group>"; };
+		97E2B27F2CCA5888004F7BB8 /* DocumentReaderCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DocumentReaderCore.xcframework; path = frameworks/DocumentReaderCore.xcframework; sourceTree = "<group>"; };
 		C7D962B92BB77792B6E4586F /* String+Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localize.swift"; sourceTree = "<group>"; };
 		C7D96B3A201270BD122975EA /* OCRError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRError.swift; sourceTree = "<group>"; };
 		DE648A63299BF0AD00BAE63D /* LELabelledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LELabelledCell.swift; sourceTree = "<group>"; };
@@ -554,12 +566,15 @@
 				4CFE2D212C52445500095C4F /* flower.xcframework in Frameworks */,
 				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
 				4CFE2D252C52445500095C4F /* LunaCamera.xcframework in Frameworks */,
+				97E2B2822CCA5888004F7BB8 /* CryptoSwift.xcframework in Frameworks */,
 				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
 				4CFE2D292C52445500095C4F /* LunaWeb.xcframework in Frameworks */,
 				DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */,
 				4CFE2D2B2C52445500095C4F /* tsdk.xcframework in Frameworks */,
 				4CFE2D272C52445500095C4F /* LunaCore.xcframework in Frameworks */,
+				97E2B2842CCA5888004F7BB8 /* DocumentReaderCore.xcframework in Frameworks */,
 				4CFE2D232C52445500095C4F /* fsdk.xcframework in Frameworks */,
+				97E2B2802CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +932,9 @@
 		7E3BED96252DF5A600520E65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */,
+				97E2B27E2CCA5888004F7BB8 /* CryptoSwift.xcframework */,
+				97E2B27F2CCA5888004F7BB8 /* DocumentReaderCore.xcframework */,
 				9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */,
 				9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */,
 				9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */,
