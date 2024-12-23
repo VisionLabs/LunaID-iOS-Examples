@@ -60,5 +60,4 @@ public class OCRRegulaAPI: OCRAPIProtocol {
         
         return try! Data(contentsOf: URL(fileURLWithPath: dataPath))
     }
-        
 }
