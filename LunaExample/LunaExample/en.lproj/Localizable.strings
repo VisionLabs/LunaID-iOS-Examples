@@ -84,17 +84,19 @@
 "settings.threshold_ags" = "AGS";
 "settings.threshold_title" = "Threshold";
 
-"settings.delay_between" = "Задержка между интеракциями";
-"settings.interaction_timeout" = "Timeout интеракции";
-"settings.steps_number" = "Кол-во интеракций";
+"settings.delay_between" = "Delay between interactions";
+"settings.interaction_timeout" = "Interactions timeout";
+"settings.steps_number" = "Number of interactions";
 
+"settings.multipartBestShots_enabled" = "Send multiple frames to the backend for aggregation";
 "settings.glassescheck_enabled" = "Sunglasses";
 "settings.aggregation_enabled" = "Aggregations for sunglasses and close eyes";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Interactions";
-"settings.onlyface_enabled" = "Save only face video";
+"settings.onlyface_enabled" = "Delete videos without face detections";
 "settings.trackfaceidentity_enabled" = "Track face identity";
 "settings.occludedcheck_enabled" = "Face occlusion";
+"settings.mouthcheck_enabled" = "Mouth state";
 "settings.advanced_sunglasses" = "Advanced sunglasses";
 "settings.eye_injury" = "Check the conditions of only one eye for opening";
 "settings.eyescheck_enabled" = "Check eyes state";

@@ -25,6 +25,7 @@ class LEEulaViewController: UIViewController {
     private func createLayout() {
         finishButton.translatesAutoresizingMaskIntoConstraints = false
         finishButton.setTitle("accept.button".localized(), for: .normal)
+        finishButton.accessibilityIdentifier = "accept_eula"
         finishButton.addTarget(self, action: #selector(accept), for: .touchUpInside)
         finishButton.isEnabled = true
         view.addSubview(finishButton)

@@ -53,6 +53,7 @@ class LEBiometricInstructionsView: UIView {
         
         let captureBiometricButton = createButton()
         captureBiometricButton.setTitle("capture_biometric.button".localized(), for: .normal)
+        captureBiometricButton.accessibilityIdentifier = "capture_biometric"
         captureBiometricButton.addTarget(self, action: #selector(captureBiometricButtonTapped), for: .touchUpInside)
         addSubview(captureBiometricButton)
         

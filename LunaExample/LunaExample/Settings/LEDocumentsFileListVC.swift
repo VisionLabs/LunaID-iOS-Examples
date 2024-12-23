@@ -77,6 +77,8 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         return true
     }
 
+    func multipartBestShots(_ bestShots: [LCBestShot]) -> Bool { false }
+
     func bestShotError(_ error: Error) {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.popViewController() {

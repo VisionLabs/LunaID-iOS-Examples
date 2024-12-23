@@ -51,6 +51,8 @@ class LEResultViewController: UIViewController {
     public func setupResult(success: Bool,
                             stage: ResultStage,
                             userName: String? = nil) {
+        view.accessibilityIdentifier = success ? "success_result_screen" : "failure_result_screen"
+
         let imageName: ResultStatus = success ? .success : .fail
         let nameTitle = userName != nil ? (userName ?? "") + " \n\n" : ""
         self.resultTitle = nameTitle + "\(imageName.rawValue).\(stage.rawValue)_result".localized()

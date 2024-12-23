@@ -11,6 +11,7 @@ import LunaCamera
 import LunaWeb
 
 enum ESettingsItem: Int, CaseIterable {
+    case SETTING_ITEM_MULTIPART_BESTSHOTS
     case SETTING_ITEM_GLASSES_CHECK
     case SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES
     case SETTING_ITEM_OCR
@@ -19,6 +20,7 @@ enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_VIDEO_RECORD_LENGTH
     case SETTING_ITEM_TRACK_FACE_IDENTITY
     case SETTING_ITEM_OCCLUDED_FACE
+    case SETTING_ITEM_OCCLUDED_MOUTH
     case SETTING_ITEM_ADVANCED_SUNGLASSES
     case SETTING_ITEM_EYE_INJURY
     case SETTING_ITEM_START_DELAY
@@ -75,7 +77,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             return
         }
         let bestShotData = BestShotData.image(jpegData)
-        let query = EventQuery(data: bestShotData, imageType: .faceWarpedImage)
+        let query = EventQuery(bestShotsData: [bestShotData], imageType: .faceWarpedImage)
 
         lunaAPI.events.generateEvents(handlerID: configuration.identifyHandlerID, query: query) { [weak self] result in
             switch result {
@@ -90,6 +92,8 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+
+    func multipartBestShots(_ bestShots: [LCBestShot], _ videoFile: String?) {}
 
     func error(_ error: LMCameraError, _ videoFile: String?) {
         DispatchQueue.main.async { [weak self] in
@@ -354,7 +358,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         let controller = LMCameraBuilder.viewController(delegate: self,
                                                         configuration: LCLunaConfiguration(),
                                                         livenessAPI: livenessAPI,
-                                                        recordVideo: false)
+                                                        canRecordVideo: false)
         controller.modalPresentationStyle = .fullScreen
         controller.dismissHandler = { [weak self] in
             guard let self = self else {
@@ -372,6 +376,13 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let settingsItem = ESettingsItem(rawValue: cellIndex)
         switch settingsItem {
+        case .SETTING_ITEM_MULTIPART_BESTSHOTS:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
+                self?.configuration.multipartBestShotsEnabled = toggleStatus
+            }
+            newSettingsCell.configureCell(configuration.multipartBestShotsEnabled, "settings.multipartBestShots_enabled".localized())
+            newCell = newSettingsCell
         case .SETTING_ITEM_VIDEO_RECORD_LENGTH:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.video_record_length".localized(), configuration.videoRecordLength)
@@ -425,6 +436,13 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self?.configuration.occludeCheck = toggleStatus
             }
             newSettingsCell.configureCell(configuration.occludeCheck, "settings.occludedcheck_enabled".localized())
+            newCell = newSettingsCell
+        case .SETTING_ITEM_OCCLUDED_MOUTH:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
+                self?.configuration.mouthCheck = toggleStatus
+            }
+            newSettingsCell.configureCell(configuration.mouthCheck, "settings.mouthcheck_enabled".localized())
             newCell = newSettingsCell
         case .SETTING_ITEM_ADVANCED_SUNGLASSES:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)

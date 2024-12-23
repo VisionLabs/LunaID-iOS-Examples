@@ -40,7 +40,14 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
     
     init(configuration: LCLunaConfiguration) {
-        self.configuration = configuration
+        if let configFilePath = ProcessInfo.processInfo.environment["TEST_CONFIG_FILE_PATH"],
+           !configFilePath.isEmpty {
+            self.configuration = .defaultConfig() // устанавливаем актуальные конфиги для платформы
+            self.configuration = LCLunaConfiguration(plistFromDesktop: configFilePath)
+        } else {
+            self.configuration = configuration
+        }
+
         self.presenter = LERootVCPresenter(configuration: configuration)
         super.init(nibName: nil, bundle: nil)
     }
@@ -94,6 +101,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
         guard let text = textField.text else {
             loginButton.isEnabled = true
             loginButton.setTitle("auth.identify".localized(), for: .normal)
+            loginButton.accessibilityIdentifier = "auth_identify"
             return
         }
         
@@ -107,10 +115,12 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                 textField.isValid = isValid
                 loginButton.isEnabled = isValid
                 loginButton.setTitle("auth.verify".localized(), for: .normal)
+                loginButton.accessibilityIdentifier = nil
             } catch {
                 textField.isValid = false
                 loginButton.isEnabled = false
                 loginButton.setTitle("auth.verify".localized(), for: .normal)
+                loginButton.accessibilityIdentifier = nil
             }
         }
     }
@@ -169,6 +179,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("auth.identify".localized(), for: .normal)
+        loginButton.accessibilityIdentifier = "auth_identify"
         loginButton.addTarget(self, action: #selector(showIdentifyVerify), for: .touchUpInside)
         loginButton.isEnabled = true
         view.addSubview(loginButton)
@@ -287,20 +298,26 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private func launchIdentify() {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
         let identifyViewController = LEIdentifyViewController(configuration: configuration)
-        identifyViewController.resultBlock = { [weak self] face, bestShot in
-            guard let self = self, self.presentedViewController == nil,
-                    !(navigationController?.topViewController is LEResultViewController)
-                else { return }
-            let resultViewController = LEResultViewController()
-            
-            if let face, self.configuration.ocrEnabled {
-                self.launchOCR(scenario: .identification, bestShot, face, self.closeToRootHandler)
-            }
-            else {
-                resultViewController.setupResult(success: face?.userData != nil,
-                                                 stage: .identify,
-                                                 userName: face?.userData)
-                self.pushResultViewController(resultViewController)
+        identifyViewController.resultBlock = { [weak self] faceResult in
+            guard let self, presentedViewController == nil,
+                  !(navigationController?.topViewController is LEResultViewController)
+            else { return }
+
+            switch faceResult {
+            case .success(let face, let bestShot):
+                if let face, configuration.ocrEnabled {
+                    launchOCR(scenario: .identification, bestShot, face, closeToRootHandler, nil)
+                }
+                else {
+                    let resultViewController = LEResultViewController()
+
+                    resultViewController.setupResult(success: face?.userData != nil,
+                                                     stage: .identify,
+                                                     userName: face?.userData)
+                    pushResultViewController(resultViewController)
+                }
+            case .cancel:
+                launchFailResultScreen(stage: .identify, closeCompletion: closeToRootHandler)
             }
         }
         navigationController?.pushViewController(identifyViewController, animated: true)
@@ -310,19 +327,27 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
         let identifyViewController = LEIdentifyViewController(faceIDs: faceIDs,
                                                               configuration: configuration)
-        identifyViewController.resultBlock = { [weak self] face, bestShot in
-            guard let self = self, self.presentedViewController == nil,
+        identifyViewController.resultBlock = { [weak self] faceResult in
+            guard let self, presentedViewController == nil,
                   !(navigationController?.topViewController is LEResultViewController)
-                else { return }
+            else { return }
 
-            let resultViewController = LEResultViewController()
-            if self.configuration.ocrEnabled, let face {
-                self.launchOCR(scenario: .verification, bestShot, face, self.closeToRootHandler)
-            } else {
-                resultViewController.setupResult(success: face?.userData != nil,
-                                                 stage: .verify,
-                                                 userName: face?.userData)
-                self.pushResultViewController(resultViewController)
+
+            switch faceResult {
+            case .success(let face, let bestShot):
+                if configuration.ocrEnabled, let face {
+                    launchOCR(scenario: .verification, bestShot, face, closeToRootHandler, nil)
+                } else {
+                    let resultViewController = LEResultViewController()
+
+                    /// В ответе на верификацию возвращает `face` без полей `userData` и `externalID`
+                    resultViewController.setupResult(success: face != nil,
+                                                     stage: .verify,
+                                                     userName: face?.userData)
+                    pushResultViewController(resultViewController)
+                }
+            case .cancel:
+                launchFailResultScreen(stage: .verify, closeCompletion: closeToRootHandler)
             }
         }
         navigationController?.pushViewController(identifyViewController, animated: true)
@@ -333,7 +358,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private func launchOCR(scenario: LEOCRResultsViewController.Scenario,
                            _ bestShot: LunaCore.LCBestShot,
                            _ face: APIv6.Face,
-                           _ closeBlock: @escaping VoidHandler) {
+                           _ closeBlock: @escaping VoidHandler,
+                           _ retryOCRResultHandler: ((OCR.OCRResult?) -> Void)?) {
         guard !(navigationController?.topViewController is LEOCRViewController) else { return }
         let viewController = LEOCRViewController()
 
@@ -344,7 +370,11 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                 return
             }
 
-            self?.launchOCRSuccessResultScreen(scenario: scenario, bestShot, face, ocrResult)
+            if let retryOCRResultHandler {
+                retryOCRResultHandler(ocrResult)
+            } else {
+                self?.launchOCRSuccessResultScreen(scenario: scenario, bestShot, face, ocrResult)
+            }
         }
         
         navigationController?.pushViewController(viewController, animated: true)
@@ -366,13 +396,13 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
             self?.ocrContinueButtonDidTap(face.userData, error)
         }
 
-        ocrResultsViewController.retryBiometricHandler = { [weak self] in
-            self?.launchRetryBiometric(scenario: scenario, ocrResult: ocrResult)
+        ocrResultsViewController.retryBiometricHandler = { [weak self] retryBestShotHandler in
+            self?.launchRetryBiometric(retryBestShotHandler)
         }
 
-        ocrResultsViewController.retryOCRHandler = { [weak self] in
+        ocrResultsViewController.retryOCRHandler = { [weak self] retryOCRResultHandler in
             guard let self else { return }
-            self.launchOCR(scenario: scenario, bestShot, face, self.closeHandler)
+            launchOCR(scenario: scenario, bestShot, face, closeHandler, retryOCRResultHandler)
         }
 
         navigationController?.pushViewController(ocrResultsViewController, animated: true)
@@ -380,21 +410,22 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
     // Retry biometric/ocr
 
-    private func launchRetryBiometric(scenario: LEOCRResultsViewController.Scenario,
-                                      ocrResult: OCR.OCRResult?) {
+    private func launchRetryBiometric(_ retryBestShotHandler: @escaping (LunaCore.LCBestShot?) -> Void) {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
         let identifyViewController = LEIdentifyViewController(configuration: configuration)
 
-        identifyViewController.resultBlock = { [weak self] face, bestShot in
+        identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self else { return }
-            // Close IdentifyViewController
-            self.navigationController?.popViewController(animated: true) {
-                if let face {
-                    self.launchOCRSuccessResultScreen(scenario: scenario, bestShot, face, ocrResult)
+
+            switch faceResult {
+            case .success(let face, let bestShot):
+                if face != nil {
+                    retryBestShotHandler(bestShot)
                 } else {
-                    self.launchFailResultScreen(stage: .identify,
-                                                closeCompletion: self.closeHandler)
+                    launchFailResultScreen(stage: .identify, closeCompletion: closeHandler)
                 }
+            case .cancel:
+                launchFailResultScreen(stage: .identify, closeCompletion: closeToRootHandler)
             }
         }
         

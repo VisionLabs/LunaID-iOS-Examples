@@ -11,7 +11,14 @@ import LunaCore
 import LunaWeb
 import LunaCamera
 
-typealias IdentifyResultHandler = (LunaWeb.APIv6.Face?, LunaCore.LCBestShot) -> Void
+typealias IdentifyResultHandler = (FaceResultType) -> Void
+
+enum FaceResultType {
+    /// Получили данные лица по запросу
+    case success(LunaWeb.APIv6.Face?, LunaCore.LCBestShot)
+    /// Не запрашивали данные лица, отменяем pаспознавание
+    case cancel
+}
 
 class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     
@@ -34,7 +41,9 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             return [APIv6Constants.Headers.authorization.rawValue: platformToken]
         }
     }()
-    
+
+    private let DeepFake_Mouth_Occlusion_HandlerID = "94cca121-0d78-426c-aa69-dfad6f4177ab"
+
     init(configuration: LCLunaConfiguration) {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
@@ -74,14 +83,8 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         let cameraViewController = LMCameraBuilder.viewController(delegate: self,
                                                                   configuration: configuration,
                                                                   livenessAPI: livenessAPI,
-                                                                  recordVideo: true)
-        let blink = LCBlinkConfig()
-        blink.timeout = 3600
-        let left = LCLeftHeadTrackConfig()
-        left.timeout = 3600
-        let right = LCRightHeadTrackConfig()
-        right.timeout = 3600
-        cameraViewController.defineInteractionsStep([blink, left, right])
+                                                                  canRecordVideo: configuration.videoRecordLength > 0)
+
         cameraViewController.dismissHandler = { [weak self] in
             //  MARK: close camera becase dismissHandler was launched
             self?.closeViewController(animated: true)
@@ -105,6 +108,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     }
     
     private func createLayout() {
+        view.accessibilityIdentifier = "identify_start_screen"
         view.backgroundColor = .white
         
         biometricInstructionsView.translatesAutoresizingMaskIntoConstraints = false
@@ -139,31 +143,43 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         ])
     }
     
-    private func identifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
-        guard let bestShotData: LunaWeb.BestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true),
-        configuration.bestShotConfiguration.livenessType == .byPhoto else {
-            DispatchQueue.main.async { [weak self] in
-                self?.dismiss(animated: true) {
-                    self?.resultBlock?(nil, bestShot)
-                }
-            }
+    private func identifyBestShotWithPlatform(_ bestShots: [LunaCore.LCBestShot]) {
+        let bestShotsData = bestShots.compactMap { $0.bestShotData(configuration: configuration, isWarped: true) }
+        let livenessByPhoto = configuration.bestShotConfiguration.livenessType == .byPhoto
+        let multipartBestShotsEnabled = configuration.multipartBestShotsEnabled
+
+        guard !bestShotsData.isEmpty, livenessByPhoto else {
+            cancelBestshotProcessing()
             return
         }
 
-        let query = LunaWeb.EventQuery(data: bestShotData,
-                                       imageType: .faceWarpedImage)
+        var handlerID: String = configuration.identifyHandlerID
+        var imageType: ImageType = .faceWarpedImage
 
-        lunaAPI.events.generateEvents(handlerID: configuration.identifyHandlerID, query: query) {  [weak self] result in
+        if multipartBestShotsEnabled {
+            handlerID = DeepFake_Mouth_Occlusion_HandlerID
+            imageType = .rawImage
+        }
+
+        let query = LunaWeb.EventQuery(bestShotsData: bestShotsData,
+                                       imageType: imageType,
+                                       aggregateAttributes: multipartBestShotsEnabled)
+
+        lunaAPI.events.generateEvents(handlerID: handlerID, query: query) { [weak self] result in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    if let resultBlock = self?.resultBlock {
-                        self?.dismiss(animated: true) {
-                            resultBlock(response.events.first?.matches?.first?.candidates.first?.face, bestShot)
-                        }
+                    guard let resultBlock = self?.resultBlock else {
+                        self?.closeViewController(animated: true)
                         return
                     }
-                    self?.closeViewController(animated: true)
+
+                    self?.dismiss(animated: true) {
+                        guard let bestShot = bestShots.last else { return }
+
+                        let face = response.events.first?.matches?.first?.candidates.first?.face
+                        resultBlock(.success(face, bestShot))
+                    }
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -181,11 +197,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         guard let bestShotData = bestShotData,
               configuration.bestShotConfiguration.livenessType == .byPhoto
         else {
-            DispatchQueue.main.async { [weak self] in
-                self?.dismiss(animated: true) {
-                    self?.resultBlock?(nil, bestShot)
-                }
-            }
+            cancelBestshotProcessing()
             return
         }
 
@@ -202,7 +214,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                 DispatchQueue.main.async {
                     if let resultBlock = self?.resultBlock {
                         self?.dismiss(animated: true) {
-                            resultBlock(maxSimilarityVerification?.face, bestShot)
+                            resultBlock(.success(maxSimilarityVerification?.face, bestShot))
                         }
                         return
                     }
@@ -215,6 +227,14 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                         self?.presentModalError((error as NSError).localizedDescription)
                     }
                 }
+            }
+        }
+    }
+
+    private func cancelBestshotProcessing() {
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true) {
+                self?.resultBlock?(.cancel)
             }
         }
     }
@@ -238,9 +258,26 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             case .captureDeviceError(let nsError):
                 self.presentModalError(nsError.what(), actions: [closeAction])
             case .canceled:
-                self.presentModalError(error.what(), actions: [closeAction], needTitle: false)
+                self.presentModalError(error.what(),
+                                       actions: [closeAction],
+                                       needTitle: false,
+                                       accessibilityIdentifier: "cancelled_identify_alert_vc")
             case .bestShotError(let nsError):
-                self.presentModalError(error.what(), actions: [closeAction])
+                var accessibilityIdentifier: String?
+                let bestShotError = BestShotError(rawValue: nsError.code)
+
+                switch bestShotError {
+                case .LIVENESS_ERROR:
+                    accessibilityIdentifier = "offline_liveness_error_identify_alert_vc"
+                case .PRIMARY_FACE_CRITICAL_LOST:
+                    accessibilityIdentifier = "primary_face_critical_lost_error_identify_alert_vc"
+                default:
+                    break
+                }
+
+                self.presentModalError(error.what(),
+                                       actions: [closeAction],
+                                       accessibilityIdentifier: accessibilityIdentifier)
             case .error(let innerError):
                 guard let networkError = innerError as? LunaWeb.NetworkingError else {
                     self.presentModalError(error.what(), actions: [closeAction])
@@ -249,8 +286,11 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                 
                 switch networkError {
                 case .livenessPredictionFakeError, .livenessQualityError:
-                    self.presentModalError(error.what(), actions: [closeAction], needTitle: false)
-                    
+                    self.presentModalError(error.what(),
+                                           actions: [closeAction],
+                                           needTitle: false,
+                                           accessibilityIdentifier: "online_liveness_error_identify_alert_vc")
+
                 default:
                     self.presentModalError(error.what(), actions: [closeAction])
                 }
@@ -265,8 +305,17 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     
     func bestShot(_ bestShot: LunaCore.LCBestShot, _ videoFile: String?) {
         if faceIDs.isEmpty {
-            identifyBestShotWithPlatform(bestShot)
+            identifyBestShotWithPlatform([bestShot])
         } else {
+            verifyBestShotWithPlatform(bestShot)
+        }
+    }
+
+    func multipartBestShots(_ bestShots: [LCBestShot], _ videoFile: String?) {
+        if faceIDs.isEmpty {
+            identifyBestShotWithPlatform(bestShots)
+        } else {
+            guard let bestShot = bestShots.last else { return }
             verifyBestShotWithPlatform(bestShot)
         }
     }

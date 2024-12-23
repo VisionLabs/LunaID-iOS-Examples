@@ -81,19 +81,21 @@
 "settings.threshold_roll" = "ROLL";
 "settings.threshold_pitch" = "PITCH";
 "settings.threshold_ags" = "AGS";
-"settings.threshold_title" = "Threshold";
+"settings.threshold_title" = "Порог";
 
-"settings.delay_between" = "Delay between interactions";
-"settings.interaction_timeout" = "Interaction timout";
-"settings.steps_number" = "Number of interactions";
+"settings.delay_between" = "Задержка между интеракциями";
+"settings.interaction_timeout" = "Таймаут интеракций";
+"settings.steps_number" = "Число интеракций";
 
+"settings.multipartBestShots_enabled" = "Отправлять в backend нескольких кадров для агрегации";
 "settings.glassescheck_enabled" = "Темные очки";
 "settings.aggregation_enabled" = "Агрегация для темных очков и закрытых глаз";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Интеракции";
-"settings.onlyface_enabled" = "Сохранять видео с лицом";
+"settings.onlyface_enabled" = "Удалять видео сессии без лица";
 "settings.trackfaceidentity_enabled" = "Отслеживать уникальность лица";
 "settings.occludedcheck_enabled" = "Перекрытие лица";
+"settings.mouthcheck_enabled" = "Состояние рта";
 "settings.advanced_sunglasses" = "Продвинутые солнцезащитные очки";
 "settings.eye_injury" = "Проверять состояния только одного глаза на открытие";
 "settings.eyescheck_enabled" = "Проверять состояние глаз";

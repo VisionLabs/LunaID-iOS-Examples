@@ -24,7 +24,10 @@ struct LEAlertAction {
 
 extension UIViewController {
     
-    func presentModalError(_ message: String, actions: [LEAlertAction] = [], needTitle: Bool = true) {
+    func presentModalError(_ message: String,
+                           actions: [LEAlertAction] = [],
+                           needTitle: Bool = true,
+                           accessibilityIdentifier: String? = nil) {
         let alert = UIAlertController(title: needTitle ? "common.error_title".localized() : nil, message: message, preferredStyle: .alert)
         if actions.isEmpty {
             alert.addAction(.init(title: "OK", style: .cancel, handler: nil))
@@ -41,7 +44,9 @@ extension UIViewController {
            target is UIAlertController {
             print("alert is already presented")
         } else {
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true) {
+                alert.view.accessibilityIdentifier = accessibilityIdentifier
+            }
         }
     }
         

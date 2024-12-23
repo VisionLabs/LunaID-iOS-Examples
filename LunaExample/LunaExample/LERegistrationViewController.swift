@@ -10,6 +10,7 @@ import LunaCore
 import LunaCamera
 import LunaWeb
 import CoreLocation
+import OCR
 
 class LERegistrationViewController: UIViewController, UITextFieldDelegate {
 
@@ -85,7 +86,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
                         self?.usernameField.isValid = false
                         self?.usernameReasonLabel.text = LEServerError.userNameAlreadyTaken.what()
                     } else {
-                        self?.launchRegistration(externalID)
+                        self?.launchIdentification(externalID, nil)
                     }
                 case .failure(let error):
                     self?.presentModalError(error.what())
@@ -153,7 +154,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
         ])
     }
     
-    private func launchOCR(_ bestShot: LunaCore.LCBestShot, _ userName: String) {
+    private func launchOCR(_ bestShot: LunaCore.LCBestShot, _ userName: String, _ retryOCRResultHandler: ((OCR.OCRResult?) -> Void)?) {
         let viewController = LEOCRViewController()
         viewController.resultBlock = { [weak self] ocrResult in
             guard let ocrResult = ocrResult else {
@@ -166,37 +167,12 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
                 self?.navigationController?.pushViewController(failedViewController, animated: true)
                 return
             }
-            
-            let ocrResultsViewController = LEOCRResultsViewController()
-            // TODO: Не очень правильный подход, потом зарефакторить передачу лица в оцр
-            let face = APIv6.Face(id: nil,
-                                  externalID: nil,
-                                  userData: userName,
-                                  lists: nil,
-                                  createTime: "")
-            ocrResultsViewController.configureResults(scenario: .registration,
-                                                      bestShot,
-                                                      ocrResult,
-                                                      face)
 
-            ocrResultsViewController.continueButtonHandler = { [weak self] error in
-                let resultViewController = LEResultViewController()
-                if let error = error {
-                    resultViewController.resultTitle = (userName) + "\n\n"
-                    resultViewController.resultTitle += "registration.failed".localized()
-                    resultViewController.resultImageName = "fail"
-                }
-                else {
-                    resultViewController.resultTitle = (userName) + "\n\n"
-                    resultViewController.resultTitle += "registration.successful".localized()
-                    resultViewController.resultImageName = "success"
-                }
-                resultViewController.closeHandler = { [weak self] in
-                    self?.navigationController?.popToRootViewController(animated: true)
-                }
-                self?.navigationController?.pushViewController(resultViewController, animated: true)
+            if let retryOCRResultHandler {
+                retryOCRResultHandler(ocrResult)
+            } else {
+                self?.launchOCRResult(userName, bestShot, ocrResult)
             }
-            self?.navigationController?.pushViewController(ocrResultsViewController, animated: true)
         }
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -208,11 +184,11 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
         }
 
         if (self.configuration.ocrEnabled) {
-            self.launchOCR(bestShot, userName)
+            self.launchOCR(bestShot, userName, nil)
             return
         }
 
-        let query = EventQuery(data: bestShotData,
+        let query = EventQuery(bestShotsData: [bestShotData],
                                imageType: .faceWarpedImage,
                                externalID: userName)
 
@@ -222,14 +198,18 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
                     self.presentedViewController == nil else { return }
                 switch result {
                 case .success(let response):
-                    let resultViewController = LEResultViewController()
-                    resultViewController.resultTitle = userName + "\n\n"
-                    resultViewController.resultTitle += "registration.successful".localized()
-                    resultViewController.resultImageName = "success"
-                    resultViewController.closeHandler = { [weak self] in
-                        self?.navigationController?.popToRootViewController(animated: true)
+                    if response.events.first?.face != nil {
+                        let resultViewController = LEResultViewController()
+                        resultViewController.resultTitle = userName + "\n\n"
+                        resultViewController.resultTitle += "registration.successful".localized()
+                        resultViewController.resultImageName = "success"
+                        resultViewController.closeHandler = { [weak self] in
+                            self?.navigationController?.popToRootViewController(animated: true)
+                        }
+                        self.navigationController?.pushViewController(resultViewController, animated: true)
+                    } else {
+                        self.showFailedScreenWithMessage(nil)
                     }
-                    self.navigationController?.pushViewController(resultViewController, animated: true)
                 case .failure(let error):
                     self.showFailedScreenWithMessage((error as NSError).localizedDescription)
                 }
@@ -251,19 +231,76 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
     
     /// Start camera to recognize face. On this stage userName is the one that already checked and does not registered as user name for another user of Luna Platform
     /// - Parameter userName: checked and unused  user name
-    private func launchRegistration(_ userName: String) {
+    /// - Parameter retryBestShotHandler: call when user make new bestShot
+    private func launchIdentification(_ userName: String, _ retryBestShotHandler: ((LunaCore.LCBestShot?) -> Void)?) {
         let identifyViewController = LEIdentifyViewController(faceIDs: [], configuration: configuration)
-        identifyViewController.resultBlock = { [weak self] face, bestShot in
-            if face != nil {
-                self?.showFailedScreenWithMessage("registration.face.failed".localized())
+        identifyViewController.resultBlock = { [weak self] faceResult in
+            switch faceResult {
+            case .success(let face, let bestShot):
+                guard face == nil else {
+                    // User already exists
+                    self?.showFailedScreenWithMessage("registration.face.failed".localized())
+                    return
+                }
+
+                if let retryBestShotHandler {
+                    retryBestShotHandler(bestShot)
+                } else {
+                    self?.executeRegistration(userName, bestShot)
+                }
+            case .cancel:
+                self?.showFailedScreenWithMessage(nil)
             }
-            else {
-                self?.executeRegistration(userName, bestShot)
-            }
+
         }
         navigationController?.pushViewController(identifyViewController, animated: true)
     }
-    
+
+    private func launchOCRResult(_ userName: String, _ bestShot: LunaCore.LCBestShot, _ ocrResult: OCR.OCRResult?) {
+        let ocrResultsViewController = LEOCRResultsViewController()
+
+        // TODO: Не очень правильный подход, потом зарефакторить передачу лица в оцр
+        let face = APIv6.Face(id: nil,
+                              externalID: nil,
+                              userData: userName,
+                              lists: nil,
+                              createTime: "")
+
+        ocrResultsViewController.configureResults(scenario: .registration,
+                                                  bestShot,
+                                                  ocrResult,
+                                                  face)
+
+        ocrResultsViewController.continueButtonHandler = { [weak self] error in
+            let resultViewController = LEResultViewController()
+            resultViewController.resultTitle = (userName) + "\n\n"
+
+            if error != nil {
+                resultViewController.resultTitle += "registration.failed".localized()
+                resultViewController.resultImageName = "fail"
+            }
+            else {
+                resultViewController.resultTitle += "registration.successful".localized()
+                resultViewController.resultImageName = "success"
+            }
+            resultViewController.closeHandler = {
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+
+            self?.navigationController?.pushViewController(resultViewController, animated: true)
+        }
+
+        ocrResultsViewController.retryBiometricHandler = { [weak self] retryBestShotHandler in
+            self?.launchIdentification(userName, retryBestShotHandler)
+        }
+
+        ocrResultsViewController.retryOCRHandler = { [weak self] retryOCRResultHandler in
+            self?.launchOCR(bestShot, userName, retryOCRResultHandler)
+        }
+
+        navigationController?.pushViewController(ocrResultsViewController, animated: true)
+    }
+
     //  MARK: - UITextFieldDelegate -
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -34,9 +34,9 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
     private let continueButton = LCRoundButton(type: .custom)
     
     public var continueButtonHandler: ((Error?) -> Void)?
-    public var retryBiometricHandler: VoidHandler?
-    public var retryOCRHandler: VoidHandler?
-    
+    public var retryBiometricHandler: ((@escaping (LunaCore.LCBestShot?) -> Void) -> Void)?
+    public var retryOCRHandler: ((@escaping (OCR.OCRResult?) -> Void) -> Void)?
+
     public var configuration: LCLunaConfiguration = LCLunaConfiguration()
 
     private var lunaAPI: LunaWeb.APIv6 = {
@@ -190,9 +190,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
 
-        let imageId = meta.passportSavedImages.first?.imageID
-
-        let query = EventQuery(data: bestShotData,
+        let query = EventQuery(bestShotsData: [bestShotData],
                                imageType: .faceWarpedImage,
                                externalID: face?.userData,
                                userData: meta.passportData["surname_and_given_names"]?.value,
@@ -227,8 +225,27 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
                let ocrResult = ocrResult {
                 cell.configureCell(bestShot.getUIImageWarped(true), ocrResult.faceImageField()?.image)
             }
-            cell.retryOCRHandler = retryOCRHandler
-            cell.retryBiometricHandler = retryBiometricHandler
+
+            cell.retryOCRHandler = { [weak self] in
+                self?.retryOCRHandler? { ocrResult in
+                    // Закрываем LEOCRViewController
+                    self?.navigationController?.popViewController(animated: true) {
+                        self?.ocrResult = ocrResult
+                        self?.tableView.reloadData()
+                    }
+                }
+            }
+
+            cell.retryBiometricHandler = { [weak self] in
+                self?.retryBiometricHandler? { bestShot in
+                    // Закрываем IdentifyViewController
+                    self?.navigationController?.popViewController(animated: true) {
+                        self?.bestShot = bestShot
+                        self?.tableView.reloadData()
+                    }
+                }
+            }
+            
             return cell
             
         default:

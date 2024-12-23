@@ -4,22 +4,20 @@
 <dict>
 	<key>LCLunaConfiguration</key>
 	<dict>
-		<key>multipartBestShotsEnabled</key>
-		<false/>
 		<key>emptyFrameTime</key>
-		<string>0</string>
+		<string>10</string>
 		<key>glassesCheckEnabled</key>
-		<false/>
-		<key>aggregationEnabled</key>
+		<true/>
+		<key>aggregationsForSunglasses</key>
 		<false/>
 		<key>ocrEnabled</key>
 		<false/>
 		<key>interactionEnabled</key>
 		<true/>
 		<key>saveOnlyFaceVideo</key>
-		<false/>
+		<true/>
 		<key>trackFaceIdentity</key>
-		<false/>
+		<true/>
 		<key>occludeCheck</key>
 		<true/>
 		<key>mouthCheck</key>
@@ -27,13 +25,13 @@
 		<key>advancedSunglasses</key>
 		<false/>
 		<key>videoRecordLength</key>
-		<integer>0</integer>
+		<integer>3</integer>
 		<key>eyeInjury</key>
 		<true/>
 		<key>startDelay</key>
-		<integer>0</integer>
+		<real>0.5</real>
 		<key>faceTime</key>
-		<integer>0</integer>
+		<integer>2</integer>
 		<key>compressionQuality</key>
 		<real>0.8</real>
 		<key>documentVerificationMatch</key>
@@ -50,21 +48,21 @@
 	<key>LCBestShotConfiguration</key>
 	<dict>
 		<key>livenessType</key>
-		<integer>1</integer>
+		<integer>0</integer>
 		<key>eyesCheck</key>
 		<true/>
 		<key>borderDistance</key>
-		<integer>10</integer>
+		<integer>25</integer>
 		<key>minDetSize</key>
-		<integer>200</integer>
+		<integer>250</integer>
 		<key>detectorStep</key>
 		<integer>7</integer>
 		<key>skipFrames</key>
 		<integer>36</integer>
 		<key>minimalTrackLength</key>
-		<integer>5</integer>
+		<integer>6</integer>
 		<key>numberOfBestShots</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>bestShotInterval</key>
 		<integer>5</integer>
 		<key>livenessQuality</key>
@@ -88,7 +86,7 @@
 		<key>headRoll</key>
 		<integer>25</integer>
 		<key>ags</key>
-		<real>0.2</real>
+		<real>0.5</real>
 	</dict>
 </dict>
 </plist>

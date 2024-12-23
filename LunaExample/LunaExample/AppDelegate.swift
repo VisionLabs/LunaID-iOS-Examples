@@ -18,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {        
         AppAppearance.setupAppearance()
         
-        let viewController = LERootViewController(configuration: LCLunaConfiguration(plist: "luna_config", bundleName: "ai.visionlabs.LunaExample"))
+        let configuration = LunaCore.LCLunaConfiguration(plist: "halyk_config", bundleName: "ai.visionlabs.LunaExample")
+        if let error = configuration.activateLicense() {
+            debugPrint("Error while checking license on application startup: \(error)")
+        }
+        
+        let viewController = LERootViewController(configuration: configuration)
         let navvc = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
