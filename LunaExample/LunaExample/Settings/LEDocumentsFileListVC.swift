@@ -24,7 +24,8 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
                                                                                             livenessAPI: livenessAPI,
                                                                                             configuration: configuration,
                                                                                             isUserDefaultsPillar: true,
-                                                                                            singleFrameMode: true)
+                                                                                            singleFrameMode: true,
+                                                                                            licenseBundleID: Bundle.main.bundleIdentifier ?? "")
 
     private let pathExtension: String?
     private let completionMode: CompletionMode

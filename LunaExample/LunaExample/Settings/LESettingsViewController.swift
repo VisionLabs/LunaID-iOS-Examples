@@ -560,11 +560,9 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc
     private func checkPhotoButtonTapped() {
-        currentMinimalTrackLength = configuration.bestShotConfiguration.minimalTrackLength
         currentNumberOfBestShots = configuration.bestShotConfiguration.numberOfBestShots
         currentInteractionEnabled = configuration.interactionEnabled
 
-        configuration.bestShotConfiguration.minimalTrackLength = 0
         configuration.bestShotConfiguration.numberOfBestShots = 1
         configuration.interactionEnabled = false
 
@@ -576,7 +574,6 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 let currentInteractionEnabled = self.currentInteractionEnabled
             else { return }
 
-            self.configuration.bestShotConfiguration.minimalTrackLength = currentMinimalTrackLength
             self.configuration.bestShotConfiguration.numberOfBestShots = currentNumberOfBestShots
             self.configuration.interactionEnabled = currentInteractionEnabled
 

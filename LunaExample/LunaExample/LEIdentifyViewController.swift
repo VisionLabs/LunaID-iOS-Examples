@@ -96,7 +96,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     private func activateLicense(completion: (Bool, Error?) -> Void) {
         let configuration = LCLunaConfiguration()
         configuration.plistLicenseFileName = LunaCore.kDefaultLicensePlist
-        if let error = configuration.activateLicense(withPillar: true) {
+        if let error = configuration.activateLicense(withPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "") {
             #if LUNA_LOG_SWIFT
             LCSafeLoggerWrapper.logInfo(message: "LMCameraDelegate >>> activating license error \(error.localizedDescription)")
             #endif

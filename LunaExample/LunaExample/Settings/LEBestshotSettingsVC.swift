@@ -16,9 +16,6 @@ enum EBestshotSettingsItem: Int {
     case BESTSHOTSETTING_ITEM_LIVENESS_TYPE
     case BESTSHOTSETTING_ITEM_BORDER_DISTANCE
     case BESTSHOTSETTING_ITEM_MIN_DET_SIZE
-    case BESTSHOTSETTING_ITEM_DETECTOR_STEP
-    case BESTSHOTSETTING_ITEM_SKIP_FRAMES
-    case BESTSHOTSETTING_ITEM_MINIMAL_TRACK_LENGTH
     case BESTSHOTSETTING_ITEM_NUMBER_OF_BESTSHOTS
     case BESTSHOTSETTING_ITEM_BESTSHOTS_INTERVAL
     case BESTSHOTSETTING_ITEM_LIVENESS_QUALITY
@@ -199,21 +196,6 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
                 self.bestshotConfiguration.minDetSize = NSInteger(newMinDetSize)
                 self.tableView.reloadData()
             })
-        case .BESTSHOTSETTING_ITEM_DETECTOR_STEP:
-            showDurationPicker("settings.detector_step".localized(), CGFloat(bestshotConfiguration.detectorStep), 30, 1, { newDetectorStep in
-                self.bestshotConfiguration.detectorStep = UInt(newDetectorStep)
-                self.tableView.reloadData()
-            })
-        case .BESTSHOTSETTING_ITEM_SKIP_FRAMES:
-            showDurationPicker("settings.skip_frames".localized(), CGFloat(bestshotConfiguration.skipFrames), 1000, 1, { newSkipFrames in
-                self.bestshotConfiguration.skipFrames = UInt(newSkipFrames)
-                self.tableView.reloadData()
-            })
-        case .BESTSHOTSETTING_ITEM_MINIMAL_TRACK_LENGTH:
-            showDurationPicker("settings.minimal_track_length".localized(), CGFloat(bestshotConfiguration.minimalTrackLength), 1000, 1, { newMinimalTrackLength in
-                self.bestshotConfiguration.minimalTrackLength = UInt(newMinimalTrackLength)
-                self.tableView.reloadData()
-            })
         case .BESTSHOTSETTING_ITEM_NUMBER_OF_BESTSHOTS:
             showDurationPicker("settings.number_of_bestshots".localized(), CGFloat(bestshotConfiguration.numberOfBestShots), 1000, 1, { newNumberOfBestShots in
                 self.bestshotConfiguration.numberOfBestShots = UInt(newNumberOfBestShots)
@@ -285,18 +267,6 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         case .BESTSHOTSETTING_ITEM_MIN_DET_SIZE:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.configureCell("settings.min_det_size".localized(), CGFloat(bestshotConfiguration.minDetSize))
-            newCell = newSettingsCell
-        case .BESTSHOTSETTING_ITEM_DETECTOR_STEP:
-            let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.detector_step".localized(), CGFloat(bestshotConfiguration.detectorStep))
-            newCell = newSettingsCell
-        case .BESTSHOTSETTING_ITEM_SKIP_FRAMES:
-            let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.skip_frames".localized(), CGFloat(bestshotConfiguration.skipFrames))
-            newCell = newSettingsCell
-        case .BESTSHOTSETTING_ITEM_MINIMAL_TRACK_LENGTH:
-            let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.minimal_track_length".localized(), CGFloat(bestshotConfiguration.minimalTrackLength))
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_NUMBER_OF_BESTSHOTS:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)

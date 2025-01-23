@@ -55,12 +55,6 @@
 		<integer>25</integer>
 		<key>minDetSize</key>
 		<integer>250</integer>
-		<key>detectorStep</key>
-		<integer>7</integer>
-		<key>skipFrames</key>
-		<integer>36</integer>
-		<key>minimalTrackLength</key>
-		<integer>6</integer>
 		<key>numberOfBestShots</key>
 		<integer>1</integer>
 		<key>bestShotInterval</key>

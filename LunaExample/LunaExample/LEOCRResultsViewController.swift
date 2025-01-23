@@ -99,7 +99,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
         
-        let faceDetector = LCFaceDetectorBuilder.build(with: configuration, isUserDefaultsPillar: true)
+        let faceDetector = LCFaceDetectorBuilder.build(with: configuration, isUserDefaultsPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "")
         guard let imageField = ocrResult.faceImageField() else {
             continueButtonHandler?(LEAuthError.faceOnDocumentNotFound)
             activityIndicator.stopAnimating()
@@ -111,7 +111,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
 
-        let extractor = LCDescriptorExtractorBuilder.build(with: configuration, isUserDefaultsPillar: true)
+        let extractor = LCDescriptorExtractorBuilder.build(with: configuration, isUserDefaultsPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "")
         let currentMatchValue: CGFloat = CGFloat(extractor.match(bestShot!, and: detection))
         if (currentMatchValue < configuration.documentVerificationMatch) {
             continueButtonHandler?(LEAuthError.documentVerificationError)
