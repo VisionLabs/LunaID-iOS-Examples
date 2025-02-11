@@ -97,9 +97,6 @@
 		9705D7852CC80C9A0080076D /* LERootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7832CC80C9A0080076D /* LERootViewController.swift */; };
 		9705D7862CC80C9A0080076D /* LERootVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */; };
 		972100612D5B364C0017722F /* LELicenseSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972100602D5B364C0017722F /* LELicenseSettingsVC.swift */; };
-		972100862D5B75D50017722F /* LunaCameraSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 972100852D5B75D50017722F /* LunaCameraSDK */; };
-		972100882D5B75D50017722F /* LunaCoreSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 972100872D5B75D50017722F /* LunaCoreSDK */; };
-		9721008A2D5B75D50017722F /* LunaWebSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 972100892D5B75D50017722F /* LunaWebSDK */; };
 		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
 		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
 		97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C492992C9057CE00CF3CB7 /* LEStringCell.swift */; };
@@ -381,10 +378,7 @@
 				DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */,
 				4CD390B02B0CB524000CDFA6 /* OCRDBrain.framework in Frameworks */,
 				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
-				972100862D5B75D50017722F /* LunaCameraSDK in Frameworks */,
 				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
-				972100882D5B75D50017722F /* LunaCoreSDK in Frameworks */,
-				9721008A2D5B75D50017722F /* LunaWebSDK in Frameworks */,
 				DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,9 +896,6 @@
 			);
 			name = LunaExample;
 			packageProductDependencies = (
-				972100852D5B75D50017722F /* LunaCameraSDK */,
-				972100872D5B75D50017722F /* LunaCoreSDK */,
-				972100892D5B75D50017722F /* LunaWebSDK */,
 			);
 			productName = LunaExample;
 			productReference = DEB8229229AF3F62002C4C4B /* LunaExample.app */;
@@ -943,7 +934,6 @@
 			);
 			mainGroup = 7E3BED59252DF4D400520E65;
 			packageReferences = (
-				972100842D5B75D50017722F /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */,
 			);
 			productRefGroup = 7E3BED63252DF4D400520E65 /* Products */;
 			projectDirPath = "";
@@ -1724,35 +1714,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		972100842D5B75D50017722F /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		972100852D5B75D50017722F /* LunaCameraSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 972100842D5B75D50017722F /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaCameraSDK;
-		};
-		972100872D5B75D50017722F /* LunaCoreSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 972100842D5B75D50017722F /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaCoreSDK;
-		};
-		972100892D5B75D50017722F /* LunaWebSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 972100842D5B75D50017722F /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaWebSDK;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E3BED5A252DF4D400520E65 /* Project object */;
 }
