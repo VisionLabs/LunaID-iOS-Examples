@@ -28,8 +28,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private let loginButton = LCRoundButton(type: .custom)
     private let usernameField = LETextField(frame: .zero)
     
-    private var configuration: LCLunaConfiguration
-    private var presenter: LERootVCPresenter
+    private var configFilePath: String?
     
     private lazy var closeHandler: VoidHandler = { [weak self] in
         guard let self = self else { return }
@@ -38,17 +37,21 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private lazy var closeToRootHandler: VoidHandler = { [weak self] in
         self?.navigationController?.popToRootViewController(animated: true)
     }
+
+    private func createConfig() -> LCLunaConfiguration {
+        if let configFilePath {
+           return LCLunaConfiguration(plistFilePath: configFilePath)
+        } else {
+           return LCLunaConfiguration.userDefaults()
+        }
+    }
     
-    init(configuration: LCLunaConfiguration) {
+    init() {
         if let configFilePath = ProcessInfo.processInfo.environment["TEST_CONFIG_FILE_PATH"],
            !configFilePath.isEmpty {
-            self.configuration = .defaultConfig() // устанавливаем актуальные конфиги для платформы
-            self.configuration = LCLunaConfiguration(plistFromDesktop: configFilePath)
-        } else {
-            self.configuration = configuration
+            self.configFilePath = configFilePath
         }
 
-        self.presenter = LERootVCPresenter(configuration: configuration)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -80,7 +83,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     
     @objc
     private func showSettings() {
-        let navvc = UINavigationController(rootViewController: LESettingsViewController())
+        let settingsVC = LESettingsViewController()
+        let navvc = UINavigationController(rootViewController: settingsVC)
         navvc.modalPresentationStyle = .fullScreen
         navvc.navigationBar.isHidden = true
         present(navvc, animated: true)
@@ -256,10 +260,10 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     
     private func identifyVerifyScenario() {
         if let externalID = usernameField.text, !externalID.isEmpty {
-
-            let lunaAPI = LunaWeb.APIv6(lunaAccountID: configuration.lunaAccountID,
-                                        lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
-                guard let platformToken = self?.configuration.platformToken else { return [:] }
+            let config = createConfig()
+            let lunaAPI = LunaWeb.APIv6(lunaAccountID: config.lunaAccountID,
+                                        lunaServerURL: config.lunaPlatformURL) { _ in
+                guard let platformToken = config.platformToken else { return [:] }
                 return [APIv6Constants.Headers.authorization.rawValue: platformToken]
             }
             
@@ -289,7 +293,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
         guard !(navigationController?.topViewController is LERegistrationViewController) 
             else { return }
         let viewController = LERegistrationViewController()
-        viewController.configuration = configuration
+        viewController.configuration = createConfig()
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -297,7 +301,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
     private func launchIdentify() {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
-        let identifyViewController = LEIdentifyViewController(configuration: configuration)
+        let config = createConfig()
+        let identifyViewController = LEIdentifyViewController(configuration: config)
         identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self, presentedViewController == nil,
                   !(navigationController?.topViewController is LEResultViewController)
@@ -305,7 +310,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
             switch faceResult {
             case .success(let face, let bestShot):
-                if let face, configuration.ocrEnabled {
+                if let face, config.ocrEnabled {
                     launchOCR(scenario: .identification, bestShot, face, closeToRootHandler, nil)
                 }
                 else {
@@ -325,8 +330,9 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     
     private func launchVerify(faceIDs: [String]) {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
+        let config = createConfig()
         let identifyViewController = LEIdentifyViewController(faceIDs: faceIDs,
-                                                              configuration: configuration)
+                                                              configuration: config)
         identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self, presentedViewController == nil,
                   !(navigationController?.topViewController is LEResultViewController)
@@ -335,7 +341,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
             switch faceResult {
             case .success(let face, let bestShot):
-                if configuration.ocrEnabled, let face {
+                if config.ocrEnabled, let face {
                     launchOCR(scenario: .verification, bestShot, face, closeToRootHandler, nil)
                 } else {
                     let resultViewController = LEResultViewController()
@@ -356,7 +362,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     // ORC flow
 
     private func launchOCR(scenario: LEOCRResultsViewController.Scenario,
-                           _ bestShot: LunaCore.LCBestShot,
+                           _ bestShot: LunaCore.LCBestShotModel,
                            _ face: APIv6.Face,
                            _ closeBlock: @escaping VoidHandler,
                            _ retryOCRResultHandler: ((OCR.OCRResult?) -> Void)?) {
@@ -381,7 +387,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func launchOCRSuccessResultScreen(scenario: LEOCRResultsViewController.Scenario,
-                                              _ bestShot: LunaCore.LCBestShot,
+                                              _ bestShot: LunaCore.LCBestShotModel,
                                               _ face: APIv6.Face,
                                               _ ocrResult: OCR.OCRResult?) {
         guard !(navigationController?.topViewController is LEOCRResultsViewController) else { return }
@@ -410,9 +416,10 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
 
     // Retry biometric/ocr
 
-    private func launchRetryBiometric(_ retryBestShotHandler: @escaping (LunaCore.LCBestShot?) -> Void) {
+    private func launchRetryBiometric(_ retryBestShotHandler: @escaping (LunaCore.LCBestShotModel?) -> Void) {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
-        let identifyViewController = LEIdentifyViewController(configuration: configuration)
+        let config = createConfig()
+        let identifyViewController = LEIdentifyViewController(configuration: config)
 
         identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self else { return }

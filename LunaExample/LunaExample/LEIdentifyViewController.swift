@@ -15,7 +15,7 @@ typealias IdentifyResultHandler = (FaceResultType) -> Void
 
 enum FaceResultType {
     /// Получили данные лица по запросу
-    case success(LunaWeb.APIv6.Face?, LunaCore.LCBestShot)
+    case success(LunaWeb.APIv6.Face?, LunaCore.LCBestShotModel)
     /// Не запрашивали данные лица, отменяем pаспознавание
     case cancel
 }
@@ -27,7 +27,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     private let activityIndicator = LEActivityIndicatorView(frame: .zero)
 
     public var resultBlock: IdentifyResultHandler?
-    public var configuration: LCLunaConfiguration
+    public var configuration = LCLunaConfiguration.userDefaults()
     
     private var livenessAPI = LunaWeb.LivenessAPIv6(configuration: LCLunaConfiguration()) { _ in
         guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
@@ -94,12 +94,11 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     }
     
     private func activateLicense(completion: (Bool, Error?) -> Void) {
-        let configuration = LCLunaConfiguration()
-        configuration.plistLicenseFileName = LunaCore.kDefaultLicensePlist
-        if let error = configuration.activateLicense(withPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "") {
-            #if LUNA_LOG_SWIFT
+        let lunaIDService = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: configuration)
+        if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
+#if LUNA_LOG_SWIFT
             LCSafeLoggerWrapper.logInfo(message: "LMCameraDelegate >>> activating license error \(error.localizedDescription)")
-            #endif
+#endif
             completion(false, error)
             return
         } else {
@@ -143,7 +142,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         ])
     }
     
-    private func identifyBestShotWithPlatform(_ bestShots: [LunaCore.LCBestShot]) {
+    private func identifyBestShotWithPlatform(_ bestShots: [LunaCore.LCBestShotModel]) {
         let bestShotsData = bestShots.compactMap { $0.bestShotData(configuration: configuration, isWarped: true) }
         let livenessByPhoto = configuration.bestShotConfiguration.livenessType == .byPhoto
         let multipartBestShotsEnabled = configuration.multipartBestShotsEnabled
@@ -191,7 +190,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         }
     }
 
-    func verifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShot) {
+    func verifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShotModel) {
         let bestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true)
 
         guard let bestShotData = bestShotData,
@@ -301,9 +300,19 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         }
     }
 
+    private func makeDescription(for interactionsType: LCInteractionsType) -> String {
+        switch interactionsType {
+        case .head_left: "head_left"
+        case .head_up: "head_up"
+        case .head_down: "head_down"
+        case .head_right: "head_right"
+        case .blink: "blink"
+        }
+    }
+
     //  MARK: - LMCameraDelegate -
     
-    func bestShot(_ bestShot: LunaCore.LCBestShot, _ videoFile: String?) {
+    func bestShot(_ bestShot: LunaCore.LCBestShotModel, _ videoFile: String?) {
         if faceIDs.isEmpty {
             identifyBestShotWithPlatform([bestShot])
         } else {
@@ -311,7 +320,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         }
     }
 
-    func multipartBestShots(_ bestShots: [LCBestShot], _ videoFile: String?) {
+    func multipartBestShots(_ bestShots: [LCBestShotModel], _ videoFile: String?) {
         if faceIDs.isEmpty {
             identifyBestShotWithPlatform(bestShots)
         } else {
@@ -332,5 +341,43 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             }            
         }
     }
-        
+
+    func interactionsFinish(with interactionFrames: [LCInteractionFrameInfo]) {
+        let fileManager = FileManager.default
+
+        guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+
+        let interactionFramesDirectory = documentsDirectory.appendingPathComponent("interaction_frames")
+
+        if fileManager.fileExists(atPath: interactionFramesDirectory.path) {
+            do {
+                try fileManager.removeItem(at: interactionFramesDirectory)
+            } catch {
+                print("Failed to remove InteractionFrames directory: \(error)")
+                return
+            }
+        }
+
+        do {
+            try fileManager.createDirectory(at: interactionFramesDirectory, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Failed to create InteractionFrames directory: \(error)")
+            return
+        }
+
+        for (i, frameInfo) in interactionFrames.enumerated() {
+            let fileName = "\(i)_\(makeDescription(for: frameInfo.interactionsType)).png"
+            let fileURL = interactionFramesDirectory.appendingPathComponent(fileName)
+
+            guard let imageData = frameInfo.frame.pngData() else { return }
+
+            do {
+                try imageData.write(to: fileURL)
+            } catch {
+                print("Failed to save frame \(frameInfo.interactionsType.rawValue): \(error)")
+            }
+        }
+    }
 }

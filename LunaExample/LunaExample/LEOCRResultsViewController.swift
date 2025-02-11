@@ -22,7 +22,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
     private let BottomButtonsHeight: CGFloat = 44
 
     private var ocrResult: OCR.OCRResult?
-    private var bestShot: LunaCore.LCBestShot?
+    private var bestShot: LunaCore.LCBestShotModel?
     private var face: APIv6.Face?
     private var scenario: Scenario = .registration
 
@@ -34,7 +34,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
     private let continueButton = LCRoundButton(type: .custom)
     
     public var continueButtonHandler: ((Error?) -> Void)?
-    public var retryBiometricHandler: ((@escaping (LunaCore.LCBestShot?) -> Void) -> Void)?
+    public var retryBiometricHandler: ((@escaping (LunaCore.LCBestShotModel?) -> Void) -> Void)?
     public var retryOCRHandler: ((@escaping (OCR.OCRResult?) -> Void) -> Void)?
 
     public var configuration: LCLunaConfiguration = LCLunaConfiguration()
@@ -66,7 +66,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
         createLayout()
     }
 
-    public func configureResults(scenario: Scenario, _ bestShot: LunaCore.LCBestShot, _ ocrResult: OCR.OCRResult?, _ face: APIv6.Face) {
+    public func configureResults(scenario: Scenario, _ bestShot: LunaCore.LCBestShotModel, _ ocrResult: OCR.OCRResult?, _ face: APIv6.Face) {
         self.scenario = scenario
         self.bestShot = bestShot
         self.ocrResult = ocrResult
@@ -99,20 +99,21 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
         
-        let faceDetector = LCFaceDetectorBuilder.build(with: configuration, isUserDefaultsPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "")
         guard let imageField = ocrResult.faceImageField() else {
             continueButtonHandler?(LEAuthError.faceOnDocumentNotFound)
             activityIndicator.stopAnimating()
             return
         }
-        guard let detection = faceDetector.detectFaces(imageField.image, maxCount: 2).first else {
+        
+        let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LunaCore.LCLunaIDService(config: configuration,
+                                                                                       licenseConfig: LunaCore.LCLicenseConfig.userDefaults())
+        guard let detection = lunaIDService.detectFaces(imageField.image).first else {
             continueButtonHandler?(LEAuthError.faceOnDocumentNotFound)
             activityIndicator.stopAnimating()
             return
         }
 
-        let extractor = LCDescriptorExtractorBuilder.build(with: configuration, isUserDefaultsPillar: true, licenseBundleID: Bundle.main.bundleIdentifier ?? "")
-        let currentMatchValue: CGFloat = CGFloat(extractor.match(bestShot!, and: detection))
+        let currentMatchValue = lunaIDService.match(bestShot!, faceDetection: detection)
         if (currentMatchValue < configuration.documentVerificationMatch) {
             continueButtonHandler?(LEAuthError.documentVerificationError)
             activityIndicator.stopAnimating()

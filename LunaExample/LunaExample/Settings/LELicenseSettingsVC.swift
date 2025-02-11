@@ -1,5 +1,5 @@
 //
-//  LEFsdkLicenseSettingsVC.swift
+//  LELicenseSettingsVC.swift
 //  LunaExample
 //
 //  Created by Геращенко Андрей on 03.09.2024.
@@ -10,7 +10,7 @@ import LunaCore
 import LunaCamera
 import LunaWeb
 
-class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private enum LicenseSettings: Int {
         case connectionTimeOut = 0
@@ -26,7 +26,7 @@ class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableVie
         case productID = "settings.license.productID_config"
     }
     
-    private var licenseConfiguration = LunaCore.LCFsdkLicenseConfiguration()
+    private var licenseConfig = LunaCore.LCLicenseConfig.userDefaults()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func loadView() {
@@ -43,6 +43,14 @@ class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if parent == nil {
+            licenseConfig.save()
+            LCLunaConfiguration.resetLicenseCache()
+        }
+    }
+
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,16 +67,16 @@ class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableVie
         switch indexPath.row {
         case LicenseSettings.connectionTimeOut.rawValue:
             newCell = Self.makeFloatInputCell(title: SettingsTitles.connectionTimeout.rawValue,
-                                              value: licenseConfiguration.connectionTimeout)
+                                              value: licenseConfig.connectionTimeout)
         case LicenseSettings.serverRetriesCount.rawValue:
             newCell = Self.makeFloatInputCell(title: SettingsTitles.serverRetriesCount.rawValue,
-                                              value: Double(licenseConfiguration.serverRetriesCount))
+                                              value: Double(licenseConfig.serverRetriesCount))
         case LicenseSettings.EID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.EID.rawValue,
-                                               value: licenseConfiguration.eid)
+                                               value: licenseConfig.eid)
         case LicenseSettings.productID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.productID.rawValue,
-                                               value: licenseConfiguration.productID)
+                                               value: licenseConfig.productID)
         default:
             break
         }
@@ -82,29 +90,29 @@ class LEFsdkLicenseSettingsVC: UIViewController, UITableViewDelegate, UITableVie
             showDurationPicker(SettingsTitles.connectionTimeout.rawValue.localized(),
                                120.0,
                                1.0,
-                               CGFloat(licenseConfiguration.connectionTimeout)) { [weak self] newValue in
-                self?.licenseConfiguration.connectionTimeout = newValue
+                               CGFloat(licenseConfig.connectionTimeout)) { [weak self] newValue in
+                self?.licenseConfig.connectionTimeout = newValue
                 self?.tableView.reloadData()
             }
             case LicenseSettings.serverRetriesCount.rawValue:
             showDurationPicker(SettingsTitles.serverRetriesCount.rawValue.localized(),
                                50.0,
                                1.0,
-                               CGFloat(licenseConfiguration.serverRetriesCount)) { [weak self] newValue in
-                self?.licenseConfiguration.serverRetriesCount = Int(newValue)
+                               CGFloat(licenseConfig.serverRetriesCount)) { [weak self] newValue in
+                self?.licenseConfig.serverRetriesCount = Int(newValue)
                 self?.tableView.reloadData()
             }
         case LicenseSettings.EID.rawValue:
-            let inputVC = LEInputVC(initialText: licenseConfiguration.eid)
+            let inputVC = LEInputVC(initialText: licenseConfig.eid)
             inputVC.valueChangedHandler = { [weak self] text in
-                self?.licenseConfiguration.eid = text
+                self?.licenseConfig.eid = text ?? ""
                 self?.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case LicenseSettings.productID.rawValue:
-            let inputVC = LEInputVC(initialText: licenseConfiguration.productID)
+            let inputVC = LEInputVC(initialText: licenseConfig.productID)
             inputVC.valueChangedHandler = { [weak self] text in
-                self?.licenseConfiguration.productID = text
+                self?.licenseConfig.productID = text ?? ""
                 self?.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)

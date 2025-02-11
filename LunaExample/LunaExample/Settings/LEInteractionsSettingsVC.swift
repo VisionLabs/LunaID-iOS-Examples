@@ -23,7 +23,7 @@ enum EInteractionsSettingsItem: Int {
 class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let SideOffset: CGFloat = 10
-    private var interactionsConfiguration = LunaCore.LCInteractionsConfig()
+    private var config = LunaCore.LCLunaConfiguration.userDefaults()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func loadView() {
@@ -40,6 +40,13 @@ class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if parent == nil {
+            config.save()
+        }
+    }
+
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,15 +72,15 @@ class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableVi
         switch settingsItem {
         case .INTERACTIONSSETTING_ITEM_DELAYBETWEEN:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.delay_between".localized(), CGFloat(interactionsConfiguration.timeoutBetweenInteractions))
+            newSettingsCell.configureCell("settings.delay_between".localized(), CGFloat(config.interactionsConfig.timeoutBetweenInteractions))
             newCell = newSettingsCell
         case .INTERACTIONSSETTING_ITEM_TIMEOUT:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.interaction_timeout".localized(), CGFloat(interactionsConfiguration.interactionTimeout))
+            newSettingsCell.configureCell("settings.interaction_timeout".localized(), CGFloat(config.interactionsConfig.interactionTimeout))
             newCell = newSettingsCell
         case .INTERACTIONSSETTING_ITEM_STEPS_NUMBER:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.steps_number".localized(), CGFloat(interactionsConfiguration.stepsNumber))
+            newSettingsCell.configureCell("settings.steps_number".localized(), CGFloat(config.interactionsConfig.stepsNumber))
             newCell = newSettingsCell
         default:
             break
@@ -86,18 +93,18 @@ class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableVi
         let settingsItem = EInteractionsSettingsItem(rawValue: indexPath.row)
         switch settingsItem {
         case .INTERACTIONSSETTING_ITEM_DELAYBETWEEN:
-            showDurationPicker("settings.delay_between".localized(), CGFloat(interactionsConfiguration.timeoutBetweenInteractions), 1000, 1, { newTimeout in
-                self.interactionsConfiguration.timeoutBetweenInteractions = newTimeout
+            showDurationPicker("settings.delay_between".localized(), CGFloat(config.interactionsConfig.timeoutBetweenInteractions), 1000, 1, { newTimeout in
+                self.config.interactionsConfig.timeoutBetweenInteractions = newTimeout
                 self.tableView.reloadData()
             })
         case .INTERACTIONSSETTING_ITEM_TIMEOUT:
-            showDurationPicker("settings.interaction_timeout".localized(), CGFloat(interactionsConfiguration.interactionTimeout), 1000, 1, { newTimeout in
-                self.interactionsConfiguration.interactionTimeout = newTimeout
+            showDurationPicker("settings.interaction_timeout".localized(), CGFloat(config.interactionsConfig.interactionTimeout), 1000, 1, { newTimeout in
+                self.config.interactionsConfig.interactionTimeout = newTimeout
                 self.tableView.reloadData()
             })
         case .INTERACTIONSSETTING_ITEM_STEPS_NUMBER:
-            showDurationPicker("settings.steps_number".localized(), CGFloat(interactionsConfiguration.stepsNumber), 6, 1, { newNumber in
-                self.interactionsConfiguration.stepsNumber = Int(newNumber)
+            showDurationPicker("settings.steps_number".localized(), CGFloat(config.interactionsConfig.stepsNumber), 6, 1, { newNumber in
+                self.config.interactionsConfig.stepsNumber = Int(newNumber)
                 self.tableView.reloadData()
             })
         default:

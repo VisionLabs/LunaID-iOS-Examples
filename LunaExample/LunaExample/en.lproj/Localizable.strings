@@ -90,7 +90,8 @@
 
 "settings.multipartBestShots_enabled" = "Send multiple frames to the backend for aggregation";
 "settings.glassescheck_enabled" = "Sunglasses";
-"settings.aggregation_enabled" = "Aggregations for sunglasses and close eyes";
+"settings.aggregation_enabled" = "Aggregations for sunglasses and closed eyes";
+"settings.mouth_aggregation_enabled" = "Aggregation for mouth overlaps";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Interactions";
 "settings.onlyface_enabled" = "Delete videos without face detections";

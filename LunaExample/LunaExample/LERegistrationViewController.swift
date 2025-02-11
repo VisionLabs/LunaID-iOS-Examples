@@ -154,7 +154,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
         ])
     }
     
-    private func launchOCR(_ bestShot: LunaCore.LCBestShot, _ userName: String, _ retryOCRResultHandler: ((OCR.OCRResult?) -> Void)?) {
+    private func launchOCR(_ bestShot: LunaCore.LCBestShotModel, _ userName: String, _ retryOCRResultHandler: ((OCR.OCRResult?) -> Void)?) {
         let viewController = LEOCRViewController()
         viewController.resultBlock = { [weak self] ocrResult in
             guard let ocrResult = ocrResult else {
@@ -177,7 +177,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func executeRegistration(_ userName: String, _ bestShot: LunaCore.LCBestShot) {
+    private func executeRegistration(_ userName: String, _ bestShot: LunaCore.LCBestShotModel) {
         guard let bestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true) else {
             showFailedScreenWithMessage(nil)
             return
@@ -232,7 +232,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
     /// Start camera to recognize face. On this stage userName is the one that already checked and does not registered as user name for another user of Luna Platform
     /// - Parameter userName: checked and unused  user name
     /// - Parameter retryBestShotHandler: call when user make new bestShot
-    private func launchIdentification(_ userName: String, _ retryBestShotHandler: ((LunaCore.LCBestShot?) -> Void)?) {
+    private func launchIdentification(_ userName: String, _ retryBestShotHandler: ((LunaCore.LCBestShotModel?) -> Void)?) {
         let identifyViewController = LEIdentifyViewController(faceIDs: [], configuration: configuration)
         identifyViewController.resultBlock = { [weak self] faceResult in
             switch faceResult {
@@ -256,7 +256,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(identifyViewController, animated: true)
     }
 
-    private func launchOCRResult(_ userName: String, _ bestShot: LunaCore.LCBestShot, _ ocrResult: OCR.OCRResult?) {
+    private func launchOCRResult(_ userName: String, _ bestShot: LunaCore.LCBestShotModel, _ ocrResult: OCR.OCRResult?) {
         let ocrResultsViewController = LEOCRResultsViewController()
 
         // TODO: Не очень правильный подход, потом зарефакторить передачу лица в оцр

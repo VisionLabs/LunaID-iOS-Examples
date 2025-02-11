@@ -45,7 +45,7 @@ enum ELivenessType: String, CaseIterable {
 class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let SideOffset: CGFloat = 10
-    private var bestshotConfiguration = LunaCore.LCBestShotConfiguration()
+    private var config = LunaCore.LCLunaConfiguration.userDefaults()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func loadView() {
@@ -62,6 +62,13 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if parent == nil {
+            config.save()
+        }
+    }
+
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -154,23 +161,23 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch settingsItem {
         case .THRESHOLD_ITEM_YAW:
-            showDurationPicker("settings.threshold_yaw".localized(), bestshotConfiguration.estimationThreshold.headYaw, 100, 1, { newValue in
-                self.bestshotConfiguration.estimationThreshold.headYaw = newValue
+            showDurationPicker("settings.threshold_yaw".localized(), config.bestShotConfiguration.headYaw, 100, 1, { newValue in
+                self.config.bestShotConfiguration.headYaw = newValue
                 self.tableView.reloadData()
             })
         case .THRESHOLD_ITEM_ROLL:
-            showDurationPicker("settings.threshold_roll".localized(), bestshotConfiguration.estimationThreshold.headRoll, 100, 1, { newValue in
-                self.bestshotConfiguration.estimationThreshold.headRoll = newValue
+            showDurationPicker("settings.threshold_roll".localized(), config.bestShotConfiguration.headRoll, 100, 1, { newValue in
+                self.config.bestShotConfiguration.headRoll = newValue
                 self.tableView.reloadData()
             })
         case .THRESHOLD_ITEM_PITCH:
-            showDurationPicker("settings.threshold_pitch".localized(), bestshotConfiguration.estimationThreshold.headPitch, 100, 1, { newValue in
-                self.bestshotConfiguration.estimationThreshold.headPitch = newValue
+            showDurationPicker("settings.threshold_pitch".localized(), config.bestShotConfiguration.headPitch, 100, 1, { newValue in
+                self.config.bestShotConfiguration.headPitch = newValue
                 self.tableView.reloadData()
             })
         case .THRESHOLD_ITEM_AGS:
-            showDurationPicker("settings.threshold_ags".localized(), bestshotConfiguration.estimationThreshold.ags, 1, 10, { newValue in
-                self.bestshotConfiguration.estimationThreshold.ags = newValue
+            showDurationPicker("settings.threshold_ags".localized(), config.bestShotConfiguration.ags, 1, 10, { newValue in
+                self.config.bestShotConfiguration.ags = newValue
                 self.tableView.reloadData()
             })
         default:
@@ -183,32 +190,32 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         switch settingsItem {
         case .BESTSHOTSETTING_ITEM_LIVENESS_TYPE:
             showEnumPicker("settings.liveness".localized(), allLiveness(), 0) { newValue in
-                self.bestshotConfiguration.livenessType = self.convertNewValue(newValue)
+                self.config.bestShotConfiguration.livenessType = self.convertNewValue(newValue)
                 self.tableView.reloadData()
             }
         case .BESTSHOTSETTING_ITEM_BORDER_DISTANCE:
-            showDurationPicker("settings.border_distance".localized(), CGFloat(bestshotConfiguration.borderDistance), 1000, 1, { newBorderDistance in
-                self.bestshotConfiguration.borderDistance = NSInteger(newBorderDistance)
+            showDurationPicker("settings.border_distance".localized(), CGFloat(config.bestShotConfiguration.borderDistance), 1000, 1, { newBorderDistance in
+                self.config.bestShotConfiguration.borderDistance = NSInteger(newBorderDistance)
                 self.tableView.reloadData()
             })
         case .BESTSHOTSETTING_ITEM_MIN_DET_SIZE:
-            showDurationPicker("settings.min_det_size".localized(), CGFloat(bestshotConfiguration.minDetSize), 1000, 1, { newMinDetSize in
-                self.bestshotConfiguration.minDetSize = NSInteger(newMinDetSize)
+            showDurationPicker("settings.min_det_size".localized(), CGFloat(config.bestShotConfiguration.minDetSize), 1000, 1, { newMinDetSize in
+                self.config.bestShotConfiguration.minDetSize = NSInteger(newMinDetSize)
                 self.tableView.reloadData()
             })
         case .BESTSHOTSETTING_ITEM_NUMBER_OF_BESTSHOTS:
-            showDurationPicker("settings.number_of_bestshots".localized(), CGFloat(bestshotConfiguration.numberOfBestShots), 1000, 1, { newNumberOfBestShots in
-                self.bestshotConfiguration.numberOfBestShots = UInt(newNumberOfBestShots)
+            showDurationPicker("settings.number_of_bestshots".localized(), CGFloat(config.bestShotConfiguration.numberOfBestShots), 1000, 1, { newNumberOfBestShots in
+                self.config.bestShotConfiguration.numberOfBestShots = UInt(newNumberOfBestShots)
                 self.tableView.reloadData()
             })
         case .BESTSHOTSETTING_ITEM_BESTSHOTS_INTERVAL:
-            showDurationPicker("settings.bestshots_interval".localized(), CGFloat(bestshotConfiguration.bestShotInterval), 1000, 10.0, { newBestShotInterval in
-                self.bestshotConfiguration.bestShotInterval = newBestShotInterval
+            showDurationPicker("settings.bestshots_interval".localized(), CGFloat(config.bestShotConfiguration.bestShotInterval), 1000, 10.0, { newBestShotInterval in
+                self.config.bestShotConfiguration.bestShotInterval = newBestShotInterval
                 self.tableView.reloadData()
             })
         case .BESTSHOTSETTING_ITEM_LIVENESS_QUALITY:
-            showDurationPicker("settings.liveness_quality".localized(), CGFloat(bestshotConfiguration.livenessQuality), 1, 10.0, { newLivenessQuality in
-                self.bestshotConfiguration.livenessQuality = newLivenessQuality
+            showDurationPicker("settings.liveness_quality".localized(), CGFloat(config.bestShotConfiguration.livenessQuality), 1, 10.0, { newLivenessQuality in
+                self.config.bestShotConfiguration.livenessQuality = newLivenessQuality
                 self.tableView.reloadData()
             })
         default:
@@ -223,19 +230,19 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         switch settingsItem {
         case .THRESHOLD_ITEM_YAW:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.threshold_yaw".localized(), bestshotConfiguration.estimationThreshold.headYaw)
+            newSettingsCell.configureCell("settings.threshold_yaw".localized(), config.bestShotConfiguration.headYaw)
             newCell = newSettingsCell
         case .THRESHOLD_ITEM_ROLL:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.threshold_roll".localized(), bestshotConfiguration.estimationThreshold.headRoll)
+            newSettingsCell.configureCell("settings.threshold_roll".localized(), config.bestShotConfiguration.headRoll)
             newCell = newSettingsCell
         case .THRESHOLD_ITEM_PITCH:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.threshold_pitch".localized(), bestshotConfiguration.estimationThreshold.headPitch)
+            newSettingsCell.configureCell("settings.threshold_pitch".localized(), config.bestShotConfiguration.headPitch)
             newCell = newSettingsCell
         case .THRESHOLD_ITEM_AGS:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.threshold_ags".localized(), bestshotConfiguration.estimationThreshold.ags)
+            newSettingsCell.configureCell("settings.threshold_ags".localized(), config.bestShotConfiguration.ags)
             newCell = newSettingsCell
         default:
             break
@@ -252,34 +259,34 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         case .BESTSHOTSETTING_ITEM_EYES_CHECK:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
-                self?.bestshotConfiguration.eyesCheck = toggleStatus
+                self?.config.bestShotConfiguration.eyesCheck = toggleStatus
             }
-            newSettingsCell.configureCell(bestshotConfiguration.eyesCheck, "settings.eyescheck_enabled".localized())
+            newSettingsCell.configureCell(config.bestShotConfiguration.eyesCheck, "settings.eyescheck_enabled".localized())
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_LIVENESS_TYPE:
             let newSettingsCell = LEEnumCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("Liveness", allLiveness()[Int(bestshotConfiguration.livenessType.rawValue)].localized())
+            newSettingsCell.configureCell("Liveness", allLiveness()[Int(config.bestShotConfiguration.livenessType.rawValue)].localized())
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_BORDER_DISTANCE:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.border_distance".localized(), CGFloat(bestshotConfiguration.borderDistance))
+            newSettingsCell.configureCell("settings.border_distance".localized(), CGFloat(config.bestShotConfiguration.borderDistance))
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_MIN_DET_SIZE:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.min_det_size".localized(), CGFloat(bestshotConfiguration.minDetSize))
+            newSettingsCell.configureCell("settings.min_det_size".localized(), CGFloat(config.bestShotConfiguration.minDetSize))
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_NUMBER_OF_BESTSHOTS:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.number_of_bestshots".localized(), CGFloat(bestshotConfiguration.numberOfBestShots))
+            newSettingsCell.configureCell("settings.number_of_bestshots".localized(), CGFloat(config.bestShotConfiguration.numberOfBestShots))
             newCell = newSettingsCell
         case .BESTSHOTSETTING_ITEM_BESTSHOTS_INTERVAL:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.bestshots_interval".localized(), bestshotConfiguration.bestShotInterval)
+            newSettingsCell.configureCell("settings.bestshots_interval".localized(), config.bestShotConfiguration.bestShotInterval)
             newCell = newSettingsCell
             break;
         case .BESTSHOTSETTING_ITEM_LIVENESS_QUALITY:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.configureCell("settings.liveness_quality".localized(), bestshotConfiguration.livenessQuality)
+            newSettingsCell.configureCell("settings.liveness_quality".localized(), config.bestShotConfiguration.livenessQuality)
             newCell = newSettingsCell
             break;
         default:

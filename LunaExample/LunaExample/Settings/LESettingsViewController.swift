@@ -30,7 +30,7 @@ enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_PRIMARY_FACE_MATHING
 }
 
-class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LMCameraDelegate {
+class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, LMCameraDelegate {
     
     private enum Sections: Int, CaseIterable {
         case platformSection = 0
@@ -56,23 +56,35 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }()
 
-    private var configuration = LunaCore.LCLunaConfiguration()
+    private var configuration = LunaCore.LCLunaConfiguration.userDefaults()
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
 
     private var currentMinimalTrackLength: UInt?
     private var currentNumberOfBestShots: UInt?
     private var currentInteractionEnabled: Bool?
-
+    
     override func loadView() {
         super.loadView()
         
         createLayout()
+        navigationController?.delegate = self
     }
     
+    //  MARK: - UINavigationControllerDelegate -
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if viewController == self {
+            configuration = LCLunaConfiguration.userDefaults()
+            return
+        }
+        
+        configuration.save()
+    }
+
     //  MARK: - LMCameraDelegate -
     
-    func bestShot(_ bestShot: LCBestShot, _ videoFile: String?) {
+    func bestShot(_ bestShot: LCBestShotModel, _ videoFile: String?) {
         guard let jpegData = bestShot.getUIImageWarped(true).jpegData(compressionQuality: CGFloat(configuration.compressionQuality)) else {
             return
         }
@@ -93,7 +105,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    func multipartBestShots(_ bestShots: [LCBestShot], _ videoFile: String?) {}
+    func multipartBestShots(_ bestShots: [LCBestShotModel], _ videoFile: String?) {}
 
     func error(_ error: LMCameraError, _ videoFile: String?) {
         DispatchQueue.main.async { [weak self] in
@@ -102,6 +114,8 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+
+    func interactionsFinish(with interactionFrames: [LCInteractionFrameInfo]) {}
 
     //  MARK: - UITableViewDelegate -
     
@@ -201,7 +215,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         case Sections.platformSection.rawValue:
             navigationController?.pushViewController(LEPlatfornSettingsVC(), animated: true)
         case Sections.fsdkLicenseSection.rawValue:
-            navigationController?.pushViewController(LEFsdkLicenseSettingsVC(), animated: true)
+            navigationController?.pushViewController(LELicenseSettingsVC(), animated: true)
         case Sections.bestShotSection.rawValue:
             navigationController?.pushViewController(LEBestshotSettingsVC(), animated: true)
         case Sections.interactionsSection.rawValue:
@@ -539,16 +553,18 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @objc
     private func resetToDefaultButtonTapped() {
-        configuration = LCLunaConfiguration.defaultConfig()
-        configuration.licenseConfig.flushIntoUserDefaults()
+        configuration = LCLunaConfiguration()
+        configuration.save()
+        
+        LCLicenseConfig().save()
+        
         tableView.reloadData()
     }
 
     @objc
     private func applyFromPlistButtonTapped() {
         let completion: (URL) -> Void = { [weak self] plistFileURL in
-            let plistName = plistFileURL.lastPathComponent
-            self?.configuration = LCLunaConfiguration(plistFromDocuments: plistName)
+            self?.configuration = LCLunaConfiguration(plistFilePath: plistFileURL.absoluteString)
             self?.tableView.reloadData()
         }
 
@@ -566,7 +582,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         configuration.bestShotConfiguration.numberOfBestShots = 1
         configuration.interactionEnabled = false
 
-        let completion: (Result<LCBestShot, Error>) -> Void = { [weak self] result in
+        let completion: (Result<LCBestShotModel, Error>) -> Void = { [weak self] result in
             guard
                 let self = self,
                 let currentMinimalTrackLength = self.currentMinimalTrackLength,
@@ -594,6 +610,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc
     private func closeViewController() {
+        configuration.save()
         navigationController?.dismiss(animated: true)
     }
     

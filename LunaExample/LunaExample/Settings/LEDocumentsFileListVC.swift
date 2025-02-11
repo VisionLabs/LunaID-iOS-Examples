@@ -20,17 +20,16 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         return [APIv6Constants.Headers.authorization.rawValue: platformToken]
     }
 
-    private lazy var bestShotDetector: LCBestShotDetectorProtocol = LCBestShotBuilder.build(with: self,
-                                                                                            livenessAPI: livenessAPI,
-                                                                                            configuration: configuration,
-                                                                                            isUserDefaultsPillar: true,
-                                                                                            singleFrameMode: true,
-                                                                                            licenseBundleID: Bundle.main.bundleIdentifier ?? "")
+    private lazy var bestShotDetector: LCBestShotDetectorProtocol =  LCBestShotBuilder.build(with: self,
+                                                                                             livenessAPI: livenessAPI,
+                                                                                             configuration: configuration,
+                                                                                             licenseConfig: LCLicenseConfig.userDefaults(),
+                                                                                             singleFrameMode: true)
 
     private let pathExtension: String?
     private let completionMode: CompletionMode
     private var configuration = LunaCore.LCLunaConfiguration()
-    private var bestShotCompletion: ((Result<LCBestShot, Error>) -> Void)?
+    private var bestShotCompletion: ((Result<LCBestShotModel, Error>) -> Void)?
     private var fileURLs: [URL] = []
 
     private let tableView = UITableView(frame: .zero, style: .plain)
@@ -68,7 +67,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     func detectionRect(_ rect: CGRect, inFrameSize frameSize: CGSize) {}
 
-    func bestShot(_ bestShot: LCBestShot) -> Bool {
+    func bestShot(_ bestShot: LCBestShotModel) -> Bool {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.popViewController() {
                 self?.bestShotCompletion?(.success(bestShot))
@@ -78,7 +77,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         return true
     }
 
-    func multipartBestShots(_ bestShots: [LCBestShot]) -> Bool { false }
+    func multipartBestShots(_ bestShots: [LCBestShotModel]) -> Bool { false }
 
     func bestShotError(_ error: Error) {
         DispatchQueue.main.async { [weak self] in
@@ -87,6 +86,8 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
+
+    func interactionsFinish(with interactionFrames: [LCInteractionFrameInfo]) {}
 
     //  MARK: - UITableViewDataSource -
 
@@ -127,7 +128,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     enum CompletionMode {
         case plistFiles(completion: (URL) -> Void)
-        case imageBestShot((Result<LCBestShot, Error>) -> Void)
+        case imageBestShot((Result<LCBestShotModel, Error>) -> Void)
     }
 
     //  MARK: - Routine -

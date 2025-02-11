@@ -6,7 +6,7 @@ import Foundation
 import LunaCore
 import LunaWeb
 
-extension LCBestShot {
+extension LCBestShotModel {
 
     func bestShotData(configuration: LCLunaConfiguration, isWarped: Bool) -> LunaWeb.BestShotData? {
         guard let jpegData = self.getUIImageWarped(isWarped).jpegData(compressionQuality: CGFloat(configuration.compressionQuality)) else { return nil }

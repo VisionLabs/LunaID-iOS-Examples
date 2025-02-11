@@ -38,12 +38,8 @@
 		<real>0.7</real>
 		<key>primaryFaceMatching</key>
 		<real>0.7</real>
-		<key>uploadImagesForLiveness</key>
-		<false/>
 		<key>plistLicenseFileName</key>
 		<string>vllicense.plist</string>
-		<key>isShowSwitchCamera</key>
-		<false/>
 	</dict>
 	<key>LCBestShotConfiguration</key>
 	<dict>

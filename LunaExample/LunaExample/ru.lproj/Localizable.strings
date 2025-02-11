@@ -90,6 +90,7 @@
 "settings.multipartBestShots_enabled" = "Отправлять в backend нескольких кадров для агрегации";
 "settings.glassescheck_enabled" = "Темные очки";
 "settings.aggregation_enabled" = "Агрегация для темных очков и закрытых глаз";
+"settings.mouth_aggregation_enabled" = "Агрегация для перекрытия рта";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Интеракции";
 "settings.onlyface_enabled" = "Удалять видео сессии без лица";

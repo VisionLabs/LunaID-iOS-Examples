@@ -108,10 +108,10 @@
 		9705D7812CC80C8F0080076D /* LEPlatfornSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */; };
 		9705D7852CC80C9A0080076D /* LERootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7832CC80C9A0080076D /* LERootViewController.swift */; };
 		9705D7862CC80C9A0080076D /* LERootVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */; };
+		972100612D5B364C0017722F /* LELicenseSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972100602D5B364C0017722F /* LELicenseSettingsVC.swift */; };
 		977D6D812BD171C700E21678 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */; };
 		97B222AF2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */; };
 		97C4929A2C9057CE00CF3CB7 /* LEStringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C492992C9057CE00CF3CB7 /* LEStringCell.swift */; };
-		97C4929D2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */; };
 		97C4929E2C9057D600CF3CB7 /* LEInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */; };
 		97E2B2802CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */; };
 		97E2B2812CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -347,13 +347,13 @@
 		9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEPlatfornSettingsVC.swift; sourceTree = "<group>"; };
 		9705D7822CC80C9A0080076D /* LERootVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LERootVCPresenter.swift; sourceTree = "<group>"; };
 		9705D7832CC80C9A0080076D /* LERootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LERootViewController.swift; sourceTree = "<group>"; };
+		972100602D5B364C0017722F /* LELicenseSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LELicenseSettingsVC.swift; sourceTree = "<group>"; };
 		9755ACAF2BD919B1005591F1 /* LunaCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCore.xcframework; path = frameworks/LunaCore.xcframework; sourceTree = "<group>"; };
 		9755ACB02BD919B1005591F1 /* LunaWeb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaWeb.xcframework; path = frameworks/LunaWeb.xcframework; sourceTree = "<group>"; };
 		9755ACB12BD919B1005591F1 /* LunaCamera.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LunaCamera.xcframework; path = frameworks/LunaCamera.xcframework; sourceTree = "<group>"; };
 		977D6D802BD171C700E21678 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		97B222AE2BC937BF0050ECE5 /* LEDocumentsFileListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDocumentsFileListVC.swift; sourceTree = "<group>"; };
 		97C492992C9057CE00CF3CB7 /* LEStringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEStringCell.swift; sourceTree = "<group>"; };
-		97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEFsdkLicenseSettingsVC.swift; sourceTree = "<group>"; };
 		97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInputVC.swift; sourceTree = "<group>"; };
 		97E2B27D2CCA5888004F7BB8 /* CheckJailBreakDevice.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CheckJailBreakDevice.xcframework; path = frameworks/CheckJailBreakDevice.xcframework; sourceTree = "<group>"; };
 		97E2B27E2CCA5888004F7BB8 /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = frameworks/CryptoSwift.xcframework; sourceTree = "<group>"; };
@@ -645,8 +645,8 @@
 		4C43B2992BA9CDFC00C79C9D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				972100602D5B364C0017722F /* LELicenseSettingsVC.swift */,
 				9705D7802CC80C8F0080076D /* LEPlatfornSettingsVC.swift */,
-				97C4929B2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift */,
 				97C4929C2C9057D600CF3CB7 /* LEInputVC.swift */,
 				4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */,
 				DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */,
@@ -1156,6 +1156,7 @@
 				DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */,
 				4CC3484D2B7A0A9100B04A1C /* LEDurationPickerVC.swift in Sources */,
 				DEB8225229AF3F62002C4C4B /* LEEulaViewController.swift in Sources */,
+				972100612D5B364C0017722F /* LELicenseSettingsVC.swift in Sources */,
 				4CD25F862AE69F1B0019EE88 /* LEPhotosCell.swift in Sources */,
 				4C33589B2AEBD24B00BFC880 /* String+LunaExample.swift in Sources */,
 				DEB8225329AF3F62002C4C4B /* String+Localization.swift in Sources */,
@@ -1171,7 +1172,6 @@
 				4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */,
 				4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */,
 				4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */,
-				97C4929D2C9057D600CF3CB7 /* LEFsdkLicenseSettingsVC.swift in Sources */,
 				4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */,
 				DEB8225829AF3F62002C4C4B /* LELabelledCell.swift in Sources */,
 				DEB8226029AF3F62002C4C4B /* LETabButton.swift in Sources */,

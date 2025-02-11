@@ -18,12 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {        
         AppAppearance.setupAppearance()
         
-        let configuration = LunaCore.LCLunaConfiguration(plist: "halyk_config", bundleName: "ai.visionlabs.LunaExample")
-        if let error = configuration.activateLicense() {
+        let config = LunaCore.LCLunaConfiguration.userDefaults()
+        let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LCLunaIDServiceBuilder.buildLunaIDService(withConfig: config)
+        if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
             debugPrint("Error while checking license on application startup: \(error)")
         }
         
-        let viewController = LERootViewController(configuration: configuration)
+        let viewController = LERootViewController()
         let navvc = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white

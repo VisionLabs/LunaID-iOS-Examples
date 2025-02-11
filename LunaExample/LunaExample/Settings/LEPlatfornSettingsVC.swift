@@ -31,7 +31,7 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         case platformToken = "settings.platform.token_config"
     }
 
-    private var configuration = LunaCore.LCLunaConfiguration()
+    private var configuration = LunaCore.LCLunaConfiguration.userDefaults()
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func loadView() {
@@ -47,6 +47,13 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if parent == nil {
+            configuration.save()
+        }
+    }
+
     //  MARK: - UITableViewDelegate -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,7 +159,7 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
     private func createLayout() {
         view.backgroundColor = .white
         navigationItem.backButtonTitle = ""
-        
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
