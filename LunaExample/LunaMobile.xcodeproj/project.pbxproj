@@ -105,10 +105,6 @@
 		DE7555C929A778C200E58DEB /* RegulaDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555C829A778C200E58DEB /* RegulaDocumentType.swift */; };
 		DE7555CE29A7791D00E58DEB /* OCRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555CD29A7791D00E58DEB /* OCRAPI.swift */; };
 		DE7555D329A779BF00E58DEB /* OCRRegulaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7555D229A779BF00E58DEB /* OCRRegulaResult.swift */; };
-		DE7901DC298BD291007F8569 /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
-		DE7901E1298BD297007F8569 /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
-		DE7901E3298BD519007F8569 /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
-		DE7901E7298BD519007F8569 /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
 		DE8D4FA22907E0D1008E3ED8 /* OCRRegulaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */; };
 		DEB8224D29AF3F62002C4C4B /* Error+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA7D2625481EAE001F89EA /* Error+LunaExample.swift */; };
 		DEB8225029AF3F62002C4C4B /* LEServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5BF2546D0E2004E3CA7 /* LEServerError.swift */; };
@@ -120,23 +116,23 @@
 		DEB8226329AF3F62002C4C4B /* LESettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE648A65299BF0AD00BAE63D /* LESettingsViewController.swift */; };
 		DEB8226429AF3F62002C4C4B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A57D2546C12A004E3CA7 /* Fonts.swift */; };
 		DEB8226829AF3F62002C4C4B /* LETextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A5702546C0F0004E3CA7 /* LETextField.swift */; };
-		DEB8226D29AF3F62002C4C4B /* RegulaCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; };
 		DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E392AF526087A3D00D42E15 /* OCR.framework */; };
 		DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; };
-		DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; };
 		DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECA7DC6254ACCE5001F89EA /* Localizable.strings */; };
 		DEB8227A29AF3F62002C4C4B /* regula.license in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5A7A0267CB8940090F5CF /* regula.license */; };
 		DEB8227B29AF3F62002C4C4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E039118256525F300453D52 /* InfoPlist.strings */; };
 		DEB8227C29AF3F62002C4C4B /* EtelkaMediumProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2A5902546C340004E3CA7 /* EtelkaMediumProRegular.ttf */; };
 		DEB8227D29AF3F62002C4C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0725419E6100DE728E /* LaunchScreen.storyboard */; };
 		DEB8227E29AF3F62002C4C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B1E0525419E6100DE728E /* Assets.xcassets */; };
-		DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB5D8A125F8BC1A0025C2CD /* OCRREGULA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E392AF526087A3D00D42E15 /* OCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */; };
 		DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */; };
 		DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */; };
+		FBC7DB5C2D8C583800DEF08A /* DocumentReader in Frameworks */ = {isa = PBXBuildFile; productRef = FBC7DB5B2D8C583800DEF08A /* DocumentReader */; };
+		FBD0CE8D2D8D5DEA0088AC9B /* LunaCamera in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */; };
+		FBD0CE8F2D8D5DEA0088AC9B /* LunaCore in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */; };
+		FBD0CE912D8D5DEA0088AC9B /* LunaWeb in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE902D8D5DEA0088AC9B /* LunaWeb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,11 +187,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DEB8228429AF3F62002C4C4B /* RegulaCommon.xcframework in Embed Frameworks */,
 				DEB8228829AF3F62002C4C4B /* OCRREGULA.framework in Embed Frameworks */,
 				DEB8228929AF3F62002C4C4B /* OCR.framework in Embed Frameworks */,
 				4C1133792B0B6F2E0026A118 /* OCRDBrain.framework in Embed Frameworks */,
-				DEB8228E29AF3F62002C4C4B /* DocumentReader.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,8 +326,6 @@
 		DE7555CD29A7791D00E58DEB /* OCRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRAPI.swift; sourceTree = "<group>"; };
 		DE7555D029A7798C00E58DEB /* OCRSEResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRSEResult.swift; sourceTree = "<group>"; };
 		DE7555D229A779BF00E58DEB /* OCRRegulaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRegulaResult.swift; sourceTree = "<group>"; };
-		DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RegulaCommon.xcframework; path = frameworks/RegulaCommon.xcframework; sourceTree = "<group>"; };
-		DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DocumentReader.xcframework; path = frameworks/DocumentReader.xcframework; sourceTree = "<group>"; };
 		DE8D4F9F2907DD3C008E3ED8 /* OCRSEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRSEAPI.swift; sourceTree = "<group>"; };
 		DE8D4FA12907E0D1008E3ED8 /* OCRRegulaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRegulaAPI.swift; sourceTree = "<group>"; };
 		DEB8229229AF3F62002C4C4B /* LunaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,8 +346,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE7901E7298BD519007F8569 /* RegulaCommon.xcframework in Frameworks */,
-				DE7901E3298BD519007F8569 /* DocumentReader.xcframework in Frameworks */,
 				4CD390B32B0CB561000CDFA6 /* OCRDBrain.framework in Frameworks */,
 				7ED5A793267CA2F10090F5CF /* OCRREGULA.framework in Frameworks */,
 			);
@@ -365,8 +355,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE7901E1298BD297007F8569 /* RegulaCommon.xcframework in Frameworks */,
-				DE7901DC298BD291007F8569 /* DocumentReader.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +362,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEB8226D29AF3F62002C4C4B /* RegulaCommon.xcframework in Frameworks */,
 				DEB8226F29AF3F62002C4C4B /* OCR.framework in Frameworks */,
 				4CD390B02B0CB524000CDFA6 /* OCRDBrain.framework in Frameworks */,
 				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
 				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
-				DEB8227729AF3F62002C4C4B /* DocumentReader.xcframework in Frameworks */,
+				FBC7DB5C2D8C583800DEF08A /* DocumentReader in Frameworks */,
+				FBD0CE912D8D5DEA0088AC9B /* LunaWeb in Frameworks */,
+				FBD0CE8D2D8D5DEA0088AC9B /* LunaCamera in Frameworks */,
+				FBD0CE8F2D8D5DEA0088AC9B /* LunaCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,8 +714,6 @@
 		7E3BED96252DF5A600520E65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DE7901CE298BC7E2007F8569 /* DocumentReader.xcframework */,
-				DE7901CD298BC7E2007F8569 /* RegulaCommon.xcframework */,
 				7E776538253589380093D2D8 /* QuartzCore.framework */,
 				7E776534253581200093D2D8 /* CoreMedia.framework */,
 				7E7765302535810C0093D2D8 /* CoreVideo.framework */,
@@ -896,6 +884,10 @@
 			);
 			name = LunaExample;
 			packageProductDependencies = (
+				FBC7DB5B2D8C583800DEF08A /* DocumentReader */,
+				FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */,
+				FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */,
+				FBD0CE902D8D5DEA0088AC9B /* LunaWeb */,
 			);
 			productName = LunaExample;
 			productReference = DEB8229229AF3F62002C4C4B /* LunaExample.app */;
@@ -934,6 +926,8 @@
 			);
 			mainGroup = 7E3BED59252DF4D400520E65;
 			packageReferences = (
+				FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */,
+				FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */,
 			);
 			productRefGroup = 7E3BED63252DF4D400520E65 /* Products */;
 			projectDirPath = "";
@@ -1714,6 +1708,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/regulaforensics/DocumentReader-Swift-Package";
+			requirement = {
+				kind = exactVersion;
+				version = 7.5.4221;
+			};
+		};
+		FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FBC7DB5B2D8C583800DEF08A /* DocumentReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */;
+			productName = DocumentReader;
+		};
+		FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaCamera;
+		};
+		FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaCore;
+		};
+		FBD0CE902D8D5DEA0088AC9B /* LunaWeb */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaWeb;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E3BED5A252DF4D400520E65 /* Project object */;
 }
