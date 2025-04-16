@@ -8,6 +8,24 @@ This application is an example of how you can use LunaID. In here you can see 3 
 
 every of these scenarios can be proceeded with OCR
 
+### Swift Package Manager
+
+To get SPM working you need to get access to repository with provided by VisionLabs credentials. After that you should define these credentials in file ~/.netrc of your home directory. Here is the correct working example of this file
+
+```bash
+machine ##########
+login ##########
+password ##########
+````
+
+next give this file proper access rights with this command
+
+```bash
+% chmod 600 ~/.netrc
+```
+
+And also you need to add you github account into XCode settings. After that SPM should download LunaID itself and all the dependencies it needs
+
 ### License
 
 To launch these examples you need *.plist license file provided by VisionLabs
