@@ -129,10 +129,10 @@
 		DEDE8C1C29C2CCE0006FFF7F /* UIApplication+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */; };
 		DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */; };
 		DEDE8C2629C2D420006FFF7F /* LERegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */; };
+		FBA59AB52DD4CA0300117E73 /* LunaCamera in Frameworks */ = {isa = PBXBuildFile; productRef = FBA59AB42DD4CA0300117E73 /* LunaCamera */; };
+		FBA59AB72DD4CA0300117E73 /* LunaCore in Frameworks */ = {isa = PBXBuildFile; productRef = FBA59AB62DD4CA0300117E73 /* LunaCore */; };
+		FBA59AB92DD4CA0300117E73 /* LunaWeb in Frameworks */ = {isa = PBXBuildFile; productRef = FBA59AB82DD4CA0300117E73 /* LunaWeb */; };
 		FBC7DB5C2D8C583800DEF08A /* DocumentReader in Frameworks */ = {isa = PBXBuildFile; productRef = FBC7DB5B2D8C583800DEF08A /* DocumentReader */; };
-		FBD0CE8D2D8D5DEA0088AC9B /* LunaCamera in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */; };
-		FBD0CE8F2D8D5DEA0088AC9B /* LunaCore in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */; };
-		FBD0CE912D8D5DEA0088AC9B /* LunaWeb in Frameworks */ = {isa = PBXBuildFile; productRef = FBD0CE902D8D5DEA0088AC9B /* LunaWeb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,9 +367,9 @@
 				DEB8227129AF3F62002C4C4B /* OCRREGULA.framework in Frameworks */,
 				4C1133782B0B6F2E0026A118 /* OCRDBrain.framework in Frameworks */,
 				FBC7DB5C2D8C583800DEF08A /* DocumentReader in Frameworks */,
-				FBD0CE912D8D5DEA0088AC9B /* LunaWeb in Frameworks */,
-				FBD0CE8D2D8D5DEA0088AC9B /* LunaCamera in Frameworks */,
-				FBD0CE8F2D8D5DEA0088AC9B /* LunaCore in Frameworks */,
+				FBA59AB92DD4CA0300117E73 /* LunaWeb in Frameworks */,
+				FBA59AB52DD4CA0300117E73 /* LunaCamera in Frameworks */,
+				FBA59AB72DD4CA0300117E73 /* LunaCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,9 +885,9 @@
 			name = LunaExample;
 			packageProductDependencies = (
 				FBC7DB5B2D8C583800DEF08A /* DocumentReader */,
-				FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */,
-				FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */,
-				FBD0CE902D8D5DEA0088AC9B /* LunaWeb */,
+				FBA59AB42DD4CA0300117E73 /* LunaCamera */,
+				FBA59AB62DD4CA0300117E73 /* LunaCore */,
+				FBA59AB82DD4CA0300117E73 /* LunaWeb */,
 			);
 			productName = LunaExample;
 			productReference = DEB8229229AF3F62002C4C4B /* LunaExample.app */;
@@ -927,7 +927,7 @@
 			mainGroup = 7E3BED59252DF4D400520E65;
 			packageReferences = (
 				FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */,
-				FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */,
+				FBA59AB32DD4CA0300117E73 /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */,
 			);
 			productRefGroup = 7E3BED63252DF4D400520E65 /* Products */;
 			projectDirPath = "";
@@ -1710,6 +1710,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FBA59AB32DD4CA0300117E73 /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
+			requirement = {
+				kind = exactVersion;
+				version = 1.17.1;
+			};
+		};
 		FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/regulaforensics/DocumentReader-Swift-Package";
@@ -1718,36 +1726,28 @@
 				version = 7.5.4221;
 			};
 		};
-		FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FBA59AB42DD4CA0300117E73 /* LunaCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBA59AB32DD4CA0300117E73 /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaCamera;
+		};
+		FBA59AB62DD4CA0300117E73 /* LunaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBA59AB32DD4CA0300117E73 /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaCore;
+		};
+		FBA59AB82DD4CA0300117E73 /* LunaWeb */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBA59AB32DD4CA0300117E73 /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
+			productName = LunaWeb;
+		};
 		FBC7DB5B2D8C583800DEF08A /* DocumentReader */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */;
 			productName = DocumentReader;
-		};
-		FBD0CE8C2D8D5DEA0088AC9B /* LunaCamera */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaCamera;
-		};
-		FBD0CE8E2D8D5DEA0088AC9B /* LunaCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaCore;
-		};
-		FBD0CE902D8D5DEA0088AC9B /* LunaWeb */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBD0CE8B2D8D5DEA0088AC9B /* XCRemoteSwiftPackageReference "LunaID-Swift-Package" */;
-			productName = LunaWeb;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

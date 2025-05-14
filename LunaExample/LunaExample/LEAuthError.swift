@@ -17,6 +17,8 @@ public enum LEAuthError: LocalizedError {
     case userAlreadyExists
     /// Verification between best shot and document has not been passed.
     case documentVerificationError
+    /// Best shot doesn't exist on damaged
+    case bestShotNotFound
     case faceOnDocumentNotFound
     /// Other errors.
     case error(Error)
@@ -31,6 +33,7 @@ public enum LEAuthError: LocalizedError {
         case .userAlreadyExists: return "errors.user_already_exists".localized()
         case .documentVerificationError: return "errors.document_verification_error".localized()
         case .faceOnDocumentNotFound: return "errors.face_on_document_not_found".localized()
+        case .bestShotNotFound: return "errors.best_shot_not_found".localized()
         case .cancel: return "errors.cancel".localized()
         case .error(let error as LocalizedError):
             return error.errorDescription ?? error.localizedDescription

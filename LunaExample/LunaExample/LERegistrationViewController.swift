@@ -28,17 +28,17 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
                         action: #selector(signUP))
     }()
     
-    private var lunaAPI = LunaWeb.APIv6(lunaAccountID: LCLunaConfiguration().lunaAccountID,
-                                        lunaServerURL: LCLunaConfiguration().lunaPlatformURL) { _ in
-        guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+    private var lunaAPI = LunaWeb.APIv6(lunaAccountID: LWConfig().lunaAccountID,
+                                        lunaServerURL: LWConfig().platformURL) { _ in
+        guard let platformToken = LWConfig().platformToken else { return [:] }
         return [APIv6Constants.Headers.authorization.rawValue: platformToken]
     }
-
-    public var configuration = LCLunaConfiguration() {
+    public var configuration = LCLunaConfiguration()
+    public var webconfiguration = LWConfig() {
         didSet {
-            lunaAPI = APIv6(lunaAccountID: configuration.lunaAccountID,
-                            lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
-                guard let platformToken = self?.configuration.platformToken else { return [:] }
+            lunaAPI = APIv6(lunaAccountID: webconfiguration.lunaAccountID,
+                            lunaServerURL: webconfiguration.platformURL) { [weak self] _ in
+                guard let platformToken = self?.webconfiguration.platformToken else { return [:] }
                 return [APIv6Constants.Headers.authorization.rawValue: platformToken]
             }
         }
@@ -192,7 +192,7 @@ class LERegistrationViewController: UIViewController, UITextFieldDelegate {
                                imageType: .faceWarpedImage,
                                externalID: userName)
 
-        lunaAPI.events.generateEvents(handlerID: configuration.registrationHandlerID, query: query) { result in
+        lunaAPI.events.generateEvents(handlerID: webconfiguration.registrationHandlerID, query: query) { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self,
                     self.presentedViewController == nil else { return }

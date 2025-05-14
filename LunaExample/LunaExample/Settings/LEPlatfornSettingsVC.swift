@@ -31,8 +31,17 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         case platformToken = "settings.platform.token_config"
     }
 
-    private var configuration = LunaCore.LCLunaConfiguration.userDefaults()
+    private var webconfiguration: LWConfig
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    init(configuration: LWConfig) {
+        self.webconfiguration = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -45,13 +54,6 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     public override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent: parent)
-        if parent == nil {
-            configuration.save()
-        }
     }
 
     //  MARK: - UITableViewDelegate -
@@ -70,22 +72,22 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
         switch indexPath.row {
         case PlatformSettings.identifyHandlerID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.identifyHandlerID.rawValue,
-                                               value: configuration.identifyHandlerID)
+                                               value: webconfiguration.identifyHandlerID)
         case PlatformSettings.registrationHandlerID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.registrationHandlerID.rawValue,
-                                               value: configuration.registrationHandlerID)
+                                               value: webconfiguration.registrationHandlerID)
         case PlatformSettings.verifyID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.verifyID.rawValue,
-                                               value: configuration.verifyID)
+                                               value: webconfiguration.verifyID)
         case PlatformSettings.accountID.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.accountID.rawValue,
-                                               value: configuration.accountID)
+                                               value: webconfiguration.accountID)
         case PlatformSettings.platformURL.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.platformURL.rawValue,
-                                               value: configuration.lunaPlatformURL?.absoluteString)
+                                               value: webconfiguration.platformURL?.absoluteString)
         case PlatformSettings.platformToken.rawValue:
             newCell = Self.makeStringInputCell(title: SettingsTitles.platformToken.rawValue,
-                                               value: configuration.platformToken)
+                                               value: webconfiguration.platformToken)
         default:
             break
         }
@@ -96,52 +98,52 @@ class LEPlatfornSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case PlatformSettings.identifyHandlerID.rawValue:
-            let inputVC = LEInputVC(initialText: configuration.identifyHandlerID)
+            let inputVC = LEInputVC(initialText: webconfiguration.identifyHandlerID)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let text, let self else { return }
-                self.configuration.identifyHandlerID = text
+                self.webconfiguration.identifyHandlerID = text
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case PlatformSettings.registrationHandlerID.rawValue:
-            let inputVC = LEInputVC(initialText: configuration.registrationHandlerID)
+            let inputVC = LEInputVC(initialText: webconfiguration.registrationHandlerID)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let text, let self else { return }
-                self.configuration.registrationHandlerID = text
+                self.webconfiguration.registrationHandlerID = text
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case PlatformSettings.verifyID.rawValue:
-            let inputVC = LEInputVC(initialText: configuration.verifyID)
+            let inputVC = LEInputVC(initialText: webconfiguration.verifyID)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let text, let self else { return }
-                self.configuration.verifyID = text
+                self.webconfiguration.verifyID = text
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case PlatformSettings.accountID.rawValue:
-            let inputVC = LEInputVC(initialText: configuration.accountID)
+            let inputVC = LEInputVC(initialText: webconfiguration.accountID)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let text, let self else { return }
-                self.configuration.accountID = text
+                self.webconfiguration.accountID = text
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case PlatformSettings.platformURL.rawValue:
-                let inputVC = LEInputVC(initialText: configuration.lunaPlatformURL?.absoluteString)
+                let inputVC = LEInputVC(initialText: webconfiguration.platformURL?.absoluteString)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let self, let text,
                       let url = URL(string: text)
                     else { return }
-                self.configuration.lunaPlatformURL = url
+                self.webconfiguration.platformURL = url
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
         case PlatformSettings.platformToken.rawValue:
-            let inputVC = LEInputVC(initialText: configuration.platformToken)
+            let inputVC = LEInputVC(initialText: webconfiguration.platformToken)
             inputVC.valueChangedHandler = { [weak self] text in
                 guard let text, let self else { return }
-                self.configuration.platformToken = text
+                self.webconfiguration.platformToken = text
                 self.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)

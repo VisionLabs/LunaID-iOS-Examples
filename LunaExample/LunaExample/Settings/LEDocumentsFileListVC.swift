@@ -10,13 +10,15 @@ import LunaCamera
 import LunaCore
 import LunaWeb
 
-final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, LCBestShotDelegate {
+final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LCBestShotDelegate {
     private let VerticalOffset: CGFloat = 10
     private let SideOffset: CGFloat = 10
     private let ApplyButtonHeight: CGFloat = 44
 
-    private lazy var livenessAPI = LivenessAPIv6(configuration: configuration) { [weak self] _ in
-        guard let platformToken = self?.configuration.platformToken else { return [:] }
+    private lazy var livenessAPI = LivenessAPIv6(config: self.webconfiguration,
+                                                 compressionQuality: self.configuration.compressionQuality,
+                                                 livenessQuality: self.configuration.bestShotConfiguration.livenessQuality) { [weak self] _ in
+        guard let platformToken = self?.webconfiguration.platformToken else { return [:] }
         return [APIv6Constants.Headers.authorization.rawValue: platformToken]
     }
 
@@ -28,13 +30,16 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     private let pathExtension: String?
     private let completionMode: CompletionMode
+    private let imagePicker = UIImagePickerController()
     private var configuration = LunaCore.LCLunaConfiguration()
+    private var webconfiguration = LWConfig()
     private var bestShotCompletion: ((Result<LCBestShotModel, Error>) -> Void)?
     private var fileURLs: [URL] = []
+    private var numberOfSections = 1
 
     private let tableView = UITableView(frame: .zero, style: .plain)
 
-    init(pathExtension: String?, 
+    init(pathExtension: String?,
          configuration: LCLunaConfiguration? = nil,
          completionMode: CompletionMode) {
         self.pathExtension = pathExtension
@@ -53,6 +58,12 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         fileURLs = fetchFileURLs()
         createLayout()
         bestShotDetector.screenSize(view.bounds.size, edges: view.safeAreaInsets)
+        if case .imageBestShot(let bestShotCompletion) = self.completionMode {
+            self.bestShotCompletion = bestShotCompletion
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            self.numberOfSections = 2
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,11 +103,15 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
     //  MARK: - UITableViewDataSource -
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        fileURLs.count
+        section == 0 ? fileURLs.count : 1
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int { self.numberOfSections }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let title = fileURLs[indexPath.row].lastPathComponent
+        let title = indexPath.section == 0 ? fileURLs[indexPath.row].lastPathComponent
+                                           : "settings.pick_photo".localized()
+        
         let cell = createCell(title: title)
         return cell
     }
@@ -104,24 +119,43 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
     //  MARK: - UITableViewDelegate -
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let appliedFileURL = fileURLs[indexPath.row]
-
-        switch completionMode {
-        case .plistFiles(let completion):
-            navigationController?.popViewController() {
-                completion(appliedFileURL)
+        if indexPath.section == 0 {
+            let appliedFileURL = fileURLs[indexPath.row]
+            
+            switch completionMode {
+                case .plistFiles(let completion):
+                    navigationController?.popViewController() {
+                        completion(appliedFileURL)
+                    }
+                case .imageBestShot:
+                    guard let image = UIImage(contentsOfFile: appliedFileURL.path) else {
+                        presentModalError("errors.invalid_file_format".localized())
+                        return
+                    }
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.push(frame: image)
+                    }
             }
-        case .imageBestShot(let bestShotCompletion):
-            self.bestShotCompletion = bestShotCompletion
-            guard let image = UIImage(contentsOfFile: appliedFileURL.path) else {
-                presentModalError("errors.invalid_file_format".localized())
-                return
-            }
-
+        } else {
+            self.present(imagePicker, animated: true)
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
             DispatchQueue.main.async { [weak self] in
-                self?.bestShotDetector.pushFrame(with: image)
+                self?.push(frame: selectedImage)
             }
         }
+        self.dismiss(animated: true)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
     }
 
     //  MARK: - CompletionMode -
@@ -196,6 +230,12 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         ])
 
         return cell
+    }
+    
+    private func push(frame: UIImage) {
+        DispatchQueue.main.async { [weak self] in
+            self?.bestShotDetector.pushFrame(with: frame)
+        }
     }
 }
 

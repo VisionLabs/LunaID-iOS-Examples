@@ -23,12 +23,20 @@ enum EInteractionsSettingsItem: Int {
 class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let SideOffset: CGFloat = 10
-    private var config = LunaCore.LCLunaConfiguration.userDefaults()
+    private var config: LunaCore.LCLunaConfiguration
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    init(configuration: LunaCore.LCLunaConfiguration) {
+        self.config = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
-        
         createLayout()
     }
     
@@ -38,13 +46,6 @@ class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableVi
     
     public override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent: parent)
-        if parent == nil {
-            config.save()
-        }
     }
 
     //  MARK: - UITableViewDelegate -
@@ -68,7 +69,7 @@ class LEInteractionsSettingsVC: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var newCell = UITableViewCell(frame: .zero)
         
-        var settingsItem = EInteractionsSettingsItem(rawValue: indexPath.row)
+        let settingsItem = EInteractionsSettingsItem(rawValue: indexPath.row)
         switch settingsItem {
         case .INTERACTIONSSETTING_ITEM_DELAYBETWEEN:
             let newSettingsCell = LEFloatCell(style: .default, reuseIdentifier: nil)
