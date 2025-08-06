@@ -26,12 +26,28 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
         case productID = "settings.license.productID_config"
     }
     
-    private var licenseConfig = LunaCore.LCLicenseConfig.userDefaults()
+    private var licenseConfig: LCLicenseConfig
+    private var isEdited: Bool = false
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    init(configuration: LCLicenseConfig) {
+        self.licenseConfig = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        if isEdited {
+            licenseConfig.save()
+            LCLunaConfiguration.resetLicenseCache()
+        }
+    }
     
     override func loadView() {
         super.loadView()
-        
         createLayout()
     }
     
@@ -41,14 +57,6 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
     
     public override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent: parent)
-        if parent == nil {
-            licenseConfig.save()
-            LCLunaConfiguration.resetLicenseCache()
-        }
     }
 
     //  MARK: - UITableViewDelegate -
@@ -92,6 +100,7 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
                                1.0,
                                CGFloat(licenseConfig.connectionTimeout)) { [weak self] newValue in
                 self?.licenseConfig.connectionTimeout = newValue
+                self?.isEdited = true
                 self?.tableView.reloadData()
             }
             case LicenseSettings.serverRetriesCount.rawValue:
@@ -100,12 +109,14 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
                                1.0,
                                CGFloat(licenseConfig.serverRetriesCount)) { [weak self] newValue in
                 self?.licenseConfig.serverRetriesCount = Int(newValue)
+                self?.isEdited = true
                 self?.tableView.reloadData()
             }
         case LicenseSettings.EID.rawValue:
             let inputVC = LEInputVC(initialText: licenseConfig.eid)
             inputVC.valueChangedHandler = { [weak self] text in
                 self?.licenseConfig.eid = text ?? ""
+                self?.isEdited = true
                 self?.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
@@ -113,6 +124,7 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
             let inputVC = LEInputVC(initialText: licenseConfig.productID)
             inputVC.valueChangedHandler = { [weak self] text in
                 self?.licenseConfig.productID = text ?? ""
+                self?.isEdited = true
                 self?.tableView.reloadData()
             }
             self.navigationController?.pushViewController(inputVC, animated: true)
@@ -148,7 +160,7 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
         ])
     }
     
-    private func showDurationPicker(_ title: String, 
+    private func showDurationPicker(_ title: String,
                                     _ limit: CGFloat,
                                     _ limitPower: CGFloat,
                                     _ initialValue: CGFloat,

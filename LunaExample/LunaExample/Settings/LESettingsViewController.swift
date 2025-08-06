@@ -13,12 +13,13 @@ import LunaWeb
 enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_MULTIPART_BESTSHOTS
     case SETTING_ITEM_GLASSES_CHECK
-    case SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES
+    case SETTING_ITEM_AGGREGATIONS_CONTROL
     case SETTING_ITEM_OCR
     case SETTING_ITEM_INTERACTIONS
     case SETTING_ITEM_SAVE_ONLY_FACE_VIDEO
     case SETTING_ITEM_VIDEO_RECORD_LENGTH
     case SETTING_ITEM_TRACK_FACE_IDENTITY
+    case SETTING_ITEM_FACE_OCCLUSION
     case SETTING_ITEM_OCCLUDED_FACE
     case SETTING_ITEM_OCCLUDED_MOUTH
     case SETTING_ITEM_ADVANCED_SUNGLASSES
@@ -49,14 +50,16 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     private let LCRoundButtonHeight: CGFloat = 44
 
     private lazy var lunaAPI: LunaWeb.APIv6 = {
-        APIv6(lunaAccountID: configuration.lunaAccountID,
-              lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
-            guard let platformToken = self?.configuration.platformToken else { return [:] }
+        APIv6(lunaAccountID: self.webconfiguration.lunaAccountID,
+              lunaServerURL: self.webconfiguration.platformURL) { [weak self] _ in
+            guard let platformToken = self?.webconfiguration.platformToken else { return [:] }
             return [APIv6Constants.Headers.authorization.rawValue: platformToken]
         }
     }()
 
-    private var configuration = LunaCore.LCLunaConfiguration.userDefaults()
+    private var configuration = LCLunaConfiguration.userDefaults()
+    private var webconfiguration = LWConfig.userDefaults()
+    private var licenseConfiguration = LCLicenseConfig.userDefaults()
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -71,15 +74,9 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.delegate = self
     }
     
-    //  MARK: - UINavigationControllerDelegate -
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewController == self {
-            configuration = LCLunaConfiguration.userDefaults()
-            return
-        }
-        
+    deinit {
         configuration.save()
+        webconfiguration.save()
     }
 
     //  MARK: - LMCameraDelegate -
@@ -91,7 +88,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         let bestShotData = BestShotData.image(jpegData)
         let query = EventQuery(bestShotsData: [bestShotData], imageType: .faceWarpedImage)
 
-        lunaAPI.events.generateEvents(handlerID: configuration.identifyHandlerID, query: query) { [weak self] result in
+        lunaAPI.events.generateEvents(handlerID: self.webconfiguration.identifyHandlerID, query: query) { [weak self] result in
             switch result {
             case .success(let response):
                 self?.deleteFaceID(self?.parseFaceID(response))
@@ -110,7 +107,12 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     func error(_ error: LMCameraError, _ videoFile: String?) {
         DispatchQueue.main.async { [weak self] in
             self?.dismiss(animated: true) {
-                self?.presentMessage("settings.error_bestshot".localized())
+                switch error {
+                case .canceled:
+                    self?.presentMessage(error.errorDescription ?? "Cancelled")
+                default:
+                    self?.presentMessage("settings.error_bestshot".localized())
+                }
             }
         }
     }
@@ -213,13 +215,17 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case Sections.platformSection.rawValue:
-            navigationController?.pushViewController(LEPlatfornSettingsVC(), animated: true)
+            let platformSettingsVC = LEPlatfornSettingsVC(configuration: self.webconfiguration)
+            navigationController?.pushViewController(platformSettingsVC, animated: true)
         case Sections.fsdkLicenseSection.rawValue:
-            navigationController?.pushViewController(LELicenseSettingsVC(), animated: true)
+            let licenseSettingsVC = LELicenseSettingsVC(configuration: self.licenseConfiguration)
+            navigationController?.pushViewController(licenseSettingsVC, animated: true)
         case Sections.bestShotSection.rawValue:
-            navigationController?.pushViewController(LEBestshotSettingsVC(), animated: true)
+            let bestShotSettingsVC = LEBestshotSettingsVC(configuration: self.configuration)
+            navigationController?.pushViewController(bestShotSettingsVC, animated: true)
         case Sections.interactionsSection.rawValue:
-            navigationController?.pushViewController(LEInteractionsSettingsVC(), animated: true)
+            let interactionsSettingsVC = LEInteractionsSettingsVC(configuration: self.configuration)
+            navigationController?.pushViewController(interactionsSettingsVC, animated: true)
         case Sections.lunaConfigSection.rawValue:
             processFeatureToggleSectionTap(indexPath.row)
         case Sections.deletionSection.rawValue:
@@ -365,12 +371,16 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func startDeletion() {
-        let livenessAPI = LunaWeb.LivenessAPIv6(configuration: configuration) { [weak self] _ in
-            guard let platformToken = self?.configuration.platformToken else { return [:] }
+        let livenessAPI = LunaWeb.LivenessAPIv6(config: self.webconfiguration,
+                                                compressionQuality: self.configuration.compressionQuality,
+                                                livenessQuality: self.configuration.bestShotConfiguration.livenessQuality) { [weak self] _ in
+            guard let platformToken = self?.webconfiguration.platformToken else { return [:] }
             return [APIv6Constants.Headers.authorization.rawValue: platformToken]
         }
+        let deletionConfig = LCLunaConfiguration()
+        deletionConfig.interactionsConfig.interactionTimeout = 15
         let controller = LMCameraBuilder.viewController(delegate: self,
-                                                        configuration: LCLunaConfiguration(),
+                                                        configuration: deletionConfig,
                                                         livenessAPI: livenessAPI,
                                                         canRecordVideo: false)
         controller.modalPresentationStyle = .fullScreen
@@ -409,7 +419,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             newSettingsCell.configureCell(configuration.glassesCheckEnabled, "settings.glassescheck_enabled".localized())
             newCell = newSettingsCell
-        case .SETTING_ITEM_AGGREGATIONS_FOR_SUNGLASSES:
+        case .SETTING_ITEM_AGGREGATIONS_CONTROL:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
             newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
                 self?.configuration.aggregationEnabled = toggleStatus
@@ -443,6 +453,13 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self?.configuration.trackFaceIdentity = toggleStatus
             }
             newSettingsCell.configureCell(configuration.trackFaceIdentity, "settings.trackfaceidentity_enabled".localized())
+            newCell = newSettingsCell
+        case .SETTING_ITEM_FACE_OCCLUSION:
+            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
+            newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
+                self?.configuration.faceOcclusionEstimatorEnabled = toggleStatus
+            }
+            newSettingsCell.configureCell(configuration.faceOcclusionEstimatorEnabled, "settings.faceocclusioncheck_enabled".localized())
             newCell = newSettingsCell
         case .SETTING_ITEM_OCCLUDED_FACE:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
@@ -556,7 +573,8 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         configuration = LCLunaConfiguration()
         configuration.save()
         
-        LCLicenseConfig().save()
+        licenseConfiguration = LCLicenseConfig()
+        licenseConfiguration.save()
         
         tableView.reloadData()
     }
@@ -564,7 +582,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
     @objc
     private func applyFromPlistButtonTapped() {
         let completion: (URL) -> Void = { [weak self] plistFileURL in
-            self?.configuration = LCLunaConfiguration(plistFilePath: plistFileURL.absoluteString)
+            self?.configuration = LCLunaConfiguration(plistFilePath: plistFileURL.path)
             self?.tableView.reloadData()
         }
 
@@ -583,12 +601,11 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         configuration.interactionEnabled = false
 
         let completion: (Result<LCBestShotModel, Error>) -> Void = { [weak self] result in
-            guard
-                let self = self,
-                let currentMinimalTrackLength = self.currentMinimalTrackLength,
-                let currentNumberOfBestShots = self.currentNumberOfBestShots,
-                let currentInteractionEnabled = self.currentInteractionEnabled
-            else { return }
+            guard let self, let currentNumberOfBestShots, let currentInteractionEnabled
+            else {
+                self?.presentModalError("settings.incorrect_singleframe_configuration".localized())
+                return
+            }
 
             self.configuration.bestShotConfiguration.numberOfBestShots = currentNumberOfBestShots
             self.configuration.interactionEnabled = currentInteractionEnabled
@@ -610,7 +627,6 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc
     private func closeViewController() {
-        configuration.save()
         navigationController?.dismiss(animated: true)
     }
     

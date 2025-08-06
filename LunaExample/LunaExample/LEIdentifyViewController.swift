@@ -20,6 +20,18 @@ enum FaceResultType {
     case cancel
 }
 
+enum LEIdentifyError: LocalizedError {
+    /// Empty best shot
+    case emptyBestShot
+    
+    public var errorDescription: String? {
+        switch self {
+        case .emptyBestShot: return "errors.empty_best_shot".localized()
+        }
+    }
+}
+
+
 class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     
     private let SideOffset: CGFloat = 16
@@ -28,23 +40,27 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
 
     public var resultBlock: IdentifyResultHandler?
     public var configuration = LCLunaConfiguration.userDefaults()
+    public var webconfiguration = LWConfig.userDefaults()
     
-    private var livenessAPI = LunaWeb.LivenessAPIv6(configuration: LCLunaConfiguration()) { _ in
-        guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+    private lazy var livenessAPI = LunaWeb.LivenessAPIv6(config: self.webconfiguration,
+                                                         compressionQuality: self.configuration.compressionQuality,
+                                                         livenessQuality: self.configuration.bestShotConfiguration.livenessQuality) { [weak self] _ in
+        guard let self, let platformToken = self.webconfiguration.platformToken else { return [:] }
         return [APIv6Constants.Headers.authorization.rawValue: platformToken]
     }
     
-    private var lunaAPI: LunaWeb.APIv6 = {
-        LunaWeb.APIv6(lunaAccountID: LCLunaConfiguration().lunaAccountID,
-                      lunaServerURL: LCLunaConfiguration().lunaPlatformURL) { _ in
-            guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+    private lazy var lunaAPI: LunaWeb.APIv6 = {
+        LunaWeb.APIv6(lunaAccountID: self.webconfiguration.lunaAccountID,
+                      lunaServerURL: self.webconfiguration.platformURL) { [weak self] _ in
+            guard let self,
+                  let platformToken = self.webconfiguration.platformToken else { return [:] }
             return [APIv6Constants.Headers.authorization.rawValue: platformToken]
         }
     }()
 
     private let DeepFake_Mouth_Occlusion_HandlerID = "94cca121-0d78-426c-aa69-dfad6f4177ab"
 
-    init(configuration: LCLunaConfiguration) {
+    init(configuration: LCLunaConfiguration, webconfiguration: LWConfig) {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
     }
@@ -142,46 +158,39 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         ])
     }
     
-    private func identifyBestShotWithPlatform(_ bestShots: [LunaCore.LCBestShotModel]) {
-        let bestShotsData = bestShots.compactMap { $0.bestShotData(configuration: configuration, isWarped: true) }
-        let livenessByPhoto = configuration.bestShotConfiguration.livenessType == .byPhoto
+    private func identifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShotModel,
+                                              bestShotsData: [LunaWeb.BestShotData]) {
+
         let multipartBestShotsEnabled = configuration.multipartBestShotsEnabled
 
-        guard !bestShotsData.isEmpty, livenessByPhoto else {
-            cancelBestshotProcessing()
-            return
-        }
-
-        var handlerID: String = configuration.identifyHandlerID
+        var handlerID: String = self.webconfiguration.identifyHandlerID
         var imageType: ImageType = .faceWarpedImage
-
+        
         if multipartBestShotsEnabled {
             handlerID = DeepFake_Mouth_Occlusion_HandlerID
             imageType = .rawImage
         }
-
+            
         let query = LunaWeb.EventQuery(bestShotsData: bestShotsData,
                                        imageType: imageType,
                                        aggregateAttributes: multipartBestShotsEnabled)
-
+            
         lunaAPI.events.generateEvents(handlerID: handlerID, query: query) { [weak self] result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
                     guard let resultBlock = self?.resultBlock else {
                         self?.closeViewController(animated: true)
                         return
                     }
-
+                    
                     self?.dismiss(animated: true) {
-                        guard let bestShot = bestShots.last else { return }
-
-                        let face = response.events.first?.matches?.first?.candidates.first?.face
+                        let event = response.events.first
+                        let match = event?.matches?.first
+                        let face = match?.candidates.first?.face
                         resultBlock(.success(face, bestShot))
                     }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
+                case .failure(let error):
                     self?.dismiss(animated: false) {
                         self?.presentModalError((error as NSError).localizedDescription)
                     }
@@ -190,26 +199,19 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
         }
     }
 
-    func verifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShotModel) {
-        let bestShotData = bestShot.bestShotData(configuration: configuration, isWarped: true)
-
-        guard let bestShotData = bestShotData,
-              configuration.bestShotConfiguration.livenessType == .byPhoto
-        else {
-            cancelBestshotProcessing()
-            return
-        }
-
+    func verifyBestShotWithPlatform(_ bestShot: LunaCore.LCBestShotModel, bestShotData: LunaWeb.BestShotData) {
         let query = LunaWeb.PerformVerificationQuery(data: bestShotData, faceIDs: faceIDs)
-
-        lunaAPI.verifiers.performVerification(verifyID: configuration.verifyID, query: query) { [weak self] result in
-
+        
+        lunaAPI.verifiers.performVerification(verifyID: self.webconfiguration.verifyID,
+                                              query: query) { [weak self] result in
+            
             switch result {
             case .success(let response):
-                let verifications = response.images.first?.detections.faceDetections.first?.verifications
+                let detections = response.images.first?.detections
+                let verifications = detections?.faceDetections.first?.verifications
                 let filteredVerifications = verifications?.filter { $0.status && $0.similarity > 0.8 }
                 let maxSimilarityVerification = filteredVerifications?.max(by: { $0.similarity < $1.similarity })
-
+                
                 DispatchQueue.main.async {
                     if let resultBlock = self?.resultBlock {
                         self?.dismiss(animated: true) {
@@ -219,7 +221,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
                     }
                     self?.closeViewController(animated: true)
                 }
-
+                
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.dismiss(animated: false) {
@@ -313,19 +315,36 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     //  MARK: - LMCameraDelegate -
     
     func bestShot(_ bestShot: LunaCore.LCBestShotModel, _ videoFile: String?) {
-        if faceIDs.isEmpty {
-            identifyBestShotWithPlatform([bestShot])
-        } else {
-            verifyBestShotWithPlatform(bestShot)
-        }
+        self.multipartBestShots([bestShot], videoFile)
     }
 
     func multipartBestShots(_ bestShots: [LCBestShotModel], _ videoFile: String?) {
-        if faceIDs.isEmpty {
-            identifyBestShotWithPlatform(bestShots)
+        guard let bestShot = bestShots.last else {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true) {
+                    self.presentModalError(LEIdentifyError.emptyBestShot.localizedDescription)
+                }
+            }
+            return
+        }
+        
+        if configuration.bestShotConfiguration.livenessType == .byPhoto {
+            let bestShotsData = bestShots.compactMap { $0.bestShotData(configuration: configuration, isWarped: true) }
+            guard !bestShotsData.isEmpty, let bestShotData = bestShotsData.last else {
+                cancelBestshotProcessing()
+                return
+            }
+            if faceIDs.isEmpty {
+                identifyBestShotWithPlatform(bestShot, bestShotsData: bestShotsData)
+            } else {
+                verifyBestShotWithPlatform(bestShot, bestShotData: bestShotData)
+            }
         } else {
-            guard let bestShot = bestShots.last else { return }
-            verifyBestShotWithPlatform(bestShot)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true) {
+                    self.resultBlock?(.success(nil, bestShot))
+                }
+            }
         }
     }
 
@@ -338,7 +357,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             //  close camera screen because it was presented as modal
             self.dismiss(animated: false) {
                 self.displayError(error, videoFile)
-            }            
+            }
         }
     }
 

@@ -16,16 +16,16 @@ class LERootVCPresenter {
         case lifecycleTimeout
     }
     
-    let configuration: LCLunaConfiguration
-    private lazy var lunaAPI = LunaWeb.APIv6(lunaAccountID: configuration.lunaAccountID,
-                                             lunaServerURL: configuration.lunaPlatformURL) { [weak self] _ in
-                     guard let platformToken = self?.configuration.platformToken
+    let webconfiguration: LWConfig
+    private lazy var lunaAPI = LunaWeb.APIv6(lunaAccountID: webconfiguration.lunaAccountID,
+                                             lunaServerURL: webconfiguration.platformURL) { [weak self] _ in
+                     guard let platformToken = self?.webconfiguration.platformToken
                         else { return [:] }
                      return [APIv6Constants.Headers.authorization.rawValue: platformToken]
                  }
     
-    init(configuration: LCLunaConfiguration) {
-        self.configuration = configuration
+    init(webconfiguration: LWConfig) {
+        self.webconfiguration = webconfiguration
     }
     
     func fetchFace(for userName: String,

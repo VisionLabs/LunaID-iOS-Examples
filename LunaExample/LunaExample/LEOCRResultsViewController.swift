@@ -38,11 +38,12 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
     public var retryOCRHandler: ((@escaping (OCR.OCRResult?) -> Void) -> Void)?
 
     public var configuration: LCLunaConfiguration = LCLunaConfiguration()
+    public var webconfiguration = LWConfig()
 
-    private var lunaAPI: LunaWeb.APIv6 = {
-        LunaWeb.APIv6(lunaAccountID: LCLunaConfiguration().lunaAccountID,
-                      lunaServerURL: LCLunaConfiguration().lunaPlatformURL) { _ in
-            guard let platformToken = LCLunaConfiguration().platformToken else { return [:] }
+    private lazy var lunaAPI: LunaWeb.APIv6 = {
+        LunaWeb.APIv6(lunaAccountID: webconfiguration.lunaAccountID,
+                      lunaServerURL: webconfiguration.platformURL) { [weak self] _ in
+            guard let platformToken = self?.webconfiguration.platformToken else { return [:] }
             return [APIv6Constants.Headers.authorization.rawValue: platformToken]
         }
     }()
@@ -104,7 +105,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             activityIndicator.stopAnimating()
             return
         }
-        
+        configuration.trackFaceIdentity = true;
         let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LunaCore.LCLunaIDService(config: configuration,
                                                                                        licenseConfig: LunaCore.LCLicenseConfig.userDefaults())
         guard let detection = lunaIDService.detectFaces(imageField.image).first else {
@@ -112,19 +113,20 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             activityIndicator.stopAnimating()
             return
         }
-
-        let currentMatchValue = lunaIDService.match(bestShot!, faceDetection: detection)
+        guard let bestShot else {
+            self.handleContinueButtonError(error: LEAuthError.bestShotNotFound)
+            return
+        }
+        let currentMatchValue = lunaIDService.match(bestShot, faceDetection: detection)
         if (currentMatchValue < configuration.documentVerificationMatch) {
-            continueButtonHandler?(LEAuthError.documentVerificationError)
-            activityIndicator.stopAnimating()
+            self.handleContinueButtonError(error: LEAuthError.documentVerificationError)
             return
         }
         
         let completionBlock: (Error?) -> Void = { [weak self] error in
             DispatchQueue.main.async {
                 guard let self else { return }
-                self.continueButtonHandler?(error)
-                self.activityIndicator.stopAnimating()
+                self.handleContinueButtonError(error: error)
             }
         }
 
@@ -197,7 +199,7 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
                                userData: meta.passportData["surname_and_given_names"]?.value,
                                meta: meta)
 
-        lunaAPI.events.generateEvents(handlerID: configuration.registrationHandlerID, query: query) { result in
+        lunaAPI.events.generateEvents(handlerID: webconfiguration.registrationHandlerID, query: query) { result in
             switch result {
             case .success(let response):
                 let error = response.events.first?.face == nil ? LEAuthError.userAlreadyExists : nil
@@ -365,6 +367,11 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
         let responseDocNumberField = response.events?.first?.meta?.passportData?.documentNumber?.value
         let responseDocNumber = Int(responseDocNumberField ?? "") ?? -2
         return responseDocNumber == documentNumber
+    }
+    
+    private func handleContinueButtonError(error: Error?) {
+        self.continueButtonHandler?(error)
+        activityIndicator.stopAnimating()
     }
     
 }

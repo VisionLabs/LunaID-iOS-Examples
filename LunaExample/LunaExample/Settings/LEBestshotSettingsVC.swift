@@ -45,8 +45,17 @@ enum ELivenessType: String, CaseIterable {
 class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let SideOffset: CGFloat = 10
-    private var config = LunaCore.LCLunaConfiguration.userDefaults()
+    private var config: LunaCore.LCLunaConfiguration
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    init(configuration: LunaCore.LCLunaConfiguration) {
+        self.config = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -60,13 +69,6 @@ class LEBestshotSettingsVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     public override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent: parent)
-        if parent == nil {
-            config.save()
-        }
     }
 
     //  MARK: - UITableViewDelegate -

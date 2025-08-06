@@ -261,9 +261,10 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private func identifyVerifyScenario() {
         if let externalID = usernameField.text, !externalID.isEmpty {
             let config = createConfig()
-            let lunaAPI = LunaWeb.APIv6(lunaAccountID: config.lunaAccountID,
-                                        lunaServerURL: config.lunaPlatformURL) { _ in
-                guard let platformToken = config.platformToken else { return [:] }
+            let webConfig = LWConfig.userDefaults()
+            let lunaAPI = LunaWeb.APIv6(lunaAccountID: webConfig.lunaAccountID,
+                                        lunaServerURL: webConfig.platformURL) { _ in
+                guard let platformToken = webConfig.platformToken else { return [:] }
                 return [APIv6Constants.Headers.authorization.rawValue: platformToken]
             }
             
@@ -290,7 +291,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func launchRegistration() {
-        guard !(navigationController?.topViewController is LERegistrationViewController) 
+        guard !(navigationController?.topViewController is LERegistrationViewController)
             else { return }
         let viewController = LERegistrationViewController()
         viewController.configuration = createConfig()
@@ -302,7 +303,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private func launchIdentify() {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
         let config = createConfig()
-        let identifyViewController = LEIdentifyViewController(configuration: config)
+        let identifyViewController = LEIdentifyViewController(configuration: config,
+                                                              webconfiguration: LWConfig.userDefaults())
         identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self, presentedViewController == nil,
                   !(navigationController?.topViewController is LEResultViewController)
@@ -315,8 +317,10 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                 }
                 else {
                     let resultViewController = LEResultViewController()
-
-                    resultViewController.setupResult(success: face?.userData != nil,
+                    let isSuccessIdentification = config.bestShotConfiguration.livenessType == .byPhoto
+                                ? face?.userData != nil
+                                : true
+                    resultViewController.setupResult(success: isSuccessIdentification,
                                                      stage: .identify,
                                                      userName: face?.userData)
                     pushResultViewController(resultViewController)
@@ -345,9 +349,11 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
                     launchOCR(scenario: .verification, bestShot, face, closeToRootHandler, nil)
                 } else {
                     let resultViewController = LEResultViewController()
-
-                    /// В ответе на верификацию возвращает `face` без полей `userData` и `externalID`
-                    resultViewController.setupResult(success: face != nil,
+                    
+                    let isSuccessVerification = config.bestShotConfiguration.livenessType == .byPhoto
+                                ? face?.id != nil
+                                : true
+                    resultViewController.setupResult(success: isSuccessVerification,
                                                      stage: .verify,
                                                      userName: face?.userData)
                     pushResultViewController(resultViewController)
@@ -419,7 +425,8 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     private func launchRetryBiometric(_ retryBestShotHandler: @escaping (LunaCore.LCBestShotModel?) -> Void) {
         guard !(navigationController?.topViewController is LEIdentifyViewController) else { return }
         let config = createConfig()
-        let identifyViewController = LEIdentifyViewController(configuration: config)
+        let identifyViewController = LEIdentifyViewController(configuration: config,
+                                                              webconfiguration: LWConfig.userDefaults())
 
         identifyViewController.resultBlock = { [weak self] faceResult in
             guard let self else { return }
