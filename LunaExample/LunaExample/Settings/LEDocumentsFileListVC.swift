@@ -39,7 +39,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
     private let tableView = UITableView(frame: .zero, style: .plain)
 
-    init(pathExtension: String?,
+    init(pathExtension: String?, 
          configuration: LCLunaConfiguration? = nil,
          completionMode: CompletionMode) {
         self.pathExtension = pathExtension

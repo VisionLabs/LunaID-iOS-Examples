@@ -51,6 +51,8 @@
 		<integer>25</integer>
 		<key>minDetSize</key>
 		<integer>250</integer>
+		<key>minFaceSize</key>
+		<integer>200</integer>
 		<key>numberOfBestShots</key>
 		<integer>1</integer>
 		<key>bestShotInterval</key>

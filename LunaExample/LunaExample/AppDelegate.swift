@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppAppearance.setupAppearance()
         
         let config = LunaCore.LCLunaConfiguration.userDefaults()
+        
+        //  To check license only we need to disable primary face functionality in case CNN60 deleted
+        config.trackFaceIdentity = false
+        
         let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LCLunaIDServiceBuilder.buildLunaIDService(withConfig: config)
         if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
             debugPrint("Error while checking license on application startup: \(error)")

@@ -16,6 +16,7 @@ class LERootVCPresenter {
         case lifecycleTimeout
     }
     
+    let configuration: LCLunaConfiguration
     let webconfiguration: LWConfig
     private lazy var lunaAPI = LunaWeb.APIv6(lunaAccountID: webconfiguration.lunaAccountID,
                                              lunaServerURL: webconfiguration.platformURL) { [weak self] _ in
@@ -24,7 +25,8 @@ class LERootVCPresenter {
                      return [APIv6Constants.Headers.authorization.rawValue: platformToken]
                  }
     
-    init(webconfiguration: LWConfig) {
+    init(configuration: LCLunaConfiguration, webconfiguration: LWConfig) {
+        self.configuration = configuration
         self.webconfiguration = webconfiguration
     }
     

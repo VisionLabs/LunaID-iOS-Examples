@@ -90,13 +90,14 @@
 
 "settings.multipartBestShots_enabled" = "Send multiple frames to the backend for aggregation";
 "settings.glassescheck_enabled" = "Sunglasses";
-"settings.aggregation_enabled" = "Aggregations for sunglasses and closed eyes";
+"settings.aggregation_enabled" = "Aggregation";
 "settings.mouth_aggregation_enabled" = "Aggregation for mouth overlaps";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Interactions";
 "settings.onlyface_enabled" = "Delete videos without face detections";
 "settings.trackfaceidentity_enabled" = "Track face identity";
-"settings.occludedcheck_enabled" = "Face occlusion";
+"settings.faceocclusioncheck_enabled" = "Lower face zone occlusion";
+"settings.occludedcheck_enabled" = "Medical mask occlusion";
 "settings.mouthcheck_enabled" = "Mouth state";
 "settings.advanced_sunglasses" = "Advanced sunglasses";
 "settings.eye_injury" = "Check the conditions of only one eye for opening";
@@ -114,14 +115,18 @@
 "settings.error_while_search" = "Error while searching for registered user";
 "settings.error_bestshot" = "Error while making bestshot";
 "settings.success_bestshot" = "Bestshot formed";
+"settings.incorrect_singleframe_configuration" = "Incorrect singleFrame configuration";
+"settings.pick_photo" = "Load from gallery...";
 
 "errors.identification_error" = "Identification check failed";
 "errors.verification_error" = "Verification check failed";
 "errors.user_already_exists" = "User already exists";
 "errors.document_verification_error" = "Document verification failed";
 "errors.face_on_document_not_found" = "Photo on document not found";
+"errors.best_shot_not_found" = "Best shot not found";
 "errors.cancel" = "Operation canceled";
 "errors.invalid_file_format" = "Invalid file format";
+"errors.empty_best_shot" = "Best shot is empty";
 
 "buttons.do_actions.registration" = "Continue Registration";
 "buttons.do_actions.identify" = "Continue Identification";

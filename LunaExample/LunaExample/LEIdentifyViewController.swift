@@ -111,6 +111,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     
     private func activateLicense(completion: (Bool, Error?) -> Void) {
         let lunaIDService = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: configuration)
+        LCLunaConfiguration.resetLicenseCache()
         if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
 #if LUNA_LOG_SWIFT
             LCSafeLoggerWrapper.logInfo(message: "LMCameraDelegate >>> activating license error \(error.localizedDescription)")
@@ -357,7 +358,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             //  close camera screen because it was presented as modal
             self.dismiss(animated: false) {
                 self.displayError(error, videoFile)
-            }
+            }            
         }
     }
 

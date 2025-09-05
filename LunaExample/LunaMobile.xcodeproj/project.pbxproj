@@ -67,6 +67,7 @@
 		4CC3484D2B7A0A9100B04A1C /* LEDurationPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */; };
 		4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */; };
 		4CC348522B7C1B4C00B04A1C /* LEFloatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */; };
+		4CC43BB02E6AF561005193EE /* LEAboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC43BAF2E6AF561005193EE /* LEAboutVC.swift */; };
 		4CD25F842AE69F1B0019EE88 /* LEOCRInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F562AE69F1B0019EE88 /* LEOCRInstructionsView.swift */; };
 		4CD25F862AE69F1B0019EE88 /* LEPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F582AE69F1B0019EE88 /* LEPhotosCell.swift */; };
 		4CD25F872AE69F1B0019EE88 /* LEOCRFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD25F592AE69F1B0019EE88 /* LEOCRFieldCell.swift */; };
@@ -75,7 +76,6 @@
 		4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */; };
 		4CE3ADEE2AEBCF6F005F76F9 /* LEAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */; };
 		4CE3ADEF2AEBCF6F005F76F9 /* BestShot+LunaExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */; };
-		4CE92FF52C9872F300686A52 /* luna_config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CE92FF42C9872F300686A52 /* luna_config.plist */; };
 		4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */; };
 		7E392AF926087A3D00D42E15 /* OCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E392AF726087A3D00D42E15 /* OCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E392B1326087A6C00D42E15 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E392B1226087A6C00D42E15 /* OCRService.swift */; };
@@ -253,6 +253,7 @@
 		4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDurationPickerVC.swift; sourceTree = "<group>"; };
 		4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBiometricInstructionsView.swift; sourceTree = "<group>"; };
 		4CC348512B7C1B4C00B04A1C /* LEFloatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEFloatCell.swift; sourceTree = "<group>"; };
+		4CC43BAF2E6AF561005193EE /* LEAboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEAboutVC.swift; sourceTree = "<group>"; };
 		4CD25F3D2AE69ED10019EE88 /* LunaExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LunaExample-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4CD25F562AE69F1B0019EE88 /* LEOCRInstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCRInstructionsView.swift; sourceTree = "<group>"; };
 		4CD25F582AE69F1B0019EE88 /* LEPhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEPhotosCell.swift; sourceTree = "<group>"; };
@@ -260,7 +261,6 @@
 		4CE3ADEA2AEBCF6F005F76F9 /* LunaExampleTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunaExampleTypes.swift; sourceTree = "<group>"; };
 		4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEAuthError.swift; sourceTree = "<group>"; };
 		4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BestShot+LunaExample.swift"; sourceTree = "<group>"; };
-		4CE92FF42C9872F300686A52 /* luna_config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = luna_config.plist; sourceTree = "<group>"; };
 		4CFF6AA92BBAB53900947FB0 /* LEInteractionsSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEInteractionsSettingsVC.swift; sourceTree = "<group>"; };
 		7E0390F32563D1CB00453D52 /* LEEulaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEEulaViewController.swift; sourceTree = "<group>"; };
 		7E039117256525F300453D52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -625,7 +625,6 @@
 			isa = PBXGroup;
 			children = (
 				9705D7842CC80C9A0080076D /* LERootViewController */,
-				4CE92FF42C9872F300686A52 /* luna_config.plist */,
 				4C054F502C33F371008C275F /* vllicense.plist */,
 				4C33589C2AEBD37F00BFC880 /* Extensions */,
 				4CE3ADEB2AEBCF6F005F76F9 /* LEAuthError.swift */,
@@ -633,6 +632,7 @@
 				4CC3484E2B7B672700B04A1C /* UIComponents */,
 				4C43B2992BA9CDFC00C79C9D /* Settings */,
 				4C06D88D2AE80DA400C6603E /* LEIdentifyViewController.swift */,
+				4CC43BAF2E6AF561005193EE /* LEAboutVC.swift */,
 				4C06D8922AE8216800C6603E /* LEResultViewController.swift */,
 				4C06D88F2AE81D7E00C6603E /* LEActivityIndicatorView.swift */,
 				DEDE8C2529C2D420006FFF7F /* LERegistrationViewController.swift */,
@@ -970,7 +970,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE92FF52C9872F300686A52 /* luna_config.plist in Resources */,
 				4C054F512C33F371008C275F /* vllicense.plist in Resources */,
 				DEB8227929AF3F62002C4C4B /* Localizable.strings in Resources */,
 				DEB8227A29AF3F62002C4C4B /* regula.license in Resources */,
@@ -1113,6 +1112,7 @@
 				4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */,
 				4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */,
 				4CE3ADED2AEBCF6F005F76F9 /* LunaExampleTypes.swift in Sources */,
+				4CC43BB02E6AF561005193EE /* LEAboutVC.swift in Sources */,
 				DEB8225829AF3F62002C4C4B /* LELabelledCell.swift in Sources */,
 				DEB8226029AF3F62002C4C4B /* LETabButton.swift in Sources */,
 				DEB8226329AF3F62002C4C4B /* LESettingsViewController.swift in Sources */,
@@ -1715,7 +1715,7 @@
 			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
 			requirement = {
 				kind = exactVersion;
-				version = 1.17.1;
+				version = 1.18.0;
 			};
 		};
 		FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */ = {

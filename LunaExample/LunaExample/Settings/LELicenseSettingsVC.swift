@@ -160,7 +160,7 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
         ])
     }
     
-    private func showDurationPicker(_ title: String,
+    private func showDurationPicker(_ title: String, 
                                     _ limit: CGFloat,
                                     _ limitPower: CGFloat,
                                     _ initialValue: CGFloat,

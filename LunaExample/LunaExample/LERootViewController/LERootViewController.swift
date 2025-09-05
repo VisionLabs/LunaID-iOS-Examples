@@ -291,7 +291,7 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func launchRegistration() {
-        guard !(navigationController?.topViewController is LERegistrationViewController)
+        guard !(navigationController?.topViewController is LERegistrationViewController) 
             else { return }
         let viewController = LERegistrationViewController()
         viewController.configuration = createConfig()
@@ -346,10 +346,12 @@ class LERootViewController: UIViewController, UITextFieldDelegate {
             switch faceResult {
             case .success(let face, let bestShot):
                 if config.ocrEnabled, let face {
+                    // вот здесь потенциальная проблема, когда у нас отключена живость по фото и при этом включен ОЦР - мы сюда никогда не попадем и не запустим проверку документов
                     launchOCR(scenario: .verification, bestShot, face, closeToRootHandler, nil)
                 } else {
                     let resultViewController = LEResultViewController()
                     
+                    /// В ответе на верификацию с livenessType == .byPhoto возвращает `face` без полей `userData` и `externalID`, в остальных случаях - этого нет
                     let isSuccessVerification = config.bestShotConfiguration.livenessType == .byPhoto
                                 ? face?.id != nil
                                 : true

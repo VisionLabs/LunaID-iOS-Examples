@@ -106,8 +106,9 @@ class LEOCRResultsViewController: UIViewController, UITableViewDataSource {
             return
         }
         configuration.trackFaceIdentity = true;
-        let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LunaCore.LCLunaIDService(config: configuration,
-                                                                                       licenseConfig: LunaCore.LCLicenseConfig.userDefaults())
+        let licenseConfig = LunaCore.LCLicenseConfig.userDefaults()
+        let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: configuration,
+                                                                  license: licenseConfig)
         guard let detection = lunaIDService.detectFaces(imageField.image).first else {
             continueButtonHandler?(LEAuthError.faceOnDocumentNotFound)
             activityIndicator.stopAnimating()

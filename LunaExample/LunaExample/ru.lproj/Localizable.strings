@@ -89,13 +89,14 @@
 
 "settings.multipartBestShots_enabled" = "Отправлять в backend нескольких кадров для агрегации";
 "settings.glassescheck_enabled" = "Темные очки";
-"settings.aggregation_enabled" = "Агрегация для темных очков и закрытых глаз";
+"settings.aggregation_enabled" = "Aгрегация";
 "settings.mouth_aggregation_enabled" = "Агрегация для перекрытия рта";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Интеракции";
 "settings.onlyface_enabled" = "Удалять видео сессии без лица";
 "settings.trackfaceidentity_enabled" = "Отслеживать уникальность лица";
-"settings.occludedcheck_enabled" = "Перекрытие лица";
+"settings.faceocclusioncheck_enabled" = "Перекрытие нижней половины лица";
+"settings.occludedcheck_enabled" = "Перекрытие медицинской маской";
 "settings.mouthcheck_enabled" = "Состояние рта";
 "settings.advanced_sunglasses" = "Продвинутые солнцезащитные очки";
 "settings.eye_injury" = "Проверять состояния только одного глаза на открытие";
@@ -113,14 +114,18 @@
 "settings.error_while_search" = "Ошибка при поиска пользователя";
 "settings.error_bestshot" = "Ошибка формирования бестшота";
 "settings.success_bestshot" = "Бестшот сформирован";
+"settings.incorrect_singleframe_configuration" = "Некорректная конфигурация режима одиночного снимка";
+"settings.pick_photo" = "Загрузить из галереи...";
 
 "errors.identification_error" = "Идентификация не пройдена";
 "errors.verification_error" = "Верификация не пройдена";
 "errors.user_already_exists" = "Пользователь уже зарегистрирован";
 "errors.document_verification_error" = "Верификация документа не пройдена";
 "errors.face_on_document_not_found" = "Фотография на документе не найдена";
+"errors.best_shot_not_found" = "Бестшот не найден";
 "errors.cancel" = "Операция отменена";
 "errors.invalid_file_format" = "Неверный формат файла";
+"errors.empty_best_shot" = "Не удалось получить бестшот";
 
 "buttons.do_actions.registration" = "Продолжить регистрацию";
 "buttons.do_actions.identify" = "Продолжить идентификацию";

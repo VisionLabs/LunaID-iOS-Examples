@@ -24,9 +24,7 @@ enum ValidationError: LocalizedError {
 
 extension String {
     
-    /**
-        Проверяет на валидность строку как email.
-    */
+    /// Проверяет на валидность строку как email.
     var isValidAsEmail: Bool {
         guard !self.isEmpty else {
             return false
@@ -38,9 +36,7 @@ extension String {
         return originalRange.length == matchedRange.length
     }
     
-    /**
-        Проверяет на валидность строку как имя.
-    */
+    /// Проверяет на валидность строку как имя.
     func isValidAsName() throws -> Bool {
         guard !self.isEmpty, self.count > 2 else {
             throw ValidationError.minChar(3)
