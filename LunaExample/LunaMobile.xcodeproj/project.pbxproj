@@ -1715,7 +1715,7 @@
 			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
 			requirement = {
 				kind = exactVersion;
-				version = 1.18.1;
+				version = 1.19.0;
 			};
 		};
 		FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */ = {

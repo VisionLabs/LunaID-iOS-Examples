@@ -21,7 +21,6 @@ enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_TRACK_FACE_IDENTITY
     case SETTING_ITEM_FACE_OCCLUSION
     case SETTING_ITEM_OCCLUDED_FACE
-    case SETTING_ITEM_OCCLUDED_MOUTH
     case SETTING_ITEM_ADVANCED_SUNGLASSES
     case SETTING_ITEM_EYE_INJURY
     case SETTING_ITEM_START_DELAY
@@ -467,13 +466,6 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                 self?.configuration.occludeCheck = toggleStatus
             }
             newSettingsCell.configureCell(configuration.occludeCheck, "settings.occludedcheck_enabled".localized())
-            newCell = newSettingsCell
-        case .SETTING_ITEM_OCCLUDED_MOUTH:
-            let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
-            newSettingsCell.toggleStatusHandler = { [weak self] toggleStatus in
-                self?.configuration.mouthCheck = toggleStatus
-            }
-            newSettingsCell.configureCell(configuration.mouthCheck, "settings.mouthcheck_enabled".localized())
             newCell = newSettingsCell
         case .SETTING_ITEM_ADVANCED_SUNGLASSES:
             let newSettingsCell = LELabelledToggleCell(style: .default, reuseIdentifier: nil)
