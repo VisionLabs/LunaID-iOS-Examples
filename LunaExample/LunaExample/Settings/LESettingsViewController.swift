@@ -565,7 +565,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         configuration = LCLunaConfiguration()
         configuration.save()
         
-        licenseConfiguration = LCLicenseConfig()
+        licenseConfiguration = LCLicenseConfig(plistFilePath: Bundle.main.path(forResource: "vllicense", ofType: "plist") ?? "")
         licenseConfiguration.save()
         
         tableView.reloadData()
