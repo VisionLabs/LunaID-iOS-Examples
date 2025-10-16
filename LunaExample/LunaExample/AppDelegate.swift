@@ -24,7 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.trackFaceIdentity = false
         
         let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LCLunaIDServiceBuilder.buildLunaIDService(withConfig: config)
-        if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
+        let license: LCLicenseConfig
+        if LCLicenseConfig.userDefaults().eid.isEmpty || LCLicenseConfig.userDefaults().productID.isEmpty {
+            let licensePath = Bundle.main.path(forResource: config.plistLicenseFileName, ofType: nil) ?? ""
+            license = LCLicenseConfig(plistFilePath: licensePath)
+            license.save()
+        } else {
+            license = LCLicenseConfig.userDefaults()
+        }
+        if let error = lunaIDService.activateLicense(with: license) {
             debugPrint("Error while checking license on application startup: \(error)")
         }
         
