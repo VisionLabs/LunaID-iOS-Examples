@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let lunaIDService: LunaCore.LCLunaIDServiceProtocol = LCLunaIDServiceBuilder.buildLunaIDService(withConfig: config)
         let license: LCLicenseConfig
-        if LCLicenseConfig.userDefaults().eid.isEmpty || LCLicenseConfig.userDefaults().productID.isEmpty {
+        if LCLicenseConfig.userDefaults().eid.isEmpty || LCLicenseConfig.userDefaults().productID.isEmpty ||
+            LCLicenseConfig.userDefaults().eid == "00d2c76a-edae-447f-b074-63636aad42e6" ||
+            LCLicenseConfig.userDefaults().productID == "28a5e16a-51d6-40fb-bcdc-b5815a70849b" {
             let licensePath = Bundle.main.path(forResource: config.plistLicenseFileName, ofType: nil) ?? ""
             license = LCLicenseConfig(plistFilePath: licensePath)
             license.save()
