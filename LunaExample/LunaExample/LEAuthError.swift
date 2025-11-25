@@ -20,6 +20,7 @@ public enum LEAuthError: LocalizedError {
     /// Best shot doesn't exist on damaged
     case bestShotNotFound
     case faceOnDocumentNotFound
+    case lunaIDService
     /// Other errors.
     case error(Error)
 
@@ -33,6 +34,7 @@ public enum LEAuthError: LocalizedError {
         case .userAlreadyExists: return "errors.user_already_exists".localized()
         case .documentVerificationError: return "errors.document_verification_error".localized()
         case .faceOnDocumentNotFound: return "errors.face_on_document_not_found".localized()
+        case .lunaIDService: return "errors.lunaid_service".localized()
         case .bestShotNotFound: return "errors.best_shot_not_found".localized()
         case .cancel: return "errors.cancel".localized()
         case .error(let error as LocalizedError):

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 import LunaCore
 import LunaCamera
 import LunaWeb
@@ -30,7 +31,7 @@ enum ESettingsItem: Int, CaseIterable {
     case SETTING_ITEM_PRIMARY_FACE_MATHING
 }
 
-class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, LMCameraDelegate {
+class LESettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, PHPickerViewControllerDelegate, LMCameraDelegate {
     
     private enum Sections: Int, CaseIterable {
         case platformSection = 0
@@ -532,10 +533,17 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         checkPhotoButton.setTitle("settings.check_photo".localized(), for: .normal)
         checkPhotoButton.addTarget(self, action: #selector(checkPhotoButtonTapped), for: .touchUpInside)
         checkPhotoButton.isEnabled = true
+        
+        let checkTwoPhotosButton = LCRoundButton(type: .custom)
+        checkTwoPhotosButton.translatesAutoresizingMaskIntoConstraints = false
+        checkTwoPhotosButton.setTitle("settings.check_two_photos".localized(), for: .normal)
+        checkTwoPhotosButton.addTarget(self, action: #selector(checkTwoPhotosButtonTapped), for: .touchUpInside)
+        checkTwoPhotosButton.isEnabled = true
 
         newCell.contentView.addSubview(resetButton)
         newCell.contentView.addSubview(applyFromPlistButton)
         newCell.contentView.addSubview(checkPhotoButton)
+        newCell.contentView.addSubview(checkTwoPhotosButton)
 
         NSLayoutConstraint.activate([
             resetButton.topAnchor.constraint(equalTo: newCell.contentView.topAnchor),
@@ -552,12 +560,71 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
             checkPhotoButton.leadingAnchor.constraint(equalTo: newCell.contentView.leadingAnchor, constant: SideOffset),
             checkPhotoButton.trailingAnchor.constraint(equalTo: newCell.contentView.trailingAnchor, constant: -SideOffset),
             checkPhotoButton.heightAnchor.constraint(equalToConstant: LCRoundButtonHeight),
-            checkPhotoButton.bottomAnchor.constraint(equalTo: newCell.contentView.bottomAnchor),
+            
+            checkTwoPhotosButton.topAnchor.constraint(equalTo: checkPhotoButton.bottomAnchor, constant: ButtonsSpace),
+            checkTwoPhotosButton.leadingAnchor.constraint(equalTo: newCell.contentView.leadingAnchor, constant: SideOffset),
+            checkTwoPhotosButton.trailingAnchor.constraint(equalTo: newCell.contentView.trailingAnchor, constant: -SideOffset),
+            checkTwoPhotosButton.heightAnchor.constraint(equalToConstant: LCRoundButtonHeight),
+            checkTwoPhotosButton.bottomAnchor.constraint(equalTo: newCell.contentView.bottomAnchor),
         ])
 
         return newCell
     }
 
+    // MARK: PHPickerViewControllerDelegate
+    
+    @available(iOS 14.0, *)
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        var selectedImages: [UIImage] = []
+        let group = DispatchGroup()
+        for result in results {
+            group.enter()
+            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                result.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    defer { group.leave() }
+                    
+                    guard error == nil else {
+                        self.presentMessage(error?.localizedDescription ?? "errors.unknown".localized())
+                        return
+                    }
+                    if let image = image as? UIImage {
+                        selectedImages.append(image.fixedOrientation())
+                    }
+                }
+            }
+        }
+        group.notify(queue: .main) { [weak self] in
+            guard let self else { return }
+            if selectedImages.count == 2 {
+                let firstImage = selectedImages[0]
+                let secondImage = selectedImages[1]
+                let oldTrackFaceIdentity = self.configuration.trackFaceIdentity
+                self.configuration.trackFaceIdentity = true
+                if let lunaIDService = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: self.configuration,
+                                                                                          license: self.licenseConfiguration) {
+                    do {
+                        let score = try lunaIDService.match(withFirst: firstImage, second: secondImage)
+                        let matchingScore = CGFloat(score.floatValue)
+                        let isMatching = matchingScore >= self.configuration.primaryFaceMatching
+                        let matchResult = isMatching ? "settings.match.success" : "settings.match.fail"
+                        let message = matchResult.localized() + "\n" + "settings.match.score".localized() + "\(matchingScore)"
+                        self.configuration.trackFaceIdentity = oldTrackFaceIdentity
+                        self.presentMessage(message.localized())
+                    } catch {
+                        self.presentMessage(error.localizedDescription)
+                        return
+                    }
+                }
+                else {
+                    self.presentMessage("error.lunaid_service".localized())
+                }
+            } else {
+                self.presentMessage("error.not_two_images_selected".localized())
+            }
+        }
+    }
+    
     //  MARK: - Handlers -
     
     @objc
@@ -565,7 +632,7 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
         configuration = LCLunaConfiguration()
         configuration.save()
         
-        licenseConfiguration = LCLicenseConfig(plistFilePath: Bundle.main.path(forResource: "vllicense", ofType: "plist") ?? "")
+        licenseConfiguration = LCLicenseConfig(plistFilePath: Bundle.main.path(forResource: "vllicense", ofType: "plist")!)
         licenseConfiguration.save()
         
         tableView.reloadData()
@@ -615,6 +682,21 @@ class LESettingsViewController: UIViewController, UITableViewDelegate, UITableVi
                                                    completionMode: .imageBestShot(completion))
 
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc
+    private func checkTwoPhotosButtonTapped() {
+        if #available(iOS 14.0, *) {
+            var config = PHPickerConfiguration()
+            config.selectionLimit = 2
+            config.filter = .images
+
+            let picker = PHPickerViewController(configuration: config)
+            picker.delegate = self
+            present(picker, animated: true)
+        } else {
+            // можно я не буду прикручивать поддержку для более старых осей?
+        }
     }
 
     @objc

@@ -62,6 +62,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
 
     init(configuration: LCLunaConfiguration, webconfiguration: LWConfig) {
         self.configuration = configuration
+        self.configuration.enableLowlevelLogs = true
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,9 +97,25 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     }
     
     private func launchCamera() {
+        let customizer = LunaCamera.LMCustomization(uiCustomizer: LMDefaultUICustomizer(showCameraButton: false))
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let orientation: UIInterfaceOrientation
+            if #available(iOS 13.0, *) {
+                orientation = UIApplication.shared
+                    .connectedScenes
+                    .compactMap({ ($0 as? UIWindowScene)?.interfaceOrientation })
+                    .first
+                    ?? UIApplication.shared.statusBarOrientation
+            } else {
+                orientation = UIApplication.shared.statusBarOrientation
+            }
+            customizer.supportedInterfaceOrientations = LMUIOrientation(uiOrientation: orientation) ?? .portrait
+        }
         let cameraViewController = LMCameraBuilder.viewController(delegate: self,
                                                                   configuration: configuration,
+                                                                  licenseConfig: LunaCore.LCLicenseConfig.userDefaults(),
                                                                   livenessAPI: livenessAPI,
+                                                                  lunaCustomization: customizer,
                                                                   canRecordVideo: configuration.videoRecordLength > 0)
 
         cameraViewController.dismissHandler = { [weak self] in
@@ -110,7 +127,11 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
     }
     
     private func activateLicense(completion: (Bool, Error?) -> Void) {
-        let lunaIDService = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: configuration)
+        guard let lunaIDService = LunaCore.LCLunaIDServiceBuilder.buildLunaIDService(withConfig: configuration,
+                                                                                     license: LCLicenseConfig.userDefaults()) else {
+            completion(false, nil)
+            return
+        }
         LCLunaConfiguration.resetLicenseCache()
         if let error = lunaIDService.activateLicense(with: LCLicenseConfig.userDefaults()) {
 #if LUNA_LOG_SWIFT
@@ -259,7 +280,7 @@ class LEIdentifyViewController: UIViewController, LMCameraDelegate {
             switch error {
             case .captureDeviceError(let nsError):
                 self.presentModalError(nsError.what(), actions: [closeAction])
-            case .canceled:
+            case .canceled, .licenseError:
                 self.presentModalError(error.what(),
                                        actions: [closeAction],
                                        needTitle: false,

@@ -69,6 +69,7 @@
 "settings.platform.token_config" = "Platform token";
 "settings.platform.lunaAccountID_config" = "LunaAccountID";
 "settings.platform.accountID_config" = "AccountID";
+"settings.check_two_photos" = "Match two photos";
 
 "settings.border_distance" = "Border distance";
 "settings.min_det_size" = "Minimal face size";
@@ -91,14 +92,12 @@
 "settings.multipartBestShots_enabled" = "Send multiple frames to the backend for aggregation";
 "settings.glassescheck_enabled" = "Sunglasses";
 "settings.aggregation_enabled" = "Aggregation";
-"settings.mouth_aggregation_enabled" = "Aggregation for mouth overlaps";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Interactions";
 "settings.onlyface_enabled" = "Delete videos without face detections";
 "settings.trackfaceidentity_enabled" = "Track face identity";
 "settings.faceocclusioncheck_enabled" = "Lower face zone occlusion";
 "settings.occludedcheck_enabled" = "Medical mask occlusion";
-"settings.mouthcheck_enabled" = "Mouth state";
 "settings.advanced_sunglasses" = "Advanced sunglasses";
 "settings.eye_injury" = "Check the conditions of only one eye for opening";
 "settings.eyescheck_enabled" = "Check eyes state";
@@ -109,7 +108,9 @@
 "settings.doc_match" = "Docs compare parameter";
 "settings.primary_face_matching" = "Degree of match between faces";
 "settings.ok" = "OK";
-
+"settings.match.success" = "Faces on both photos are similar";
+"settings.match.score" = "Matching score: ";
+"settings.match.fail" = "Faces from photos are different";
 "settings.face_not_found" = "Face was not found";
 "settings.deletion_successfull" = "Deletion successfull";
 "settings.error_while_search" = "Error while searching for registered user";
@@ -122,11 +123,13 @@
 "errors.verification_error" = "Verification check failed";
 "errors.user_already_exists" = "User already exists";
 "errors.document_verification_error" = "Document verification failed";
+"errors.lunaid_service" = "LunaID service was not created properly. Please check your license";
 "errors.face_on_document_not_found" = "Photo on document not found";
 "errors.best_shot_not_found" = "Best shot not found";
 "errors.cancel" = "Operation canceled";
 "errors.invalid_file_format" = "Invalid file format";
 "errors.empty_best_shot" = "Best shot is empty";
+"error.not_two_images_selected" = "Select two photos for comparison";
 
 "buttons.do_actions.registration" = "Continue Registration";
 "buttons.do_actions.identify" = "Continue Identification";

@@ -40,10 +40,8 @@ class LELicenseSettingsVC: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     deinit {
-        if isEdited {
-            licenseConfig.save()
-            LCLunaConfiguration.resetLicenseCache()
-        }
+        licenseConfig.save()
+        LCLunaConfiguration.resetLicenseCache()
     }
     
     override func loadView() {
