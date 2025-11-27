@@ -68,6 +68,7 @@
 "settings.platform.token_config" = "Токен платформы";
 "settings.platform.lunaAccountID_config" = "LunaAccountID";
 "settings.platform.accountID_config" = "AccountID";
+"settings.check_two_photos" = "Сравнить два фото";
 
 "settings.border_distance" = "Отступ от края";
 "settings.min_det_size" = "Минимальный размер лица";
@@ -90,14 +91,12 @@
 "settings.multipartBestShots_enabled" = "Отправлять в backend нескольких кадров для агрегации";
 "settings.glassescheck_enabled" = "Темные очки";
 "settings.aggregation_enabled" = "Aгрегация";
-"settings.mouth_aggregation_enabled" = "Агрегация для перекрытия рта";
 "settings.ocr_enabled" = "OCR";
 "settings.interaction_enabled" = "Интеракции";
 "settings.onlyface_enabled" = "Удалять видео сессии без лица";
 "settings.trackfaceidentity_enabled" = "Отслеживать уникальность лица";
 "settings.faceocclusioncheck_enabled" = "Перекрытие нижней половины лица";
 "settings.occludedcheck_enabled" = "Перекрытие медицинской маской";
-"settings.mouthcheck_enabled" = "Состояние рта";
 "settings.advanced_sunglasses" = "Продвинутые солнцезащитные очки";
 "settings.eye_injury" = "Проверять состояния только одного глаза на открытие";
 "settings.eyescheck_enabled" = "Проверять состояние глаз";
@@ -108,7 +107,9 @@
 "settings.doc_match" = "Степень совпадения документов";
 "settings.primary_face_matching" = "Степень совпадения лиц";
 "settings.ok" = "OK";
-
+"settings.match.success" = "Лица на обеих фотографиях одинаковые";
+"settings.match.score" = "Коэффициент схожести: ";
+"settings.match.fail" = "Лица на обеих фотографиях различаются";
 "settings.face_not_found" = "Лицо не найдено в БД";
 "settings.deletion_successfull" = "Регистрация успешно удалена";
 "settings.error_while_search" = "Ошибка при поиска пользователя";
@@ -121,11 +122,13 @@
 "errors.verification_error" = "Верификация не пройдена";
 "errors.user_already_exists" = "Пользователь уже зарегистрирован";
 "errors.document_verification_error" = "Верификация документа не пройдена";
+"errors.lunaid_service" = "LunaID service не был создан как положено. Проверьте лицензию";
 "errors.face_on_document_not_found" = "Фотография на документе не найдена";
 "errors.best_shot_not_found" = "Бестшот не найден";
 "errors.cancel" = "Операция отменена";
 "errors.invalid_file_format" = "Неверный формат файла";
 "errors.empty_best_shot" = "Не удалось получить бестшот";
+"error.not_two_images_selected" = "Необходимо выбрать 2 фотографии для сравнения";
 
 "buttons.do_actions.registration" = "Продолжить регистрацию";
 "buttons.do_actions.identify" = "Продолжить идентификацию";

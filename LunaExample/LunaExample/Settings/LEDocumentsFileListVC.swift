@@ -22,7 +22,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
         return [APIv6Constants.Headers.authorization.rawValue: platformToken]
     }
 
-    private lazy var bestShotDetector: LCBestShotDetectorProtocol =  LCBestShotBuilder.build(with: self,
+    private lazy var bestShotDetector: LCBestShotDetectorProtocol? =  LCBestShotBuilder.build(with: self,
                                                                                              livenessAPI: livenessAPI,
                                                                                              configuration: configuration,
                                                                                              licenseConfig: LCLicenseConfig.userDefaults(),
@@ -57,7 +57,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
 
         fileURLs = fetchFileURLs()
         createLayout()
-        bestShotDetector.screenSize(view.bounds.size, edges: view.safeAreaInsets)
+        bestShotDetector?.screenSize(view.bounds.size, edges: view.safeAreaInsets)
         if case .imageBestShot(let bestShotCompletion) = self.completionMode {
             self.bestShotCompletion = bestShotCompletion
             imagePicker.delegate = self
@@ -234,7 +234,7 @@ final class LEDocumentsFileListVC: UIViewController, UITableViewDelegate, UITabl
     
     private func push(frame: UIImage) {
         DispatchQueue.main.async { [weak self] in
-            self?.bestShotDetector.pushFrame(with: frame)
+            self?.bestShotDetector?.pushFrame(with: frame)
         }
     }
 }

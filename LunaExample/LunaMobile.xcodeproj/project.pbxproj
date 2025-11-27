@@ -63,6 +63,8 @@
 		4C43B2962BA9B93000C79C9D /* LEEnumPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */; };
 		4C43B2982BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */; };
 		4C64E8B12AB2FA770069BF80 /* LEBundleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */; };
+		4CA807BC2ED5941800E0AEBA /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA807BB2ED5941800E0AEBA /* UIImage+Extensions.swift */; };
+		4CA807BE2ED5942700E0AEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA807BD2ED5942700E0AEBA /* SceneDelegate.swift */; };
 		4CBDA4A52B0F743200071576 /* DocumentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDA4A42B0F743200071576 /* DocumentSelectViewController.swift */; };
 		4CC3484D2B7A0A9100B04A1C /* LEDurationPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */; };
 		4CC348502B7B674200B04A1C /* LEBiometricInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */; };
@@ -249,6 +251,8 @@
 		4C43B2952BA9B93000C79C9D /* LEEnumPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEEnumPickerVC.swift; sourceTree = "<group>"; };
 		4C43B2972BA9CDEA00C79C9D /* LEBestshotSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBestshotSettingsVC.swift; sourceTree = "<group>"; };
 		4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBundleLink.swift; sourceTree = "<group>"; };
+		4CA807BB2ED5941800E0AEBA /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		4CA807BD2ED5942700E0AEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CBDA4A42B0F743200071576 /* DocumentSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSelectViewController.swift; sourceTree = "<group>"; };
 		4CC3484C2B7A0A9100B04A1C /* LEDurationPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDurationPickerVC.swift; sourceTree = "<group>"; };
 		4CC3484F2B7B674200B04A1C /* LEBiometricInstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEBiometricInstructionsView.swift; sourceTree = "<group>"; };
@@ -576,6 +580,7 @@
 		4C33589C2AEBD37F00BFC880 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4CA807BB2ED5941800E0AEBA /* UIImage+Extensions.swift */,
 				7ED2A59A2546C3B3004E3CA7 /* String+Localization.swift */,
 				4CE3ADEC2AEBCF6F005F76F9 /* BestShot+LunaExample.swift */,
 				DEDE8C1B29C2CCE0006FFF7F /* UIApplication+LunaExample.swift */,
@@ -642,6 +647,7 @@
 				4C06D8982AEA823600C6603E /* LEOCRResultsViewController.swift */,
 				4C64E8AF2AB1B4530069BF80 /* LEBundleLink.swift */,
 				DEDE8C1E29C2CD38006FFF7F /* AppDelegate.swift */,
+				4CA807BD2ED5942700E0AEBA /* SceneDelegate.swift */,
 				7ED2A5832546C13D004E3CA7 /* AppAppearance.swift */,
 				7ED2A5772546C101004E3CA7 /* Colors.swift */,
 				7ED2A57D2546C12A004E3CA7 /* Fonts.swift */,
@@ -1124,6 +1130,8 @@
 				DEDE8C1F29C2CD38006FFF7F /* AppDelegate.swift in Sources */,
 				9705D7812CC80C8F0080076D /* LEPlatfornSettingsVC.swift in Sources */,
 				4CFF6AAA2BBAB53A00947FB0 /* LEInteractionsSettingsVC.swift in Sources */,
+				4CA807BE2ED5942700E0AEBA /* SceneDelegate.swift in Sources */,
+				4CA807BC2ED5941800E0AEBA /* UIImage+Extensions.swift in Sources */,
 				DEB8226829AF3F62002C4C4B /* LETextField.swift in Sources */,
 				4C06D8912AE81E3800C6603E /* LEActivityIndicatorView.swift in Sources */,
 				4C06D8932AE8216800C6603E /* LEResultViewController.swift in Sources */,
@@ -1715,7 +1723,7 @@
 			repositoryURL = "https://github.com/VisionLabs/LunaID-Swift-Package";
 			requirement = {
 				kind = exactVersion;
-				version = 1.19.2;
+				version = 1.19.3;
 			};
 		};
 		FBC7DB5A2D8C583800DEF08A /* XCRemoteSwiftPackageReference "DocumentReader-Swift-Package" */ = {
